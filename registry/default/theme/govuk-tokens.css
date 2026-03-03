@@ -1,0 +1,68 @@
+/* ---------------------------------------------------------------------------
+ * Whitehall-UI – Design Tokens (based on GOV.UK Design System)
+ * https://design-system.service.gov.uk/styles/colour/
+ *
+ * Defined as Tailwind 4 @theme variables so they generate real utility
+ * classes: bg-govuk-green, text-govuk-text, shadow-govuk-green, etc.
+ *
+ * Consumers: import this file in your main CSS entry point AFTER
+ * `@import "tailwindcss"`:
+ *
+ *   @import "tailwindcss";
+ *   @import "@/theme/govuk-tokens.css";
+ *
+ * ------------------------------------------------------------------------- */
+
+@theme {
+  /* Brand / Primary */
+  --color-govuk-green: #0f7a52;
+  --color-govuk-green-hover: #0b5c3e;
+  --color-govuk-green-shadow: #083d29;
+
+  /* Secondary */
+  --color-govuk-secondary: #f3f3f3;
+  --color-govuk-secondary-hover: #cecece;
+  --color-govuk-secondary-shadow: #858686;
+
+  /* Warning */
+  --color-govuk-red: #ca3535;
+  --color-govuk-red-hover: #982828;
+  --color-govuk-red-shadow: #651b1b;
+
+  /* Inverse */
+  --color-govuk-inverse-hover: #f4f8fb;
+  --color-govuk-inverse-shadow: #0f385c;
+
+  /* Focus */
+  --color-govuk-focus: #ffdd00;
+
+  /* Text */
+  --color-govuk-text: #0b0c0c;
+
+  /* Links */
+  --color-govuk-link: #1d70b8;
+
+  /* Font */
+  --font-govuk: Arial, Helvetica, sans-serif;
+
+  /* Typography */
+  --text-govuk-body: 19px;
+  --text-govuk-body--line-height: 19px;
+  --text-govuk-start: 24px;
+  --text-govuk-start--line-height: 1;
+
+  /* Spacing – GOV.UK uses non-standard spacing values */
+  --spacing-govuk-button-x: 10px;
+  --spacing-govuk-button-pt: 8px;
+  --spacing-govuk-button-pb: 7px;
+  --spacing-govuk-button-bottom: 18px;
+  --spacing-govuk-button-press: 2px;
+
+  /* Shadows – bottom edge shadows used across buttons, tags, etc. */
+  --shadow-govuk-green: 0 2px 0 #083d29;
+  --shadow-govuk-secondary: 0 2px 0 #858686;
+  --shadow-govuk-red: 0 2px 0 #651b1b;
+  --shadow-govuk-inverse: 0 2px 0 #0f385c;
+  --shadow-govuk-focus: 0 2px 0 #0b0c0c;
+  --shadow-govuk-clear: 0 0 #0000;
+}
