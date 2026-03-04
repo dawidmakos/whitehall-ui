@@ -42,6 +42,12 @@
   /* Links */
   --color-govuk-link: #1d70b8;
 
+  /* Error */
+  --color-govuk-error: #d4351c;
+
+  /* Input border */
+  --color-govuk-input-border: #0b0c0c;
+
   /* Font */
   --font-govuk: Arial, Helvetica, sans-serif;
 
@@ -57,6 +63,21 @@
   --spacing-govuk-button-pb: 7px;
   --spacing-govuk-button-bottom: 18px;
   --spacing-govuk-button-press: 2px;
+
+  /* Input padding – govuk-spacing(1) */
+  --spacing-govuk-input-padding: 5px;
+
+  /* Fixed input widths – em-based, include extra padding for browser icons */
+  --spacing-govuk-input-width-30: 29.5em;
+  --spacing-govuk-input-width-20: 20.5em;
+  --spacing-govuk-input-width-10: 11.5em;
+  --spacing-govuk-input-width-5: 5.5em;
+  --spacing-govuk-input-width-4: 4.5em;
+  --spacing-govuk-input-width-3: 3.75em;
+  --spacing-govuk-input-width-2: 2.75em;
+
+  /* Letter spacing – extra spacing for codes and reference numbers */
+  --tracking-govuk-code: 0.05em;
 
   /* Shadows – bottom edge shadows used across buttons, tags, etc. */
   --shadow-govuk-green: 0 2px 0 #083d29;
