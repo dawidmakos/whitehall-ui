@@ -41,6 +41,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "text-input",
+      "type": "registry:ui",
+      "title": "Text Input",
+      "description": "Whitehall-UI text input (based on GOV.UK Design System) with fixed-width and fluid-width variants, error state and extra letter spacing for codes.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/text-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
