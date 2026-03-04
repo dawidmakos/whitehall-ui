@@ -15,7 +15,7 @@ const buttonVariants = cva(
     'cursor-pointer',
     'appearance-none',
     'active:top-govuk-button-press',
-    'focus:border-govuk-focus focus:outline focus:outline-[3px] focus:outline-transparent',
+    'focus:border-govuk-focus focus:outline-3 focus:outline-transparent',
     'focus:shadow-govuk-clear focus:inset-ring-1 focus:inset-ring-govuk-focus',
     'focus:not-[:active]:not-[:hover]:bg-govuk-focus',
     'focus:not-[:active]:not-[:hover]:text-govuk-text',
@@ -69,12 +69,10 @@ const buttonVariants = cva(
 const disabledStyles =
   'data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed data-[disabled]:active:top-0';
 
-// ---------------------------------------------------------------------------
-
 function StartIcon() {
   return (
     <svg
-      className='ml-1.25 sm:ml-2.5 align-middle shrink-0 self-center forced-color-adjust-auto'
+      className='ml-govuk-input-padding sm:ml-2.5 align-middle shrink-0 self-center forced-color-adjust-auto'
       xmlns='http://www.w3.org/2000/svg'
       width='17.5'
       height='19'
@@ -86,8 +84,6 @@ function StartIcon() {
     </svg>
   );
 }
-
-// ---------------------------------------------------------------------------
 
 type ButtonVariant = NonNullable<
   VariantProps<typeof buttonVariants>['variant']
