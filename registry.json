@@ -55,6 +55,76 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Whitehall-UI textarea (based on GOV.UK Design System) for multi-line text input with error state and WCAG 2.2 accessibility.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tag",
+      "type": "registry:ui",
+      "title": "Tag",
+      "description": "Whitehall-UI tag (based on GOV.UK Design System) with 9 colour variants for showing status indicators.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/tag.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "inset-text",
+      "type": "registry:ui",
+      "title": "Inset Text",
+      "description": "Whitehall-UI inset text (based on GOV.UK Design System) for differentiating a block of text from surrounding content.",
+      "dependencies": [],
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/inset-text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radios",
+      "type": "registry:ui",
+      "title": "Radios",
+      "description": "Whitehall-UI radios (based on GOV.UK Design System) for letting users select one option from a list, with hint text and divider support.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/radios.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkboxes",
+      "type": "registry:ui",
+      "title": "Checkboxes",
+      "description": "Whitehall-UI checkboxes (based on GOV.UK Design System) for letting users select one or more options from a list, with hint text and divider support.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/checkboxes.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
