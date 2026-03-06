@@ -85,12 +85,20 @@
   --text-govuk-tag--line-height: 25px;
   --text-govuk-start: 24px;
   --text-govuk-start--line-height: 1;
+  --text-govuk-heading-xl: 48px;
+  --text-govuk-heading-xl--line-height: 50px;
+  --text-govuk-heading-l: 36px;
+  --text-govuk-heading-l--line-height: 40px;
+  --text-govuk-heading-m: 24px;
+  --text-govuk-heading-m--line-height: 25px;
 
   /* Border radius */
   --radius-govuk-tag: 1px;
 
   /* Spacing – GOV.UK uses non-standard spacing values */
   --spacing-govuk-1: 5px;
+  --spacing-govuk-2: 10px;
+  --spacing-govuk-3: 15px;
   --spacing-govuk-button-x: 10px;
   --spacing-govuk-button-pt: 8px;
   --spacing-govuk-button-pb: 7px;
@@ -156,6 +164,8 @@
   --spacing-govuk-input-width-3: 3.75em;
   --spacing-govuk-input-width-2: 2.75em;
 
+  --spacing-govuk-select-item-px: 7px;
+
   /* Letter spacing – extra spacing for codes and reference numbers */
   --tracking-govuk-code: 0.05em;
 
@@ -172,6 +182,7 @@
 @utility border-l-govuk-inset {
   border-left: var(--border-width-govuk-wide) solid var(--color-govuk-border);
 }
+
 @utility govuk-checkmark {
   border-style: solid;
   border-color: currentcolor;
@@ -181,21 +192,25 @@
   transform: rotate(-45deg);
   background: transparent;
 }
+
 @utility govuk-checkbox-composed-shadow {
   box-shadow:
     var(--govuk-cb-focus-shadow, 0 0 #0000),
     var(--govuk-cb-hover-shadow, 0 0 #0000);
 }
+
 @utility govuk-checkbox-focus-shadow {
   --govuk-cb-focus-shadow: 0 0 0 var(--spacing-govuk-checkbox-focus-width)
     var(--color-govuk-focus);
 }
+
 @utility govuk-checkbox-small-hover {
   --govuk-cb-hover-shadow: 0 0 0 var(--spacing-govuk-hover-width)
     var(--color-govuk-hover);
   outline: var(--spacing-govuk-checkbox-focus-width) dashed transparent;
   outline-offset: 1px;
 }
+
 @utility govuk-checkmark-small {
   border-style: solid;
   border-color: currentcolor;
@@ -204,4 +219,12 @@
   border-top-color: transparent;
   transform: rotate(-45deg);
   background: transparent;
+}
+
+@utility min-w-anchor {
+  min-width: var(--anchor-width);
+}
+
+@utility w-anchor {
+  width: var(--anchor-width);
 }
