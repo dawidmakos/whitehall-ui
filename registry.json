@@ -125,6 +125,61 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Whitehall-UI select (based on GOV.UK Design System) for choosing an option from a dropdown list, with error state support.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "fieldset",
+      "type": "registry:ui",
+      "title": "Fieldset",
+      "description": "Whitehall-UI fieldset component (based on GOV.UK Design System) for grouping related form inputs with legend heading support.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/fieldset.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Whitehall-UI label component for form inputs with size variants matching GOV.UK typography scale.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hint",
+      "type": "registry:ui",
+      "title": "Hint",
+      "description": "Whitehall-UI hint component for displaying help text below labels in form groups.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/hint.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
