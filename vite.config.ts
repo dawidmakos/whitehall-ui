@@ -16,4 +16,11 @@ export default defineConfig({
       '@': path.resolve(dirname, 'registry/default'),
     },
   },
+  optimizeDeps: {
+    include: [
+      '@base-ui/react/checkbox',
+      '@base-ui/react/checkbox-group',
+      '@base-ui/react/select',
+    ],
+  },
 });
