@@ -69,21 +69,19 @@ const buttonVariants = cva(
 const disabledStyles =
   'data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed data-[disabled]:active:top-0';
 
-function StartIcon() {
-  return (
-    <svg
-      className='ml-govuk-input-padding sm:ml-2.5 align-middle shrink-0 self-center forced-color-adjust-auto'
-      xmlns='http://www.w3.org/2000/svg'
-      width='17.5'
-      height='19'
-      viewBox='0 0 33 40'
-      aria-hidden='true'
-      focusable='false'
-    >
-      <path fill='currentColor' d='M0 0h13l20 20-20 20H0l20-20z' />
-    </svg>
-  );
-}
+const StartIcon = () => (
+  <svg
+    className='ml-govuk-input-padding sm:ml-2.5 align-middle shrink-0 self-center forced-color-adjust-auto'
+    xmlns='http://www.w3.org/2000/svg'
+    width='17.5'
+    height='19'
+    viewBox='0 0 33 40'
+    aria-hidden='true'
+    focusable='false'
+  >
+    <path fill='currentColor' d='M0 0h13l20 20-20 20H0l20-20z' />
+  </svg>
+);
 
 type ButtonVariant = NonNullable<
   VariantProps<typeof buttonVariants>['variant']
@@ -99,7 +97,7 @@ interface ButtonProps
   ref?: React.Ref<HTMLButtonElement>;
 }
 
-function Button({
+const Button = ({
   className,
   variant = 'default',
   disabled = false,
@@ -107,19 +105,17 @@ function Button({
   children,
   ref,
   ...props
-}: ButtonProps) {
-  return (
-    <BaseButton
-      ref={ref}
-      disabled={disabled}
-      focusableWhenDisabled={focusableWhenDisabled}
-      className={cn(buttonVariants({ variant }), disabledStyles, className)}
-      {...props}
-    >
-      {children}
-      {variant === 'start' && <StartIcon />}
-    </BaseButton>
-  );
-}
+}: ButtonProps) => (
+  <BaseButton
+    ref={ref}
+    disabled={disabled}
+    focusableWhenDisabled={focusableWhenDisabled}
+    className={cn(buttonVariants({ variant }), disabledStyles, className)}
+    {...props}
+  >
+    {children}
+    {variant === 'start' && <StartIcon />}
+  </BaseButton>
+);
 
 export { Button, buttonVariants, type ButtonProps, type ButtonVariant };

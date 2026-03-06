@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Radios, RadiosItem, RadiosHint, RadiosDivider } from '@/ui/radios';
+import { Fieldset, FieldsetLegend } from '@/ui/fieldset';
 
 const meta = {
   title: 'Whitehall-UI/Radios',
@@ -24,24 +25,15 @@ export const Default: Story = {
     children: null,
   },
   render: () => (
-    <fieldset style={{ border: 'none', padding: 0, margin: 0 }}>
-      <legend
-        style={{
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          fontWeight: 700,
-          marginBottom: '10px',
-        }}
-      >
-        Where do you live?
-      </legend>
+    <Fieldset>
+      <FieldsetLegend>Where do you live?</FieldsetLegend>
       <Radios name='where-do-you-live' defaultValue=''>
         <RadiosItem value='england'>England</RadiosItem>
         <RadiosItem value='scotland'>Scotland</RadiosItem>
         <RadiosItem value='wales'>Wales</RadiosItem>
         <RadiosItem value='northern-ireland'>Northern Ireland</RadiosItem>
       </Radios>
-    </fieldset>
+    </Fieldset>
   ),
 };
 
@@ -50,22 +42,13 @@ export const Inline: Story = {
     children: null,
   },
   render: () => (
-    <fieldset style={{ border: 'none', padding: 0, margin: 0 }}>
-      <legend
-        style={{
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          fontWeight: 700,
-          marginBottom: '10px',
-        }}
-      >
-        Have you changed your name?
-      </legend>
+    <Fieldset>
+      <FieldsetLegend>Have you changed your name?</FieldsetLegend>
       <Radios name='changed-name' inline defaultValue=''>
         <RadiosItem value='yes'>Yes</RadiosItem>
         <RadiosItem value='no'>No</RadiosItem>
       </Radios>
-    </fieldset>
+    </Fieldset>
   ),
 };
 
@@ -74,17 +57,8 @@ export const WithHints: Story = {
     children: null,
   },
   render: () => (
-    <fieldset style={{ border: 'none', padding: 0, margin: 0 }}>
-      <legend
-        style={{
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          fontWeight: 700,
-          marginBottom: '10px',
-        }}
-      >
-        How do you want to sign in?
-      </legend>
+    <Fieldset>
+      <FieldsetLegend>How do you want to sign in?</FieldsetLegend>
       <Radios name='sign-in' defaultValue=''>
         <RadiosItem value='gateway'>Sign in with Government Gateway</RadiosItem>
         <RadiosHint>
@@ -98,7 +72,7 @@ export const WithHints: Story = {
           certified company.
         </RadiosHint>
       </Radios>
-    </fieldset>
+    </Fieldset>
   ),
 };
 
@@ -107,17 +81,8 @@ export const WithDivider: Story = {
     children: null,
   },
   render: () => (
-    <fieldset style={{ border: 'none', padding: 0, margin: 0 }}>
-      <legend
-        style={{
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          fontWeight: 700,
-          marginBottom: '10px',
-        }}
-      >
-        Where do you live?
-      </legend>
+    <Fieldset>
+      <FieldsetLegend>Where do you live?</FieldsetLegend>
       <Radios name='where-divider' defaultValue=''>
         <RadiosItem value='england'>England</RadiosItem>
         <RadiosItem value='scotland'>Scotland</RadiosItem>
@@ -127,7 +92,7 @@ export const WithDivider: Story = {
           I am a British citizen living abroad
         </RadiosItem>
       </Radios>
-    </fieldset>
+    </Fieldset>
   ),
 };
 
@@ -136,23 +101,14 @@ export const Disabled: Story = {
     children: null,
   },
   render: () => (
-    <fieldset style={{ border: 'none', padding: 0, margin: 0 }}>
-      <legend
-        style={{
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          fontWeight: 700,
-          marginBottom: '10px',
-        }}
-      >
-        Where do you live?
-      </legend>
+    <Fieldset>
+      <FieldsetLegend>Where do you live?</FieldsetLegend>
       <Radios name='disabled-radios' disabled defaultValue=''>
         <RadiosItem value='england'>England</RadiosItem>
         <RadiosItem value='scotland'>Scotland</RadiosItem>
         <RadiosItem value='wales'>Wales</RadiosItem>
       </Radios>
-    </fieldset>
+    </Fieldset>
   ),
 };
 
@@ -161,23 +117,14 @@ export const PreSelected: Story = {
     children: null,
   },
   render: () => (
-    <fieldset style={{ border: 'none', padding: 0, margin: 0 }}>
-      <legend
-        style={{
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          fontWeight: 700,
-          marginBottom: '10px',
-        }}
-      >
-        Where do you live?
-      </legend>
+    <Fieldset>
+      <FieldsetLegend>Where do you live?</FieldsetLegend>
       <Radios name='pre-selected' defaultValue='scotland'>
         <RadiosItem value='england'>England</RadiosItem>
         <RadiosItem value='scotland'>Scotland</RadiosItem>
         <RadiosItem value='wales'>Wales</RadiosItem>
         <RadiosItem value='northern-ireland'>Northern Ireland</RadiosItem>
       </Radios>
-    </fieldset>
+    </Fieldset>
   ),
 };

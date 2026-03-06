@@ -73,13 +73,7 @@ export const Inverse: Story = {
   },
   decorators: [
     (Story) => (
-      <div
-        style={{
-          backgroundColor: '#1d70b8',
-          padding: '30px',
-          borderRadius: '0',
-        }}
-      >
+      <div className='bg-govuk-link p-7.5'>
         <Story />
       </div>
     ),
@@ -113,22 +107,12 @@ export const DisabledWarning: Story = {
   },
 };
 
-// ---------------------------------------------------------------------------
-// Button group – multiple buttons together (GOV.UK pattern)
-// ---------------------------------------------------------------------------
 export const ButtonGroup: Story = {
   args: {
     children: 'Save and continue',
   },
   render: () => (
-    <div
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '12px',
-        alignItems: 'baseline',
-      }}
-    >
+    <div className='flex flex-wrap gap-3 items-baseline'>
       <Button variant='default' onClick={fn()}>
         Save and continue
       </Button>
@@ -139,24 +123,14 @@ export const ButtonGroup: Story = {
   ),
 };
 
-// ---------------------------------------------------------------------------
-// All variants side by side (overview)
-// ---------------------------------------------------------------------------
 export const AllVariants: Story = {
   args: {
     children: 'Button',
   },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+    <div className='flex flex-col gap-4'>
       <div>
-        <h4
-          style={{
-            margin: '0 0 8px',
-            fontFamily: 'Arial, sans-serif',
-            fontSize: '14px',
-            color: '#666',
-          }}
-        >
+        <h4 className='m-0 mb-2 font-govuk text-[14px] text-[#666]'>
           Default (Primary)
         </h4>
         <Button variant='default' onClick={fn()}>
@@ -164,14 +138,7 @@ export const AllVariants: Story = {
         </Button>
       </div>
       <div>
-        <h4
-          style={{
-            margin: '0 0 8px',
-            fontFamily: 'Arial, sans-serif',
-            fontSize: '14px',
-            color: '#666',
-          }}
-        >
+        <h4 className='m-0 mb-2 font-govuk text-[14px] text-[#666]'>
           Secondary
         </h4>
         <Button variant='secondary' onClick={fn()}>
@@ -179,49 +146,19 @@ export const AllVariants: Story = {
         </Button>
       </div>
       <div>
-        <h4
-          style={{
-            margin: '0 0 8px',
-            fontFamily: 'Arial, sans-serif',
-            fontSize: '14px',
-            color: '#666',
-          }}
-        >
-          Warning
-        </h4>
+        <h4 className='m-0 mb-2 font-govuk text-[14px] text-[#666]'>Warning</h4>
         <Button variant='warning' onClick={fn()}>
           Delete account
         </Button>
       </div>
       <div>
-        <h4
-          style={{
-            margin: '0 0 8px',
-            fontFamily: 'Arial, sans-serif',
-            fontSize: '14px',
-            color: '#666',
-          }}
-        >
-          Start
-        </h4>
+        <h4 className='m-0 mb-2 font-govuk text-[14px] text-[#666]'>Start</h4>
         <Button variant='start' onClick={fn()}>
           Start now
         </Button>
       </div>
-      <div
-        style={{
-          backgroundColor: '#1d70b8',
-          padding: '20px',
-        }}
-      >
-        <h4
-          style={{
-            margin: '0 0 8px',
-            fontFamily: 'Arial, sans-serif',
-            fontSize: '14px',
-            color: '#fff',
-          }}
-        >
+      <div className='bg-govuk-link p-5'>
+        <h4 className='m-0 mb-2 font-govuk text-[14px] text-white'>
           Inverse (on dark background)
         </h4>
         <Button variant='inverse' onClick={fn()}>

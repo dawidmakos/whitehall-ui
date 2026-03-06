@@ -70,7 +70,7 @@ interface TextInputProps
   suffix?: React.ReactNode;
 }
 
-function TextInput({
+const TextInput = ({
   className,
   width = 'full',
   error = false,
@@ -81,7 +81,7 @@ function TextInput({
   suffix,
   ref,
   ...props
-}: TextInputProps) {
+}: TextInputProps) => {
   const input = (
     <Input
       ref={ref}
@@ -113,6 +113,6 @@ function TextInput({
       )}
     </div>
   );
-}
+};
 
 export { TextInput, textInputVariants, type TextInputProps };

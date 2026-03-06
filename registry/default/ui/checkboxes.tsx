@@ -11,13 +11,11 @@ interface CheckboxesProps extends Omit<
   children: React.ReactNode;
 }
 
-function Checkboxes({ className, children, ...props }: CheckboxesProps) {
-  return (
-    <CheckboxGroup className={cn(className)} {...props}>
-      {children}
-    </CheckboxGroup>
-  );
-}
+const Checkboxes = ({ className, children, ...props }: CheckboxesProps) => (
+  <CheckboxGroup className={cn(className)} {...props}>
+    {children}
+  </CheckboxGroup>
+);
 
 interface CheckboxesItemProps extends Omit<
   React.ComponentProps<typeof Checkbox.Root>,
@@ -28,13 +26,13 @@ interface CheckboxesItemProps extends Omit<
   small?: boolean;
 }
 
-function CheckboxesItem({
+const CheckboxesItem = ({
   className,
   children,
   value,
   small = false,
   ...props
-}: CheckboxesItemProps) {
+}: CheckboxesItemProps) => {
   const labelId = useId();
 
   return (
@@ -98,77 +96,71 @@ function CheckboxesItem({
       </span>
     </label>
   );
-}
+};
 
 interface CheckboxesHintProps extends React.HTMLAttributes<HTMLSpanElement> {
   className?: string;
 }
 
-function CheckboxesHint({ className, ...props }: CheckboxesHintProps) {
-  return (
-    <span
-      className={cn(
-        'block w-full',
-        '-mt-govuk-1',
-        'pr-govuk-checkbox-label-padding-x',
-        'pl-[calc(var(--spacing-govuk-checkbox-label-padding-x)+var(--spacing-govuk-checkbox-touch-target))]',
-        'text-govuk-tag font-normal font-govuk text-govuk-secondary-text',
-        className,
-      )}
-      {...props}
-    />
-  );
-}
+const CheckboxesHint = ({ className, ...props }: CheckboxesHintProps) => (
+  <span
+    className={cn(
+      'block w-full',
+      '-mt-govuk-1',
+      'pr-govuk-checkbox-label-padding-x',
+      'pl-[calc(var(--spacing-govuk-checkbox-label-padding-x)+var(--spacing-govuk-checkbox-touch-target))]',
+      'text-govuk-tag font-normal font-govuk text-govuk-secondary-text',
+      className,
+    )}
+    {...props}
+  />
+);
 
 interface CheckboxesDividerProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   small?: boolean;
 }
 
-function CheckboxesDivider({
+const CheckboxesDivider = ({
   className,
   children = 'or',
   small = false,
   ...props
-}: CheckboxesDividerProps) {
-  return (
-    <div
-      className={cn(
-        small
-          ? 'w-govuk-checkbox-small-size mb-govuk-1'
-          : 'w-govuk-checkbox-size mb-2.5',
-        'text-govuk-tag font-normal font-govuk text-govuk-text',
-        'text-center',
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-}
+}: CheckboxesDividerProps) => (
+  <div
+    className={cn(
+      small
+        ? 'w-govuk-checkbox-small-size mb-govuk-1'
+        : 'w-govuk-checkbox-size mb-2.5',
+      'text-govuk-tag font-normal font-govuk text-govuk-text',
+      'text-center',
+      className,
+    )}
+    {...props}
+  >
+    {children}
+  </div>
+);
 
 interface CheckboxesConditionalProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
 }
 
-function CheckboxesConditional({
+const CheckboxesConditional = ({
   className,
   ...props
-}: CheckboxesConditionalProps) {
-  return (
-    <div
-      className={cn(
-        'ml-govuk-checkbox-conditional-ml pl-govuk-checkbox-conditional-pl',
-        'mb-5',
-        'border-l-2 border-govuk-border',
-        '*:last:mb-0',
-        className,
-      )}
-      {...props}
-    />
-  );
-}
+}: CheckboxesConditionalProps) => (
+  <div
+    className={cn(
+      'ml-govuk-checkbox-conditional-ml pl-govuk-checkbox-conditional-pl',
+      'mb-5',
+      'border-l-2 border-govuk-border',
+      '*:last:mb-0',
+      className,
+    )}
+    {...props}
+  />
+);
 
 export {
   Checkboxes,

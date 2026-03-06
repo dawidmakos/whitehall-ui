@@ -58,32 +58,13 @@ export const AllColours: Story = {
     ];
 
     return (
-      <table
-        style={{
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          borderCollapse: 'collapse',
-          width: '100%',
-        }}
-      >
+      <table className='font-govuk text-govuk-body border-collapse w-full'>
         <thead>
           <tr>
-            <th
-              style={{
-                textAlign: 'left',
-                padding: '10px 20px 10px 0',
-                borderBottom: '1px solid #b1b4b6',
-              }}
-            >
+            <th className='text-left py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
               Colour
             </th>
-            <th
-              style={{
-                textAlign: 'left',
-                padding: '10px 20px 10px 0',
-                borderBottom: '1px solid #b1b4b6',
-              }}
-            >
+            <th className='text-left py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
               Tag
             </th>
           </tr>
@@ -91,20 +72,10 @@ export const AllColours: Story = {
         <tbody>
           {colours.map(({ colour, label }) => (
             <tr key={colour}>
-              <td
-                style={{
-                  padding: '10px 20px 10px 0',
-                  borderBottom: '1px solid #b1b4b6',
-                }}
-              >
+              <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
                 {colour}
               </td>
-              <td
-                style={{
-                  padding: '10px 20px 10px 0',
-                  borderBottom: '1px solid #b1b4b6',
-                }}
-              >
+              <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
                 <Tag colour={colour}>{label}</Tag>
               </td>
             </tr>
@@ -118,88 +89,39 @@ export const AllColours: Story = {
 export const InATable: Story = {
   args: {},
   render: () => (
-    <table
-      style={{
-        fontFamily: 'Arial, sans-serif',
-        fontSize: '19px',
-        borderCollapse: 'collapse',
-        width: '100%',
-      }}
-    >
+    <table className='font-govuk text-govuk-body border-collapse w-full'>
       <thead>
         <tr>
-          <th
-            style={{
-              textAlign: 'left',
-              padding: '10px 20px 10px 0',
-              borderBottom: '1px solid #b1b4b6',
-            }}
-          >
+          <th className='text-left py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
             Name
           </th>
-          <th
-            style={{
-              textAlign: 'left',
-              padding: '10px 20px 10px 0',
-              borderBottom: '1px solid #b1b4b6',
-            }}
-          >
+          <th className='text-left py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
             Status
           </th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td
-            style={{
-              padding: '10px 20px 10px 0',
-              borderBottom: '1px solid #b1b4b6',
-            }}
-          >
+          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
             Joshua Wessel
           </td>
-          <td
-            style={{
-              padding: '10px 20px 10px 0',
-              borderBottom: '1px solid #b1b4b6',
-            }}
-          >
+          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
             <Tag colour='red'>Urgent</Tag>
           </td>
         </tr>
         <tr>
-          <td
-            style={{
-              padding: '10px 20px 10px 0',
-              borderBottom: '1px solid #b1b4b6',
-            }}
-          >
+          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
             Rachel Silver
           </td>
-          <td
-            style={{
-              padding: '10px 20px 10px 0',
-              borderBottom: '1px solid #b1b4b6',
-            }}
-          >
+          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
             <Tag colour='green'>New</Tag>
           </td>
         </tr>
         <tr>
-          <td
-            style={{
-              padding: '10px 20px 10px 0',
-              borderBottom: '1px solid #b1b4b6',
-            }}
-          >
+          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
             Rachael Pepper
           </td>
-          <td
-            style={{
-              padding: '10px 20px 10px 0',
-              borderBottom: '1px solid #b1b4b6',
-            }}
-          >
+          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
             <Tag colour='grey'>Inactive</Tag>
           </td>
         </tr>

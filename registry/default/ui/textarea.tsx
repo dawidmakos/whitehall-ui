@@ -34,7 +34,7 @@ interface TextareaProps
   className?: string;
 }
 
-function Textarea({
+const Textarea = ({
   className,
   error = false,
   rows = 5,
@@ -42,18 +42,16 @@ function Textarea({
   'aria-describedby': ariaDescribedBy,
   ref,
   ...props
-}: TextareaProps) {
-  return (
-    <textarea
-      ref={ref}
-      rows={rows}
-      disabled={disabled}
-      aria-invalid={error || undefined}
-      aria-describedby={ariaDescribedBy || undefined}
-      className={cn(textareaVariants({ error }), className)}
-      {...props}
-    />
-  );
-}
+}: TextareaProps) => (
+  <textarea
+    ref={ref}
+    rows={rows}
+    disabled={disabled}
+    aria-invalid={error || undefined}
+    aria-describedby={ariaDescribedBy || undefined}
+    className={cn(textareaVariants({ error }), className)}
+    {...props}
+  />
+);
 
 export { Textarea, textareaVariants, type TextareaProps };

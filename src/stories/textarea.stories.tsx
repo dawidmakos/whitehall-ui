@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Textarea } from '@/ui/textarea';
+import { Label } from '@/ui/label';
+import { Hint } from '@/ui/hint';
 
 const meta = {
   title: 'Whitehall-UI/Textarea',
@@ -36,38 +38,18 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {},
   render: (args) => (
-    <div>
-      <label
-        htmlFor='default-textarea'
-        style={{
-          display: 'block',
-          marginBottom: '5px',
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          fontWeight: 700,
-        }}
-      >
-        Can you provide more detail?
-      </label>
-      <span
-        id='default-textarea-hint'
-        style={{
-          display: 'block',
-          marginBottom: '15px',
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          color: '#505a5f',
-        }}
-      >
+    <>
+      <Label htmlFor='default-textarea'>Can you provide more detail?</Label>
+      <Hint id='default-textarea-hint'>
         Do not include personal or financial information, like your National
         Insurance number or credit card details.
-      </span>
+      </Hint>
       <Textarea
         id='default-textarea'
         aria-describedby='default-textarea-hint'
         {...args}
       />
-    </div>
+    </>
   ),
 };
 
@@ -76,28 +58,11 @@ export const WithError: Story = {
     error: true,
   },
   render: (args) => (
-    <div>
-      <label
-        htmlFor='error-textarea'
-        style={{
-          display: 'block',
-          marginBottom: '5px',
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          fontWeight: 700,
-        }}
-      >
-        Can you provide more detail?
-      </label>
+    <>
+      <Label htmlFor='error-textarea'>Can you provide more detail?</Label>
       <p
         id='error-textarea-error'
-        style={{
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          color: '#d4351c',
-          fontWeight: 700,
-          margin: '0 0 5px',
-        }}
+        className='font-govuk text-govuk-body font-bold text-govuk-error m-0 mb-govuk-1'
       >
         <span className='sr-only'>Error:</span> Enter more detail
       </p>
@@ -106,7 +71,7 @@ export const WithError: Story = {
         aria-describedby='error-textarea-error'
         {...args}
       />
-    </div>
+    </>
   ),
 };
 
@@ -115,21 +80,12 @@ export const CustomRows: Story = {
     rows: 8,
   },
   render: (args) => (
-    <div>
-      <label
-        htmlFor='custom-rows-textarea'
-        style={{
-          display: 'block',
-          marginBottom: '5px',
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          fontWeight: 700,
-        }}
-      >
+    <>
+      <Label htmlFor='custom-rows-textarea'>
         Provide a detailed description
-      </label>
+      </Label>
       <Textarea id='custom-rows-textarea' {...args} />
-    </div>
+    </>
   ),
 };
 
@@ -138,65 +94,26 @@ export const Disabled: Story = {
     disabled: true,
   },
   render: (args) => (
-    <div>
-      <label
-        htmlFor='disabled-textarea'
-        style={{
-          display: 'block',
-          marginBottom: '5px',
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          fontWeight: 700,
-        }}
-      >
-        This field is disabled
-      </label>
+    <>
+      <Label htmlFor='disabled-textarea'>This field is disabled</Label>
       <Textarea
         id='disabled-textarea'
         defaultValue='This textarea is disabled'
         {...args}
       />
-    </div>
+    </>
   ),
 };
 
 export const WithAriaDescribedBy: Story = {
   args: {},
   render: (args) => (
-    <div>
-      <label
-        htmlFor='accessible-textarea'
-        style={{
-          display: 'block',
-          marginBottom: '5px',
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          fontWeight: 700,
-        }}
-      >
-        Why are you contacting us?
-      </label>
-      <span
-        id='accessible-textarea-hint'
-        style={{
-          display: 'block',
-          marginBottom: '5px',
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          color: '#505a5f',
-        }}
-      >
-        Give as much detail as you can
-      </span>
+    <>
+      <Label htmlFor='accessible-textarea'>Why are you contacting us?</Label>
+      <Hint id='accessible-textarea-hint'>Give as much detail as you can</Hint>
       <p
         id='accessible-textarea-error'
-        style={{
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '19px',
-          color: '#d4351c',
-          fontWeight: 700,
-          margin: '0 0 15px',
-        }}
+        className='font-govuk text-govuk-body font-bold text-govuk-error m-0 mb-govuk-3'
       >
         <span className='sr-only'>Error:</span> Enter a reason for contacting us
       </p>
@@ -206,6 +123,6 @@ export const WithAriaDescribedBy: Story = {
         aria-describedby='accessible-textarea-hint accessible-textarea-error'
         {...args}
       />
-    </div>
+    </>
   ),
 };

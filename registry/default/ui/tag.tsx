@@ -42,14 +42,12 @@ interface TagProps
   className?: string;
 }
 
-function Tag({ className, colour = 'blue', ref, ...props }: TagProps) {
-  return (
-    <strong
-      ref={ref}
-      className={cn(tagVariants({ colour }), className)}
-      {...props}
-    />
-  );
-}
+const Tag = ({ className, colour = 'blue', ref, ...props }: TagProps) => (
+  <strong
+    ref={ref}
+    className={cn(tagVariants({ colour }), className)}
+    {...props}
+  />
+);
 
 export { Tag, tagVariants, type TagProps, type TagColour };

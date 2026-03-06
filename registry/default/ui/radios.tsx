@@ -12,24 +12,22 @@ interface RadiosProps extends Omit<
   inline?: boolean;
 }
 
-function Radios({
+const Radios = ({
   className,
   inline = false,
   children,
   ...props
-}: RadiosProps) {
-  return (
-    <RadioGroup
-      className={cn(
-        inline && 'sm:flex sm:flex-wrap sm:items-start sm:gap-x-5',
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </RadioGroup>
-  );
-}
+}: RadiosProps) => (
+  <RadioGroup
+    className={cn(
+      inline && 'sm:flex sm:flex-wrap sm:items-start sm:gap-x-5',
+      className,
+    )}
+    {...props}
+  >
+    {children}
+  </RadioGroup>
+);
 
 interface RadiosItemProps extends Omit<
   React.ComponentProps<typeof Radio.Root>,
@@ -39,7 +37,12 @@ interface RadiosItemProps extends Omit<
   children: React.ReactNode;
 }
 
-function RadiosItem({ className, children, value, ...props }: RadiosItemProps) {
+const RadiosItem = ({
+  className,
+  children,
+  value,
+  ...props
+}: RadiosItemProps) => {
   const labelId = useId();
 
   return (
@@ -105,52 +108,48 @@ function RadiosItem({ className, children, value, ...props }: RadiosItemProps) {
       </span>
     </label>
   );
-}
+};
 
 interface RadiosHintProps extends React.HTMLAttributes<HTMLSpanElement> {
   className?: string;
 }
 
-function RadiosHint({ className, ...props }: RadiosHintProps) {
-  return (
-    <span
-      className={cn(
-        'block w-full',
-        '-mt-[5px]',
-        'pr-govuk-radio-label-padding-x',
-        'pl-[calc(var(--spacing-govuk-radio-label-padding-x)+var(--spacing-govuk-radio-touch-target))]',
-        'text-govuk-tag font-normal font-govuk text-govuk-secondary-text',
-        className,
-      )}
-      {...props}
-    />
-  );
-}
+const RadiosHint = ({ className, ...props }: RadiosHintProps) => (
+  <span
+    className={cn(
+      'block w-full',
+      '-mt-[5px]',
+      'pr-govuk-radio-label-padding-x',
+      'pl-[calc(var(--spacing-govuk-radio-label-padding-x)+var(--spacing-govuk-radio-touch-target))]',
+      'text-govuk-tag font-normal font-govuk text-govuk-secondary-text',
+      className,
+    )}
+    {...props}
+  />
+);
 
 interface RadiosDividerProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
 }
 
-function RadiosDivider({
+const RadiosDivider = ({
   className,
   children = 'or',
   ...props
-}: RadiosDividerProps) {
-  return (
-    <div
-      className={cn(
-        'w-govuk-radio-size',
-        'mb-2.5',
-        'text-govuk-tag font-normal font-govuk text-govuk-text',
-        'text-center',
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-}
+}: RadiosDividerProps) => (
+  <div
+    className={cn(
+      'w-govuk-radio-size',
+      'mb-2.5',
+      'text-govuk-tag font-normal font-govuk text-govuk-text',
+      'text-center',
+      className,
+    )}
+    {...props}
+  >
+    {children}
+  </div>
+);
 
 export {
   Radios,

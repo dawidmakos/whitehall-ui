@@ -50,14 +50,7 @@ export const WithMultipleParagraphs: Story = {
 export const InContext: Story = {
   args: {},
   render: () => (
-    <div
-      style={{
-        fontFamily: 'Arial, sans-serif',
-        fontSize: '19px',
-        lineHeight: '25px',
-        maxWidth: '640px',
-      }}
-    >
+    <div className='font-govuk text-govuk-body leading-6.25 max-w-160'>
       <p>This is a paragraph of text before the inset text.</p>
       <InsetText>
         <p>
