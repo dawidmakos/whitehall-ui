@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Select, SelectItem } from '@/ui/select';
 import { Label } from '@/ui/label';
 import { Hint } from '@/ui/hint';
+import { ErrorMessage } from '@/ui/error-message';
 
 const meta = {
   title: 'Whitehall-UI/Select',
@@ -119,12 +120,7 @@ export const Error: Story = {
         <Hint id='error-location-hint'>
           This can be different to where you went before
         </Hint>
-        <p
-          id='error-location-error'
-          className='font-govuk text-govuk-body font-bold text-govuk-error m-0 mb-govuk-1'
-        >
-          <span className='sr-only'>Error:</span> Select a location
-        </p>
+        <ErrorMessage id='error-location-error'>Select a location</ErrorMessage>
         <Select
           error
           placeholder='Choose location'

@@ -11,6 +11,7 @@ import { Fieldset, FieldsetLegend } from '@/ui/fieldset';
 import { Hint } from '@/ui/hint';
 import { Label } from '@/ui/label';
 import { TextInput } from '@/ui/text-input';
+import { ErrorMessage } from '@/ui/error-message';
 
 const meta = {
   title: 'Whitehall-UI/Checkboxes',
@@ -234,10 +235,9 @@ export const Error: Story = {
         If you have dual nationality, select all options that are relevant to
         you.
       </Hint>
-      <p className='font-govuk text-govuk-body font-bold text-govuk-error mb-govuk-3'>
-        <span className='sr-only'>Error:</span>
+      <ErrorMessage>
         Select if you are British, Irish or a citizen of a different country
-      </p>
+      </ErrorMessage>
       <Checkboxes defaultValue={[]}>
         <CheckboxesItem name='nationality' value='british'>
           British

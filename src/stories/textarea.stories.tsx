@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Textarea } from '@/ui/textarea';
 import { Label } from '@/ui/label';
 import { Hint } from '@/ui/hint';
+import { ErrorMessage } from '@/ui/error-message';
 
 const meta = {
   title: 'Whitehall-UI/Textarea',
@@ -60,12 +61,7 @@ export const WithError: Story = {
   render: (args) => (
     <>
       <Label htmlFor='error-textarea'>Can you provide more detail?</Label>
-      <p
-        id='error-textarea-error'
-        className='font-govuk text-govuk-body font-bold text-govuk-error m-0 mb-govuk-1'
-      >
-        <span className='sr-only'>Error:</span> Enter more detail
-      </p>
+      <ErrorMessage id='error-textarea-error'>Enter more detail</ErrorMessage>
       <Textarea
         id='error-textarea'
         aria-describedby='error-textarea-error'
@@ -111,12 +107,9 @@ export const WithAriaDescribedBy: Story = {
     <>
       <Label htmlFor='accessible-textarea'>Why are you contacting us?</Label>
       <Hint id='accessible-textarea-hint'>Give as much detail as you can</Hint>
-      <p
-        id='accessible-textarea-error'
-        className='font-govuk text-govuk-body font-bold text-govuk-error m-0 mb-govuk-3'
-      >
-        <span className='sr-only'>Error:</span> Enter a reason for contacting us
-      </p>
+      <ErrorMessage id='accessible-textarea-error'>
+        Enter a reason for contacting us
+      </ErrorMessage>
       <Textarea
         id='accessible-textarea'
         error

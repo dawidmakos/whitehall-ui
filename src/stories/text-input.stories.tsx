@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { TextInput } from '@/ui/text-input';
 import { Label } from '@/ui/label';
 import { Hint } from '@/ui/hint';
+import { ErrorMessage } from '@/ui/error-message';
 
 const meta = {
   title: 'Whitehall-UI/Text Input',
@@ -74,9 +75,9 @@ export const WithError: Story = {
   render: (args) => (
     <>
       <Label htmlFor='error'>What is your National Insurance number?</Label>
-      <p className='font-govuk text-govuk-body font-bold text-govuk-error m-0 mb-govuk-1'>
-        Error: Enter a National Insurance number in the correct format
-      </p>
+      <ErrorMessage id='error-msg'>
+        Enter a National Insurance number in the correct format
+      </ErrorMessage>
       <TextInput id='error' width={10} {...args} />
     </>
   ),
@@ -162,9 +163,9 @@ export const PrefixSuffixWithError: Story = {
       <Label htmlFor='prefix-error'>
         What is the cost per item, in pounds?
       </Label>
-      <p className='font-govuk text-govuk-body font-bold text-govuk-error m-0 mb-govuk-1'>
-        Error: Enter the cost per item, in pounds
-      </p>
+      <ErrorMessage id='prefix-error-msg'>
+        Enter the cost per item, in pounds
+      </ErrorMessage>
       <TextInput
         id='prefix-error'
         width={5}
