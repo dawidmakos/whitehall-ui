@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "error-summary",
+  "type": "registry:ui",
+  "title": "Error Summary",
+  "description": "Whitehall-UI error summary component for summarising validation errors at the top of a page, with linked error messages.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "utils",
+    "govuk-tokens"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/error-summary.tsx",
+      "type": "registry:ui",
+      "content": "import { cn } from '@/lib/utils';\r\n\r\ninterface ErrorSummaryItem {\r\n  text: string;\r\n  href?: string;\r\n}\r\n\r\ninterface ErrorSummaryProps extends React.HTMLAttributes<HTMLDivElement> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n  titleText?: string;\r\n  descriptionText?: string;\r\n  errorList: ErrorSummaryItem[];\r\n}\r\n\r\nconst ErrorSummary = ({\r\n  className,\r\n  titleText = 'There is a problem',\r\n  descriptionText,\r\n  errorList,\r\n  ref,\r\n  ...props\r\n}: ErrorSummaryProps) => (\r\n  <div\r\n    ref={ref}\r\n    tabIndex={-1}\r\n    className={cn(\r\n      'font-govuk text-govuk-body text-govuk-text',\r\n      'p-govuk-3 sm:p-govuk-4',\r\n      'mb-govuk-6 sm:mb-govuk-8',\r\n      'border-[5px] border-solid border-govuk-error',\r\n      'focus:outline-3 focus:outline-govuk-focus',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    <div role=\"alert\">\r\n      <h2\r\n        className={cn(\r\n          'text-govuk-heading-m font-bold',\r\n          'mt-0 mb-govuk-3 sm:mb-govuk-4',\r\n        )}\r\n      >\r\n        {titleText}\r\n      </h2>\r\n      <div\r\n        className={cn(\r\n          '[&>p]:mb-0',\r\n          '[&>*+*]:mt-govuk-3 sm:[&>*+*]:mt-govuk-4',\r\n          '[&>:last-child]:mb-govuk-1',\r\n        )}\r\n      >\r\n        {descriptionText && <p>{descriptionText}</p>}\r\n        <ul className=\"list-none p-0 m-0 [&>li:last-child]:mb-0\">\r\n          {errorList.map((item) => (\r\n            <li key={item.href ?? item.text}>\r\n              {item.href ? (\r\n                <a\r\n                  href={item.href}\r\n                  className={cn(\r\n                    'font-bold',\r\n                    'text-govuk-error visited:text-govuk-error',\r\n                    'hover:text-govuk-error-hover',\r\n                    'underline underline-offset-[.1578em]',\r\n                    'decoration-[max(1px,.0625rem)]',\r\n                    'hover:decoration-[max(3px,.1875rem,.12em)]',\r\n                    'focus:govuk-link-focus',\r\n                  )}\r\n                >\r\n                  {item.text}\r\n                </a>\r\n              ) : (\r\n                <span className=\"font-bold\">{item.text}</span>\r\n              )}\r\n            </li>\r\n          ))}\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </div>\r\n);\r\n\r\nexport { ErrorSummary, type ErrorSummaryProps, type ErrorSummaryItem };\r\n"
+    }
+  ]
+}
