@@ -48,6 +48,7 @@
 
   /* Error */
   --color-govuk-error: #d4351c;
+  --color-govuk-error-hover: #6a1b0e;
 
   /* Input border */
   --color-govuk-input-border: #0b0c0c;
@@ -99,6 +100,9 @@
   --spacing-govuk-1: 5px;
   --spacing-govuk-2: 10px;
   --spacing-govuk-3: 15px;
+  --spacing-govuk-4: 20px;
+  --spacing-govuk-6: 30px;
+  --spacing-govuk-8: 50px;
   --spacing-govuk-button-x: 10px;
   --spacing-govuk-button-pt: 8px;
   --spacing-govuk-button-pb: 7px;
@@ -227,4 +231,14 @@
 
 @utility w-anchor {
   width: var(--anchor-width);
+}
+
+@utility govuk-link-focus {
+  outline: 3px solid transparent;
+  color: var(--color-govuk-text);
+  background-color: var(--color-govuk-focus);
+  box-shadow:
+    0 -2px var(--color-govuk-focus),
+    0 4px var(--color-govuk-text);
+  text-decoration: none;
 }
