@@ -14,7 +14,7 @@
     {
       "path": "registry/default/ui/inset-text.tsx",
       "type": "registry:ui",
-      "content": "import { cn } from '@/lib/utils';\r\n\r\ninterface InsetTextProps extends React.HTMLAttributes<HTMLDivElement> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n}\r\n\r\nfunction InsetText({ className, ref, ...props }: InsetTextProps) {\r\n  return (\r\n    <div\r\n      ref={ref}\r\n      className={cn(\r\n        'clear-both',\r\n        'p-govuk-inset-text-padding',\r\n        'my-govuk-inset-text-margin',\r\n        'border-l-govuk-inset',\r\n        'text-govuk-tag font-normal font-govuk text-govuk-text',\r\n        '*:first:mt-0 *:last:mb-0',\r\n        className,\r\n      )}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport { InsetText, type InsetTextProps };\r\n"
+      "content": "import { cn } from '@/lib/utils';\r\n\r\ninterface InsetTextProps extends React.HTMLAttributes<HTMLDivElement> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n}\r\n\r\nconst InsetText = ({ className, ref, ...props }: InsetTextProps) => (\r\n  <div\r\n    ref={ref}\r\n    className={cn(\r\n      'clear-both',\r\n      'p-govuk-inset-text-padding',\r\n      'my-govuk-inset-text-margin',\r\n      'border-l-govuk-inset',\r\n      'text-govuk-tag font-normal font-govuk text-govuk-text',\r\n      '*:first:mt-0 *:last:mb-0',\r\n      className,\r\n    )}\r\n    {...props}\r\n  />\r\n);\r\n\r\nexport { InsetText, type InsetTextProps };\r\n"
     }
   ]
 }

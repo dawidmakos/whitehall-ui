@@ -180,6 +180,32 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "error-message",
+      "type": "registry:ui",
+      "title": "Error Message",
+      "description": "Whitehall-UI error message component for showing validation errors next to form fields, with a visually hidden prefix for screen readers.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/error-message.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "error-summary",
+      "type": "registry:ui",
+      "title": "Error Summary",
+      "description": "Whitehall-UI error summary component for summarising validation errors at the top of a page, with linked error messages.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/error-summary.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
