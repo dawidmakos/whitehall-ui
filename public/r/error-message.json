@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "error-message",
+  "type": "registry:ui",
+  "title": "Error Message",
+  "description": "Whitehall-UI error message component for showing validation errors next to form fields, with a visually hidden prefix for screen readers.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "utils",
+    "govuk-tokens"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/error-message.tsx",
+      "type": "registry:ui",
+      "content": "import { cn } from '@/lib/utils';\r\n\r\ninterface ErrorMessageProps extends React.HTMLAttributes<HTMLParagraphElement> {\r\n  ref?: React.Ref<HTMLParagraphElement>;\r\n  visuallyHiddenText?: string;\r\n}\r\n\r\nconst ErrorMessage = ({\r\n  className,\r\n  children,\r\n  visuallyHiddenText = 'Error',\r\n  ref,\r\n  ...props\r\n}: ErrorMessageProps) => (\r\n  <p\r\n    ref={ref}\r\n    className={cn(\r\n      'block',\r\n      'mt-0 mb-govuk-3',\r\n      'clear-both',\r\n      'font-govuk text-govuk-body font-bold',\r\n      'text-govuk-error',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {visuallyHiddenText && (\r\n      <span className='sr-only'>{visuallyHiddenText}:</span>\r\n    )}{' '}\r\n    {children}\r\n  </p>\r\n);\r\n\r\nexport { ErrorMessage, type ErrorMessageProps };\r\n"
+    }
+  ]
+}
