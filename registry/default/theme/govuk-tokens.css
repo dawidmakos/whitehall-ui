@@ -3,7 +3,7 @@
  * https://design-system.service.gov.uk/styles/colour/
  *
  * Defined as Tailwind 4 @theme variables so they generate real utility
- * classes: bg-govuk-green, text-govuk-text, shadow-govuk-green, etc.
+ * classes: bg-govuk-green, text-govuk-black, shadow-govuk-green, etc.
  *
  * Consumers: import this file in your main CSS entry point AFTER
  * `@import "tailwindcss"`:
@@ -15,14 +15,14 @@
 
 @theme {
   /* Brand / Primary */
+  --color-govuk-brand: #1d70b8;
   --color-govuk-green: #0f7a52;
   --color-govuk-green-hover: #0b5c3e;
   --color-govuk-green-shadow: #083d29;
 
-  /* Secondary */
-  --color-govuk-secondary: #f3f3f3;
-  --color-govuk-secondary-hover: #cecece;
-  --color-govuk-secondary-shadow: #858686;
+  /* Light Grey */
+  --color-govuk-light-grey: #f3f3f3;
+  --color-govuk-light-grey-shadow: #858686;
 
   /* Warning */
   --color-govuk-red: #ca3535;
@@ -33,28 +33,22 @@
   --color-govuk-inverse-hover: #f4f8fb;
   --color-govuk-inverse-shadow: #0f385c;
 
-  /* Focus */
-  --color-govuk-focus: #ffdd00;
+  /* Yellow */
+  --color-govuk-yellow: #ffdd00;
 
-  /* Hover – mid-grey, used for small control hover rings */
-  --color-govuk-hover: #b1b4b6;
+  /* Mid Grey */
+  --color-govuk-mid-grey: #b1b4b6;
 
-  /* Text */
-  --color-govuk-text: #0b0c0c;
-  --color-govuk-secondary-text: #505a5f;
-
-  /* Links */
-  --color-govuk-link: #1d70b8;
+  /* Black (GOV.UK palette) – used for text, input borders, tag-grey */
+  --color-govuk-black: #0b0c0c;
+  --color-govuk-dark-grey: #505a5f;
 
   /* Error */
   --color-govuk-error: #d4351c;
   --color-govuk-error-hover: #6a1b0e;
 
-  /* Input border */
-  --color-govuk-input-border: #0b0c0c;
-
-  /* Border – used for rules, separators, inset text */
-  --color-govuk-border: #cecece;
+  /* Grey */
+  --color-govuk-grey: #cecece;
 
   /* Tag colours – text (shade-50) / background (tint-80) pairs */
   --color-govuk-tag-blue: #0f385c;
@@ -73,13 +67,15 @@
   --color-govuk-tag-orange-bg: #fde4d7;
   --color-govuk-tag-yellow: #7a3c1c;
   --color-govuk-tag-yellow-bg: #ffee80;
-  --color-govuk-tag-grey: #0b0c0c;
-  --color-govuk-tag-grey-bg: #cecece;
 
   /* Font */
   --font-govuk: Arial, Helvetica, sans-serif;
 
   /* Typography */
+  --text-govuk-header: 16px;
+  --text-govuk-header--line-height: 1;
+  --text-govuk-header-link: 30px;
+  --text-govuk-header-link--line-height: 1;
   --text-govuk-body: 19px;
   --text-govuk-body--line-height: 19px;
   --text-govuk-tag: 19px;
@@ -117,6 +113,7 @@
   --spacing-govuk-inset-text-margin: 20px;
 
   /* Border widths – GOV.UK uses non-standard border widths */
+  --border-width-govuk-standard: 5px;
   --border-width-govuk-wide: 10px;
 
   /* Radios & Checkboxes */
@@ -170,21 +167,24 @@
 
   --spacing-govuk-select-item-px: 7px;
 
+  /* Header */
+  --spacing-govuk-header-link-underline: 3px;
+
   /* Letter spacing – extra spacing for codes and reference numbers */
   --tracking-govuk-code: 0.05em;
 
   /* Shadows – bottom edge shadows used across buttons, tags, etc. */
   --shadow-govuk-green: 0 2px 0 #083d29;
-  --shadow-govuk-secondary: 0 2px 0 #858686;
+  --shadow-govuk-light-grey: 0 2px 0 #858686;
   --shadow-govuk-red: 0 2px 0 #651b1b;
   --shadow-govuk-inverse: 0 2px 0 #0f385c;
-  --shadow-govuk-focus: 0 2px 0 #0b0c0c;
+  --shadow-govuk-yellow: 0 2px 0 #0b0c0c;
   --shadow-govuk-clear: 0 0 #0000;
 }
 
 /* Custom utilities – for styles that can’t be expressed via @theme namespaces */
 @utility border-l-govuk-inset {
-  border-left: var(--border-width-govuk-wide) solid var(--color-govuk-border);
+  border-left: var(--border-width-govuk-wide) solid var(--color-govuk-grey);
 }
 
 @utility govuk-checkmark {
@@ -205,12 +205,12 @@
 
 @utility govuk-checkbox-focus-shadow {
   --govuk-cb-focus-shadow: 0 0 0 var(--spacing-govuk-checkbox-focus-width)
-    var(--color-govuk-focus);
+    var(--color-govuk-yellow);
 }
 
 @utility govuk-checkbox-small-hover {
   --govuk-cb-hover-shadow: 0 0 0 var(--spacing-govuk-hover-width)
-    var(--color-govuk-hover);
+    var(--color-govuk-mid-grey);
   outline: var(--spacing-govuk-checkbox-focus-width) dashed transparent;
   outline-offset: 1px;
 }
@@ -235,10 +235,23 @@
 
 @utility govuk-link-focus {
   outline: 3px solid transparent;
-  color: var(--color-govuk-text);
-  background-color: var(--color-govuk-focus);
+  color: var(--color-govuk-black);
+  background-color: var(--color-govuk-yellow);
   box-shadow:
-    0 -2px var(--color-govuk-focus),
-    0 4px var(--color-govuk-text);
+    0 -2px var(--color-govuk-yellow),
+    0 4px var(--color-govuk-black);
   text-decoration: none;
+}
+
+@utility border-govuk-error-summary {
+  border: var(--border-width-govuk-standard) solid var(--color-govuk-error);
+}
+
+@utility govuk-link-underline {
+  text-underline-offset: 0.1578em;
+  text-decoration-thickness: max(1px, 0.0625rem);
+}
+
+@utility govuk-link-underline-hover {
+  text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
 }
