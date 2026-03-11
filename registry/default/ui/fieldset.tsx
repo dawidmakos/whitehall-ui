@@ -7,7 +7,7 @@ const fieldsetLegendVariants = cva(
     'table',
     'max-w-full',
     'p-0',
-    'font-govuk text-govuk-text',
+    'font-govuk text-govuk-black',
     'whitespace-normal',
   ],
   {

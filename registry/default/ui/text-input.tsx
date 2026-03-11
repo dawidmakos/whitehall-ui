@@ -6,13 +6,13 @@ const textInputVariants = cva(
   [
     'box-border w-full',
     'h-10',
-    'p-govuk-input-padding',
-    'border-2 border-govuk-input-border',
+    'p-govuk-1',
+    'border-2 border-govuk-black',
     'rounded-none',
     'appearance-none',
     'text-govuk-body font-normal font-govuk',
-    'focus:outline-3 focus:outline-govuk-focus focus:outline-offset-0',
-    'focus:inset-ring-2 focus:inset-ring-govuk-input-border',
+    'focus:outline-3 focus:outline-govuk-yellow focus:outline-offset-0',
+    'focus:inset-ring-2 focus:inset-ring-govuk-black',
     'data-[disabled]:opacity-50 data-[disabled]:bg-transparent data-[disabled]:cursor-not-allowed',
   ],
   {
@@ -28,7 +28,7 @@ const textInputVariants = cva(
         2: 'max-w-govuk-input-width-2',
       },
       error: {
-        true: 'border-govuk-error focus:border-govuk-input-border',
+        true: 'border-govuk-error focus:border-govuk-black',
         false: '',
       },
       extraLetterSpacing: {
@@ -47,9 +47,9 @@ const textInputVariants = cva(
 const affixStyles = [
   'box-border flex items-center justify-center',
   'min-w-10 h-10',
-  'p-govuk-input-padding',
-  'border-2 border-govuk-input-border',
-  'bg-govuk-secondary',
+  'p-govuk-1',
+  'border-2 border-govuk-black',
+  'bg-govuk-light-grey',
   'text-govuk-body font-normal font-govuk',
   'text-center whitespace-nowrap',
   'cursor-default flex-none',

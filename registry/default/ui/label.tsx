@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
-const labelVariants = cva(['block', 'font-govuk text-govuk-text'], {
+const labelVariants = cva(['block', 'font-govuk text-govuk-black'], {
   variants: {
     size: {
       xl: 'text-govuk-heading-xl font-bold mb-govuk-3',
@@ -22,9 +22,10 @@ interface LabelProps
   ref?: React.Ref<HTMLLabelElement>;
 }
 
-const Label = ({ className, size, ref, ...props }: LabelProps) => (
+const Label = ({ className, size, htmlFor, ref, ...props }: LabelProps) => (
   <label
     ref={ref}
+    htmlFor={htmlFor}
     className={cn(
       labelVariants({ size }),
       !size && 'text-govuk-body mb-govuk-1',

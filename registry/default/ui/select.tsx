@@ -7,24 +7,24 @@ const selectTriggerVariants = cva(
     'box-border',
     'max-w-full',
     'h-10',
-    'py-govuk-input-padding pr-govuk-input-padding pl-2',
-    'border-2 border-govuk-input-border',
+    'py-1.25 pr-1.25 pl-2',
+    'border-2 border-govuk-black',
     'rounded-none',
     'appearance-none',
-    'text-govuk-body leading-[1.25] font-normal font-govuk text-govuk-text',
+    'text-govuk-body leading-[1.25] font-normal font-govuk text-govuk-black',
     'bg-white',
     'inline-flex items-center',
     'cursor-pointer',
-    'focus:outline-3 focus:outline-govuk-focus focus:outline-offset-0',
-    'focus:inset-ring-2 focus:inset-ring-govuk-input-border',
-    'data-popup-open:outline-3 data-popup-open:outline-govuk-focus data-popup-open:outline-offset-0',
-    'data-popup-open:inset-ring-2 data-popup-open:inset-ring-govuk-input-border',
+    'focus:outline-3 focus:outline-govuk-yellow focus:outline-offset-0',
+    'focus:inset-ring-2 focus:inset-ring-govuk-black',
+    'data-popup-open:outline-3 data-popup-open:outline-govuk-yellow data-popup-open:outline-offset-0',
+    'data-popup-open:inset-ring-2 data-popup-open:inset-ring-govuk-black',
     'data-disabled:opacity-50 data-disabled:cursor-not-allowed',
   ],
   {
     variants: {
       error: {
-        true: 'border-govuk-error focus:border-govuk-input-border',
+        true: 'border-govuk-error focus:border-govuk-black',
         false: '',
       },
     },
@@ -99,7 +99,7 @@ const Select = ({
           </span>
         )}
       </span>
-      <SelectPrimitive.Icon className='ml-govuk-input-padding flex-none'>
+      <SelectPrimitive.Icon className='ml-govuk-1 flex-none'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='16'
@@ -125,7 +125,7 @@ const Select = ({
         <SelectPrimitive.Popup
           className={cn(
             'w-anchor box-border',
-            'border-2 border-govuk-input-border',
+            'border-2 border-govuk-black',
             'max-h-60 overflow-y-auto',
             'bg-white',
             'outline-none',
@@ -159,11 +159,11 @@ const SelectItem = ({
     label={label ?? (typeof children === 'string' ? children : undefined)}
     disabled={disabled}
     className={cn(
-      'py-govuk-input-padding pr-govuk-input-padding pl-2',
-      'text-govuk-body font-govuk text-govuk-text',
+      'py-govuk-1 pr-govuk-1 pl-2',
+      'text-govuk-body font-govuk text-govuk-black',
       'cursor-pointer select-none',
       'outline-none',
-      'data-highlighted:bg-govuk-link data-highlighted:text-white',
+      'data-highlighted:bg-govuk-brand data-highlighted:text-white',
       'data-disabled:opacity-50 data-disabled:cursor-not-allowed',
       className,
     )}

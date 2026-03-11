@@ -206,6 +206,19 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "header",
+      "type": "registry:ui",
+      "title": "Header",
+      "description": "Whitehall-UI header component. A composable masthead bar for branding, with sub-components for container, logo area, link and product name.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/header.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

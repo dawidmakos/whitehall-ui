@@ -161,7 +161,7 @@ const HeaderNavItem = ({
     ref={ref}
     className={cn(
       'py-govuk-2',
-      active && 'border-b-govuk-1 border-b-white -mb-px',
+      active && 'border-b-govuk-standard border-b-white -mb-px',
       className,
     )}
     {...props}

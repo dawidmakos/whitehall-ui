@@ -73,7 +73,7 @@ export const Inverse: Story = {
   },
   decorators: [
     (Story) => (
-      <div className='bg-govuk-link p-7.5'>
+      <div className='bg-govuk-brand p-govuk-6'>
         <Story />
       </div>
     ),
@@ -130,7 +130,7 @@ export const AllVariants: Story = {
   render: () => (
     <div className='flex flex-col gap-4'>
       <div>
-        <h4 className='m-0 mb-2 font-govuk text-[14px] text-[#666]'>
+        <h4 className='m-0 mb-2 font-govuk text-sm text-govuk-dark-grey'>
           Default (Primary)
         </h4>
         <Button variant='default' onClick={fn()}>
@@ -138,7 +138,7 @@ export const AllVariants: Story = {
         </Button>
       </div>
       <div>
-        <h4 className='m-0 mb-2 font-govuk text-[14px] text-[#666]'>
+        <h4 className='m-0 mb-2 font-govuk text-sm text-govuk-dark-grey'>
           Secondary
         </h4>
         <Button variant='secondary' onClick={fn()}>
@@ -146,19 +146,23 @@ export const AllVariants: Story = {
         </Button>
       </div>
       <div>
-        <h4 className='m-0 mb-2 font-govuk text-[14px] text-[#666]'>Warning</h4>
+        <h4 className='m-0 mb-2 font-govuk text-sm text-govuk-dark-grey'>
+          Warning
+        </h4>
         <Button variant='warning' onClick={fn()}>
           Delete account
         </Button>
       </div>
       <div>
-        <h4 className='m-0 mb-2 font-govuk text-[14px] text-[#666]'>Start</h4>
+        <h4 className='m-0 mb-2 font-govuk text-sm text-govuk-dark-grey'>
+          Start
+        </h4>
         <Button variant='start' onClick={fn()}>
           Start now
         </Button>
       </div>
-      <div className='bg-govuk-link p-5'>
-        <h4 className='m-0 mb-2 font-govuk text-[14px] text-white'>
+      <div className='bg-govuk-brand p-5'>
+        <h4 className='m-0 mb-2 font-govuk text-sm text-white'>
           Inverse (on dark background)
         </h4>
         <Button variant='inverse' onClick={fn()}>
