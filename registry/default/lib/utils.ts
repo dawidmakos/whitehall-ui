@@ -14,7 +14,20 @@ import { extendTailwindMerge } from 'tailwind-merge';
 const twMerge = extendTailwindMerge({
   extend: {
     classGroups: {
-      'font-size': [{ text: ['govuk-body', 'govuk-start', 'govuk-tag'] }],
+      'font-size': [
+        {
+          text: [
+            'govuk-header',
+            'govuk-header-link',
+            'govuk-body',
+            'govuk-tag',
+            'govuk-start',
+            'govuk-heading-xl',
+            'govuk-heading-l',
+            'govuk-heading-m',
+          ],
+        },
+      ],
     },
   },
 });

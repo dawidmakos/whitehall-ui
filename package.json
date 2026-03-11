@@ -3,15 +3,94 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./tokens.css": "./registry/default/theme/govuk-tokens.css",
+    "./lib/utils": {
+      "types": "./dist/lib/utils.d.ts",
+      "import": "./dist/lib/utils.js"
+    },
+    "./button": {
+      "types": "./dist/ui/button.d.ts",
+      "import": "./dist/ui/button.js"
+    },
+    "./checkboxes": {
+      "types": "./dist/ui/checkboxes.d.ts",
+      "import": "./dist/ui/checkboxes.js"
+    },
+    "./error-message": {
+      "types": "./dist/ui/error-message.d.ts",
+      "import": "./dist/ui/error-message.js"
+    },
+    "./error-summary": {
+      "types": "./dist/ui/error-summary.d.ts",
+      "import": "./dist/ui/error-summary.js"
+    },
+    "./fieldset": {
+      "types": "./dist/ui/fieldset.d.ts",
+      "import": "./dist/ui/fieldset.js"
+    },
+    "./header": {
+      "types": "./dist/ui/header.d.ts",
+      "import": "./dist/ui/header.js"
+    },
+    "./hint": {
+      "types": "./dist/ui/hint.d.ts",
+      "import": "./dist/ui/hint.js"
+    },
+    "./inset-text": {
+      "types": "./dist/ui/inset-text.d.ts",
+      "import": "./dist/ui/inset-text.js"
+    },
+    "./label": {
+      "types": "./dist/ui/label.d.ts",
+      "import": "./dist/ui/label.js"
+    },
+    "./radios": {
+      "types": "./dist/ui/radios.d.ts",
+      "import": "./dist/ui/radios.js"
+    },
+    "./select": {
+      "types": "./dist/ui/select.d.ts",
+      "import": "./dist/ui/select.js"
+    },
+    "./tag": {
+      "types": "./dist/ui/tag.d.ts",
+      "import": "./dist/ui/tag.js"
+    },
+    "./text-input": {
+      "types": "./dist/ui/text-input.d.ts",
+      "import": "./dist/ui/text-input.js"
+    },
+    "./textarea": {
+      "types": "./dist/ui/textarea.d.ts",
+      "import": "./dist/ui/textarea.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:lib": "tsup",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "registry:build": "node scripts/build-registry.mjs",
     "test": "vitest --project=storybook"
+  },
+  "peerDependenciesMeta": {
+    "@base-ui/react": {
+      "optional": true
+    }
   },
   "dependencies": {
     "@base-ui/react": "^1.2.0",
@@ -27,25 +106,26 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^5.0.1",
     "@eslint/js": "^9.39.1",
-    "@storybook/addon-a11y": "^10.2.15",
-    "@storybook/addon-docs": "^10.2.15",
-    "@storybook/addon-vitest": "^10.2.15",
-    "@storybook/react-vite": "^10.2.15",
-    "@types/node": "^24.11.0",
+    "@storybook/addon-a11y": "^10.2.17",
+    "@storybook/addon-docs": "^10.2.17",
+    "@storybook/addon-vitest": "^10.2.17",
+    "@storybook/react-vite": "^10.2.17",
+    "@types/node": "^24.12.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.4",
     "@vitest/browser-playwright": "^4.0.18",
     "@vitest/coverage-v8": "^4.0.18",
-    "eslint": "^9.39.3",
+    "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.26",
-    "eslint-plugin-storybook": "^10.2.15",
+    "eslint-plugin-storybook": "^10.2.17",
     "globals": "^16.5.0",
     "playwright": "^1.58.2",
-    "storybook": "^10.2.15",
+    "storybook": "^10.2.17",
+    "tsup": "^8.5.1",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.56.1",
+    "typescript-eslint": "^8.57.0",
     "vite": "^7.3.1",
     "vitest": "^4.0.18"
   }
