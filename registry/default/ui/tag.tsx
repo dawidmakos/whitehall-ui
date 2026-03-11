@@ -23,7 +23,7 @@ const tagVariants = cva(
         red: 'text-govuk-tag-red bg-govuk-tag-red-bg',
         orange: 'text-govuk-tag-orange bg-govuk-tag-orange-bg',
         yellow: 'text-govuk-tag-yellow bg-govuk-tag-yellow-bg',
-        grey: 'text-govuk-tag-grey bg-govuk-tag-grey-bg',
+        grey: 'text-govuk-black bg-govuk-grey',
       },
     },
     defaultVariants: {

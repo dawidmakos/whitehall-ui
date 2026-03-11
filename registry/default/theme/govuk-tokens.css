@@ -14,43 +14,31 @@
  * ------------------------------------------------------------------------- */
 
 @theme {
-  /* Brand / Primary */
+  /* Font */
+  --font-govuk: Arial, Helvetica, sans-serif;
+
   --color-govuk-brand: #1d70b8;
   --color-govuk-green: #0f7a52;
   --color-govuk-green-hover: #0b5c3e;
   --color-govuk-green-shadow: #083d29;
-
-  /* Light Grey */
+  --color-govuk-black: #0b0c0c;
   --color-govuk-light-grey: #f3f3f3;
   --color-govuk-light-grey-shadow: #858686;
-
-  /* Warning */
+  --color-govuk-grey: #cecece;
+  --color-govuk-mid-grey: #b1b4b6;
+  --color-govuk-dark-grey: #505a5f;
   --color-govuk-red: #ca3535;
   --color-govuk-red-hover: #982828;
   --color-govuk-red-shadow: #651b1b;
-
-  /* Inverse */
   --color-govuk-inverse-hover: #f4f8fb;
   --color-govuk-inverse-shadow: #0f385c;
-
-  /* Yellow */
   --color-govuk-yellow: #ffdd00;
-
-  /* Mid Grey */
-  --color-govuk-mid-grey: #b1b4b6;
-
-  /* Black (GOV.UK palette) – used for text, input borders, tag-grey */
-  --color-govuk-black: #0b0c0c;
-  --color-govuk-dark-grey: #505a5f;
 
   /* Error */
   --color-govuk-error: #d4351c;
   --color-govuk-error-hover: #6a1b0e;
 
-  /* Grey */
-  --color-govuk-grey: #cecece;
-
-  /* Tag colours – text (shade-50) / background (tint-80) pairs */
+  /* Tag colours */
   --color-govuk-tag-blue: #0f385c;
   --color-govuk-tag-blue-bg: #d2e2f1;
   --color-govuk-tag-green: #083d29;
@@ -67,9 +55,6 @@
   --color-govuk-tag-orange-bg: #fde4d7;
   --color-govuk-tag-yellow: #7a3c1c;
   --color-govuk-tag-yellow-bg: #ffee80;
-
-  /* Font */
-  --font-govuk: Arial, Helvetica, sans-serif;
 
   /* Typography */
   --text-govuk-header: 16px;
@@ -92,25 +77,20 @@
   /* Border radius */
   --radius-govuk-tag: 1px;
 
-  /* Spacing – GOV.UK uses non-standard spacing values */
+  /* Spacing – GOV.UK uses px-based non-standard spacing values */
   --spacing-govuk-1: 5px;
   --spacing-govuk-2: 10px;
   --spacing-govuk-3: 15px;
   --spacing-govuk-4: 20px;
+  --spacing-govuk-5: 25px;
   --spacing-govuk-6: 30px;
+  --spacing-govuk-7: 40px;
   --spacing-govuk-8: 50px;
   --spacing-govuk-button-x: 10px;
   --spacing-govuk-button-pt: 8px;
   --spacing-govuk-button-pb: 7px;
   --spacing-govuk-button-bottom: 18px;
   --spacing-govuk-button-press: 2px;
-
-  /* Input padding – govuk-spacing(1) */
-  --spacing-govuk-input-padding: 5px;
-
-  /* Inset text */
-  --spacing-govuk-inset-text-padding: 15px;
-  --spacing-govuk-inset-text-margin: 20px;
 
   /* Border widths – GOV.UK uses non-standard border widths */
   --border-width-govuk-standard: 5px;
@@ -125,7 +105,6 @@
   --spacing-govuk-radio-label-padding-x: 15px;
   --spacing-govuk-radio-focus-width: 4px;
   --spacing-govuk-radio-gutter: 4px;
-
   --spacing-govuk-checkbox-size: 40px;
   --spacing-govuk-checkbox-touch-target: 44px;
   --spacing-govuk-checkbox-label-padding-x: 15px;

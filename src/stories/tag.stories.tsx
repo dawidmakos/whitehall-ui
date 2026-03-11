@@ -61,10 +61,10 @@ export const AllColours: Story = {
       <table className='font-govuk text-govuk-body border-collapse w-full'>
         <thead>
           <tr>
-            <th className='text-left py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
+            <th className='text-left py-govuk-2 pr-5 pl-0 border-b border-govuk-mid-grey'>
               Colour
             </th>
-            <th className='text-left py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
+            <th className='text-left py-govuk-2 pr-5 pl-0 border-b border-govuk-mid-grey'>
               Tag
             </th>
           </tr>
@@ -72,10 +72,10 @@ export const AllColours: Story = {
         <tbody>
           {colours.map(({ colour, label }) => (
             <tr key={colour}>
-              <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
+              <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-mid-grey'>
                 {colour}
               </td>
-              <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
+              <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-mid-grey'>
                 <Tag colour={colour}>{label}</Tag>
               </td>
             </tr>
@@ -92,36 +92,36 @@ export const InATable: Story = {
     <table className='font-govuk text-govuk-body border-collapse w-full'>
       <thead>
         <tr>
-          <th className='text-left py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
+          <th className='text-left py-govuk-2 pr-5 pl-0 border-b border-govuk-mid-grey'>
             Name
           </th>
-          <th className='text-left py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
+          <th className='text-left py-govuk-2 pr-5 pl-0 border-b border-govuk-mid-grey'>
             Status
           </th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
+          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-mid-grey'>
             Joshua Wessel
           </td>
-          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
+          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-mid-grey'>
             <Tag colour='red'>Urgent</Tag>
           </td>
         </tr>
         <tr>
-          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
+          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-mid-grey'>
             Rachel Silver
           </td>
-          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
+          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-mid-grey'>
             <Tag colour='green'>New</Tag>
           </td>
         </tr>
         <tr>
-          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
+          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-mid-grey'>
             Rachael Pepper
           </td>
-          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-hover'>
+          <td className='py-govuk-2 pr-5 pl-0 border-b border-govuk-mid-grey'>
             <Tag colour='grey'>Inactive</Tag>
           </td>
         </tr>

@@ -24,11 +24,11 @@ const ErrorSummary = ({
     ref={ref}
     tabIndex={-1}
     className={cn(
-      'font-govuk text-govuk-body text-govuk-text',
+      'font-govuk text-govuk-body text-govuk-black',
       'p-govuk-3 sm:p-govuk-4',
       'mb-govuk-6 sm:mb-govuk-8',
-      'border-[5px] border-solid border-govuk-error',
-      'focus:outline-3 focus:outline-govuk-focus',
+      'border-govuk-error-summary',
+      'focus:outline-3 focus:outline-govuk-yellow',
       className,
     )}
     {...props}
@@ -50,7 +50,7 @@ const ErrorSummary = ({
         )}
       >
         {descriptionText && <p>{descriptionText}</p>}
-        <ul className='list-none p-0 m-0 [&>li:last-child]:mb-0'>
+        <ul className='list-none p-0 m-0 [&>li]:mb-govuk-1 [&>li:last-child]:mb-0'>
           {errorList.map((item) => (
             <li key={item.href ?? item.text}>
               {item.href ? (
@@ -60,9 +60,8 @@ const ErrorSummary = ({
                     'font-bold',
                     'text-govuk-error visited:text-govuk-error',
                     'hover:text-govuk-error-hover',
-                    'underline underline-offset-[.1578em]',
-                    'decoration-[max(1px,.0625rem)]',
-                    'hover:decoration-[max(3px,.1875rem,.12em)]',
+                    'underline govuk-link-underline',
+                    'hover:govuk-link-underline-hover',
                     'focus:govuk-link-focus',
                   )}
                 >

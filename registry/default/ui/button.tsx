@@ -15,13 +15,13 @@ const buttonVariants = cva(
     'cursor-pointer',
     'appearance-none',
     'active:top-govuk-button-press',
-    'focus:border-govuk-focus focus:outline-3 focus:outline-transparent',
-    'focus:shadow-govuk-clear focus:inset-ring-1 focus:inset-ring-govuk-focus',
-    'focus:not-[:active]:not-[:hover]:bg-govuk-focus',
-    'focus:not-[:active]:not-[:hover]:text-govuk-text',
-    'focus:not-[:active]:not-[:hover]:shadow-govuk-focus',
+    'focus:border-govuk-yellow focus:outline-3 focus:outline-transparent',
+    'focus:shadow-govuk-clear focus:inset-ring-1 focus:inset-ring-govuk-yellow',
+    'focus:not-[:active]:not-[:hover]:bg-govuk-yellow',
+    'focus:not-[:active]:not-[:hover]:text-govuk-black',
+    'focus:not-[:active]:not-[:hover]:shadow-govuk-yellow',
     'focus:not-[:active]:not-[:hover]:inset-ring-0',
-    'focus:not-[:active]:not-[:hover]:border-govuk-focus',
+    'focus:not-[:active]:not-[:hover]:border-govuk-yellow',
   ],
   {
     variants: {
@@ -33,10 +33,10 @@ const buttonVariants = cva(
           'visited:text-white active:text-white',
         ],
         secondary: [
-          'bg-govuk-secondary text-govuk-text',
-          'shadow-govuk-secondary',
-          'hover:not-data-[disabled]:bg-govuk-secondary-hover',
-          'visited:text-govuk-text active:text-govuk-text',
+          'bg-govuk-light-grey text-govuk-black',
+          'shadow-govuk-light-grey',
+          'hover:not-data-[disabled]:bg-govuk-grey',
+          'visited:text-govuk-black active:text-govuk-black',
         ],
         warning: [
           'bg-govuk-red text-white',
@@ -45,10 +45,10 @@ const buttonVariants = cva(
           'visited:text-white active:text-white',
         ],
         inverse: [
-          'bg-white text-govuk-link',
+          'bg-white text-govuk-brand',
           'shadow-govuk-inverse',
           'hover:not-data-[disabled]:bg-govuk-inverse-hover',
-          'visited:text-govuk-link active:text-govuk-link',
+          'visited:text-govuk-brand active:text-govuk-brand',
         ],
         start: [
           'bg-govuk-green text-white',
@@ -71,7 +71,7 @@ const disabledStyles =
 
 const StartIcon = () => (
   <svg
-    className='ml-govuk-input-padding sm:ml-2.5 align-middle shrink-0 self-center forced-color-adjust-auto'
+    className='ml-govuk-1 sm:ml-govuk-2 align-middle shrink-0 self-center forced-color-adjust-auto'
     xmlns='http://www.w3.org/2000/svg'
     width='17.5'
     height='19'

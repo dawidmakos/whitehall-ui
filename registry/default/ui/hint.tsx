@@ -8,7 +8,7 @@ const Hint = ({ className, ref, ...props }: HintProps) => (
   <div
     ref={ref}
     className={cn(
-      'font-govuk text-govuk-body text-govuk-secondary-text',
+      'font-govuk text-govuk-body text-govuk-dark-grey',
       'mb-govuk-3',
       className,
     )}

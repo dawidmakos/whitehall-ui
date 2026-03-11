@@ -109,7 +109,7 @@ const CheckboxesHint = ({ className, ...props }: CheckboxesHintProps) => (
       '-mt-govuk-1',
       'pr-govuk-checkbox-label-padding-x',
       'pl-[calc(var(--spacing-govuk-checkbox-label-padding-x)+var(--spacing-govuk-checkbox-touch-target))]',
-      'text-govuk-tag font-normal font-govuk text-govuk-secondary-text',
+      'text-govuk-tag font-normal font-govuk text-govuk-dark-grey',
       className,
     )}
     {...props}
@@ -131,8 +131,8 @@ const CheckboxesDivider = ({
     className={cn(
       small
         ? 'w-govuk-checkbox-small-size mb-govuk-1'
-        : 'w-govuk-checkbox-size mb-2.5',
-      'text-govuk-tag font-normal font-govuk text-govuk-text',
+        : 'w-govuk-checkbox-size mb-govuk-2',
+      'text-govuk-tag font-normal font-govuk text-govuk-black',
       'text-center',
       className,
     )}
@@ -154,7 +154,7 @@ const CheckboxesConditional = ({
     className={cn(
       'ml-govuk-checkbox-conditional-ml pl-govuk-checkbox-conditional-pl',
       'mb-5',
-      'border-l-2 border-govuk-border',
+      'border-l-2 border-govuk-grey',
       '*:last:mb-0',
       className,
     )}

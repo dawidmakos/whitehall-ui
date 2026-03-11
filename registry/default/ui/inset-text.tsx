@@ -9,10 +9,10 @@ const InsetText = ({ className, ref, ...props }: InsetTextProps) => (
     ref={ref}
     className={cn(
       'clear-both',
-      'p-govuk-inset-text-padding',
-      'my-govuk-inset-text-margin',
+      'p-govuk-3',
+      'my-govuk-4',
       'border-l-govuk-inset',
-      'text-govuk-tag font-normal font-govuk text-govuk-text',
+      'text-govuk-tag font-normal font-govuk text-govuk-black',
       '*:first:mt-0 *:last:mb-0',
       className,
     )}

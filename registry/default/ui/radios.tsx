@@ -76,7 +76,7 @@ const RadiosItem = ({
             'rounded-full',
             'border-2 border-current bg-transparent',
             'group-focus/radio:border-4',
-            'group-focus/radio:shadow-[0_0_0_var(--spacing-govuk-radio-focus-width)_var(--color-govuk-focus)]',
+            'group-focus/radio:shadow-[0_0_0_var(--spacing-govuk-radio-focus-width)_var(--color-govuk-yellow)]',
             'group-focus/radio:outline-govuk-radio-focus-width group-focus/radio:outline-transparent group-focus/radio:outline-offset-1',
           )}
         />
@@ -118,10 +118,10 @@ const RadiosHint = ({ className, ...props }: RadiosHintProps) => (
   <span
     className={cn(
       'block w-full',
-      '-mt-[5px]',
+      '-mt-govuk-1',
       'pr-govuk-radio-label-padding-x',
       'pl-[calc(var(--spacing-govuk-radio-label-padding-x)+var(--spacing-govuk-radio-touch-target))]',
-      'text-govuk-tag font-normal font-govuk text-govuk-secondary-text',
+      'text-govuk-tag font-normal font-govuk text-govuk-dark-grey',
       className,
     )}
     {...props}
@@ -141,7 +141,7 @@ const RadiosDivider = ({
     className={cn(
       'w-govuk-radio-size',
       'mb-2.5',
-      'text-govuk-tag font-normal font-govuk text-govuk-text',
+      'text-govuk-tag font-normal font-govuk text-govuk-black',
       'text-center',
       className,
     )}
