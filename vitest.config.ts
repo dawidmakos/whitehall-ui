@@ -6,9 +6,9 @@ import { fileURLToPath } from 'node:url';
 import viteConfig from './vite.config';
 
 const dirname =
-  typeof __dirname !== 'undefined'
-    ? __dirname
-    : path.dirname(fileURLToPath(import.meta.url));
+  typeof __dirname === 'undefined'
+    ? path.dirname(fileURLToPath(import.meta.url))
+    : __dirname;
 
 export default mergeConfig(
   viteConfig,
