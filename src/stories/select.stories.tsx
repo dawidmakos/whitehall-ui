@@ -97,7 +97,7 @@ export const WithHint: Story = {
   },
 };
 
-export const Error: Story = {
+export const WithError: Story = {
   args: {
     children: null,
   },
