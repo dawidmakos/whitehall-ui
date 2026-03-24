@@ -19,6 +19,10 @@
       "types": "./dist/lib/utils.d.ts",
       "import": "./dist/lib/utils.js"
     },
+    "./back-link": {
+      "types": "./dist/ui/back-link.d.ts",
+      "import": "./dist/ui/back-link.js"
+    },
     "./button": {
       "types": "./dist/ui/button.d.ts",
       "import": "./dist/ui/button.js"
@@ -26,6 +30,10 @@
     "./checkboxes": {
       "types": "./dist/ui/checkboxes.d.ts",
       "import": "./dist/ui/checkboxes.js"
+    },
+    "./details": {
+      "types": "./dist/ui/details.d.ts",
+      "import": "./dist/ui/details.js"
     },
     "./error-message": {
       "types": "./dist/ui/error-message.d.ts",
@@ -38,6 +46,10 @@
     "./fieldset": {
       "types": "./dist/ui/fieldset.d.ts",
       "import": "./dist/ui/fieldset.js"
+    },
+    "./footer": {
+      "types": "./dist/ui/footer.d.ts",
+      "import": "./dist/ui/footer.js"
     },
     "./header": {
       "types": "./dist/ui/header.d.ts",
@@ -55,6 +67,22 @@
       "types": "./dist/ui/label.d.ts",
       "import": "./dist/ui/label.js"
     },
+    "./link": {
+      "types": "./dist/ui/link.d.ts",
+      "import": "./dist/ui/link.js"
+    },
+    "./notification-banner": {
+      "types": "./dist/ui/notification-banner.d.ts",
+      "import": "./dist/ui/notification-banner.js"
+    },
+    "./panel": {
+      "types": "./dist/ui/panel.d.ts",
+      "import": "./dist/ui/panel.js"
+    },
+    "./phase-banner": {
+      "types": "./dist/ui/phase-banner.d.ts",
+      "import": "./dist/ui/phase-banner.js"
+    },
     "./radios": {
       "types": "./dist/ui/radios.d.ts",
       "import": "./dist/ui/radios.js"
@@ -62,6 +90,10 @@
     "./select": {
       "types": "./dist/ui/select.d.ts",
       "import": "./dist/ui/select.js"
+    },
+    "./skip-link": {
+      "types": "./dist/ui/skip-link.d.ts",
+      "import": "./dist/ui/skip-link.js"
     },
     "./tag": {
       "types": "./dist/ui/tag.d.ts",
@@ -74,6 +106,10 @@
     "./textarea": {
       "types": "./dist/ui/textarea.d.ts",
       "import": "./dist/ui/textarea.js"
+    },
+    "./warning-text": {
+      "types": "./dist/ui/warning-text.d.ts",
+      "import": "./dist/ui/warning-text.js"
     }
   },
   "scripts": {

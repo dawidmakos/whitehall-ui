@@ -75,6 +75,10 @@
   --text-govuk-heading-l--line-height: 40px;
   --text-govuk-heading-m: 24px;
   --text-govuk-heading-m--line-height: 25px;
+  --text-govuk-warning-icon: 30px;
+  --text-govuk-warning-icon--line-height: 29px;
+  --text-govuk-phase-banner: 16px;
+  --text-govuk-phase-banner--line-height: 1.25;
 
   /* Border radius */
   --radius-govuk-tag: 1px;
@@ -97,6 +101,12 @@
   /* Border widths – GOV.UK uses non-standard border widths */
   --border-width-govuk-standard: 5px;
   --border-width-govuk-wide: 10px;
+
+  /* Warning Text */
+  --spacing-govuk-warning-icon-size: 35px;
+  --spacing-govuk-warning-text-pl: 45px;
+  --spacing-govuk-warning-icon-mt: -7px;
+  --spacing-govuk-warning-icon-border: 3px;
 
   /* Radios & Checkboxes */
   --spacing-govuk-radio-size: 40px;
@@ -228,6 +238,14 @@
   border: var(--border-width-govuk-standard) solid var(--color-govuk-error);
 }
 
+@utility border-govuk-notification-banner {
+  border: var(--border-width-govuk-standard) solid var(--color-govuk-brand);
+}
+
+@utility border-govuk-notification-banner-success {
+  border: var(--border-width-govuk-standard) solid var(--color-govuk-green);
+}
+
 @utility govuk-link-underline {
   text-underline-offset: 0.1578em;
   text-decoration-thickness: max(1px, 0.0625rem);
@@ -235,4 +253,31 @@
 
 @utility govuk-link-underline-hover {
   text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
+}
+
+@utility govuk-skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    clip-path: none;
+    white-space: normal;
+    z-index: 50;
+    outline: 3px solid var(--color-govuk-yellow);
+    outline-offset: 0;
+    background-color: var(--color-govuk-yellow);
+  }
 }

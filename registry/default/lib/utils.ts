@@ -25,6 +25,8 @@ const twMerge = extendTailwindMerge({
             'govuk-heading-xl',
             'govuk-heading-l',
             'govuk-heading-m',
+            'govuk-warning-icon',
+            'govuk-phase-banner',
           ],
         },
       ],

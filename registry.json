@@ -235,6 +235,45 @@
       ]
     },
     {
+      "name": "back-link",
+      "type": "registry:ui",
+      "title": "Back Link",
+      "description": "Whitehall-UI back link component (based on GOV.UK Design System) for navigating back in multi-page transactions. Supports inverse variant for dark backgrounds.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/back-link.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skip-link",
+      "type": "registry:ui",
+      "title": "Skip Link",
+      "description": "Whitehall-UI skip link component (based on GOV.UK Design System) for keyboard-only users to skip navigation and jump to main content. Visually hidden until focused.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/skip-link.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "panel",
+      "type": "registry:ui",
+      "title": "Panel",
+      "description": "Whitehall-UI panel component (based on GOV.UK Design System) for confirmation pages. Displays a green banner with title and optional reference number.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/panel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "header",
       "type": "registry:ui",
       "title": "Header",
@@ -243,6 +282,59 @@
       "files": [
         {
           "path": "registry/default/ui/header.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "warning-text",
+      "type": "registry:ui",
+      "title": "Warning Text",
+      "description": "Whitehall-UI warning text component (based on GOV.UK Design System) for warning users about important consequences, with an exclamation icon and visually hidden assistive prefix.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/warning-text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "notification-banner",
+      "type": "registry:ui",
+      "title": "Notification Banner",
+      "description": "Whitehall-UI notification banner component (based on GOV.UK Design System) for important messages at the top of a page. Supports default (blue) and success (green) variants.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/notification-banner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "phase-banner",
+      "type": "registry:ui",
+      "title": "Phase Banner",
+      "description": "Whitehall-UI phase banner component (based on GOV.UK Design System) for showing users your service is in alpha or beta phase.",
+      "registryDependencies": ["utils", "govuk-tokens", "tag"],
+      "files": [
+        {
+          "path": "registry/default/ui/phase-banner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "details",
+      "type": "registry:ui",
+      "title": "Details",
+      "description": "Whitehall-UI details component (based on GOV.UK Design System) for letting users reveal more detailed information only if they need it. Built on Base UI Collapsible.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/details.tsx",
           "type": "registry:ui"
         }
       ]

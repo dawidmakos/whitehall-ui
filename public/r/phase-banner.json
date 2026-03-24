@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "phase-banner",
+  "type": "registry:ui",
+  "title": "Phase Banner",
+  "description": "Whitehall-UI phase banner component (based on GOV.UK Design System) for showing users your service is in alpha or beta phase.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "utils",
+    "govuk-tokens",
+    "tag"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/phase-banner.tsx",
+      "type": "registry:ui",
+      "content": "import { cn } from '@/lib/utils';\r\n\r\ninterface PhaseBannerProps extends React.HTMLAttributes<HTMLDivElement> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n}\r\n\r\ninterface PhaseBannerContentProps extends React.HTMLAttributes<HTMLParagraphElement> {\r\n  ref?: React.Ref<HTMLParagraphElement>;\r\n}\r\n\r\ninterface PhaseBannerTagProps extends React.HTMLAttributes<HTMLSpanElement> {\r\n  ref?: React.Ref<HTMLSpanElement>;\r\n}\r\n\r\ninterface PhaseBannerTextProps extends React.HTMLAttributes<HTMLSpanElement> {\r\n  ref?: React.Ref<HTMLSpanElement>;\r\n}\r\n\r\nconst PhaseBanner = ({ className, ref, ...props }: PhaseBannerProps) => (\r\n  <div\r\n    ref={ref}\r\n    className={cn('py-govuk-2 border-b border-govuk-mid-grey', className)}\r\n    {...props}\r\n  />\r\n);\r\n\r\nconst PhaseBannerContent = ({\r\n  className,\r\n  ref,\r\n  ...props\r\n}: PhaseBannerContentProps) => (\r\n  <p\r\n    ref={ref}\r\n    className={cn(\r\n      'table m-0 font-govuk text-govuk-phase-banner text-govuk-black',\r\n      className,\r\n    )}\r\n    {...props}\r\n  />\r\n);\r\n\r\nconst PhaseBannerTag = ({ className, ref, ...props }: PhaseBannerTagProps) => (\r\n  <span\r\n    ref={ref}\r\n    className={cn('mr-govuk-3 sm:mr-govuk-2', className)}\r\n    {...props}\r\n  />\r\n);\r\n\r\nconst PhaseBannerText = ({\r\n  className,\r\n  ref,\r\n  ...props\r\n}: PhaseBannerTextProps) => (\r\n  <span\r\n    ref={ref}\r\n    className={cn('table-cell align-middle', className)}\r\n    {...props}\r\n  />\r\n);\r\n\r\nexport {\r\n  PhaseBanner,\r\n  PhaseBannerContent,\r\n  PhaseBannerTag,\r\n  PhaseBannerText,\r\n  type PhaseBannerProps,\r\n  type PhaseBannerContentProps,\r\n  type PhaseBannerTagProps,\r\n  type PhaseBannerTextProps,\r\n};\r\n"
+    }
+  ]
+}

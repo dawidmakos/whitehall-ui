@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "details",
+  "type": "registry:ui",
+  "title": "Details",
+  "description": "Whitehall-UI details component (based on GOV.UK Design System) for letting users reveal more detailed information only if they need it. Built on Base UI Collapsible.",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "utils",
+    "govuk-tokens"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/details.tsx",
+      "type": "registry:ui",
+      "content": "import { Collapsible } from '@base-ui/react/collapsible';\r\nimport { cn } from '@/lib/utils';\r\n\r\ninterface DetailsProps extends Omit<\r\n  React.ComponentProps<typeof Collapsible.Root>,\r\n  'className'\r\n> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n  className?: string;\r\n}\r\n\r\ninterface DetailsSummaryProps extends Omit<\r\n  React.ComponentProps<typeof Collapsible.Trigger>,\r\n  'className'\r\n> {\r\n  ref?: React.Ref<HTMLButtonElement>;\r\n  className?: string;\r\n}\r\n\r\ninterface DetailsTextProps extends Omit<\r\n  React.ComponentProps<typeof Collapsible.Panel>,\r\n  'className'\r\n> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n  className?: string;\r\n}\r\n\r\nconst Details = ({ className, ref, ...props }: DetailsProps) => (\r\n  <Collapsible.Root\r\n    ref={ref}\r\n    className={cn(\r\n      'mb-govuk-6 font-govuk text-govuk-body text-govuk-black',\r\n      className,\r\n    )}\r\n    {...props}\r\n  />\r\n);\r\n\r\nconst DetailsSummary = ({\r\n  className,\r\n  ref,\r\n  children,\r\n  ...props\r\n}: DetailsSummaryProps) => (\r\n  <Collapsible.Trigger\r\n    ref={ref}\r\n    className={cn(\r\n      'group relative w-fit cursor-pointer',\r\n      'pl-govuk-4 border-none bg-transparent p-0',\r\n      'font-govuk text-govuk-body text-govuk-brand',\r\n      'underline govuk-link-underline',\r\n      'hover:text-govuk-brand-hover hover:govuk-link-underline-hover',\r\n      'focus:govuk-link-focus focus:no-underline',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    <svg\r\n      className='absolute left-0 top-0 bottom-0 my-auto shrink-0 transition-transform group-data-[panel-open]:rotate-90'\r\n      xmlns='http://www.w3.org/2000/svg'\r\n      width='14'\r\n      height='14'\r\n      viewBox='0 0 14 14'\r\n      fill='currentColor'\r\n      aria-hidden='true'\r\n      focusable='false'\r\n    >\r\n      <path d='M3.5 1L10.5 7L3.5 13z' />\r\n    </svg>\r\n    {children}\r\n  </Collapsible.Trigger>\r\n);\r\n\r\nconst DetailsText = ({ className, ref, ...props }: DetailsTextProps) => (\r\n  <Collapsible.Panel\r\n    ref={ref}\r\n    className={cn(\r\n      'pt-govuk-3 pb-govuk-3 pl-govuk-4',\r\n      'border-l-govuk-inset',\r\n      className,\r\n    )}\r\n    {...props}\r\n  />\r\n);\r\n\r\nexport {\r\n  Details,\r\n  DetailsSummary,\r\n  DetailsText,\r\n  type DetailsProps,\r\n  type DetailsSummaryProps,\r\n  type DetailsTextProps,\r\n};\r\n"
+    }
+  ]
+}

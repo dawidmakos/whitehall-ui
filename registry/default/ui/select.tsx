@@ -11,7 +11,7 @@ const selectTriggerVariants = cva(
     'border-2 border-govuk-black',
     'rounded-none',
     'appearance-none',
-    'text-govuk-body leading-[1.25] font-normal font-govuk text-govuk-black',
+    'text-govuk-body leading-tight font-normal font-govuk text-govuk-black',
     'bg-white',
     'inline-flex items-center',
     'cursor-pointer',

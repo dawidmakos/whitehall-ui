@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "warning-text",
+  "type": "registry:ui",
+  "title": "Warning Text",
+  "description": "Whitehall-UI warning text component (based on GOV.UK Design System) for warning users about important consequences, with an exclamation icon and visually hidden assistive prefix.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "utils",
+    "govuk-tokens"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/warning-text.tsx",
+      "type": "registry:ui",
+      "content": "import { cn } from '@/lib/utils';\r\n\r\ninterface WarningTextProps extends React.HTMLAttributes<HTMLDivElement> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n  assistiveText?: string;\r\n}\r\n\r\nconst WarningText = ({\r\n  className,\r\n  ref,\r\n  assistiveText = 'Warning',\r\n  children,\r\n  ...props\r\n}: WarningTextProps) => (\r\n  <div\r\n    ref={ref}\r\n    className={cn(\r\n      'font-govuk text-govuk-body font-bold',\r\n      'relative py-govuk-2 mb-govuk-6',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    <span\r\n      className={cn(\r\n        'box-border absolute left-0',\r\n        'flex items-center justify-center',\r\n        'min-w-govuk-warning-icon-size min-h-govuk-warning-icon-size',\r\n        'mt-govuk-warning-icon-mt',\r\n        'border-govuk-warning-icon-border border-solid border-govuk-black rounded-full',\r\n        'bg-govuk-black text-white',\r\n        'text-3xl',\r\n        'select-none',\r\n      )}\r\n      aria-hidden='true'\r\n    >\r\n      !\r\n    </span>\r\n    <strong className={cn('block pl-govuk-warning-text-pl font-inherit')}>\r\n      <span className='sr-only'>{assistiveText}</span>\r\n      {children}\r\n    </strong>\r\n  </div>\r\n);\r\n\r\nexport { WarningText, type WarningTextProps };\r\n"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "back-link",
+  "type": "registry:ui",
+  "title": "Back Link",
+  "description": "Whitehall-UI back link component (based on GOV.UK Design System) for navigating back in multi-page transactions. Supports inverse variant for dark backgrounds.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "utils",
+    "govuk-tokens"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/back-link.tsx",
+      "type": "registry:ui",
+      "content": "import { cn } from '@/lib/utils';\r\n\r\ninterface BackLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {\r\n  ref?: React.Ref<HTMLAnchorElement>;\r\n  inverse?: boolean;\r\n}\r\n\r\nconst BackLink = ({\r\n  className,\r\n  inverse,\r\n  ref,\r\n  children = 'Back',\r\n  ...props\r\n}: BackLinkProps) => (\r\n  <a\r\n    ref={ref}\r\n    className={cn(\r\n      'font-govuk text-govuk-header leading-tight',\r\n      'inline-flex items-center gap-govuk-1',\r\n      'my-govuk-3',\r\n      'underline govuk-link-underline',\r\n      'hover:govuk-link-underline-hover',\r\n      'focus:govuk-link-focus',\r\n      inverse\r\n        ? [\r\n            'text-white visited:text-white',\r\n            'hover:text-white active:text-white',\r\n          ]\r\n        : [\r\n            'text-govuk-black visited:text-govuk-black',\r\n            'hover:text-govuk-black active:text-govuk-black',\r\n          ],\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    <svg\r\n      className='shrink-0'\r\n      xmlns='http://www.w3.org/2000/svg'\r\n      width='7'\r\n      height='11'\r\n      viewBox='0 0 7 11'\r\n      fill='none'\r\n      aria-hidden='true'\r\n      focusable='false'\r\n    >\r\n      <path d='M6 1L1.5 5.5L6 10' stroke='currentColor' strokeWidth='1.5' />\r\n    </svg>\r\n    {children}\r\n  </a>\r\n);\r\n\r\nexport { BackLink, type BackLinkProps };\r\n"
+    }
+  ]
+}

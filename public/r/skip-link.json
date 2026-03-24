@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skip-link",
+  "type": "registry:ui",
+  "title": "Skip Link",
+  "description": "Whitehall-UI skip link component (based on GOV.UK Design System) for keyboard-only users to skip navigation and jump to main content. Visually hidden until focused.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "utils",
+    "govuk-tokens"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/skip-link.tsx",
+      "type": "registry:ui",
+      "content": "import { cn } from '@/lib/utils';\r\n\r\ninterface SkipLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {\r\n  ref?: React.Ref<HTMLAnchorElement>;\r\n}\r\n\r\nconst SkipLink = ({\r\n  className,\r\n  ref,\r\n  children = 'Skip to main content',\r\n  href = '#main-content',\r\n  ...props\r\n}: SkipLinkProps) => (\r\n  <a\r\n    ref={ref}\r\n    href={href}\r\n    className={cn(\r\n      'govuk-skip-link',\r\n      'font-govuk text-govuk-header leading-tight',\r\n      'block py-govuk-2 px-govuk-3',\r\n      'text-govuk-black no-underline',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </a>\r\n);\r\n\r\nexport { SkipLink, type SkipLinkProps };\r\n"
+    }
+  ]
+}
