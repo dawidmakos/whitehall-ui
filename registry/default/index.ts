@@ -57,6 +57,38 @@ export type {
   HeaderNavLinkProps,
 } from './ui/header';
 
+export {
+  Footer,
+  FooterContainer,
+  FooterNavigation,
+  FooterSection,
+  FooterHeading,
+  FooterList,
+  FooterListItem,
+  FooterLink,
+  FooterSectionBreak,
+  FooterMeta,
+  FooterMetaItem,
+  FooterInlineList,
+  FooterInlineListItem,
+  FooterContentLicence,
+} from './ui/footer';
+export type {
+  FooterProps,
+  FooterContainerProps,
+  FooterNavigationProps,
+  FooterSectionProps,
+  FooterHeadingProps,
+  FooterListProps,
+  FooterListItemProps,
+  FooterLinkProps,
+  FooterMetaProps,
+  FooterMetaItemProps,
+  FooterInlineListProps,
+  FooterInlineListItemProps,
+  FooterContentLicenceProps,
+} from './ui/footer';
+
 export { Hint } from './ui/hint';
 export type { HintProps } from './ui/hint';
 
@@ -65,6 +97,9 @@ export type { InsetTextProps } from './ui/inset-text';
 
 export { Label, LabelWrapper, labelVariants } from './ui/label';
 export type { LabelProps, LabelWrapperProps } from './ui/label';
+
+export { Link, linkVariants } from './ui/link';
+export type { LinkProps, LinkVariant } from './ui/link';
 
 export { Radios, RadiosItem, RadiosHint, RadiosDivider } from './ui/radios';
 export type {

@@ -208,6 +208,33 @@
       ]
     },
     {
+      "name": "footer",
+      "type": "registry:ui",
+      "title": "Footer",
+      "description": "Whitehall-UI footer component. Provides copyright, licensing, secondary navigation and meta links at the bottom of every page.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/footer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "link",
+      "type": "registry:ui",
+      "title": "Link",
+      "description": "Whitehall-UI link component (based on GOV.UK Design System) with default, muted, inverse, no-underline and no-visited-state variants.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/link.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "header",
       "type": "registry:ui",
       "title": "Header",
