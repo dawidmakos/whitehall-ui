@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { cn } from '@/lib/utils';
 
 interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
@@ -142,13 +143,51 @@ const HeaderServiceName = ({
   </a>
 );
 
-const HeaderNav = ({ className, ref, children, ...props }: HeaderNavProps) => (
-  <nav ref={ref} className={cn('ml-auto', className)} {...props}>
-    <ul className='flex items-center gap-govuk-4 list-none m-0 p-0'>
-      {children}
-    </ul>
-  </nav>
-);
+const HeaderNav = ({ className, ref, children, ...props }: HeaderNavProps) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <nav
+      ref={ref}
+      className={cn('ml-auto max-sm:w-full', className)}
+      {...props}
+    >
+      <button
+        type='button'
+        className={cn(
+          'sm:hidden flex items-center gap-govuk-1 ml-auto py-govuk-2',
+          'font-govuk text-govuk-body font-bold',
+          'bg-transparent border-0 text-white cursor-pointer',
+          'hover:underline focus:govuk-link-focus',
+        )}
+        onClick={() => setMenuOpen((prev) => !prev)}
+        aria-expanded={menuOpen}
+        aria-label='Show or hide navigation menu'
+      >
+        Menu
+        <svg
+          viewBox='0 0 10 6'
+          width='10'
+          height='6'
+          fill='currentColor'
+          aria-hidden='true'
+          className={cn('transition-transform', menuOpen && 'rotate-180')}
+        >
+          <path d='M0 0l5 6 5-6z' />
+        </svg>
+      </button>
+      <ul
+        className={cn(
+          'list-none m-0 p-0',
+          'sm:flex sm:flex-wrap sm:items-center sm:gap-x-govuk-4 sm:gap-y-0',
+          menuOpen ? 'max-sm:block' : 'max-sm:hidden',
+        )}
+      >
+        {children}
+      </ul>
+    </nav>
+  );
+};
 
 const HeaderNavItem = ({
   className,

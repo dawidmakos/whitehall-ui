@@ -98,6 +98,38 @@ export const WithServiceNameAndNav: Story = {
   ),
 };
 
+export const ManyLinks: Story = {
+  render: () => (
+    <Header>
+      <HeaderContainer>
+        <HeaderLogo>
+          <HeaderLink href='/'>My Service</HeaderLink>
+        </HeaderLogo>
+        <HeaderNav>
+          <HeaderNavItem active>
+            <HeaderNavLink href='/'>Dashboard</HeaderNavLink>
+          </HeaderNavItem>
+          <HeaderNavItem>
+            <HeaderNavLink href='/reports'>Reports</HeaderNavLink>
+          </HeaderNavItem>
+          <HeaderNavItem>
+            <HeaderNavLink href='/users'>Users</HeaderNavLink>
+          </HeaderNavItem>
+          <HeaderNavItem>
+            <HeaderNavLink href='/settings'>Settings</HeaderNavLink>
+          </HeaderNavItem>
+          <HeaderNavItem>
+            <HeaderNavLink href='/audit'>Audit log</HeaderNavLink>
+          </HeaderNavItem>
+          <HeaderNavItem>
+            <HeaderNavLink href='/help'>Help</HeaderNavLink>
+          </HeaderNavItem>
+        </HeaderNav>
+      </HeaderContainer>
+    </Header>
+  ),
+};
+
 export const FullWidth: Story = {
   render: () => (
     <Header>
