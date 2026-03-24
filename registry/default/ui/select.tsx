@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 const selectTriggerVariants = cva(
   [
     'box-border',
-    'max-w-full',
+    'w-full sm:w-auto max-w-full',
     'h-10',
     'py-1.25 pr-1.25 pl-2',
     'border-2 border-govuk-black',
