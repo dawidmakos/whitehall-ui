@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "link",
+  "type": "registry:ui",
+  "title": "Link",
+  "description": "Whitehall-UI link component (based on GOV.UK Design System) with default, muted, inverse, no-underline and no-visited-state variants.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "utils",
+    "govuk-tokens"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/link.tsx",
+      "type": "registry:ui",
+      "content": "import { cva, type VariantProps } from 'class-variance-authority';\r\nimport { cn } from '@/lib/utils';\r\n\r\nconst linkVariants = cva(\r\n  [\r\n    'font-govuk cursor-pointer',\r\n    'underline govuk-link-underline',\r\n    'hover:govuk-link-underline-hover',\r\n    'focus:govuk-link-focus',\r\n  ],\r\n  {\r\n    variants: {\r\n      variant: {\r\n        default: [\r\n          'text-govuk-brand',\r\n          'hover:text-govuk-brand-hover',\r\n          'visited:text-govuk-visited',\r\n          'active:text-govuk-brand',\r\n        ],\r\n        muted: [\r\n          'text-govuk-dark-grey',\r\n          'hover:text-govuk-dark-grey',\r\n          'visited:text-govuk-dark-grey',\r\n          'active:text-govuk-dark-grey',\r\n        ],\r\n        inverse: [\r\n          'text-white',\r\n          'hover:text-white',\r\n          'visited:text-white',\r\n          'active:text-white',\r\n          'focus:not-focus:bg-transparent',\r\n        ],\r\n      },\r\n      noUnderline: {\r\n        true: 'no-underline hover:underline hover:govuk-link-underline',\r\n      },\r\n      noVisitedState: {\r\n        true: '',\r\n      },\r\n    },\r\n    compoundVariants: [\r\n      {\r\n        variant: 'default',\r\n        noVisitedState: true,\r\n        className: 'visited:text-govuk-brand',\r\n      },\r\n    ],\r\n    defaultVariants: {\r\n      variant: 'default',\r\n    },\r\n  },\r\n);\r\n\r\ntype LinkVariant = NonNullable<VariantProps<typeof linkVariants>['variant']>;\r\n\r\ninterface LinkProps\r\n  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,\r\n    VariantProps<typeof linkVariants> {\r\n  ref?: React.Ref<HTMLAnchorElement>;\r\n}\r\n\r\nconst Link = ({\r\n  className,\r\n  variant,\r\n  noUnderline,\r\n  noVisitedState,\r\n  ref,\r\n  children,\r\n  ...props\r\n}: LinkProps) => (\r\n  <a\r\n    ref={ref}\r\n    className={cn(\r\n      linkVariants({ variant, noUnderline, noVisitedState }),\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </a>\r\n);\r\n\r\nexport { Link, linkVariants, type LinkProps, type LinkVariant };\r\n"
+    }
+  ]
+}
