@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumbs",
+  "type": "registry:ui",
+  "title": "Breadcrumbs",
+  "description": "Whitehall-UI breadcrumbs component (based on GOV.UK Design System) for helping users understand where they are in a website's structure. Supports collapse on mobile and inverse variants.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "utils",
+    "govuk-tokens"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/breadcrumbs.tsx",
+      "type": "registry:ui",
+      "content": "import { cn } from '@/lib/utils';\r\n\r\ninterface BreadcrumbsProps extends React.HTMLAttributes<HTMLElement> {\r\n  ref?: React.Ref<HTMLElement>;\r\n  collapseOnMobile?: boolean;\r\n  inverse?: boolean;\r\n}\r\n\r\ninterface BreadcrumbsListProps extends React.HTMLAttributes<HTMLOListElement> {\r\n  ref?: React.Ref<HTMLOListElement>;\r\n}\r\n\r\ninterface BreadcrumbsListItemProps extends React.HTMLAttributes<HTMLLIElement> {\r\n  ref?: React.Ref<HTMLLIElement>;\r\n}\r\n\r\ninterface BreadcrumbsLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {\r\n  ref?: React.Ref<HTMLAnchorElement>;\r\n}\r\n\r\nconst Breadcrumbs = ({\r\n  className,\r\n  collapseOnMobile,\r\n  inverse,\r\n  ref,\r\n  children,\r\n  ...props\r\n}: BreadcrumbsProps) => (\r\n  <nav\r\n    ref={ref}\r\n    aria-label='Breadcrumb'\r\n    className={cn(\r\n      'font-govuk text-govuk-header',\r\n      'mt-govuk-3 mb-govuk-2',\r\n      inverse ? 'text-white' : 'text-govuk-black',\r\n      collapseOnMobile &&\r\n        '[&_ol]:max-sm:flex [&_li]:max-sm:hidden [&_li:first-child]:max-sm:inline-block [&_li:last-child]:max-sm:inline-block',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </nav>\r\n);\r\n\r\nconst BreadcrumbsList = ({\r\n  className,\r\n  ref,\r\n  children,\r\n  ...props\r\n}: BreadcrumbsListProps) => (\r\n  <ol ref={ref} className={cn('m-0 p-0 list-none', className)} {...props}>\r\n    {children}\r\n  </ol>\r\n);\r\n\r\nconst BreadcrumbsListItem = ({\r\n  className,\r\n  ref,\r\n  children,\r\n  ...props\r\n}: BreadcrumbsListItemProps) => (\r\n  <li\r\n    ref={ref}\r\n    className={cn(\r\n      'inline-block mb-govuk-1',\r\n      'first:ml-0 first:pl-0 first:[&>svg]:hidden',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    <svg\r\n      className='inline-block align-middle mx-govuk-2 -mt-px'\r\n      xmlns='http://www.w3.org/2000/svg'\r\n      width='7'\r\n      height='11'\r\n      viewBox='0 0 7 11'\r\n      fill='none'\r\n      aria-hidden='true'\r\n      focusable='false'\r\n    >\r\n      <path\r\n        d='M1 1L5.5 5.5L1 10'\r\n        stroke='currentColor'\r\n        strokeWidth='1'\r\n        strokeOpacity='0.65'\r\n      />\r\n    </svg>\r\n    {children}\r\n  </li>\r\n);\r\n\r\nconst BreadcrumbsLink = ({\r\n  className,\r\n  ref,\r\n  children,\r\n  ...props\r\n}: BreadcrumbsLinkProps) => (\r\n  <a\r\n    ref={ref}\r\n    className={cn(\r\n      'text-govuk-dark-grey no-underline',\r\n      'hover:text-govuk-black hover:underline hover:govuk-link-underline-hover',\r\n      'focus:govuk-link-focus',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </a>\r\n);\r\n\r\nexport {\r\n  Breadcrumbs,\r\n  BreadcrumbsList,\r\n  BreadcrumbsListItem,\r\n  BreadcrumbsLink,\r\n  type BreadcrumbsProps,\r\n  type BreadcrumbsListProps,\r\n  type BreadcrumbsListItemProps,\r\n  type BreadcrumbsLinkProps,\r\n};\r\n"
+    }
+  ]
+}

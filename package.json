@@ -31,6 +31,10 @@
       "types": "./dist/ui/checkboxes.d.ts",
       "import": "./dist/ui/checkboxes.js"
     },
+    "./breadcrumbs": {
+      "types": "./dist/ui/breadcrumbs.d.ts",
+      "import": "./dist/ui/breadcrumbs.js"
+    },
     "./details": {
       "types": "./dist/ui/details.d.ts",
       "import": "./dist/ui/details.js"

@@ -351,6 +351,19 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "breadcrumbs",
+      "type": "registry:ui",
+      "title": "Breadcrumbs",
+      "description": "Whitehall-UI breadcrumbs component (based on GOV.UK Design System) for helping users understand where they are in a website's structure. Supports collapse on mobile and inverse variants.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/breadcrumbs.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

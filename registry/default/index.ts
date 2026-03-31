@@ -3,6 +3,19 @@ export { cn } from './lib/utils';
 export { BackLink } from './ui/back-link';
 export type { BackLinkProps } from './ui/back-link';
 
+export {
+  Breadcrumbs,
+  BreadcrumbsList,
+  BreadcrumbsListItem,
+  BreadcrumbsLink,
+} from './ui/breadcrumbs';
+export type {
+  BreadcrumbsProps,
+  BreadcrumbsListProps,
+  BreadcrumbsListItemProps,
+  BreadcrumbsLinkProps,
+} from './ui/breadcrumbs';
+
 export { Button, buttonVariants } from './ui/button';
 export type { ButtonProps, ButtonVariant } from './ui/button';
 

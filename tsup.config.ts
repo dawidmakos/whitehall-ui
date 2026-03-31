@@ -5,6 +5,7 @@ export default defineConfig({
     index: 'registry/default/index.ts',
     'lib/utils': 'registry/default/lib/utils.ts',
     'ui/back-link': 'registry/default/ui/back-link.tsx',
+    'ui/breadcrumbs': 'registry/default/ui/breadcrumbs.tsx',
     'ui/button': 'registry/default/ui/button.tsx',
     'ui/checkboxes': 'registry/default/ui/checkboxes.tsx',
     'ui/details': 'registry/default/ui/details.tsx',
