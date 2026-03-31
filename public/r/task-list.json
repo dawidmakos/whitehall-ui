@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "task-list",
+  "type": "registry:ui",
+  "title": "Task List",
+  "description": "Whitehall-UI task list component (based on GOV.UK Design System) for displaying tasks a user needs to complete, with status indicators and clickable rows.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "utils",
+    "govuk-tokens"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/task-list.tsx",
+      "type": "registry:ui",
+      "content": "import { cn } from '@/lib/utils';\r\n\r\ninterface TaskListProps extends React.HTMLAttributes<HTMLUListElement> {\r\n  ref?: React.Ref<HTMLUListElement>;\r\n}\r\n\r\ninterface TaskListItemProps extends React.HTMLAttributes<HTMLLIElement> {\r\n  ref?: React.Ref<HTMLLIElement>;\r\n  hasLink?: boolean;\r\n}\r\n\r\ninterface TaskListNameAndHintProps extends React.HTMLAttributes<HTMLDivElement> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n}\r\n\r\ninterface TaskListLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {\r\n  ref?: React.Ref<HTMLAnchorElement>;\r\n}\r\n\r\ninterface TaskListHintProps extends React.HTMLAttributes<HTMLDivElement> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n}\r\n\r\ninterface TaskListStatusProps extends React.HTMLAttributes<HTMLDivElement> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n  cannotStartYet?: boolean;\r\n}\r\n\r\nconst TaskList = ({ className, ref, children, ...props }: TaskListProps) => (\r\n  <ul\r\n    ref={ref}\r\n    className={cn(\r\n      'font-govuk text-govuk-body text-govuk-black',\r\n      'mt-0 mb-govuk-6 p-0 list-none',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </ul>\r\n);\r\n\r\nconst TaskListItem = ({\r\n  className,\r\n  hasLink,\r\n  ref,\r\n  children,\r\n  ...props\r\n}: TaskListItemProps) => (\r\n  <li\r\n    ref={ref}\r\n    className={cn(\r\n      'table relative w-full mb-0',\r\n      'py-govuk-2',\r\n      'border-b border-govuk-mid-grey',\r\n      'first:border-t first:border-t-govuk-mid-grey',\r\n      hasLink && 'hover:bg-govuk-light-grey',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </li>\r\n);\r\n\r\nconst TaskListNameAndHint = ({\r\n  className,\r\n  ref,\r\n  children,\r\n  ...props\r\n}: TaskListNameAndHintProps) => (\r\n  <div\r\n    ref={ref}\r\n    className={cn('table-cell align-top text-govuk-black', className)}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </div>\r\n);\r\n\r\nconst TaskListLink = ({\r\n  className,\r\n  ref,\r\n  children,\r\n  ...props\r\n}: TaskListLinkProps) => (\r\n  <a\r\n    ref={ref}\r\n    className={cn(\r\n      'text-govuk-brand underline govuk-link-underline',\r\n      'hover:text-govuk-brand-hover hover:govuk-link-underline-hover',\r\n      'focus:govuk-link-focus',\r\n      'after:content-[\"\"] after:block after:absolute after:inset-0',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </a>\r\n);\r\n\r\nconst TaskListHint = ({\r\n  className,\r\n  ref,\r\n  children,\r\n  ...props\r\n}: TaskListHintProps) => (\r\n  <div\r\n    ref={ref}\r\n    className={cn('mt-govuk-1 text-govuk-dark-grey', className)}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </div>\r\n);\r\n\r\nconst TaskListStatus = ({\r\n  className,\r\n  cannotStartYet,\r\n  ref,\r\n  children,\r\n  ...props\r\n}: TaskListStatusProps) => (\r\n  <div\r\n    ref={ref}\r\n    className={cn(\r\n      'table-cell pl-govuk-2 text-right align-top',\r\n      cannotStartYet ? 'text-govuk-dark-grey' : 'text-govuk-black',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </div>\r\n);\r\n\r\nexport {\r\n  TaskList,\r\n  TaskListItem,\r\n  TaskListNameAndHint,\r\n  TaskListLink,\r\n  TaskListHint,\r\n  TaskListStatus,\r\n  type TaskListProps,\r\n  type TaskListItemProps,\r\n  type TaskListNameAndHintProps,\r\n  type TaskListLinkProps,\r\n  type TaskListHintProps,\r\n  type TaskListStatusProps,\r\n};\r\n"
+    }
+  ]
+}

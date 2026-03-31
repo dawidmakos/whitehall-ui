@@ -364,6 +364,19 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "task-list",
+      "type": "registry:ui",
+      "title": "Task List",
+      "description": "Whitehall-UI task list component (based on GOV.UK Design System) for displaying tasks a user needs to complete, with status indicators and clickable rows.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/task-list.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

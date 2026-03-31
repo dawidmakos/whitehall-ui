@@ -199,6 +199,23 @@ export type {
 export { Tag, tagVariants } from './ui/tag';
 export type { TagProps, TagColour } from './ui/tag';
 
+export {
+  TaskList,
+  TaskListItem,
+  TaskListNameAndHint,
+  TaskListLink,
+  TaskListHint,
+  TaskListStatus,
+} from './ui/task-list';
+export type {
+  TaskListProps,
+  TaskListItemProps,
+  TaskListNameAndHintProps,
+  TaskListLinkProps,
+  TaskListHintProps,
+  TaskListStatusProps,
+} from './ui/task-list';
+
 export { TextInput, textInputVariants } from './ui/text-input';
 export type { TextInputProps } from './ui/text-input';
 

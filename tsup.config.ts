@@ -26,6 +26,7 @@ export default defineConfig({
     'ui/skip-link': 'registry/default/ui/skip-link.tsx',
     'ui/summary-list': 'registry/default/ui/summary-list.tsx',
     'ui/tag': 'registry/default/ui/tag.tsx',
+    'ui/task-list': 'registry/default/ui/task-list.tsx',
     'ui/text-input': 'registry/default/ui/text-input.tsx',
     'ui/textarea': 'registry/default/ui/textarea.tsx',
     'ui/warning-text': 'registry/default/ui/warning-text.tsx',

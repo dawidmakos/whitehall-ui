@@ -253,6 +253,8 @@
 
 @utility govuk-link-underline-hover {
   text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
+  text-decoration-skip-ink: none;
+  text-decoration-skip: none;
 }
 
 @utility govuk-skip-link {
