@@ -158,6 +158,31 @@ export type { SelectProps, SelectItemProps } from './ui/select';
 export { SkipLink } from './ui/skip-link';
 export type { SkipLinkProps } from './ui/skip-link';
 
+export {
+  SummaryList,
+  SummaryListRow,
+  SummaryListKey,
+  SummaryListValue,
+  SummaryListActions,
+  SummaryListCard,
+  SummaryListCardHeader,
+  SummaryListCardTitle,
+  SummaryListCardActions,
+  SummaryListCardAction,
+  SummaryListCardContent,
+} from './ui/summary-list';
+export type {
+  SummaryListProps,
+  SummaryListRowProps,
+  SummaryListKeyProps,
+  SummaryListValueProps,
+  SummaryListActionsProps,
+  SummaryListCardProps,
+  SummaryListCardTitleProps,
+  SummaryListCardActionsProps,
+  SummaryListCardActionProps,
+} from './ui/summary-list';
+
 export { Tag, tagVariants } from './ui/tag';
 export type { TagProps, TagColour } from './ui/tag';
 

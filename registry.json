@@ -338,6 +338,19 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "summary-list",
+      "type": "registry:ui",
+      "title": "Summary List",
+      "description": "Whitehall-UI summary list component (based on GOV.UK Design System) for displaying key-value pairs. Includes summary card variant for grouping multiple lists.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/summary-list.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
