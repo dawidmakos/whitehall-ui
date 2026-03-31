@@ -1,5 +1,18 @@
 export { cn } from './lib/utils';
 
+export {
+  Accordion,
+  AccordionSection,
+  AccordionHeading,
+  AccordionContent,
+} from './ui/accordion';
+export type {
+  AccordionProps,
+  AccordionSectionProps,
+  AccordionHeadingProps,
+  AccordionContentProps,
+} from './ui/accordion';
+
 export { BackLink } from './ui/back-link';
 export type { BackLinkProps } from './ui/back-link';
 

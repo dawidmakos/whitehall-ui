@@ -19,6 +19,10 @@
       "types": "./dist/lib/utils.d.ts",
       "import": "./dist/lib/utils.js"
     },
+    "./accordion": {
+      "types": "./dist/ui/accordion.d.ts",
+      "import": "./dist/ui/accordion.js"
+    },
     "./back-link": {
       "types": "./dist/ui/back-link.d.ts",
       "import": "./dist/ui/back-link.js"

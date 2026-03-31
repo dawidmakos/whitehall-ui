@@ -22,6 +22,7 @@ export default defineConfig({
       '@base-ui/react/checkbox-group',
       '@base-ui/react/select',
       '@base-ui/react/tabs',
+      '@base-ui/react/accordion',
     ],
   },
 });

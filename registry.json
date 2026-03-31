@@ -391,6 +391,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Whitehall-UI accordion component (based on GOV.UK Design System) for showing and hiding sections of related content on a page.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

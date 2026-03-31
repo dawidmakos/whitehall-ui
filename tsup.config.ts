@@ -4,6 +4,7 @@ export default defineConfig({
   entry: {
     index: 'registry/default/index.ts',
     'lib/utils': 'registry/default/lib/utils.ts',
+    'ui/accordion': 'registry/default/ui/accordion.tsx',
     'ui/back-link': 'registry/default/ui/back-link.tsx',
     'ui/breadcrumbs': 'registry/default/ui/breadcrumbs.tsx',
     'ui/button': 'registry/default/ui/button.tsx',
