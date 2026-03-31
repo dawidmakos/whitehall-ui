@@ -111,6 +111,10 @@
       "types": "./dist/ui/tabs.d.ts",
       "import": "./dist/ui/tabs.js"
     },
+    "./table": {
+      "types": "./dist/ui/table.d.ts",
+      "import": "./dist/ui/table.js"
+    },
     "./task-list": {
       "types": "./dist/ui/task-list.d.ts",
       "import": "./dist/ui/task-list.js"

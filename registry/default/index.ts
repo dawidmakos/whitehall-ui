@@ -212,6 +212,27 @@ export type {
 export { Tag, tagVariants } from './ui/tag';
 export type { TagProps, TagColour } from './ui/tag';
 
+export {
+  Table,
+  TableCaption,
+  tableCaptionVariants,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableHeader,
+  TableCell,
+} from './ui/table';
+export type {
+  TableProps,
+  TableCaptionProps,
+  TableCaptionSize,
+  TableHeadProps,
+  TableBodyProps,
+  TableRowProps,
+  TableHeaderProps,
+  TableCellProps,
+} from './ui/table';
+
 export { Tabs, TabsList, TabsTab, TabsPanel } from './ui/tabs';
 export type {
   TabsProps,

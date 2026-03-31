@@ -311,3 +311,15 @@
 @utility govuk-accordion-chevron {
   vertical-align: middle;
 }
+
+@utility govuk-table-cell {
+  padding: var(--spacing-govuk-2) var(--spacing-govuk-4) var(--spacing-govuk-2)
+    0;
+  border-bottom: 1px solid var(--color-govuk-mid-grey);
+  text-align: left;
+  vertical-align: top;
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
