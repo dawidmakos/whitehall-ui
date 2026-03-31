@@ -103,6 +103,10 @@
       "types": "./dist/ui/tag.d.ts",
       "import": "./dist/ui/tag.js"
     },
+    "./tabs": {
+      "types": "./dist/ui/tabs.d.ts",
+      "import": "./dist/ui/tabs.js"
+    },
     "./task-list": {
       "types": "./dist/ui/task-list.d.ts",
       "import": "./dist/ui/task-list.js"

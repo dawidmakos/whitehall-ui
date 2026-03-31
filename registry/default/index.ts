@@ -199,6 +199,14 @@ export type {
 export { Tag, tagVariants } from './ui/tag';
 export type { TagProps, TagColour } from './ui/tag';
 
+export { Tabs, TabsList, TabsTab, TabsPanel } from './ui/tabs';
+export type {
+  TabsProps,
+  TabsListProps,
+  TabsTabProps,
+  TabsPanelProps,
+} from './ui/tabs';
+
 export {
   TaskList,
   TaskListItem,

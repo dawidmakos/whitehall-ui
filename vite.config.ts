@@ -21,6 +21,7 @@ export default defineConfig({
       '@base-ui/react/checkbox',
       '@base-ui/react/checkbox-group',
       '@base-ui/react/select',
+      '@base-ui/react/tabs',
     ],
   },
 });

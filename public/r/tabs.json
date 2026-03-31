@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs",
+  "type": "registry:ui",
+  "title": "Tabs",
+  "description": "Whitehall-UI tabs component (based on GOV.UK Design System) for navigating between related sections of content, displaying one section at a time.",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "devDependencies": [],
+  "registryDependencies": [
+    "utils",
+    "govuk-tokens"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/tabs.tsx",
+      "type": "registry:ui",
+      "content": "import { Tabs as BaseUITabs } from '@base-ui/react/tabs';\r\nimport { cn } from '@/lib/utils';\r\n\r\ninterface TabsProps extends Omit<\r\n  React.ComponentProps<typeof BaseUITabs.Root>,\r\n  'className'\r\n> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n  className?: string;\r\n}\r\n\r\ninterface TabsListProps extends Omit<\r\n  React.ComponentProps<typeof BaseUITabs.List>,\r\n  'className'\r\n> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n  className?: string;\r\n}\r\n\r\ninterface TabsTabProps extends Omit<\r\n  React.ComponentProps<typeof BaseUITabs.Tab>,\r\n  'className'\r\n> {\r\n  ref?: React.Ref<HTMLButtonElement>;\r\n  className?: string;\r\n}\r\n\r\ninterface TabsPanelProps extends Omit<\r\n  React.ComponentProps<typeof BaseUITabs.Panel>,\r\n  'className'\r\n> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n  className?: string;\r\n}\r\n\r\nconst Tabs = ({ className, ref, children, ...props }: TabsProps) => (\r\n  <BaseUITabs.Root\r\n    ref={ref}\r\n    className={cn(\r\n      'mt-govuk-1 mb-govuk-6 font-govuk text-govuk-body text-govuk-black',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </BaseUITabs.Root>\r\n);\r\n\r\nconst TabsList = ({ className, ref, children, ...props }: TabsListProps) => (\r\n  <BaseUITabs.List\r\n    ref={ref}\r\n    className={cn('flex m-0 p-0 border-b border-govuk-mid-grey', className)}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </BaseUITabs.List>\r\n);\r\n\r\nconst TabsTab = ({ className, ref, children, ...props }: TabsTabProps) => (\r\n  <BaseUITabs.Tab\r\n    ref={ref}\r\n    className={cn(\r\n      'relative cursor-pointer border-0',\r\n      'mr-govuk-1 py-govuk-2 px-govuk-4',\r\n      'bg-govuk-light-grey text-center',\r\n      'text-govuk-black underline govuk-link-underline',\r\n      'hover:govuk-link-underline-hover',\r\n      'focus-visible:govuk-link-focus focus-visible:no-underline',\r\n      'govuk-tab',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </BaseUITabs.Tab>\r\n);\r\n\r\nconst TabsPanel = ({ className, ref, children, ...props }: TabsPanelProps) => (\r\n  <BaseUITabs.Panel\r\n    ref={ref}\r\n    className={cn(\r\n      'py-govuk-6 px-govuk-4',\r\n      'govuk-tab-panel-border',\r\n      '[&>:last-child]:mb-0',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </BaseUITabs.Panel>\r\n);\r\n\r\nexport { Tabs, TabsList, TabsTab, TabsPanel };\r\nexport type { TabsProps, TabsListProps, TabsTabProps, TabsPanelProps };\r\n"
+    }
+  ]
+}

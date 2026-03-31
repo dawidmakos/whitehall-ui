@@ -377,6 +377,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Whitehall-UI tabs component (based on GOV.UK Design System) for navigating between related sections of content, displaying one section at a time.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
