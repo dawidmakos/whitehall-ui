@@ -8,6 +8,7 @@ export default defineConfig({
     'ui/back-link': 'registry/default/ui/back-link.tsx',
     'ui/breadcrumbs': 'registry/default/ui/breadcrumbs.tsx',
     'ui/button': 'registry/default/ui/button.tsx',
+    'ui/character-count': 'registry/default/ui/character-count.tsx',
     'ui/checkboxes': 'registry/default/ui/checkboxes.tsx',
     'ui/details': 'registry/default/ui/details.tsx',
     'ui/error-message': 'registry/default/ui/error-message.tsx',

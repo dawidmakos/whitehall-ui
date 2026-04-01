@@ -431,6 +431,19 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "character-count",
+      "type": "registry:ui",
+      "title": "Character Count",
+      "description": "Whitehall-UI character count component (based on GOV.UK Design System) that tells users how many characters or words they have remaining.",
+      "registryDependencies": ["utils", "textarea"],
+      "files": [
+        {
+          "path": "registry/default/ui/character-count.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

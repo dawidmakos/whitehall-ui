@@ -31,6 +31,10 @@
       "types": "./dist/ui/button.d.ts",
       "import": "./dist/ui/button.js"
     },
+    "./character-count": {
+      "types": "./dist/ui/character-count.d.ts",
+      "import": "./dist/ui/character-count.js"
+    },
     "./checkboxes": {
       "types": "./dist/ui/checkboxes.d.ts",
       "import": "./dist/ui/checkboxes.js"

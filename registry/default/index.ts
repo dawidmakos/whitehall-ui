@@ -32,6 +32,12 @@ export type {
 export { Button, buttonVariants } from './ui/button';
 export type { ButtonProps, ButtonVariant } from './ui/button';
 
+export { CharacterCount, CharacterCountMessage } from './ui/character-count';
+export type {
+  CharacterCountProps,
+  CharacterCountMessageProps,
+} from './ui/character-count';
+
 export {
   Checkboxes,
   CheckboxesItem,
