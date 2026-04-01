@@ -418,6 +418,19 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Whitehall-UI pagination component (based on GOV.UK Design System) to help users navigate collections of numbered pages.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

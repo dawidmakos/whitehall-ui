@@ -158,6 +158,31 @@ export { Panel, PanelTitle, PanelBody } from './ui/panel';
 export type { PanelProps, PanelTitleProps, PanelBodyProps } from './ui/panel';
 
 export {
+  Pagination,
+  PaginationPrevious,
+  PaginationNext,
+  PaginationList,
+  PaginationItem,
+  PaginationEllipsis,
+  PaginationLink,
+  PaginationLinkTitle,
+  PaginationLinkLabel,
+  PrevArrow,
+  NextArrow,
+} from './ui/pagination';
+export type {
+  PaginationProps,
+  PaginationPreviousProps,
+  PaginationNextProps,
+  PaginationListProps,
+  PaginationItemProps,
+  PaginationEllipsisProps,
+  PaginationLinkProps,
+  PaginationLinkTitleProps,
+  PaginationLinkLabelProps,
+} from './ui/pagination';
+
+export {
   PhaseBanner,
   PhaseBannerContent,
   PhaseBannerTag,

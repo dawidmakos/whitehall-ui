@@ -20,6 +20,7 @@ export default defineConfig({
     'ui/label': 'registry/default/ui/label.tsx',
     'ui/link': 'registry/default/ui/link.tsx',
     'ui/notification-banner': 'registry/default/ui/notification-banner.tsx',
+    'ui/pagination': 'registry/default/ui/pagination.tsx',
     'ui/panel': 'registry/default/ui/panel.tsx',
     'ui/phase-banner': 'registry/default/ui/phase-banner.tsx',
     'ui/radios': 'registry/default/ui/radios.tsx',

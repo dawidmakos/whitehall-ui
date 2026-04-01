@@ -87,6 +87,10 @@
       "types": "./dist/ui/panel.d.ts",
       "import": "./dist/ui/panel.js"
     },
+    "./pagination": {
+      "types": "./dist/ui/pagination.d.ts",
+      "import": "./dist/ui/pagination.js"
+    },
     "./phase-banner": {
       "types": "./dist/ui/phase-banner.d.ts",
       "import": "./dist/ui/phase-banner.js"
