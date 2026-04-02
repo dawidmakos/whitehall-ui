@@ -402,3 +402,17 @@
   margin-left: calc(var(--spacing-govuk-6) * -1);
   float: left;
 }
+
+@utility govuk-date-input {
+  font-size: 0;
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@utility govuk-date-input-field {
+  margin-bottom: 0;
+}

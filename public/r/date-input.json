@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-input",
+  "type": "registry:ui",
+  "title": "Date Input",
+  "description": "Whitehall-UI date input component (based on GOV.UK Design System) with separate day, month and year fields.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "utils",
+    "govuk-tokens"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/date-input.tsx",
+      "type": "registry:ui",
+      "content": "import { cn } from '@/lib/utils';\r\n\r\ninterface DateInputProps extends React.ComponentPropsWithoutRef<'div'> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n}\r\n\r\ninterface DateInputItemProps extends React.ComponentPropsWithoutRef<'div'> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n}\r\n\r\ninterface DateInputLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {\r\n  ref?: React.Ref<HTMLLabelElement>;\r\n}\r\n\r\ninterface DateInputInputProps extends React.InputHTMLAttributes<HTMLInputElement> {\r\n  ref?: React.Ref<HTMLInputElement>;\r\n  error?: boolean;\r\n}\r\n\r\nconst DateInput = ({ className, children, ref, ...props }: DateInputProps) => (\r\n  <div ref={ref} className={cn('govuk-date-input', className)} {...props}>\r\n    {children}\r\n  </div>\r\n);\r\n\r\nconst DateInputItem = ({\r\n  className,\r\n  children,\r\n  ref,\r\n  ...props\r\n}: DateInputItemProps) => (\r\n  <div\r\n    ref={ref}\r\n    className={cn('inline-block mr-govuk-4 mb-0 align-bottom', className)}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </div>\r\n);\r\n\r\nconst DateInputLabel = ({\r\n  className,\r\n  children,\r\n  htmlFor,\r\n  ref,\r\n  ...props\r\n}: DateInputLabelProps) => (\r\n  <label\r\n    ref={ref}\r\n    htmlFor={htmlFor}\r\n    className={cn(\r\n      'block font-govuk text-govuk-body text-govuk-black',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </label>\r\n);\r\n\r\nconst DateInputInput = ({\r\n  className,\r\n  error = false,\r\n  ref,\r\n  ...props\r\n}: DateInputInputProps) => (\r\n  <input\r\n    ref={ref}\r\n    type='text'\r\n    inputMode='numeric'\r\n    className={cn(\r\n      'govuk-date-input-field box-border',\r\n      'p-govuk-1 h-10',\r\n      'border-2 border-govuk-black',\r\n      'rounded-none appearance-none',\r\n      'text-govuk-body font-normal font-govuk',\r\n      'focus:outline-3 focus:outline-govuk-yellow focus:outline-offset-0',\r\n      'focus:inset-ring-2 focus:inset-ring-govuk-black',\r\n      error && 'border-govuk-error focus:border-govuk-black',\r\n      className,\r\n    )}\r\n    {...props}\r\n  />\r\n);\r\n\r\nexport { DateInput, DateInputItem, DateInputLabel, DateInputInput };\r\n\r\nexport type {\r\n  DateInputProps,\r\n  DateInputItemProps,\r\n  DateInputLabelProps,\r\n  DateInputInputProps,\r\n};\r\n"
+    }
+  ]
+}

@@ -39,6 +39,10 @@
       "types": "./dist/ui/checkboxes.d.ts",
       "import": "./dist/ui/checkboxes.js"
     },
+    "./date-input": {
+      "types": "./dist/ui/date-input.d.ts",
+      "import": "./dist/ui/date-input.js"
+    },
     "./breadcrumbs": {
       "types": "./dist/ui/breadcrumbs.d.ts",
       "import": "./dist/ui/breadcrumbs.js"

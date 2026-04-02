@@ -444,6 +444,19 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "date-input",
+      "type": "registry:ui",
+      "title": "Date Input",
+      "description": "Whitehall-UI date input component (based on GOV.UK Design System) with separate day, month and year fields.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/date-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

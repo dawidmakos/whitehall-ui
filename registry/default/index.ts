@@ -56,6 +56,19 @@ export type {
 export { ErrorMessage } from './ui/error-message';
 export type { ErrorMessageProps } from './ui/error-message';
 
+export {
+  DateInput,
+  DateInputItem,
+  DateInputLabel,
+  DateInputInput,
+} from './ui/date-input';
+export type {
+  DateInputProps,
+  DateInputItemProps,
+  DateInputLabelProps,
+  DateInputInputProps,
+} from './ui/date-input';
+
 export { Details, DetailsSummary, DetailsText } from './ui/details';
 export type {
   DetailsProps,
