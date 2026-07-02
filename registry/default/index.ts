@@ -128,6 +128,19 @@ export type {
 } from './ui/header';
 
 export {
+  GenericHeader,
+  GenericHeaderContainer,
+  GenericHeaderLogo,
+  GenericHeaderLink,
+} from './ui/generic-header';
+export type {
+  GenericHeaderProps,
+  GenericHeaderContainerProps,
+  GenericHeaderLogoProps,
+  GenericHeaderLinkProps,
+} from './ui/generic-header';
+
+export {
   Footer,
   FooterContainer,
   FooterNavigation,

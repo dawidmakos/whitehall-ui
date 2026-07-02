@@ -313,6 +313,19 @@
       ]
     },
     {
+      "name": "generic-header",
+      "type": "registry:ui",
+      "title": "Generic Header",
+      "description": "Whitehall-UI generic header component (based on GOV.UK Design System) for government services not on the GOV.UK website. Shows a custom brand logo and homepage link without the crown or GOV.UK branding.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/generic-header.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "warning-text",
       "type": "registry:ui",
       "title": "Warning Text",

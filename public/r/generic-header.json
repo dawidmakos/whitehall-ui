@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "generic-header",
+  "type": "registry:ui",
+  "title": "Generic Header",
+  "description": "Whitehall-UI generic header component (based on GOV.UK Design System) for government services not on the GOV.UK website. Shows a custom brand logo and homepage link without the crown or GOV.UK branding.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [
+    "utils",
+    "govuk-tokens"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/generic-header.tsx",
+      "type": "registry:ui",
+      "content": "import { cn } from '@/lib/utils';\r\n\r\ninterface GenericHeaderProps extends React.HTMLAttributes<HTMLElement> {\r\n  ref?: React.Ref<HTMLElement>;\r\n  fullWidth?: boolean;\r\n}\r\n\r\ninterface GenericHeaderContainerProps extends React.HTMLAttributes<HTMLDivElement> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n  fullWidth?: boolean;\r\n}\r\n\r\ninterface GenericHeaderLogoProps extends React.HTMLAttributes<HTMLDivElement> {\r\n  ref?: React.Ref<HTMLDivElement>;\r\n}\r\n\r\ninterface GenericHeaderLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {\r\n  ref?: React.Ref<HTMLAnchorElement>;\r\n}\r\n\r\nconst GenericHeader = ({\r\n  className,\r\n  fullWidth,\r\n  ref,\r\n  children,\r\n  ...props\r\n}: GenericHeaderProps) => (\r\n  <header\r\n    ref={ref}\r\n    className={cn(\r\n      'font-govuk text-govuk-header',\r\n      'border-b border-b-transparent',\r\n      'text-white bg-govuk-black',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {children ?? (\r\n      <GenericHeaderContainer fullWidth={fullWidth}>\r\n        <GenericHeaderLogo />\r\n      </GenericHeaderContainer>\r\n    )}\r\n  </header>\r\n);\r\n\r\nconst GenericHeaderContainer = ({\r\n  className,\r\n  fullWidth,\r\n  ref,\r\n  children,\r\n  ...props\r\n}: GenericHeaderContainerProps) => (\r\n  <div\r\n    ref={ref}\r\n    className={cn(\r\n      fullWidth ? 'px-govuk-3' : 'max-w-240 mx-auto px-govuk-3',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </div>\r\n);\r\n\r\nconst GenericHeaderLogo = ({\r\n  className,\r\n  ref,\r\n  children,\r\n  ...props\r\n}: GenericHeaderLogoProps) => (\r\n  <div ref={ref} className={cn('flex py-govuk-3', className)} {...props}>\r\n    {children}\r\n  </div>\r\n);\r\n\r\nconst GenericHeaderLink = ({\r\n  className,\r\n  ref,\r\n  children,\r\n  ...props\r\n}: GenericHeaderLinkProps) => (\r\n  <a\r\n    ref={ref}\r\n    className={cn(\r\n      'inline-flex items-center gap-govuk-1',\r\n      'text-govuk-header-link',\r\n      'text-white no-underline',\r\n      'visited:text-white active:text-white',\r\n      'hover:underline hover:govuk-link-underline hover:govuk-link-underline-hover',\r\n      'focus:govuk-link-focus',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {children}\r\n  </a>\r\n);\r\n\r\nexport {\r\n  GenericHeader,\r\n  GenericHeaderContainer,\r\n  GenericHeaderLogo,\r\n  GenericHeaderLink,\r\n  type GenericHeaderProps,\r\n  type GenericHeaderContainerProps,\r\n  type GenericHeaderLogoProps,\r\n  type GenericHeaderLinkProps,\r\n};\r\n"
+    }
+  ]
+}

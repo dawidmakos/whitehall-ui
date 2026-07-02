@@ -17,6 +17,7 @@ export default defineConfig({
     'ui/error-summary': 'registry/default/ui/error-summary.tsx',
     'ui/fieldset': 'registry/default/ui/fieldset.tsx',
     'ui/footer': 'registry/default/ui/footer.tsx',
+    'ui/generic-header': 'registry/default/ui/generic-header.tsx',
     'ui/header': 'registry/default/ui/header.tsx',
     'ui/hint': 'registry/default/ui/hint.tsx',
     'ui/inset-text': 'registry/default/ui/inset-text.tsx',

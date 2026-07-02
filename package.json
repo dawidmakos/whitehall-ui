@@ -75,6 +75,10 @@
       "types": "./dist/ui/header.d.ts",
       "import": "./dist/ui/header.js"
     },
+    "./generic-header": {
+      "types": "./dist/ui/generic-header.d.ts",
+      "import": "./dist/ui/generic-header.js"
+    },
     "./hint": {
       "types": "./dist/ui/hint.d.ts",
       "import": "./dist/ui/hint.js"
