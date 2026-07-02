@@ -1,73 +1,108 @@
-# React + TypeScript + Vite
+# Whitehall-UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GOV.UK Design System component library for **React 19** + **Tailwind CSS 4**.
 
-Currently, two official plugins are available:
+Distributed two ways:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **npm package** — install `whitehall-ui` and import components.
+- **shadcn registry** — copy component source straight into your project with the shadcn CLI.
 
-## React Compiler
+**Live Storybook & full component list:** https://dawidmakos.github.io/whitehall-ui/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Requirements
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+These are peer dependencies — install them in your app:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm install react@^19 react-dom@^19 tailwindcss@^4 @base-ui/react
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+## Option A — npm package
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+### 1. Install
+
+```bash
+npm install whitehall-ui
 ```
+
+### 2. Load the theme tokens
+
+Import the GOV.UK design tokens in your CSS entry point, **after** Tailwind:
+
+```css
+@import 'tailwindcss';
+@import 'whitehall-ui/tokens.css';
+```
+
+### 3. Use a component
+
+Import from the package root:
+
+```tsx
+import { Button, TextInput, Label } from 'whitehall-ui';
+
+export function Example() {
+  return (
+    <form>
+      <Label htmlFor='name'>Full name</Label>
+      <TextInput id='name' name='name' />
+      <Button>Continue</Button>
+    </form>
+  );
+}
+```
+
+Per-component subpath imports also work (better tree-shaking):
+
+```tsx
+import { Button } from 'whitehall-ui/button';
+```
+
+---
+
+## Option B — shadcn registry
+
+Copy the component source into your own codebase (fully editable, no runtime dependency on the package).
+
+### 1. Add the theme tokens (once)
+
+```bash
+npx shadcn@latest add https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json
+```
+
+### 2. Add components
+
+```bash
+npx shadcn@latest add https://dawidmakos.github.io/whitehall-ui/r/button.json
+npx shadcn@latest add https://dawidmakos.github.io/whitehall-ui/r/text-input.json
+```
+
+Swap `button` / `text-input` for any component name below. The CLI resolves each component's dependencies (e.g. the `cn` util) automatically.
+
+### 3. Use it
+
+```tsx
+import { Button } from '@/components/ui/button';
+
+export function Example() {
+  return <Button>Continue</Button>;
+}
+```
+
+---
+
+## Available components
+
+`accordion` · `back-link` · `breadcrumbs` · `button` · `character-count` · `checkboxes` · `cookie-banner` · `date-input` · `details` · `error-message` · `error-summary` · `exit-this-page` · `fieldset` · `file-upload` · `footer` · `generic-header` · `header` · `hint` · `inset-text` · `label` · `link` · `notification-banner` · `pagination` · `panel` · `password-input` · `phase-banner` · `radios` · `select` · `service-navigation` · `skip-link` · `summary-list` · `table` · `tabs` · `tag` · `task-list` · `text-input` · `textarea` · `warning-text`
+
+See the [Storybook](https://dawidmakos.github.io/whitehall-ui/) for props and live examples.
+
+---
+
+## License
+
+MIT
