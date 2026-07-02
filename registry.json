@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "whitehall-ui",
-  "homepage": "https://github.com/user/whitehall-ui",
+  "homepage": "https://dawidmakos.github.io/whitehall-ui/",
   "items": [
     {
       "name": "utils",

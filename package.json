@@ -1,10 +1,38 @@
 {
   "name": "whitehall-ui",
-  "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
+  "description": "GOV.UK Design System component library for React 19 + Tailwind CSS 4. Available as an npm package and a shadcn-compatible registry.",
+  "license": "MIT",
+  "author": "dawidmakos",
+  "homepage": "https://dawidmakos.github.io/whitehall-ui/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dawidmakos/whitehall-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dawidmakos/whitehall-ui/issues"
+  },
+  "keywords": [
+    "govuk",
+    "gov.uk",
+    "design-system",
+    "react",
+    "tailwindcss",
+    "shadcn",
+    "components",
+    "ui"
+  ],
   "sideEffects": [
     "**/*.css"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "registry/default/theme/govuk-tokens.css",
+    "README.md"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -181,7 +209,14 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "registry:build": "node scripts/build-registry.mjs",
+    "prepublishOnly": "npm run build:lib",
     "test": "vitest --project=storybook"
+  },
+  "peerDependencies": {
+    "@base-ui/react": "^1.6.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0"
   },
   "peerDependenciesMeta": {
     "@base-ui/react": {
@@ -189,19 +224,16 @@
     }
   },
   "dependencies": {
-    "@base-ui/react": "^1.6.0",
-    "@tailwindcss/vite": "^4.3.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.575.0",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
-    "tailwind-merge": "^3.6.0",
-    "tailwindcss": "^4.2.1"
+    "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
+    "@base-ui/react": "^1.6.0",
     "@chromatic-com/storybook": "^5.2.1",
     "@eslint/js": "^9.39.1",
+    "@tailwindcss/vite": "^4.3.2",
     "@storybook/addon-a11y": "^10.4.6",
     "@storybook/addon-docs": "^10.4.6",
     "@storybook/addon-vitest": "^10.4.6",
@@ -218,7 +250,10 @@
     "eslint-plugin-storybook": "^10.4.6",
     "globals": "^16.5.0",
     "playwright": "^1.61.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "storybook": "^10.4.6",
+    "tailwindcss": "^4.2.1",
     "tsup": "^8.5.1",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.62.1",
