@@ -67,6 +67,10 @@
       "types": "./dist/ui/fieldset.d.ts",
       "import": "./dist/ui/fieldset.js"
     },
+    "./file-upload": {
+      "types": "./dist/ui/file-upload.d.ts",
+      "import": "./dist/ui/file-upload.js"
+    },
     "./footer": {
       "types": "./dist/ui/footer.d.ts",
       "import": "./dist/ui/footer.js"

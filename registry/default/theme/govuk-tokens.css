@@ -98,6 +98,13 @@
   --spacing-govuk-button-bottom: 18px;
   --spacing-govuk-button-press: 2px;
 
+  /* File upload (improved / JS-enhanced) */
+  --spacing-govuk-file-upload: 18px;
+  --spacing-govuk-file-upload-lg: 23px;
+  --spacing-govuk-file-upload-pseudo-mb: 3px;
+  --spacing-govuk-file-upload-instruction-mt: 7px;
+  --color-govuk-file-upload-hover-border: #6f777b;
+
   /* Border widths – GOV.UK uses non-standard border widths */
   --border-width-govuk-standard: 5px;
   --border-width-govuk-wide: 10px;

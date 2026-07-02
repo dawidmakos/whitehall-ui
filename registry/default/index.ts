@@ -106,6 +106,9 @@ export type {
   FieldsetHeadingProps,
 } from './ui/fieldset';
 
+export { FileUpload } from './ui/file-upload';
+export type { FileUploadProps } from './ui/file-upload';
+
 export {
   Header,
   HeaderContainer,

@@ -168,6 +168,20 @@
       ]
     },
     {
+      "name": "file-upload",
+      "type": "registry:ui",
+      "title": "File Upload",
+      "description": "Whitehall-UI file upload component (based on the improved GOV.UK Design System File upload, Frontend 5.9.0). A styled button with a chosen-file status and drag-and-drop support over a hidden native file input.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/file-upload.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "label",
       "type": "registry:ui",
       "title": "Label",

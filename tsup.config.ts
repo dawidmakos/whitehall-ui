@@ -16,6 +16,7 @@ export default defineConfig({
     'ui/error-message': 'registry/default/ui/error-message.tsx',
     'ui/error-summary': 'registry/default/ui/error-summary.tsx',
     'ui/fieldset': 'registry/default/ui/fieldset.tsx',
+    'ui/file-upload': 'registry/default/ui/file-upload.tsx',
     'ui/footer': 'registry/default/ui/footer.tsx',
     'ui/generic-header': 'registry/default/ui/generic-header.tsx',
     'ui/header': 'registry/default/ui/header.tsx',
