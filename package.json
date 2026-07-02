@@ -115,6 +115,10 @@
       "types": "./dist/ui/select.d.ts",
       "import": "./dist/ui/select.js"
     },
+    "./service-navigation": {
+      "types": "./dist/ui/service-navigation.d.ts",
+      "import": "./dist/ui/service-navigation.js"
+    },
     "./skip-link": {
       "types": "./dist/ui/skip-link.d.ts",
       "import": "./dist/ui/skip-link.js"

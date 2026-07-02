@@ -28,6 +28,7 @@ export default defineConfig({
     'ui/phase-banner': 'registry/default/ui/phase-banner.tsx',
     'ui/radios': 'registry/default/ui/radios.tsx',
     'ui/select': 'registry/default/ui/select.tsx',
+    'ui/service-navigation': 'registry/default/ui/service-navigation.tsx',
     'ui/skip-link': 'registry/default/ui/skip-link.tsx',
     'ui/summary-list': 'registry/default/ui/summary-list.tsx',
     'ui/tag': 'registry/default/ui/tag.tsx',

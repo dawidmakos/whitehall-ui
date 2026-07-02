@@ -240,6 +240,23 @@ export type {
 export { Select, SelectItem, selectTriggerVariants } from './ui/select';
 export type { SelectProps, SelectItemProps } from './ui/select';
 
+export {
+  ServiceNavigation,
+  ServiceNavigationContainer,
+  ServiceNavigationServiceName,
+  ServiceNavigationNav,
+  ServiceNavigationItem,
+  ServiceNavigationLink,
+} from './ui/service-navigation';
+export type {
+  ServiceNavigationProps,
+  ServiceNavigationContainerProps,
+  ServiceNavigationServiceNameProps,
+  ServiceNavigationNavProps,
+  ServiceNavigationItemProps,
+  ServiceNavigationLinkProps,
+} from './ui/service-navigation';
+
 export { SkipLink } from './ui/skip-link';
 export type { SkipLinkProps } from './ui/skip-link';
 

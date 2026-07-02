@@ -141,6 +141,19 @@
       ]
     },
     {
+      "name": "service-navigation",
+      "type": "registry:ui",
+      "title": "Service Navigation",
+      "description": "Whitehall-UI service navigation component (based on GOV.UK Design System) that shows the service name and lets users navigate around the service, with a collapsible menu on mobile.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/service-navigation.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "fieldset",
       "type": "registry:ui",
       "title": "Fieldset",
