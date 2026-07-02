@@ -10,6 +10,7 @@ export default defineConfig({
     'ui/button': 'registry/default/ui/button.tsx',
     'ui/character-count': 'registry/default/ui/character-count.tsx',
     'ui/checkboxes': 'registry/default/ui/checkboxes.tsx',
+    'ui/cookie-banner': 'registry/default/ui/cookie-banner.tsx',
     'ui/date-input': 'registry/default/ui/date-input.tsx',
     'ui/details': 'registry/default/ui/details.tsx',
     'ui/error-message': 'registry/default/ui/error-message.tsx',

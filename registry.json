@@ -313,6 +313,19 @@
       ]
     },
     {
+      "name": "cookie-banner",
+      "type": "registry:ui",
+      "title": "Cookie Banner",
+      "description": "Whitehall-UI cookie banner component (based on GOV.UK Design System) that lets users accept or reject non-essential cookies. Presentational and composable, with message, confirmation and action sub-components.",
+      "registryDependencies": ["utils", "govuk-tokens", "button", "link"],
+      "files": [
+        {
+          "path": "registry/default/ui/cookie-banner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "phase-banner",
       "type": "registry:ui",
       "title": "Phase Banner",

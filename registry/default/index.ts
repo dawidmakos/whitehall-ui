@@ -39,6 +39,21 @@ export type {
 } from './ui/character-count';
 
 export {
+  CookieBanner,
+  CookieBannerMessage,
+  CookieBannerContent,
+  CookieBannerHeading,
+  CookieBannerActions,
+} from './ui/cookie-banner';
+export type {
+  CookieBannerProps,
+  CookieBannerMessageProps,
+  CookieBannerContentProps,
+  CookieBannerHeadingProps,
+  CookieBannerActionsProps,
+} from './ui/cookie-banner';
+
+export {
   Checkboxes,
   CheckboxesItem,
   CheckboxesHint,

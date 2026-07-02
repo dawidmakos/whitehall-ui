@@ -39,6 +39,10 @@
       "types": "./dist/ui/checkboxes.d.ts",
       "import": "./dist/ui/checkboxes.js"
     },
+    "./cookie-banner": {
+      "types": "./dist/ui/cookie-banner.d.ts",
+      "import": "./dist/ui/cookie-banner.js"
+    },
     "./date-input": {
       "types": "./dist/ui/date-input.d.ts",
       "import": "./dist/ui/date-input.js"
