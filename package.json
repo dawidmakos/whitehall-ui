@@ -99,6 +99,10 @@
       "types": "./dist/ui/panel.d.ts",
       "import": "./dist/ui/panel.js"
     },
+    "./password-input": {
+      "types": "./dist/ui/password-input.d.ts",
+      "import": "./dist/ui/password-input.js"
+    },
     "./pagination": {
       "types": "./dist/ui/pagination.d.ts",
       "import": "./dist/ui/pagination.js"

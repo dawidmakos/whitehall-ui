@@ -191,6 +191,9 @@ export type {
 export { Panel, PanelTitle, PanelBody } from './ui/panel';
 export type { PanelProps, PanelTitleProps, PanelBodyProps } from './ui/panel';
 
+export { PasswordInput } from './ui/password-input';
+export type { PasswordInputProps } from './ui/password-input';
+
 export {
   Pagination,
   PaginationPrevious,

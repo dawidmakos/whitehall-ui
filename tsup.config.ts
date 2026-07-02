@@ -25,6 +25,7 @@ export default defineConfig({
     'ui/notification-banner': 'registry/default/ui/notification-banner.tsx',
     'ui/pagination': 'registry/default/ui/pagination.tsx',
     'ui/panel': 'registry/default/ui/panel.tsx',
+    'ui/password-input': 'registry/default/ui/password-input.tsx',
     'ui/phase-banner': 'registry/default/ui/phase-banner.tsx',
     'ui/radios': 'registry/default/ui/radios.tsx',
     'ui/select': 'registry/default/ui/select.tsx',

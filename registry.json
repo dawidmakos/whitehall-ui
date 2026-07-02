@@ -287,6 +287,19 @@
       ]
     },
     {
+      "name": "password-input",
+      "type": "registry:ui",
+      "title": "Password Input",
+      "description": "Whitehall-UI password input component (based on GOV.UK Design System) with a button to show or hide the password. Reuses the text input and button components.",
+      "registryDependencies": ["utils", "govuk-tokens", "text-input", "button"],
+      "files": [
+        {
+          "path": "registry/default/ui/password-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "header",
       "type": "registry:ui",
       "title": "Header",
