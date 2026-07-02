@@ -105,6 +105,15 @@
   --spacing-govuk-file-upload-instruction-mt: 7px;
   --color-govuk-file-upload-hover-border: #6f777b;
 
+  /* Exit this page */
+  --z-index-govuk-exit-page: 1000;
+  --z-index-govuk-exit-page-overlay: 9999;
+  --spacing-govuk-exit-page-dot: 0.75em;
+  --spacing-govuk-exit-page-dot-gap: 0.125em;
+  --border-width-govuk-exit-page-dot: 0.375em;
+  --color-govuk-canvas: Canvas;
+  --color-govuk-canvas-text: CanvasText;
+
   /* Border widths – GOV.UK uses non-standard border widths */
   --border-width-govuk-standard: 5px;
   --border-width-govuk-wide: 10px;

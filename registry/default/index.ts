@@ -94,6 +94,9 @@ export type {
 export { ErrorSummary } from './ui/error-summary';
 export type { ErrorSummaryProps, ErrorSummaryItem } from './ui/error-summary';
 
+export { ExitThisPage } from './ui/exit-this-page';
+export type { ExitThisPageProps } from './ui/exit-this-page';
+
 export {
   Fieldset,
   FieldsetLegend,

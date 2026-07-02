@@ -63,6 +63,10 @@
       "types": "./dist/ui/error-summary.d.ts",
       "import": "./dist/ui/error-summary.js"
     },
+    "./exit-this-page": {
+      "types": "./dist/ui/exit-this-page.d.ts",
+      "import": "./dist/ui/exit-this-page.js"
+    },
     "./fieldset": {
       "types": "./dist/ui/fieldset.d.ts",
       "import": "./dist/ui/fieldset.js"

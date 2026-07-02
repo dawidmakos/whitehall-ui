@@ -235,6 +235,20 @@
       ]
     },
     {
+      "name": "exit-this-page",
+      "type": "registry:ui",
+      "title": "Exit This Page",
+      "description": "Whitehall-UI exit this page component (based on GOV.UK Design System). A sticky warning button that quickly redirects users to a safe page, also triggered by pressing Shift three times, with screen-reader announcements and a full-screen overlay on activation.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["utils", "govuk-tokens", "button"],
+      "files": [
+        {
+          "path": "registry/default/ui/exit-this-page.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "footer",
       "type": "registry:ui",
       "title": "Footer",
