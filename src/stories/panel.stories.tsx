@@ -51,3 +51,27 @@ export const WithLongReference: Story = {
     </Panel>
   ),
 };
+
+export const Mobile: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Pinned to a 320px viewport. The heading drops from 48px to 32px via the responsive type scale, and an unbroken reference number wraps inside the panel rather than overflowing it.',
+      },
+    },
+  },
+  globals: {
+    viewport: { value: 'govukMobileSmall' },
+  },
+  render: () => (
+    <Panel>
+      <PanelTitle>Application complete</PanelTitle>
+      <PanelBody>
+        Your reference number
+        <br />
+        <strong>HDJ2123F0000111122223333444455556666</strong>
+      </PanelBody>
+    </Panel>
+  ),
+};

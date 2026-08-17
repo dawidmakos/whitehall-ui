@@ -312,6 +312,7 @@ export type { TagProps, TagColour } from './ui/tag';
 
 export {
   Table,
+  TableContainer,
   TableCaption,
   tableCaptionVariants,
   TableHead,
@@ -322,6 +323,7 @@ export {
 } from './ui/table';
 export type {
   TableProps,
+  TableContainerProps,
   TableCaptionProps,
   TableCaptionSize,
   TableHeadProps,

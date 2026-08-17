@@ -1,0 +1,182 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/ui/table';
+
+<Meta title='Introduction' />
+
+# Whitehall-UI
+
+GOV.UK Design System component library for **React 19** and **Tailwind CSS 4**.
+
+Every component is built from GOV.UK design tokens, ships with keyboard and screen reader
+support, and can be dropped into a service either as an npm dependency or as source you own
+outright.
+
+See the
+[Apply for a fishing licence](?path=/story/examples-apply-for-a-fishing-licence--service)
+example for a complete, working service journey built entirely from these components — task
+list, form validation, check your answers and confirmation.
+
+---
+
+## Requirements
+
+These are peer dependencies — install them in your app:
+
+```bash
+npm install react@^19 react-dom@^19 tailwindcss@^4 @base-ui/react
+```
+
+---
+
+## Option A — npm package
+
+Install the package:
+
+```bash
+npm install whitehall-ui
+```
+
+Import the design tokens in your CSS entry point, **after** Tailwind:
+
+```css
+@import 'tailwindcss';
+@import 'whitehall-ui/tokens.css';
+```
+
+Then import components from the package root:
+
+```tsx
+import { Button, TextInput, Label } from 'whitehall-ui';
+
+export function Example() {
+  return (
+    <form>
+      <Label htmlFor='name'>Full name</Label>
+      <TextInput id='name' name='name' />
+      <Button>Continue</Button>
+    </form>
+  );
+}
+```
+
+Per-component subpath imports also work, and tree-shake better:
+
+```tsx
+import { Button } from 'whitehall-ui/button';
+```
+
+---
+
+## Option B — shadcn registry
+
+Copy the component source straight into your codebase. Fully editable, with no runtime
+dependency on the package.
+
+Add the theme tokens once:
+
+```bash
+npx shadcn@latest add https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json
+```
+
+Then add components as you need them. The CLI resolves each component's dependencies —
+including the `cn` utility — automatically:
+
+```bash
+npx shadcn@latest add https://dawidmakos.github.io/whitehall-ui/r/button.json
+npx shadcn@latest add https://dawidmakos.github.io/whitehall-ui/r/text-input.json
+```
+
+They land in your project and you import them like any other local component:
+
+```tsx
+import { Button } from '@/components/ui/button';
+```
+
+---
+
+## How it fits together
+
+Interactive components — accordion, checkboxes, radios, select, tabs and others — wrap
+[Base UI](https://base-ui.com) headless primitives for their behaviour and accessibility,
+then apply GOV.UK styling on top. Base UI is an optional peer dependency: components that
+do not need it work without it installed.
+
+Styling comes entirely from design tokens defined as Tailwind 4 `@theme` variables, so
+`bg-govuk-green`, `text-govuk-heading-l` and `mb-govuk-4` are real utility classes you can
+use in your own markup alongside the components.
+
+GOV.UK spacing is px-based rather than Tailwind's rem scale, so `mb-govuk-4` is 20px and not
+1rem. The table below is the Whitehall-UI `Table` component rendering its own documentation:
+
+<Table>
+  <TableHead>
+    <TableRow>
+      <TableHeader>Token</TableHeader>
+      <TableHeader>Value</TableHeader>
+      <TableHeader>Token</TableHeader>
+      <TableHeader>Value</TableHeader>
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    <TableRow>
+      <TableCell>govuk-1</TableCell>
+      <TableCell>5px</TableCell>
+      <TableCell>govuk-5</TableCell>
+      <TableCell>25px</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>govuk-2</TableCell>
+      <TableCell>10px</TableCell>
+      <TableCell>govuk-6</TableCell>
+      <TableCell>30px</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>govuk-3</TableCell>
+      <TableCell>15px</TableCell>
+      <TableCell>govuk-7</TableCell>
+      <TableCell>40px</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>govuk-4</TableCell>
+      <TableCell>20px</TableCell>
+      <TableCell>govuk-8</TableCell>
+      <TableCell>50px</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+---
+
+## Composition
+
+Larger components are not monoliths. Header, Footer, Task list, Summary list and others
+export a set of sub-components you assemble yourself, so you control the markup and can
+adapt each one to your service:
+
+```tsx
+<Header>
+  <HeaderContainer>
+    <HeaderLogo>
+      <HeaderLink href='/'>My Service</HeaderLink>
+    </HeaderLogo>
+    <HeaderNav>
+      <HeaderNavItem active>
+        <HeaderNavLink href='/'>Dashboard</HeaderNavLink>
+      </HeaderNavItem>
+    </HeaderNav>
+  </HeaderContainer>
+</Header>
+```
+
+---
+
+Browse the components in the sidebar. Each page has live controls and full prop documentation.
+
+Source and issues: [github.com/dawidmakos/whitehall-ui](https://github.com/dawidmakos/whitehall-ui)

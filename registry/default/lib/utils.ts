@@ -20,6 +20,7 @@ const twMerge = extendTailwindMerge({
             'govuk-header',
             'govuk-header-link',
             'govuk-body',
+            'govuk-body-small',
             'govuk-tag',
             'govuk-start',
             'govuk-heading-xl',

@@ -403,3 +403,58 @@ export const TwoTabs: Story = {
     </Tabs>
   ),
 };
+
+export const StackedOnMobile: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Below the 640px breakpoint the tab strip is replaced by a contents list and every panel is shown stacked, matching how GOV.UK presents tabbed content on small screens. Resize past 640px to get the tab strip back.',
+      },
+    },
+  },
+  globals: {
+    viewport: { value: 'govukMobileSmall' },
+  },
+  render: () => (
+    <Tabs defaultValue='eligibility'>
+      <TabsList>
+        <TabsTab value='eligibility'>Eligibility</TabsTab>
+        <TabsTab value='how-to-apply'>How to apply</TabsTab>
+        <TabsTab value='what-you-need'>What you need</TabsTab>
+      </TabsList>
+      <TabsPanel value='eligibility'>
+        <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
+          Eligibility
+        </h2>
+        <p className='mb-govuk-4'>
+          You can apply if you are 17 or over and live in England or Wales.
+        </p>
+        <InsetText>
+          You cannot apply if you already hold a licence for the same period.
+        </InsetText>
+      </TabsPanel>
+      <TabsPanel value='how-to-apply'>
+        <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
+          How to apply
+        </h2>
+        <p className='mb-govuk-4'>
+          Apply online and pay the fee. Most applications are processed within 5
+          working days.
+        </p>
+        <WarningText iconFallbackText='Warning'>
+          You must not fish until your licence arrives.
+        </WarningText>
+      </TabsPanel>
+      <TabsPanel value='what-you-need'>
+        <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
+          What you need
+        </h2>
+        <p className='mb-govuk-4'>
+          You will need proof of address and a debit or credit card. See the{' '}
+          <Link href='#'>full list of accepted documents</Link>.
+        </p>
+      </TabsPanel>
+    </Tabs>
+  ),
+};
