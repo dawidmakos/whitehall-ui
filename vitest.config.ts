@@ -10,33 +10,35 @@ const dirname =
     ? path.dirname(fileURLToPath(import.meta.url))
     : __dirname;
 
+const storybookProject = (
+  name: string,
+  viewport?: { width: number; height: number },
+) => ({
+  extends: true as const,
+  plugins: [
+    storybookTest({
+      configDir: path.join(dirname, '.storybook'),
+    }),
+  ],
+  test: {
+    name,
+    browser: {
+      enabled: true,
+      headless: true,
+      provider: playwright({}),
+      instances: [{ browser: 'chromium', ...(viewport && { viewport }) }],
+    },
+    setupFiles: ['.storybook/vitest.setup.ts'],
+  },
+});
+
 export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
       projects: [
-        {
-          extends: true,
-          plugins: [
-            storybookTest({
-              configDir: path.join(dirname, '.storybook'),
-            }),
-          ],
-          test: {
-            name: 'storybook',
-            browser: {
-              enabled: true,
-              headless: true,
-              provider: playwright({}),
-              instances: [
-                {
-                  browser: 'chromium',
-                },
-              ],
-            },
-            setupFiles: ['.storybook/vitest.setup.ts'],
-          },
-        },
+        storybookProject('storybook'),
+        storybookProject('storybook-mobile', { width: 390, height: 844 }),
       ],
     },
   }),

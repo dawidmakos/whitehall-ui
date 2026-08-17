@@ -21,7 +21,7 @@ const Panel = ({ className, ref, children, ...props }: PanelProps) => (
       'mb-govuk-3 p-govuk-7 max-sm:p-govuk-4',
       'border-govuk-standard border-transparent',
       'text-white bg-govuk-green',
-      'overflow-wrap-break-word',
+      'wrap-break-word',
       className,
     )}
     {...props}

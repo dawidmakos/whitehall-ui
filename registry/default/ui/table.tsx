@@ -17,6 +17,12 @@ type TableCaptionSize = NonNullable<
 
 interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> {
   ref?: React.Ref<HTMLTableElement>;
+  smallTextUntilTablet?: boolean;
+}
+
+interface TableContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+  ref?: React.Ref<HTMLDivElement>;
+  label?: string;
 }
 
 interface TableCaptionProps
@@ -48,18 +54,48 @@ interface TableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {
   numeric?: boolean;
 }
 
-const Table = ({ className, ref, children, ...props }: TableProps) => (
+const Table = ({
+  className,
+  ref,
+  children,
+  smallTextUntilTablet,
+  ...props
+}: TableProps) => (
   <table
     ref={ref}
     className={cn(
       'w-full mb-govuk-6 border-spacing-0 border-collapse',
       'font-govuk text-govuk-body text-govuk-black',
+      smallTextUntilTablet && 'max-sm:text-govuk-body-small',
       className,
     )}
     {...props}
   >
     {children}
   </table>
+);
+
+const TableContainer = ({
+  className,
+  ref,
+  children,
+  label = 'Table',
+  ...props
+}: TableContainerProps) => (
+  <div
+    ref={ref}
+    role='region'
+    aria-label={label}
+    tabIndex={0}
+    className={cn(
+      'overflow-x-auto',
+      'focus-visible:outline-3 focus-visible:outline-govuk-yellow focus-visible:outline-offset-0',
+      className,
+    )}
+    {...props}
+  >
+    {children}
+  </div>
 );
 
 const TableCaption = ({
@@ -142,6 +178,7 @@ const TableCell = ({
 
 export {
   Table,
+  TableContainer,
   TableCaption,
   tableCaptionVariants,
   TableHead,
@@ -152,6 +189,7 @@ export {
 };
 export type {
   TableProps,
+  TableContainerProps,
   TableCaptionProps,
   TableCaptionSize,
   TableHeadProps,

@@ -1,6 +1,7 @@
 # Whitehall-UI — Copilot Instructions
 
 GOV.UK Design System component library built with React 19, TypeScript, Tailwind CSS 4, and Storybook.
+Interactive components wrap `@base-ui/react` headless primitives (an optional peer dependency).
 Dual distribution: shadcn-compatible registry (`public/r/`) and npm package (`dist/`).
 
 ## Architecture
