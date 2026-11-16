@@ -222,10 +222,13 @@ const AccordionContent = ({
   </BaseAccordion.Panel>
 );
 
-export { Accordion, AccordionSection, AccordionHeading, AccordionContent };
-export type {
-  AccordionProps,
-  AccordionSectionProps,
-  AccordionHeadingProps,
-  AccordionContentProps,
+export {
+  Accordion,
+  AccordionSection,
+  AccordionHeading,
+  AccordionContent,
+  type AccordionProps,
+  type AccordionSectionProps,
+  type AccordionHeadingProps,
+  type AccordionContentProps,
 };

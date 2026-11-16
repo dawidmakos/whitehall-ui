@@ -83,11 +83,13 @@ const DateInputInput = ({
   />
 );
 
-export { DateInput, DateInputItem, DateInputLabel, DateInputInput };
-
-export type {
-  DateInputProps,
-  DateInputItemProps,
-  DateInputLabelProps,
-  DateInputInputProps,
+export {
+  DateInput,
+  DateInputItem,
+  DateInputLabel,
+  DateInputInput,
+  type DateInputProps,
+  type DateInputItemProps,
+  type DateInputLabelProps,
+  type DateInputInputProps,
 };
