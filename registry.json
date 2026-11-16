@@ -24,7 +24,8 @@
       "files": [
         {
           "path": "registry/default/theme/govuk-tokens.css",
-          "type": "registry:theme"
+          "type": "registry:theme",
+          "target": "~/src/styles/govuk-tokens.css"
         }
       ]
     },
@@ -34,7 +35,7 @@
       "title": "Button",
       "description": "Whitehall-UI button (based on GOV.UK Design System) with default, secondary, warning, inverse and start variants.",
       "dependencies": ["@base-ui/react", "class-variance-authority"],
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/button.tsx",
@@ -48,7 +49,7 @@
       "title": "Text Input",
       "description": "Whitehall-UI text input (based on GOV.UK Design System) with fixed-width and fluid-width variants, error state and extra letter spacing for codes.",
       "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/text-input.tsx",
@@ -62,7 +63,7 @@
       "title": "Textarea",
       "description": "Whitehall-UI textarea (based on GOV.UK Design System) for multi-line text input with error state and WCAG 2.2 accessibility.",
       "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/textarea.tsx",
@@ -76,7 +77,7 @@
       "title": "Tag",
       "description": "Whitehall-UI tag (based on GOV.UK Design System) with 9 colour variants for showing status indicators.",
       "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/tag.tsx",
@@ -90,7 +91,7 @@
       "title": "Inset Text",
       "description": "Whitehall-UI inset text (based on GOV.UK Design System) for differentiating a block of text from surrounding content.",
       "dependencies": [],
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/inset-text.tsx",
@@ -104,7 +105,7 @@
       "title": "Radios",
       "description": "Whitehall-UI radios (based on GOV.UK Design System) for letting users select one option from a list, with hint text and divider support.",
       "dependencies": ["@base-ui/react"],
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/radios.tsx",
@@ -118,7 +119,7 @@
       "title": "Checkboxes",
       "description": "Whitehall-UI checkboxes (based on GOV.UK Design System) for letting users select one or more options from a list, with hint text and divider support.",
       "dependencies": ["@base-ui/react"],
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/checkboxes.tsx",
@@ -132,7 +133,7 @@
       "title": "Select",
       "description": "Whitehall-UI select (based on GOV.UK Design System) for choosing an option from a native dropdown list, with error state support.",
       "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/select.tsx",
@@ -145,7 +146,7 @@
       "type": "registry:ui",
       "title": "Service Navigation",
       "description": "Whitehall-UI service navigation component (based on GOV.UK Design System) that shows the service name and lets users navigate around the service, with a collapsible menu on mobile that stays usable before JavaScript loads.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/service-navigation.tsx",
@@ -159,7 +160,7 @@
       "title": "Fieldset",
       "description": "Whitehall-UI fieldset component (based on GOV.UK Design System) for grouping related form inputs with legend heading support.",
       "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/fieldset.tsx",
@@ -173,7 +174,7 @@
       "title": "File Upload",
       "description": "Whitehall-UI file upload component (based on the improved GOV.UK Design System File upload, Frontend 5.9.0). A styled button with a chosen-file status and drag-and-drop support over a hidden native file input.",
       "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/file-upload.tsx",
@@ -187,7 +188,7 @@
       "title": "Label",
       "description": "Whitehall-UI label component for form inputs with size variants matching GOV.UK typography scale.",
       "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/label.tsx",
@@ -200,7 +201,7 @@
       "type": "registry:ui",
       "title": "Hint",
       "description": "Whitehall-UI hint component for displaying help text below labels in form groups.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/hint.tsx",
@@ -213,7 +214,7 @@
       "type": "registry:ui",
       "title": "Error Message",
       "description": "Whitehall-UI error message component for showing validation errors next to form fields, with a visually hidden prefix for screen readers.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/error-message.tsx",
@@ -226,7 +227,7 @@
       "type": "registry:ui",
       "title": "Error Summary",
       "description": "Whitehall-UI error summary component for summarising validation errors at the top of a page, with linked error messages.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/error-summary.tsx",
@@ -239,8 +240,8 @@
       "type": "registry:ui",
       "title": "Exit This Page",
       "description": "Whitehall-UI exit this page component (based on GOV.UK Design System). A sticky warning button that quickly redirects users to a safe page, also triggered by pressing Shift three times, with screen-reader announcements and a full-screen overlay on activation.",
-      "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["utils", "govuk-tokens", "button"],
+      "dependencies": [],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json", "https://dawidmakos.github.io/whitehall-ui/r/button.json"],
       "files": [
         {
           "path": "registry/default/ui/exit-this-page.tsx",
@@ -253,7 +254,7 @@
       "type": "registry:ui",
       "title": "Footer",
       "description": "Whitehall-UI footer component. Provides copyright, licensing, secondary navigation and meta links at the bottom of every page.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/footer.tsx",
@@ -267,7 +268,7 @@
       "title": "Link",
       "description": "Whitehall-UI link component (based on GOV.UK Design System) with default, muted, inverse, no-underline and no-visited-state variants.",
       "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/link.tsx",
@@ -280,7 +281,7 @@
       "type": "registry:ui",
       "title": "Back Link",
       "description": "Whitehall-UI back link component (based on GOV.UK Design System) for navigating back in multi-page transactions. Supports inverse variant for dark backgrounds.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/back-link.tsx",
@@ -293,7 +294,7 @@
       "type": "registry:ui",
       "title": "Skip Link",
       "description": "Whitehall-UI skip link component (based on GOV.UK Design System) for keyboard-only users to skip navigation and jump to main content. Visually hidden until focused.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/skip-link.tsx",
@@ -306,7 +307,7 @@
       "type": "registry:ui",
       "title": "Panel",
       "description": "Whitehall-UI panel component (based on GOV.UK Design System) for confirmation pages. Green confirmation panel with title and reference number, plus the GOV.UK Frontend 6.4 blue interruption variant with actions.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/panel.tsx",
@@ -319,7 +320,7 @@
       "type": "registry:ui",
       "title": "Password Input",
       "description": "Whitehall-UI password input component (based on GOV.UK Design System) with a button to show or hide the password. Reuses the text input and button components.",
-      "registryDependencies": ["utils", "govuk-tokens", "text-input", "button"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json", "https://dawidmakos.github.io/whitehall-ui/r/text-input.json", "https://dawidmakos.github.io/whitehall-ui/r/button.json"],
       "files": [
         {
           "path": "registry/default/ui/password-input.tsx",
@@ -332,7 +333,7 @@
       "type": "registry:ui",
       "title": "Header",
       "description": "Whitehall-UI header component. GOV.UK header (based on GOV.UK Design System v6) with the GOV.UK logo and optional product name. Put the service name and navigation in Service navigation inside the same page <header>.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/header.tsx",
@@ -345,7 +346,7 @@
       "type": "registry:ui",
       "title": "Generic Header",
       "description": "Whitehall-UI generic header component (based on GOV.UK Design System) for government services not on the GOV.UK website. Shows a custom brand logo and homepage link without the crown or GOV.UK branding.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/generic-header.tsx",
@@ -358,7 +359,7 @@
       "type": "registry:ui",
       "title": "Warning Text",
       "description": "Whitehall-UI warning text component (based on GOV.UK Design System) for warning users about important consequences, with an exclamation icon and visually hidden assistive prefix.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/warning-text.tsx",
@@ -371,7 +372,7 @@
       "type": "registry:ui",
       "title": "Notification Banner",
       "description": "Whitehall-UI notification banner component (based on GOV.UK Design System) for important messages at the top of a page. Supports default (blue) and success (green) variants.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/notification-banner.tsx",
@@ -384,7 +385,7 @@
       "type": "registry:ui",
       "title": "Cookie Banner",
       "description": "Whitehall-UI cookie banner component (based on GOV.UK Design System) that lets users accept or reject non-essential cookies. Presentational and composable, with message, confirmation and action sub-components.",
-      "registryDependencies": ["utils", "govuk-tokens", "button", "link"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/cookie-banner.tsx",
@@ -397,7 +398,7 @@
       "type": "registry:ui",
       "title": "Phase Banner",
       "description": "Whitehall-UI phase banner component (based on GOV.UK Design System) for showing users your service is in alpha or beta phase.",
-      "registryDependencies": ["utils", "govuk-tokens", "tag"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/phase-banner.tsx",
@@ -410,7 +411,7 @@
       "type": "registry:ui",
       "title": "Details",
       "description": "Whitehall-UI details component (based on GOV.UK Design System) for letting users reveal more detailed information only if they need it. Built on the native <details> element, so it works without JavaScript.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/details.tsx",
@@ -423,7 +424,7 @@
       "type": "registry:ui",
       "title": "Summary List",
       "description": "Whitehall-UI summary list component (based on GOV.UK Design System) for displaying key-value pairs. Includes summary card variant for grouping multiple lists.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/summary-list.tsx",
@@ -436,7 +437,7 @@
       "type": "registry:ui",
       "title": "Breadcrumbs",
       "description": "Whitehall-UI breadcrumbs component (based on GOV.UK Design System) for helping users understand where they are in a website's structure. Supports collapse on mobile and inverse variants.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/breadcrumbs.tsx",
@@ -449,7 +450,7 @@
       "type": "registry:ui",
       "title": "Task List",
       "description": "Whitehall-UI task list component (based on GOV.UK Design System) for displaying tasks a user needs to complete, with status indicators and clickable rows.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/task-list.tsx",
@@ -463,7 +464,7 @@
       "title": "Tabs",
       "description": "Whitehall-UI tabs component (based on GOV.UK Design System) for navigating between related sections of content, displaying one section at a time.",
       "dependencies": ["@base-ui/react"],
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/tabs.tsx",
@@ -477,7 +478,7 @@
       "title": "Accordion",
       "description": "Whitehall-UI accordion component (based on GOV.UK Design System) for showing and hiding sections of related content on a page.",
       "dependencies": ["@base-ui/react"],
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/accordion.tsx",
@@ -491,7 +492,7 @@
       "title": "Table",
       "description": "Whitehall-UI table component (based on GOV.UK Design System) for making information easier to compare and scan for users.",
       "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/table.tsx",
@@ -504,7 +505,7 @@
       "type": "registry:ui",
       "title": "Pagination",
       "description": "Whitehall-UI pagination component (based on GOV.UK Design System) to help users navigate collections of numbered pages.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/pagination.tsx",
@@ -517,7 +518,7 @@
       "type": "registry:ui",
       "title": "Character Count",
       "description": "Whitehall-UI character count component (based on GOV.UK Design System) that tells users how many characters or words they have remaining.",
-      "registryDependencies": ["utils", "govuk-tokens", "textarea"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json", "https://dawidmakos.github.io/whitehall-ui/r/textarea.json"],
       "files": [
         {
           "path": "registry/default/ui/character-count.tsx",
@@ -530,7 +531,7 @@
       "type": "registry:ui",
       "title": "Date Input",
       "description": "Whitehall-UI date input component (based on GOV.UK Design System) with separate day, month and year fields.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/date-input.tsx",
@@ -543,7 +544,7 @@
       "type": "registry:ui",
       "title": "Language Navigation",
       "description": "Whitehall-UI language navigation component (based on GOV.UK Design System, trial in GOV.UK Frontend 6.5) that lets users switch between the languages a service offers.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/language-navigation.tsx",
@@ -556,7 +557,7 @@
       "type": "registry:ui",
       "title": "Feedback",
       "description": "Whitehall-UI feedback component (based on GOV.UK Design System, trial in GOV.UK Frontend 6.5) that asks users for feedback about a service.",
-      "registryDependencies": ["utils", "govuk-tokens"],
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
           "path": "registry/default/ui/feedback.tsx",

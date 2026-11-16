@@ -42,6 +42,7 @@ export { Tag, tagVariants, type TagProps, type TagColour };
 
 ## Headless primitives (Base UI)
 
+- **Wire descriptions in the component, not the story.** Hints, statuses and error text that GOV.UK links with `aria-describedby` must be linked automatically (e.g. `CheckboxesItem`/`RadiosItem` `hint` prop, `TaskListItem` ids), merging any consumer `aria-describedby`.
 - **Native first.** If a native element covers the behaviour (`<details>`, `<select>`, `<input>`, `<textarea>`), use it — no JS, works without hydration, and it's what GOV.UK ships.
 - Interactive components that need real interaction logic (accordion, button, checkboxes, radios, tabs) wrap [`@base-ui/react`](https://base-ui.com) primitives — an **optional peer dependency**.
 - Import the primitive aliased as `Base*`, then derive props from it. Omit `className` only to narrow it to a string for `cn()`; never re-add `ref` or `children`:

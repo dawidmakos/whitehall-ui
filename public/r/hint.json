@@ -4,11 +4,9 @@
   "type": "registry:ui",
   "title": "Hint",
   "description": "Whitehall-UI hint component for displaying help text below labels in form groups.",
-  "dependencies": [],
-  "devDependencies": [],
   "registryDependencies": [
-    "utils",
-    "govuk-tokens"
+    "https://dawidmakos.github.io/whitehall-ui/r/utils.json",
+    "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"
   ],
   "files": [
     {

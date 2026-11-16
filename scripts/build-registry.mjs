@@ -8,7 +8,7 @@
  * Usage: node scripts/build-registry.mjs
  */
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, rmSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
@@ -18,21 +18,16 @@ const registry = JSON.parse(
 );
 
 const outDir = resolve(root, 'public', 'r');
+rmSync(outDir, { recursive: true, force: true });
 mkdirSync(outDir, { recursive: true });
 
 for (const item of registry.items) {
+  // Pass every field through (target, css, cssVars, docs…), only inline file content.
   const payload = {
     $schema: 'https://ui.shadcn.com/schema/registry-item.json',
-    name: item.name,
-    type: item.type,
-    title: item.title,
-    description: item.description,
-    dependencies: item.dependencies ?? [],
-    devDependencies: item.devDependencies ?? [],
-    registryDependencies: item.registryDependencies ?? [],
+    ...item,
     files: item.files.map((file) => ({
-      path: file.path,
-      type: file.type,
+      ...file,
       content: readFileSync(resolve(root, file.path), 'utf-8'),
     })),
   };

@@ -30,6 +30,8 @@ The `@` alias resolves to `registry/default/`, not `src/`.
 
 Tests are mostly Storybook browser tests (Chromium via Playwright), plus a small `unit` project for `src/**/*.test.ts` (e.g. `src/cn.test.ts`).
 
+Every story is checked with axe at desktop width and at 390px (`storybook-mobile`); `a11y.test: 'error'` in `.storybook/preview.ts` makes any violation fail the run. Fix the component rather than disabling the check. Stories must also reflow at 320px without horizontal page scrolling (WCAG 1.4.10).
+
 ## Component Conventions
 
 - **Arrow functions only** — never use function declarations for components.

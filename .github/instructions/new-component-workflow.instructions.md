@@ -17,3 +17,9 @@ A component must be registered in every location below or it will be missing fro
 `tsup.config.ts` builds every `registry/default/ui/*.tsx` file and `package.json` exposes them through the `"./*"` export, so neither needs editing.
 
 Keep the export name, registry key, and file name consistent across all locations.
+
+## Registry rules
+
+- `registryDependencies` on our own items must be full URLs (`https://dawidmakos.github.io/whitehall-ui/r/<name>.json`). The shadcn CLI resolves a bare name like `button` to shadcn's own item, not ours.
+- Import other components relatively (`import { Button } from './button'`), not via `@/ui/...`. Installed ui files sit in one directory, so relative imports resolve in every project. `@/lib/utils` is fine because the CLI rewrites it.
+- `public/r/` is generated and gitignored. CI builds it before deploying.

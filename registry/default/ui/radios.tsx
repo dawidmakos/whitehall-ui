@@ -26,72 +26,88 @@ interface RadiosItemProps extends Omit<
   'className'
 > {
   className?: string;
+  hint?: React.ReactNode;
 }
 
-const RadiosItem = ({ className, children, ...props }: RadiosItemProps) => {
+const RadiosItem = ({
+  className,
+  children,
+  hint,
+  'aria-describedby': ariaDescribedBy,
+  ...props
+}: RadiosItemProps) => {
   const labelId = useId();
+  const hintId = useId();
 
   return (
-    <label
-      className={cn(
-        'flex flex-wrap items-start',
-        'relative',
-        'mb-govuk-2 last:mb-0',
-        'cursor-pointer',
-        'has-data-[disabled]:opacity-50 has-data-[disabled]:cursor-not-allowed',
-        className,
-      )}
-    >
-      <Radio.Root
-        aria-labelledby={labelId}
+    <>
+      <label
         className={cn(
-          'group/radio',
-          'relative flex-none',
-          'w-govuk-radio-touch-target h-govuk-radio-touch-target',
-          'outline-none',
+          'flex flex-wrap items-start',
+          'relative',
+          'mb-govuk-2 last:mb-0',
+          'cursor-pointer',
+          'has-data-[disabled]:opacity-50 has-data-[disabled]:cursor-not-allowed',
+          className,
         )}
-        {...props}
       >
-        <span
-          aria-hidden='true'
+        <Radio.Root
+          aria-labelledby={labelId}
+          aria-describedby={
+            `${hint ? hintId : ''} ${ariaDescribedBy ?? ''}`.trim() || undefined
+          }
           className={cn(
-            'absolute box-border',
-            'top-[calc(var(--spacing-govuk-radio-gutter)/2)] left-[calc(var(--spacing-govuk-radio-gutter)/2)]',
-            'w-govuk-radio-size h-govuk-radio-size',
-            'rounded-full',
-            'border-2 border-current bg-transparent',
-            'group-focus/radio:border-4',
-            'group-focus/radio:shadow-[0_0_0_var(--spacing-govuk-radio-focus-width)_var(--color-govuk-yellow)]',
-            'group-focus/radio:outline-govuk-radio-focus-width group-focus/radio:outline-transparent group-focus/radio:outline-offset-1',
+            'group/radio',
+            'relative flex-none',
+            'w-govuk-radio-touch-target h-govuk-radio-touch-target',
+            'outline-none',
           )}
-        />
-        <Radio.Indicator
-          keepMounted
-          className={cn(
-            'absolute',
-            'top-[calc(var(--spacing-govuk-radio-touch-target)/2-var(--spacing-govuk-radio-dot))]',
-            'left-[calc(var(--spacing-govuk-radio-touch-target)/2-var(--spacing-govuk-radio-dot))]',
-            'w-0 h-0',
-            'rounded-full',
-            'border-(length:--spacing-govuk-radio-dot) border-current',
-            'bg-current',
-            'opacity-0 data-checked:opacity-100',
-          )}
-        />
-      </Radio.Root>
+          {...props}
+        >
+          <span
+            aria-hidden='true'
+            className={cn(
+              'absolute box-border',
+              'top-[calc(var(--spacing-govuk-radio-gutter)/2)] left-[calc(var(--spacing-govuk-radio-gutter)/2)]',
+              'w-govuk-radio-size h-govuk-radio-size',
+              'rounded-full',
+              'border-2 border-current bg-transparent',
+              'group-focus/radio:border-4',
+              'group-focus/radio:shadow-[0_0_0_var(--spacing-govuk-radio-focus-width)_var(--color-govuk-yellow)]',
+              'group-focus/radio:outline-govuk-radio-focus-width group-focus/radio:outline-transparent group-focus/radio:outline-offset-1',
+            )}
+          />
+          <Radio.Indicator
+            keepMounted
+            className={cn(
+              'absolute',
+              'top-[calc(var(--spacing-govuk-radio-touch-target)/2-var(--spacing-govuk-radio-dot))]',
+              'left-[calc(var(--spacing-govuk-radio-touch-target)/2-var(--spacing-govuk-radio-dot))]',
+              'w-0 h-0',
+              'rounded-full',
+              'border-(length:--spacing-govuk-radio-dot) border-current',
+              'bg-current',
+              'opacity-0 data-checked:opacity-100',
+            )}
+          />
+        </Radio.Root>
 
-      <span
-        id={labelId}
-        className={cn(
-          'self-center',
-          'py-govuk-button-pb px-govuk-radio-label-padding-x',
-          'text-govuk-tag font-normal font-govuk',
-          'max-w-[calc(100%-74px)]',
-        )}
-      >
-        {children}
-      </span>
-    </label>
+        <span
+          id={labelId}
+          className={cn(
+            'self-center',
+            'py-govuk-button-pb px-govuk-radio-label-padding-x',
+            'text-govuk-tag font-normal font-govuk',
+            'max-w-[calc(100%-74px)]',
+          )}
+        >
+          {children}
+        </span>
+      </label>
+      {hint && (
+        <RadiosHint id={hintId}>{hint}</RadiosHint>
+      )}
+    </>
   );
 };
 
