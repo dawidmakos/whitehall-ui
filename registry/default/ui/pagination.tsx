@@ -299,16 +299,13 @@ export {
   PaginationLinkLabel,
   PrevArrow,
   NextArrow,
-};
-
-export type {
-  PaginationProps,
-  PaginationPreviousProps,
-  PaginationNextProps,
-  PaginationListProps,
-  PaginationItemProps,
-  PaginationEllipsisProps,
-  PaginationLinkProps,
-  PaginationLinkTitleProps,
-  PaginationLinkLabelProps,
+  type PaginationProps,
+  type PaginationPreviousProps,
+  type PaginationNextProps,
+  type PaginationListProps,
+  type PaginationItemProps,
+  type PaginationEllipsisProps,
+  type PaginationLinkProps,
+  type PaginationLinkTitleProps,
+  type PaginationLinkLabelProps,
 };

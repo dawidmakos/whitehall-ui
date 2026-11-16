@@ -128,6 +128,9 @@ const CharacterCountMessage = ({
   </div>
 );
 
-export { CharacterCount, CharacterCountMessage };
-
-export type { CharacterCountProps, CharacterCountMessageProps };
+export {
+  CharacterCount,
+  CharacterCountMessage,
+  type CharacterCountProps,
+  type CharacterCountMessageProps,
+};

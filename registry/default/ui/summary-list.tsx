@@ -27,6 +27,14 @@ interface SummaryListCardProps extends React.HTMLAttributes<HTMLDivElement> {
   ref?: React.Ref<HTMLDivElement>;
 }
 
+interface SummaryListCardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+  ref?: React.Ref<HTMLDivElement>;
+}
+
+interface SummaryListCardContentProps extends React.HTMLAttributes<HTMLDivElement> {
+  ref?: React.Ref<HTMLDivElement>;
+}
+
 interface SummaryListCardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   ref?: React.Ref<HTMLHeadingElement>;
 }
@@ -183,9 +191,7 @@ const SummaryListCardHeader = ({
   ref,
   children,
   ...props
-}: React.HTMLAttributes<HTMLDivElement> & {
-  ref?: React.Ref<HTMLDivElement>;
-}) => (
+}: SummaryListCardHeaderProps) => (
   <div
     ref={ref}
     className={cn(
@@ -246,9 +252,7 @@ const SummaryListCardContent = ({
   ref,
   children,
   ...props
-}: React.HTMLAttributes<HTMLDivElement> & {
-  ref?: React.Ref<HTMLDivElement>;
-}) => (
+}: SummaryListCardContentProps) => (
   <div
     ref={ref}
     className={cn(
@@ -280,6 +284,8 @@ export {
   type SummaryListValueProps,
   type SummaryListActionsProps,
   type SummaryListCardProps,
+  type SummaryListCardHeaderProps,
+  type SummaryListCardContentProps,
   type SummaryListCardTitleProps,
   type SummaryListCardActionsProps,
   type SummaryListCardActionProps,

@@ -7,7 +7,7 @@ interface LabelStoryArgs {
   size: 'xl' | 'l' | 'm' | 's' | undefined;
 }
 
-const meta: Meta = {
+const meta = {
   title: 'Whitehall-UI/Label',
   component: Label,
   argTypes: {
@@ -31,7 +31,7 @@ const meta: Meta = {
     },
   },
   tags: ['autodocs'],
-};
+} satisfies Meta<typeof Label>;
 
 export default meta;
 type Story = StoryObj<LabelStoryArgs>;

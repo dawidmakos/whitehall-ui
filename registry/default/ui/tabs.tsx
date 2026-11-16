@@ -44,10 +44,14 @@ const usePanelId = (value: unknown) => {
 };
 
 const domStyle = <T,>(
-  style: React.CSSProperties | ((state: T) => React.CSSProperties | undefined) | undefined,
+  style:
+    | React.CSSProperties
+    | ((state: T) => React.CSSProperties | undefined)
+    | undefined,
 ) => (typeof style === 'function' ? undefined : style);
 
-const rootStyles = 'mt-govuk-1 mb-govuk-6 font-govuk text-govuk-body text-govuk-black';
+const rootStyles =
+  'mt-govuk-1 mb-govuk-6 font-govuk text-govuk-body text-govuk-black';
 
 interface TabsProps extends Omit<
   React.ComponentProps<typeof BaseUITabs.Root>,
@@ -175,7 +179,13 @@ const TabsList = ({
   );
 };
 
-const TabsTab = ({ className, ref, children, value, ...props }: TabsTabProps) => {
+const TabsTab = ({
+  className,
+  ref,
+  children,
+  value,
+  ...props
+}: TabsTabProps) => {
   const { stacked } = useContext(TabsContext);
   const panelId = usePanelId(value);
 
@@ -272,5 +282,13 @@ const TabsPanel = ({
   );
 };
 
-export { Tabs, TabsList, TabsTab, TabsPanel };
-export type { TabsProps, TabsListProps, TabsTabProps, TabsPanelProps };
+export {
+  Tabs,
+  TabsList,
+  TabsTab,
+  TabsPanel,
+  type TabsProps,
+  type TabsListProps,
+  type TabsTabProps,
+  type TabsPanelProps,
+};

@@ -39,21 +39,6 @@ export type {
 } from './ui/character-count';
 
 export {
-  CookieBanner,
-  CookieBannerMessage,
-  CookieBannerContent,
-  CookieBannerHeading,
-  CookieBannerActions,
-} from './ui/cookie-banner';
-export type {
-  CookieBannerProps,
-  CookieBannerMessageProps,
-  CookieBannerContentProps,
-  CookieBannerHeadingProps,
-  CookieBannerActionsProps,
-} from './ui/cookie-banner';
-
-export {
   Checkboxes,
   CheckboxesItem,
   CheckboxesHint,
@@ -68,8 +53,20 @@ export type {
   CheckboxesConditionalProps,
 } from './ui/checkboxes';
 
-export { ErrorMessage } from './ui/error-message';
-export type { ErrorMessageProps } from './ui/error-message';
+export {
+  CookieBanner,
+  CookieBannerMessage,
+  CookieBannerContent,
+  CookieBannerHeading,
+  CookieBannerActions,
+} from './ui/cookie-banner';
+export type {
+  CookieBannerProps,
+  CookieBannerMessageProps,
+  CookieBannerContentProps,
+  CookieBannerHeadingProps,
+  CookieBannerActionsProps,
+} from './ui/cookie-banner';
 
 export {
   DateInput,
@@ -91,6 +88,9 @@ export type {
   DetailsTextProps,
 } from './ui/details';
 
+export { ErrorMessage } from './ui/error-message';
+export type { ErrorMessageProps } from './ui/error-message';
+
 export { ErrorSummary } from './ui/error-summary';
 export type { ErrorSummaryProps, ErrorSummaryItem } from './ui/error-summary';
 
@@ -111,40 +111,6 @@ export type {
 
 export { FileUpload } from './ui/file-upload';
 export type { FileUploadProps } from './ui/file-upload';
-
-export {
-  Header,
-  HeaderContainer,
-  HeaderLogo,
-  HeaderLink,
-  HeaderServiceName,
-  HeaderNav,
-  HeaderNavItem,
-  HeaderNavLink,
-} from './ui/header';
-export type {
-  HeaderProps,
-  HeaderContainerProps,
-  HeaderLogoProps,
-  HeaderLinkProps,
-  HeaderServiceNameProps,
-  HeaderNavProps,
-  HeaderNavItemProps,
-  HeaderNavLinkProps,
-} from './ui/header';
-
-export {
-  GenericHeader,
-  GenericHeaderContainer,
-  GenericHeaderLogo,
-  GenericHeaderLink,
-} from './ui/generic-header';
-export type {
-  GenericHeaderProps,
-  GenericHeaderContainerProps,
-  GenericHeaderLogoProps,
-  GenericHeaderLinkProps,
-} from './ui/generic-header';
 
 export {
   Footer,
@@ -178,6 +144,40 @@ export type {
   FooterContentLicenceProps,
 } from './ui/footer';
 
+export {
+  GenericHeader,
+  GenericHeaderContainer,
+  GenericHeaderLogo,
+  GenericHeaderLink,
+} from './ui/generic-header';
+export type {
+  GenericHeaderProps,
+  GenericHeaderContainerProps,
+  GenericHeaderLogoProps,
+  GenericHeaderLinkProps,
+} from './ui/generic-header';
+
+export {
+  Header,
+  HeaderContainer,
+  HeaderLogo,
+  HeaderLink,
+  HeaderServiceName,
+  HeaderNav,
+  HeaderNavItem,
+  HeaderNavLink,
+} from './ui/header';
+export type {
+  HeaderProps,
+  HeaderContainerProps,
+  HeaderLogoProps,
+  HeaderLinkProps,
+  HeaderServiceNameProps,
+  HeaderNavProps,
+  HeaderNavItemProps,
+  HeaderNavLinkProps,
+} from './ui/header';
+
 export { Hint } from './ui/hint';
 export type { HintProps } from './ui/hint';
 
@@ -207,12 +207,6 @@ export type {
   NotificationBannerLinkProps,
 } from './ui/notification-banner';
 
-export { Panel, PanelTitle, PanelBody } from './ui/panel';
-export type { PanelProps, PanelTitleProps, PanelBodyProps } from './ui/panel';
-
-export { PasswordInput } from './ui/password-input';
-export type { PasswordInputProps } from './ui/password-input';
-
 export {
   Pagination,
   PaginationPrevious,
@@ -237,6 +231,12 @@ export type {
   PaginationLinkTitleProps,
   PaginationLinkLabelProps,
 } from './ui/pagination';
+
+export { Panel, PanelTitle, PanelBody } from './ui/panel';
+export type { PanelProps, PanelTitleProps, PanelBodyProps } from './ui/panel';
+
+export { PasswordInput } from './ui/password-input';
+export type { PasswordInputProps } from './ui/password-input';
 
 export {
   PhaseBanner,
@@ -302,13 +302,12 @@ export type {
   SummaryListValueProps,
   SummaryListActionsProps,
   SummaryListCardProps,
+  SummaryListCardHeaderProps,
+  SummaryListCardContentProps,
   SummaryListCardTitleProps,
   SummaryListCardActionsProps,
   SummaryListCardActionProps,
 } from './ui/summary-list';
-
-export { Tag, tagVariants } from './ui/tag';
-export type { TagProps, TagColour } from './ui/tag';
 
 export {
   Table,
@@ -340,6 +339,9 @@ export type {
   TabsTabProps,
   TabsPanelProps,
 } from './ui/tabs';
+
+export { Tag, tagVariants } from './ui/tag';
+export type { TagProps, TagColour } from './ui/tag';
 
 export {
   TaskList,

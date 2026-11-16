@@ -491,6 +491,7 @@
       "type": "registry:ui",
       "title": "Table",
       "description": "Whitehall-UI table component (based on GOV.UK Design System) for making information easier to compare and scan for users.",
+      "dependencies": ["class-variance-authority"],
       "registryDependencies": ["utils", "govuk-tokens"],
       "files": [
         {
@@ -517,7 +518,7 @@
       "type": "registry:ui",
       "title": "Character Count",
       "description": "Whitehall-UI character count component (based on GOV.UK Design System) that tells users how many characters or words they have remaining.",
-      "registryDependencies": ["utils", "textarea"],
+      "registryDependencies": ["utils", "govuk-tokens", "textarea"],
       "files": [
         {
           "path": "registry/default/ui/character-count.tsx",

@@ -3,7 +3,7 @@ import { Hint } from '@/ui/hint';
 import { Label } from '@/ui/label';
 import { TextInput } from '@/ui/text-input';
 
-const meta: Meta = {
+const meta = {
   title: 'Whitehall-UI/Hint',
   component: Hint,
   argTypes: {
@@ -22,7 +22,7 @@ const meta: Meta = {
     },
   },
   tags: ['autodocs'],
-};
+} satisfies Meta<typeof Hint>;
 
 export default meta;
 
