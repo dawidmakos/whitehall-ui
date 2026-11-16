@@ -3,6 +3,8 @@ import { Select } from '@/ui/select';
 import { Label } from '@/ui/label';
 import { Hint } from '@/ui/hint';
 import { ErrorMessage } from '@/ui/error-message';
+import { FormGroup } from '@/ui/form-group';
+import { LabelWrapper } from '@/ui/label';
 
 const meta = {
   title: 'Whitehall-UI/Select',
@@ -75,7 +77,7 @@ export const WithHint: Story = {
 
 export const WithError: Story = {
   render: () => (
-    <>
+    <FormGroup error>
       <Label htmlFor='error-location'>Choose location</Label>
       <Hint id='error-location-hint'>
         This can be different to where you went before
@@ -86,6 +88,36 @@ export const WithError: Story = {
         name='error-location'
         error
         aria-describedby='error-location-hint error-location-error'
+      >
+        {locationOptions}
+      </Select>
+    </FormGroup>
+  ),
+};
+
+export const LabelAsPageHeading: Story = {
+  render: () => (
+    <>
+      <LabelWrapper>
+        <Label htmlFor='heading-location' size='l'>
+          Choose location
+        </Label>
+      </LabelWrapper>
+      <Select id='heading-location' name='heading-location'>
+        {locationOptions}
+      </Select>
+    </>
+  ),
+};
+
+export const FullWidth: Story = {
+  render: () => (
+    <>
+      <Label htmlFor='full-width-location'>Choose location</Label>
+      <Select
+        id='full-width-location'
+        name='full-width-location'
+        className='w-full'
       >
         {locationOptions}
       </Select>

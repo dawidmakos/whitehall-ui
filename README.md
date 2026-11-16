@@ -107,7 +107,7 @@ export function Example() {
 
 ## Available components
 
-`accordion` · `back-link` · `breadcrumbs` · `button` · `character-count` · `checkboxes` · `cookie-banner` · `date-input` · `details` · `error-message` · `error-summary` · `exit-this-page` · `feedback` · `fieldset` · `file-upload` · `footer` · `generic-header` · `header` · `hint` · `inset-text` · `label` · `language-navigation` · `link` · `notification-banner` · `pagination` · `panel` · `password-input` · `phase-banner` · `radios` · `select` · `service-navigation` · `skip-link` · `summary-list` · `table` · `tabs` · `tag` · `task-list` · `text-input` · `textarea` · `warning-text`
+`accordion` · `back-link` · `breadcrumbs` · `button` · `character-count` · `checkboxes` · `cookie-banner` · `date-input` · `details` · `error-message` · `error-summary` · `exit-this-page` · `feedback` · `fieldset` · `file-upload` · `footer` · `form-group` · `generic-header` · `header` · `hint` · `inset-text` · `label` · `language-navigation` · `link` · `notification-banner` · `pagination` · `panel` · `password-input` · `phase-banner` · `radios` · `select` · `service-navigation` · `skip-link` · `summary-list` · `table` · `tabs` · `tag` · `task-list` · `text-input` · `textarea` · `warning-text`
 
 See the [Storybook](https://dawidmakos.github.io/whitehall-ui/) for props and live examples.
 

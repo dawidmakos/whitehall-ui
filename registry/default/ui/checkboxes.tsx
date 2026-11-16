@@ -35,7 +35,7 @@ const CheckboxesItem = ({
           'relative',
           small ? 'group/item mb-0' : 'mb-govuk-2 last:mb-0',
           'cursor-pointer touch-manipulation',
-          'has-data-[disabled]:opacity-50 has-data-[disabled]:cursor-not-allowed',
+          'has-data-disabled:opacity-50 has-data-disabled:cursor-not-allowed',
           className,
         )}
       >
@@ -150,15 +150,20 @@ const CheckboxesDivider = ({
   </div>
 );
 
-type CheckboxesConditionalProps = React.ComponentProps<'div'>;
+interface CheckboxesConditionalProps extends React.ComponentProps<'div'> {
+  small?: boolean;
+}
 
 const CheckboxesConditional = ({
   className,
+  small,
   ...props
 }: CheckboxesConditionalProps) => (
   <div
     className={cn(
-      'ml-govuk-checkbox-conditional-ml pl-govuk-checkbox-conditional-pl',
+      small
+        ? 'ml-govuk-2 pl-govuk-4'
+        : 'ml-govuk-checkbox-conditional-ml pl-govuk-checkbox-conditional-pl',
       'mb-govuk-3 sm:mb-govuk-4',
       'border-l-4 border-govuk-grey',
       '*:last:mb-0',

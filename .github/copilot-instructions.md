@@ -9,7 +9,7 @@ Dual distribution: shadcn-compatible registry (`public/r/`) and npm package (`di
 ```
 registry/default/ui/       ← component source of truth
 registry/default/theme/    ← GOV.UK design tokens (Tailwind 4 @theme)
-registry/default/lib/      ← shared utilities (cn)
+registry/default/lib/      ← shared utilities (cn, mergeRefs)
 registry/default/index.ts  ← barrel exports
 src/stories/               ← Storybook stories
 scripts/build-registry.mjs ← registry JSON builder
@@ -81,6 +81,8 @@ The `cn()` utility extends `tailwind-merge` so govuk tokens merge correctly: `*-
 6. Run `npx vitest run` to verify
 
 `tsup.config.ts` (glob entry) and the `package.json` `"./*"` export pick new files up automatically.
+
+Follow the registry rules in `.github/instructions/new-component-workflow.instructions.md`: full-URL `registryDependencies` for our own items, and relative imports between ui files (`./button`, not `@/ui/button`).
 
 ## SonarQube Rules
 

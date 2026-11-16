@@ -4,6 +4,8 @@ import { CharacterCount } from '@/ui/character-count';
 import { Label } from '@/ui/label';
 import { Hint } from '@/ui/hint';
 import { ErrorMessage } from '@/ui/error-message';
+import { FormGroup } from '@/ui/form-group';
+import { LabelWrapper } from '@/ui/label';
 
 const meta = {
   title: 'Whitehall-UI/CharacterCount',
@@ -34,7 +36,11 @@ export const Default: Story = {
         Do not include personal or financial information, like your National
         Insurance number or credit card details.
       </Hint>
-      <CharacterCount id='with-hint' maxCount={200} />
+      <CharacterCount
+        id='with-hint'
+        maxCount={200}
+        aria-describedby='with-hint-hint'
+      />
     </div>
   ),
 };
@@ -56,7 +62,12 @@ export const WithThreshold: Story = {
         Do not include personal or financial information, like your National
         Insurance number or credit card details.
       </Hint>
-      <CharacterCount id='with-threshold' maxCount={200} threshold={75} />
+      <CharacterCount
+        id='with-threshold'
+        maxCount={200}
+        threshold={75}
+        aria-describedby='with-threshold-hint'
+      />
     </div>
   ),
 };
@@ -76,14 +87,14 @@ export const WithDefaultValue: Story = {
 
 export const OverLimit: Story = {
   render: () => (
-    <div>
+    <FormGroup error>
       <Label htmlFor='over-limit'>Provide a brief summary</Label>
       <CharacterCount
         id='over-limit'
         maxCount={10}
         defaultValue='This text is definitely over the character limit'
       />
-    </div>
+    </FormGroup>
   ),
   play: async ({ canvas }) => {
     await expect(
@@ -94,17 +105,61 @@ export const OverLimit: Story = {
 
 export const WithError: Story = {
   render: () => (
-    <div>
+    <FormGroup error>
       <Label htmlFor='with-error'>Enter a job description</Label>
-      <ErrorMessage>
+      <ErrorMessage id='with-error-error'>
         Job description must be 350 characters or less
       </ErrorMessage>
       <CharacterCount
         id='with-error'
         maxCount={350}
         error
+        aria-describedby='with-error-error'
         defaultValue='A content designer works on the end-to-end journey of a service to help users complete their goal and government deliver a policy intent. Their work may involve the creation of, or change to, a transaction, product or single piece of content that stretches across digital and offline channels. They make sure appropriate content is shown to a user in the right place and in the best format.'
       />
+    </FormGroup>
+  ),
+};
+
+export const WithHintAndError: Story = {
+  render: () => (
+    <FormGroup error>
+      <Label htmlFor='count-hint-error'>Can you provide more detail?</Label>
+      <Hint id='count-hint-error-hint'>
+        Do not include personal or financial information, like your National
+        Insurance number or credit card details.
+      </Hint>
+      <ErrorMessage id='count-hint-error-error'>
+        Enter more detail about why you are applying
+      </ErrorMessage>
+      <CharacterCount
+        id='count-hint-error'
+        maxCount={200}
+        error
+        aria-describedby='count-hint-error-hint count-hint-error-error'
+      />
+    </FormGroup>
+  ),
+};
+
+export const CustomRows: Story = {
+  render: () => (
+    <div>
+      <Label htmlFor='count-rows'>Full address</Label>
+      <CharacterCount id='count-rows' maxCount={500} rows={8} />
+    </div>
+  ),
+};
+
+export const LabelAsPageHeading: Story = {
+  render: () => (
+    <div>
+      <LabelWrapper>
+        <Label htmlFor='count-heading' size='l'>
+          Can you provide more detail?
+        </Label>
+      </LabelWrapper>
+      <CharacterCount id='count-heading' maxCount={200} />
     </div>
   ),
 };

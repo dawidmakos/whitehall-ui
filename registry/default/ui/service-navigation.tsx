@@ -3,7 +3,9 @@
 import { Children, useId, useState, useSyncExternalStore } from 'react';
 import { cn } from '@/lib/utils';
 
-type ServiceNavigationProps = React.ComponentProps<'section'>;
+interface ServiceNavigationProps extends React.ComponentProps<'section'> {
+  inverse?: boolean;
+}
 
 type ServiceNavigationContainerProps = React.ComponentProps<'div'>;
 
@@ -20,6 +22,10 @@ interface ServiceNavigationItemProps extends React.ComponentProps<'li'> {
 
 type ServiceNavigationLinkProps = React.ComponentProps<'a'>;
 
+interface ServiceNavigationEndProps extends React.ComponentProps<'div'> {
+  inline?: boolean;
+}
+
 const subscribeToNothing = () => () => {};
 
 const useHydrated = () =>
@@ -28,6 +34,13 @@ const useHydrated = () =>
     () => true,
     () => false,
   );
+
+const inverseLinkStyles = [
+  'group-data-inverse/service-nav:text-white',
+  'group-data-inverse/service-nav:visited:text-white',
+  'group-data-inverse/service-nav:hover:text-white',
+  'group-data-inverse/service-nav:active:text-white',
+];
 
 const linkStyles = [
   'font-govuk cursor-pointer',
@@ -42,13 +55,22 @@ const itemStyles = [
   'sm:not-last:mr-govuk-6',
 ];
 
-const ServiceNavigation = ({ className, ...props }: ServiceNavigationProps) => (
+const ServiceNavigation = ({
+  className,
+  inverse,
+  ...props
+}: ServiceNavigationProps) => (
   <section
     aria-label='Service information'
+    data-inverse={inverse || undefined}
     className={cn(
-      'font-govuk text-govuk-body text-govuk-black',
-      'border-b border-b-govuk-surface-border',
-      'bg-govuk-surface',
+      'group/service-nav font-govuk text-govuk-body',
+      inverse
+        ? 'text-white bg-govuk-brand'
+        : [
+            'text-govuk-black bg-govuk-surface',
+            'border-b border-b-govuk-surface-border',
+          ],
       className,
     )}
     {...props}
@@ -64,6 +86,8 @@ const ServiceNavigationContainer = ({
       'govuk-width-container',
       'flex flex-col items-start',
       'sm:flex-row sm:flex-wrap',
+      'group-data-inverse/service-nav:border-y',
+      'group-data-inverse/service-nav:border-govuk-surface-border',
       className,
     )}
     {...props}
@@ -86,6 +110,7 @@ const ServiceNavigationServiceName = ({
           'text-govuk-black visited:text-govuk-black',
           'hover:text-govuk-black active:text-govuk-black',
           linkStyles,
+          inverseLinkStyles,
         )}
         {...props}
       >
@@ -122,6 +147,7 @@ const ServiceNavigationNav = ({
           'my-govuk-2 p-0',
           'font-govuk text-govuk-body font-bold',
           'bg-transparent border-0 text-govuk-link cursor-pointer',
+          'group-data-inverse/service-nav:text-white',
           'focus:govuk-link-focus',
         )}
         onClick={() => setMenuOpen((prev) => !prev)}
@@ -162,7 +188,7 @@ const ServiceNavigationItem = ({
   <li
     className={cn(
       itemStyles,
-      'border-govuk-link',
+      'border-govuk-link group-data-inverse/service-nav:border-current',
       active && [
         'max-sm:-ml-govuk-3 max-sm:pl-govuk-2 max-sm:border-l-govuk-standard',
         'sm:border-b-govuk-standard sm:pb-govuk-2',
@@ -183,12 +209,28 @@ const ServiceNavigationLink = ({
       'text-govuk-link visited:text-govuk-link',
       'hover:text-govuk-brand-hover active:text-govuk-black',
       linkStyles,
+      inverseLinkStyles,
       className,
     )}
     {...props}
   >
     {children}
   </a>
+);
+
+const ServiceNavigationEnd = ({
+  className,
+  inline,
+  ...props
+}: ServiceNavigationEndProps) => (
+  <div
+    className={cn(
+      inline ? 'sm:ml-auto sm:pl-govuk-6' : 'w-full',
+      '*:mt-govuk-1 *:mb-govuk-3 sm:*:mt-govuk-3',
+      className,
+    )}
+    {...props}
+  />
 );
 
 export {
@@ -198,10 +240,12 @@ export {
   ServiceNavigationNav,
   ServiceNavigationItem,
   ServiceNavigationLink,
+  ServiceNavigationEnd,
   type ServiceNavigationProps,
   type ServiceNavigationContainerProps,
   type ServiceNavigationServiceNameProps,
   type ServiceNavigationNavProps,
   type ServiceNavigationItemProps,
   type ServiceNavigationLinkProps,
+  type ServiceNavigationEndProps,
 };

@@ -105,3 +105,34 @@ export const Interruption: Story = {
     </Panel>
   ),
 };
+
+export const InterruptionWithContent: Story = {
+  render: () => (
+    <Panel variant='interruption'>
+      <PanelTitle>
+        Your new answer affects other sections of this application
+      </PanelTitle>
+      <PanelBody>
+        <h2 className='text-govuk-heading-m font-bold mt-0 mb-govuk-4'>
+          Question: Where is Andy Cooke located?
+        </h2>
+        <p className='mt-0 mb-govuk-4'>
+          Previous answer: Custody
+          <br />
+          New answer: Released
+        </p>
+        <p className='mt-0 mb-govuk-2'>You need to:</p>
+        <ul className='mt-0 mb-govuk-4 pl-govuk-4 list-disc'>
+          <li className='mb-govuk-1'>enter their custody information</li>
+          <li className='mb-govuk-1'>update the licence conditions section</li>
+        </ul>
+      </PanelBody>
+      <PanelActions>
+        <Button variant='inverse'>Continue to other sections</Button>
+        <Link variant='inverse' href='#'>
+          Go back to application
+        </Link>
+      </PanelActions>
+    </Panel>
+  ),
+};

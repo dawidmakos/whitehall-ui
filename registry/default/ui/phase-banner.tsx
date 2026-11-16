@@ -11,7 +11,7 @@ type PhaseBannerTextProps = React.ComponentProps<'span'>;
 const PhaseBanner = ({ className, ...props }: PhaseBannerProps) => (
   <div
     className={cn(
-      'govuk-width-container [.govuk-width-container_&]:mx-0',
+      'govuk-width-container in-[.govuk-width-container]:mx-0',
       'py-govuk-2 border-b border-govuk-mid-grey',
       className,
     )}

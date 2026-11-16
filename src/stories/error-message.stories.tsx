@@ -5,6 +5,7 @@ import { Hint } from '@/ui/hint';
 import { TextInput } from '@/ui/text-input';
 import { Textarea } from '@/ui/textarea';
 import { Fieldset, FieldsetLegend } from '@/ui/fieldset';
+import { FormGroup } from '@/ui/form-group';
 
 const meta = {
   title: 'Whitehall-UI/Error Message',
@@ -46,11 +47,11 @@ export const WithTextInput: Story = {
     children: 'Enter your full name',
   },
   render: (args) => (
-    <>
+    <FormGroup error>
       <Label htmlFor='full-name'>Full name</Label>
       <ErrorMessage id='full-name-error' {...args} />
       <TextInput id='full-name' error aria-describedby='full-name-error' />
-    </>
+    </FormGroup>
   ),
 };
 
@@ -59,7 +60,7 @@ export const WithHintAndTextInput: Story = {
     children: 'Enter a National Insurance number in the correct format',
   },
   render: (args) => (
-    <>
+    <FormGroup error>
       <Label htmlFor='ni-number'>What is your National Insurance number?</Label>
       <Hint id='ni-number-hint'>
         It's on your National Insurance card, benefit letter, payslip or P60.
@@ -72,7 +73,7 @@ export const WithHintAndTextInput: Story = {
         width={10}
         aria-describedby='ni-number-hint ni-number-error'
       />
-    </>
+    </FormGroup>
   ),
 };
 
@@ -81,7 +82,7 @@ export const WithTextarea: Story = {
     children: 'Enter more detail',
   },
   render: (args) => (
-    <>
+    <FormGroup error>
       <Label htmlFor='more-detail'>Can you provide more detail?</Label>
       <Hint id='more-detail-hint'>
         Do not include personal or financial information, like your National
@@ -93,7 +94,7 @@ export const WithTextarea: Story = {
         error
         aria-describedby='more-detail-hint more-detail-error'
       />
-    </>
+    </FormGroup>
   ),
 };
 
@@ -102,25 +103,27 @@ export const WithFieldset: Story = {
     children: 'The date your passport was issued must be in the past',
   },
   render: (args) => (
-    <Fieldset>
-      <FieldsetLegend size='l'>When was your passport issued?</FieldsetLegend>
-      <Hint>For example, 27 3 2007</Hint>
-      <ErrorMessage id='passport-issued-error' {...args} />
-      <div className='flex gap-4'>
-        <div>
-          <Label htmlFor='passport-day'>Day</Label>
-          <TextInput id='passport-day' width={2} error />
+    <FormGroup error>
+      <Fieldset>
+        <FieldsetLegend size='l'>When was your passport issued?</FieldsetLegend>
+        <Hint>For example, 27 3 2007</Hint>
+        <ErrorMessage id='passport-issued-error' {...args} />
+        <div className='flex gap-4'>
+          <div>
+            <Label htmlFor='passport-day'>Day</Label>
+            <TextInput id='passport-day' width={2} error />
+          </div>
+          <div>
+            <Label htmlFor='passport-month'>Month</Label>
+            <TextInput id='passport-month' width={2} error />
+          </div>
+          <div>
+            <Label htmlFor='passport-year'>Year</Label>
+            <TextInput id='passport-year' width={4} error />
+          </div>
         </div>
-        <div>
-          <Label htmlFor='passport-month'>Month</Label>
-          <TextInput id='passport-month' width={2} error />
-        </div>
-        <div>
-          <Label htmlFor='passport-year'>Year</Label>
-          <TextInput id='passport-year' width={4} error />
-        </div>
-      </div>
-    </Fieldset>
+      </Fieldset>
+    </FormGroup>
   ),
 };
 

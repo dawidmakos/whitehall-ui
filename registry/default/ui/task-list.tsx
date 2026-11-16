@@ -64,12 +64,19 @@ const TaskListNameAndHint = ({
   />
 );
 
-const TaskListLink = ({ className, children, ...props }: TaskListLinkProps) => {
+const TaskListLink = ({
+  className,
+  children,
+  'aria-describedby': ariaDescribedBy,
+  ...props
+}: TaskListLinkProps) => {
   const { hintId, statusId } = use(TaskListItemContext);
 
   return (
     <a
-      aria-describedby={`${hintId} ${statusId}`.trim() || undefined}
+      aria-describedby={
+        `${hintId} ${statusId} ${ariaDescribedBy ?? ''}`.trim() || undefined
+      }
       className={cn(
         'text-govuk-link underline govuk-link-underline',
         'visited:text-govuk-visited active:text-govuk-black',

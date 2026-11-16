@@ -15,6 +15,7 @@ export * from './ui/feedback';
 export * from './ui/fieldset';
 export * from './ui/file-upload';
 export * from './ui/footer';
+export * from './ui/form-group';
 export * from './ui/generic-header';
 export * from './ui/header';
 export * from './ui/hint';

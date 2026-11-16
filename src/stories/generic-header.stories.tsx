@@ -72,3 +72,37 @@ export const FullWidth: Story = {
     </GenericHeader>
   ),
 };
+
+export const TextOnly: Story = {
+  render: () => (
+    <GenericHeader>
+      <GenericHeaderContainer>
+        <GenericHeaderLogo>
+          <GenericHeaderLink href='/'>Service name</GenericHeaderLink>
+        </GenericHeaderLogo>
+      </GenericHeaderContainer>
+    </GenericHeader>
+  ),
+};
+
+export const ImageOnly: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'When the logo is an image on its own, give the link an accessible name with `aria-label`.',
+      },
+    },
+  },
+  render: () => (
+    <GenericHeader>
+      <GenericHeaderContainer>
+        <GenericHeaderLogo>
+          <GenericHeaderLink href='/' aria-label='Service name homepage'>
+            <BrandLogo />
+          </GenericHeaderLink>
+        </GenericHeaderLogo>
+      </GenericHeaderContainer>
+    </GenericHeader>
+  ),
+};

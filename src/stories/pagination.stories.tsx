@@ -226,3 +226,62 @@ export const BlockLevel: Story = {
     </Pagination>
   ),
 };
+
+export const BlockWithoutLabels: Story = {
+  render: () => (
+    <Pagination block>
+      <PaginationPrevious>
+        <PaginationLink href='/previous-page' rel='prev'>
+          <PrevArrow />
+          <PaginationLinkTitle>
+            Previous<span className='sr-only'> page</span>
+          </PaginationLinkTitle>
+        </PaginationLink>
+      </PaginationPrevious>
+      <PaginationNext>
+        <PaginationLink href='/next-page' rel='next'>
+          <NextArrow />
+          <PaginationLinkTitle>
+            Next<span className='sr-only'> page</span>
+          </PaginationLinkTitle>
+        </PaginationLink>
+      </PaginationNext>
+    </Pagination>
+  ),
+};
+
+export const PreviousOnly: Story = {
+  render: () => (
+    <Pagination block>
+      <PaginationPrevious>
+        <PaginationLink href='/previous-page' rel='prev'>
+          <PrevArrow />
+          <PaginationLinkTitle>
+            Previous<span className='sr-only'> page</span>
+          </PaginationLinkTitle>
+          <span className='sr-only'>:</span>
+          <PaginationLinkLabel>Driver CPC part 1 test: theory</PaginationLinkLabel>
+        </PaginationLink>
+      </PaginationPrevious>
+    </Pagination>
+  ),
+};
+
+export const NextOnly: Story = {
+  render: () => (
+    <Pagination block>
+      <PaginationNext>
+        <PaginationLink href='/next-page' rel='next'>
+          <NextArrow />
+          <PaginationLinkTitle>
+            Next<span className='sr-only'> page</span>
+          </PaginationLinkTitle>
+          <span className='sr-only'>:</span>
+          <PaginationLinkLabel>
+            Driver CPC part 2 test: case studies
+          </PaginationLinkLabel>
+        </PaginationLink>
+      </PaginationNext>
+    </Pagination>
+  ),
+};

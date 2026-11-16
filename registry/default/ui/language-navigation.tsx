@@ -46,7 +46,7 @@ const LanguageNavigationItem = ({
       'flex items-center',
       'not-last:after:block not-last:after:h-[1em] not-last:after:mx-govuk-2',
       'not-last:after:border-r not-last:after:border-govuk-mid-grey',
-      'group-data-[inverse]/language:not-last:after:border-current',
+      'group-data-inverse/language:not-last:after:border-current',
       className,
     )}
     {...props}
@@ -70,9 +70,9 @@ const LanguageNavigationLink = ({
       'hover:govuk-link-underline-hover focus:govuk-link-focus',
       'text-govuk-link visited:text-govuk-visited',
       'hover:text-govuk-brand-hover active:text-govuk-black',
-      'group-data-[inverse]/language:text-white',
-      'group-data-[inverse]/language:visited:text-white',
-      'group-data-[inverse]/language:hover:text-white',
+      'group-data-inverse/language:text-white',
+      'group-data-inverse/language:visited:text-white',
+      'group-data-inverse/language:hover:text-white',
       className,
     )}
     {...props}

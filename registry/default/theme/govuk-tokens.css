@@ -132,6 +132,7 @@
   --spacing-govuk-radio-size: 40px;
   --spacing-govuk-radio-touch-target: 44px;
   --spacing-govuk-radio-dot: 10px;
+  --spacing-govuk-radio-small-dot: 5px;
   --spacing-govuk-radio-label-padding-x: 15px;
   --spacing-govuk-radio-focus-width: 4px;
   --spacing-govuk-radio-gutter: 4px;
@@ -250,6 +251,11 @@
 
 @utility govuk-checkbox-focus-shadow {
   --govuk-cb-focus-shadow: 0 0 0 var(--spacing-govuk-checkbox-focus-width)
+    var(--color-govuk-yellow);
+}
+
+@utility govuk-radio-focus-shadow {
+  --govuk-cb-focus-shadow: 0 0 0 var(--spacing-govuk-radio-focus-width)
     var(--color-govuk-yellow);
 }
 

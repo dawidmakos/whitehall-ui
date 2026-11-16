@@ -172,7 +172,7 @@ const AccordionHeading = ({
 const AccordionContent = ({ className, ...props }: AccordionContentProps) => (
   <BaseAccordion.Panel
     className={cn(
-      'pt-govuk-3 pb-govuk-6 sm:pb-govuk-8 [&[hidden]]:py-0 *:last:mb-0',
+      'pt-govuk-3 pb-govuk-6 sm:pb-govuk-8 [[hidden]]:py-0 *:last:mb-0',
       className,
     )}
     {...props}

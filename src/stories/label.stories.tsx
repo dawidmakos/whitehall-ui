@@ -50,6 +50,21 @@ export const Default: Story = {
   ),
 };
 
+export const Sizes: Story = {
+  render: () => (
+    <div className='flex flex-col gap-govuk-6'>
+      {(['xl', 'l', 'm', 's'] as const).map((size) => (
+        <div key={size}>
+          <Label htmlFor={`size-${size}`} size={size}>
+            What is your National Insurance number? ({size})
+          </Label>
+          <TextInput id={`size-${size}`} width={10} />
+        </div>
+      ))}
+    </div>
+  ),
+};
+
 export const AsPageHeading: Story = {
   args: {
     labelText: 'What is your National Insurance number?',
