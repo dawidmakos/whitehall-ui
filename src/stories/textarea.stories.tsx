@@ -3,6 +3,8 @@ import { Textarea } from '@/ui/textarea';
 import { Label } from '@/ui/label';
 import { Hint } from '@/ui/hint';
 import { ErrorMessage } from '@/ui/error-message';
+import { FormGroup } from '@/ui/form-group';
+import { LabelWrapper } from '@/ui/label';
 
 const meta = {
   title: 'Whitehall-UI/Textarea',
@@ -59,7 +61,7 @@ export const WithError: Story = {
     error: true,
   },
   render: (args) => (
-    <>
+    <FormGroup error>
       <Label htmlFor='error-textarea'>Can you provide more detail?</Label>
       <ErrorMessage id='error-textarea-error'>Enter more detail</ErrorMessage>
       <Textarea
@@ -67,7 +69,7 @@ export const WithError: Story = {
         aria-describedby='error-textarea-error'
         {...args}
       />
-    </>
+    </FormGroup>
   ),
 };
 
@@ -104,7 +106,7 @@ export const Disabled: Story = {
 export const WithAriaDescribedBy: Story = {
   args: {},
   render: (args) => (
-    <>
+    <FormGroup error>
       <Label htmlFor='accessible-textarea'>Why are you contacting us?</Label>
       <Hint id='accessible-textarea-hint'>Give as much detail as you can</Hint>
       <ErrorMessage id='accessible-textarea-error'>
@@ -116,6 +118,34 @@ export const WithAriaDescribedBy: Story = {
         aria-describedby='accessible-textarea-hint accessible-textarea-error'
         {...args}
       />
+    </FormGroup>
+  ),
+};
+
+export const WithDefaultValue: Story = {
+  args: {},
+  render: (args) => (
+    <>
+      <Label htmlFor='default-value-textarea'>Full address</Label>
+      <Textarea
+        id='default-value-textarea'
+        defaultValue={'221B Baker Street\nLondon\nNW1 6XE'}
+        {...args}
+      />
+    </>
+  ),
+};
+
+export const LabelAsPageHeading: Story = {
+  args: {},
+  render: (args) => (
+    <>
+      <LabelWrapper>
+        <Label htmlFor='heading-textarea' size='l'>
+          Can you provide more detail?
+        </Label>
+      </LabelWrapper>
+      <Textarea id='heading-textarea' {...args} />
     </>
   ),
 };

@@ -244,3 +244,96 @@ export const Full: Story = {
     </Footer>
   ),
 };
+
+export const WithoutContentLicence: Story = {
+  render: () => (
+    <Footer>
+      <FooterContainer>
+        <FooterMeta>
+          <FooterMetaItem grow />
+          <FooterMetaItem>
+            <FooterLink href='#'>© Your Organisation 2026</FooterLink>
+          </FooterMetaItem>
+        </FooterMeta>
+      </FooterContainer>
+    </Footer>
+  ),
+};
+
+export const WithCustomMeta: Story = {
+  render: () => (
+    <Footer>
+      <FooterContainer>
+        <FooterMeta>
+          <FooterMetaItem grow>
+            <h2 className='sr-only'>Support links</h2>
+            <FooterInlineList>
+              <FooterInlineListItem>
+                <FooterLink href='#'>Help</FooterLink>
+              </FooterInlineListItem>
+              <FooterInlineListItem>
+                <FooterLink href='#'>Contact us</FooterLink>
+              </FooterInlineListItem>
+            </FooterInlineList>
+            <p className='m-0'>
+              Built by the{' '}
+              <FooterLink href='#'>Government Digital Service</FooterLink>
+            </p>
+          </FooterMetaItem>
+          <FooterMetaItem>
+            <FooterLink href='#'>© Your Organisation 2026</FooterLink>
+          </FooterMetaItem>
+        </FooterMeta>
+      </FooterContainer>
+    </Footer>
+  ),
+};
+
+const FooterColumn = ({ heading }: { heading: string }) => (
+  <FooterSection width='one-third'>
+    <FooterHeading>{heading}</FooterHeading>
+    <FooterList>
+      <FooterListItem>
+        <FooterLink href='#'>Navigation item 1</FooterLink>
+      </FooterListItem>
+      <FooterListItem>
+        <FooterLink href='#'>Navigation item 2</FooterLink>
+      </FooterListItem>
+      <FooterListItem>
+        <FooterLink href='#'>Navigation item 3</FooterLink>
+      </FooterListItem>
+    </FooterList>
+  </FooterSection>
+);
+
+export const ThreeEqualColumns: Story = {
+  render: () => (
+    <Footer>
+      <FooterContainer>
+        <FooterNavigation>
+          <FooterColumn heading='Two column list' />
+          <FooterColumn heading='Single column list 1' />
+          <FooterColumn heading='Single column list 2' />
+        </FooterNavigation>
+        <FooterSectionBreak />
+        <FooterMeta>
+          <FooterMetaItem grow>
+            <FooterContentLicence>
+              All content is available under the{' '}
+              <FooterLink
+                href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
+                rel='license'
+              >
+                Open Government Licence v3.0
+              </FooterLink>
+              , except where otherwise stated
+            </FooterContentLicence>
+          </FooterMetaItem>
+          <FooterMetaItem>
+            <FooterLink href='#'>© Your Organisation 2026</FooterLink>
+          </FooterMetaItem>
+        </FooterMeta>
+      </FooterContainer>
+    </Footer>
+  ),
+};

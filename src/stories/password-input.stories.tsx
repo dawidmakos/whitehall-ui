@@ -3,6 +3,8 @@ import { PasswordInput } from '@/ui/password-input';
 import { Label } from '@/ui/label';
 import { Hint } from '@/ui/hint';
 import { ErrorMessage } from '@/ui/error-message';
+import { FormGroup } from '@/ui/form-group';
+import { LabelWrapper } from '@/ui/label';
 
 const meta = {
   title: 'Whitehall-UI/PasswordInput',
@@ -63,7 +65,7 @@ export const WithHint: Story = {
 export const WithError: Story = {
   args: {},
   render: (args) => (
-    <div className='border-l-govuk-standard border-l-govuk-error pl-govuk-4'>
+    <FormGroup error>
       <Label htmlFor='password-error'>Password</Label>
       <ErrorMessage id='password-error-error'>Enter your password</ErrorMessage>
       <PasswordInput
@@ -73,6 +75,30 @@ export const WithError: Story = {
         aria-describedby='password-error-error'
         {...args}
       />
-    </div>
+    </FormGroup>
+  ),
+};
+
+export const LabelAsPageHeading: Story = {
+  args: {},
+  render: (args) => (
+    <>
+      <LabelWrapper>
+        <Label htmlFor='password-heading' size='l'>
+          Password
+        </Label>
+      </LabelWrapper>
+      <PasswordInput id='password-heading' name='password' {...args} />
+    </>
+  ),
+};
+
+export const CustomWidth: Story = {
+  args: { width: 10 },
+  render: (args) => (
+    <>
+      <Label htmlFor='password-width'>Password</Label>
+      <PasswordInput id='password-width' name='password' {...args} />
+    </>
   ),
 };

@@ -154,6 +154,29 @@ export const WithSectionOpen: Story = {
   ),
 };
 
+export const AllSectionsOpen: Story = {
+  render: () => (
+    <Accordion defaultValue={['writing', 'dates']}>
+      <AccordionSection value='writing'>
+        <AccordionHeading>Writing well for the web</AccordionHeading>
+        <AccordionContent>
+          <p className='font-govuk text-govuk-body text-govuk-black mb-govuk-4'>
+            This is the content for Writing well for the web.
+          </p>
+        </AccordionContent>
+      </AccordionSection>
+      <AccordionSection value='dates'>
+        <AccordionHeading>Dates, times and numbers</AccordionHeading>
+        <AccordionContent>
+          <p className='font-govuk text-govuk-body text-govuk-black mb-govuk-4'>
+            This is the content for Dates, times and numbers.
+          </p>
+        </AccordionContent>
+      </AccordionSection>
+    </Accordion>
+  ),
+};
+
 export const WithShowAll: Story = {
   render: () => (
     <Accordion

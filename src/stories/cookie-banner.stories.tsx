@@ -120,3 +120,39 @@ const InteractiveCookieBanner = () => {
 export const Interactive: Story = {
   render: () => <InteractiveCookieBanner />,
 };
+
+export const Accepted: Story = {
+  render: () => (
+    <CookieBanner aria-label='Cookies on [name of service]'>
+      <CookieBannerMessage role='alert'>
+        <CookieBannerContent>
+          <p className='font-govuk text-govuk-body mb-govuk-4'>
+            You&rsquo;ve accepted analytics cookies. You can{' '}
+            <Link href='#'>change your cookie settings</Link> at any time.
+          </p>
+        </CookieBannerContent>
+        <CookieBannerActions>
+          <Button>Hide cookie message</Button>
+        </CookieBannerActions>
+      </CookieBannerMessage>
+    </CookieBanner>
+  ),
+};
+
+export const Rejected: Story = {
+  render: () => (
+    <CookieBanner aria-label='Cookies on [name of service]'>
+      <CookieBannerMessage role='alert'>
+        <CookieBannerContent>
+          <p className='font-govuk text-govuk-body mb-govuk-4'>
+            You&rsquo;ve rejected analytics cookies. You can{' '}
+            <Link href='#'>change your cookie settings</Link> at any time.
+          </p>
+        </CookieBannerContent>
+        <CookieBannerActions>
+          <Button>Hide cookie message</Button>
+        </CookieBannerActions>
+      </CookieBannerMessage>
+    </CookieBanner>
+  ),
+};

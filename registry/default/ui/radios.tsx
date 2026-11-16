@@ -27,12 +27,14 @@ interface RadiosItemProps extends Omit<
 > {
   className?: string;
   hint?: React.ReactNode;
+  small?: boolean;
 }
 
 const RadiosItem = ({
   className,
   children,
   hint,
+  small,
   'aria-describedby': ariaDescribedBy,
   ...props
 }: RadiosItemProps) => {
@@ -45,9 +47,9 @@ const RadiosItem = ({
         className={cn(
           'flex flex-wrap items-start',
           'relative',
-          'mb-govuk-2 last:mb-0',
+          small ? 'group/item mb-0' : 'mb-govuk-2 last:mb-0',
           'cursor-pointer',
-          'has-data-[disabled]:opacity-50 has-data-[disabled]:cursor-not-allowed',
+          'has-data-disabled:opacity-50 has-data-disabled:cursor-not-allowed',
           className,
         )}
       >
@@ -61,6 +63,7 @@ const RadiosItem = ({
             'relative flex-none',
             'w-govuk-radio-touch-target h-govuk-radio-touch-target',
             'outline-none',
+            small && '-ml-govuk-2',
           )}
           {...props}
         >
@@ -68,24 +71,36 @@ const RadiosItem = ({
             aria-hidden='true'
             className={cn(
               'absolute box-border',
-              'top-[calc(var(--spacing-govuk-radio-gutter)/2)] left-[calc(var(--spacing-govuk-radio-gutter)/2)]',
-              'w-govuk-radio-size h-govuk-radio-size',
+              small
+                ? 'top-govuk-checkbox-small-box-offset left-govuk-checkbox-small-box-offset w-govuk-checkbox-small-size h-govuk-checkbox-small-size'
+                : 'top-[calc(var(--spacing-govuk-radio-gutter)/2)] left-[calc(var(--spacing-govuk-radio-gutter)/2)] w-govuk-radio-size h-govuk-radio-size',
               'rounded-full',
               'border-2 border-current bg-transparent',
+              'govuk-checkbox-composed-shadow',
               'group-focus/radio:border-4',
-              'group-focus/radio:shadow-[0_0_0_var(--spacing-govuk-radio-focus-width)_var(--color-govuk-yellow)]',
+              'group-focus/radio:govuk-radio-focus-shadow',
               'group-focus/radio:outline-govuk-radio-focus-width group-focus/radio:outline-transparent group-focus/radio:outline-offset-1',
+              small && 'group-hover/item:govuk-checkbox-small-hover',
             )}
           />
           <Radio.Indicator
             keepMounted
             className={cn(
               'absolute',
-              'top-[calc(var(--spacing-govuk-radio-touch-target)/2-var(--spacing-govuk-radio-dot))]',
-              'left-[calc(var(--spacing-govuk-radio-touch-target)/2-var(--spacing-govuk-radio-dot))]',
+              small
+                ? [
+                    'top-[calc(var(--spacing-govuk-radio-touch-target)/2-var(--spacing-govuk-radio-small-dot))]',
+                    'left-[calc(var(--spacing-govuk-radio-touch-target)/2-var(--spacing-govuk-radio-small-dot))]',
+                    'border-(length:--spacing-govuk-radio-small-dot)',
+                  ]
+                : [
+                    'top-[calc(var(--spacing-govuk-radio-touch-target)/2-var(--spacing-govuk-radio-dot))]',
+                    'left-[calc(var(--spacing-govuk-radio-touch-target)/2-var(--spacing-govuk-radio-dot))]',
+                    'border-(length:--spacing-govuk-radio-dot)',
+                  ],
               'w-0 h-0',
               'rounded-full',
-              'border-(length:--spacing-govuk-radio-dot) border-current',
+              'border-current',
               'bg-current',
               'opacity-0 data-checked:opacity-100',
             )}
@@ -98,14 +113,22 @@ const RadiosItem = ({
             'self-center',
             'py-govuk-button-pb px-govuk-radio-label-padding-x',
             'text-govuk-tag font-normal font-govuk',
-            'max-w-[calc(100%-74px)]',
+            small ? 'pl-px max-w-[calc(100%-50px)]' : 'max-w-[calc(100%-74px)]',
           )}
         >
           {children}
         </span>
       </label>
       {hint && (
-        <RadiosHint id={hintId}>{hint}</RadiosHint>
+        <RadiosHint
+          id={hintId}
+          className={cn(
+            small &&
+              'pl-[calc(var(--spacing-govuk-radio-touch-target)-var(--spacing-govuk-2))]',
+          )}
+        >
+          {hint}
+        </RadiosHint>
       )}
     </>
   );
@@ -127,17 +150,21 @@ const RadiosHint = ({ className, ...props }: RadiosHintProps) => (
   />
 );
 
-type RadiosDividerProps = React.ComponentProps<'div'>;
+interface RadiosDividerProps extends React.ComponentProps<'div'> {
+  small?: boolean;
+}
 
 const RadiosDivider = ({
   className,
   children = 'or',
+  small,
   ...props
 }: RadiosDividerProps) => (
   <div
     className={cn(
-      'w-govuk-radio-size',
-      'mb-govuk-2',
+      small
+        ? 'w-govuk-checkbox-small-size mb-govuk-1'
+        : 'w-govuk-radio-size mb-govuk-2',
       'text-govuk-tag font-normal font-govuk text-govuk-black',
       'text-center',
       className,
@@ -148,13 +175,38 @@ const RadiosDivider = ({
   </div>
 );
 
+interface RadiosConditionalProps extends React.ComponentProps<'div'> {
+  small?: boolean;
+}
+
+const RadiosConditional = ({
+  className,
+  small,
+  ...props
+}: RadiosConditionalProps) => (
+  <div
+    className={cn(
+      small
+        ? 'ml-govuk-2 pl-govuk-4'
+        : 'ml-govuk-checkbox-conditional-ml pl-govuk-checkbox-conditional-pl',
+      'mb-govuk-3 sm:mb-govuk-4',
+      'border-l-4 border-govuk-grey',
+      '*:last:mb-0',
+      className,
+    )}
+    {...props}
+  />
+);
+
 export {
   Radios,
   RadiosItem,
   RadiosHint,
   RadiosDivider,
+  RadiosConditional,
   type RadiosProps,
   type RadiosItemProps,
   type RadiosHintProps,
   type RadiosDividerProps,
+  type RadiosConditionalProps,
 };

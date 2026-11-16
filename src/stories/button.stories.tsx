@@ -124,6 +124,31 @@ export const DisabledWarning: Story = {
   },
 };
 
+export const DisabledInverse: Story = {
+  name: 'Disabled (Inverse)',
+  args: {
+    variant: 'inverse',
+    children: 'Sign in',
+    disabled: true,
+  },
+  decorators: [
+    (Story) => (
+      <div className='bg-govuk-brand p-govuk-6'>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const AsLink: Story = {
+  name: 'As link',
+  render: () => (
+    <Button render={<a href='#' />} nativeButton={false}>
+      Continue
+    </Button>
+  ),
+};
+
 export const ButtonGroup: Story = {
   args: {
     children: 'Save and continue',

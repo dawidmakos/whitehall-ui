@@ -79,6 +79,15 @@ export const WithoutLinks: Story = {
   },
 };
 
+export const MixedLinks: Story = {
+  args: {
+    errorList: [
+      { text: 'Enter your full name', href: '#full-name' },
+      { text: 'Your answers could not be saved. Try again later' },
+    ],
+  },
+};
+
 export const CustomTitle: Story = {
   args: {
     titleText: 'Mae yna broblem',

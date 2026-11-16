@@ -103,7 +103,7 @@
       "name": "radios",
       "type": "registry:ui",
       "title": "Radios",
-      "description": "Whitehall-UI radios (based on GOV.UK Design System) for letting users select one option from a list, with hint text and divider support.",
+      "description": "Whitehall-UI radios (based on GOV.UK Design System) for letting users select one option from a list, with hint text, divider, small size and conditional reveal support.",
       "dependencies": ["@base-ui/react"],
       "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
@@ -117,7 +117,7 @@
       "name": "checkboxes",
       "type": "registry:ui",
       "title": "Checkboxes",
-      "description": "Whitehall-UI checkboxes (based on GOV.UK Design System) for letting users select one or more options from a list, with hint text and divider support.",
+      "description": "Whitehall-UI checkboxes (based on GOV.UK Design System) for letting users select one or more options from a list, with hint text, divider, small size and conditional reveal support.",
       "dependencies": ["@base-ui/react"],
       "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
@@ -145,7 +145,7 @@
       "name": "service-navigation",
       "type": "registry:ui",
       "title": "Service Navigation",
-      "description": "Whitehall-UI service navigation component (based on GOV.UK Design System) that shows the service name and lets users navigate around the service, with a collapsible menu on mobile that stays usable before JavaScript loads.",
+      "description": "Whitehall-UI service navigation component (based on GOV.UK Design System) that shows the service name and lets users navigate around the service, with a collapsible menu on mobile that stays usable before JavaScript loads, an inverse (blue) variant and an end slot for language navigation.",
       "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
@@ -205,6 +205,19 @@
       "files": [
         {
           "path": "registry/default/ui/hint.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form-group",
+      "type": "registry:ui",
+      "title": "Form Group",
+      "description": "Whitehall-UI form group wrapper (based on GOV.UK Design System) that spaces a question and shows the red error border when it has an error.",
+      "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
+      "files": [
+        {
+          "path": "registry/default/ui/form-group.tsx",
           "type": "registry:ui"
         }
       ]

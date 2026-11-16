@@ -8,7 +8,7 @@ import { Button } from './button';
 
 interface PasswordInputProps extends Omit<
   TextInputProps,
-  'type' | 'width' | 'prefix' | 'suffix'
+  'type' | 'prefix' | 'suffix'
 > {
   showPasswordText?: string;
   hidePasswordText?: string;

@@ -93,3 +93,58 @@ export const Inverse: Story = {
     </div>
   ),
 };
+
+export const OneLevel: Story = {
+  render: () => (
+    <Breadcrumbs>
+      <BreadcrumbsList>
+        <BreadcrumbsListItem>
+          <BreadcrumbsLink href='#'>Section</BreadcrumbsLink>
+        </BreadcrumbsListItem>
+      </BreadcrumbsList>
+    </Breadcrumbs>
+  ),
+};
+
+export const WithoutHome: Story = {
+  render: () => (
+    <Breadcrumbs>
+      <BreadcrumbsList>
+        <BreadcrumbsListItem>
+          <BreadcrumbsLink href='#'>Service manual</BreadcrumbsLink>
+        </BreadcrumbsListItem>
+        <BreadcrumbsListItem>
+          <BreadcrumbsLink href='#'>Agile delivery</BreadcrumbsLink>
+        </BreadcrumbsListItem>
+      </BreadcrumbsList>
+    </Breadcrumbs>
+  ),
+};
+
+export const CurrentPage: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Only include the current page when it helps users. Render it as text with `aria-current="page"`, not as a link.',
+      },
+    },
+  },
+  render: () => (
+    <Breadcrumbs>
+      <BreadcrumbsList>
+        <BreadcrumbsListItem>
+          <BreadcrumbsLink href='#'>Home</BreadcrumbsLink>
+        </BreadcrumbsListItem>
+        <BreadcrumbsListItem>
+          <BreadcrumbsLink href='#'>
+            Passports, travel and living abroad
+          </BreadcrumbsLink>
+        </BreadcrumbsListItem>
+        <BreadcrumbsListItem aria-current='page'>
+          Travel abroad
+        </BreadcrumbsListItem>
+      </BreadcrumbsList>
+    </Breadcrumbs>
+  ),
+};

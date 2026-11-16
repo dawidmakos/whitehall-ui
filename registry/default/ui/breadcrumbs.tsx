@@ -50,7 +50,7 @@ const BreadcrumbsListItem = ({
     {...props}
   >
     <svg
-      className='inline-block align-middle mx-govuk-2 -mt-px text-govuk-dark-grey group-data-[inverse]/breadcrumbs:text-current'
+      className='inline-block align-middle mx-govuk-2 -mt-px text-govuk-dark-grey group-data-inverse/breadcrumbs:text-current'
       xmlns='http://www.w3.org/2000/svg'
       width='7'
       height='11'

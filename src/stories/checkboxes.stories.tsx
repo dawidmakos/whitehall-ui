@@ -7,7 +7,8 @@ import {
   CheckboxesDivider,
   CheckboxesConditional,
 } from '@/ui/checkboxes';
-import { Fieldset, FieldsetLegend } from '@/ui/fieldset';
+import { Fieldset, FieldsetLegend, FieldsetHeading } from '@/ui/fieldset';
+import { FormGroup } from '@/ui/form-group';
 import { Hint } from '@/ui/hint';
 import { Label } from '@/ui/label';
 import { TextInput } from '@/ui/text-input';
@@ -21,7 +22,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Whitehall-UI checkboxes component. Lets users select one or more options from a list, or toggle a single option on or off. Based on the [GOV.UK Design System Checkboxes](https://design-system.service.gov.uk/components/checkboxes/).',
+          'Whitehall-UI checkboxes component. Lets users select one or more options from a list, or toggle a single option on or off. Based on the [GOV.UK Design System Checkboxes](https://design-system.service.gov.uk/components/checkboxes/). Pass `hint` to `CheckboxesItem` to show hint text under an option; it is linked to the checkbox with `aria-describedby` automatically.',
       },
     },
   },
@@ -87,7 +88,7 @@ export const WithHints: Story = {
   },
 };
 
-const WithNoneOptionRender = () => {
+const useExclusiveNone = () => {
   const [values, setValues] = useState<string[]>([]);
 
   const handleChange = (next: string[]) => {
@@ -105,6 +106,12 @@ const WithNoneOptionRender = () => {
     }
   };
 
+  return [values, handleChange] as const;
+};
+
+const WithNoneOptionRender = ({ small }: { small?: boolean }) => {
+  const [values, handleChange] = useExclusiveNone();
+
   return (
     <Fieldset>
       <FieldsetLegend>
@@ -112,17 +119,17 @@ const WithNoneOptionRender = () => {
       </FieldsetLegend>
       <Hint>Select all that apply</Hint>
       <Checkboxes value={values} onValueChange={handleChange}>
-        <CheckboxesItem name='countries' value='france'>
+        <CheckboxesItem small={small} name='countries' value='france'>
           France
         </CheckboxesItem>
-        <CheckboxesItem name='countries' value='portugal'>
+        <CheckboxesItem small={small} name='countries' value='portugal'>
           Portugal
         </CheckboxesItem>
-        <CheckboxesItem name='countries' value='spain'>
+        <CheckboxesItem small={small} name='countries' value='spain'>
           Spain
         </CheckboxesItem>
-        <CheckboxesDivider />
-        <CheckboxesItem name='countries' value='none'>
+        <CheckboxesDivider small={small} />
+        <CheckboxesItem small={small} name='countries' value='none'>
           No, I will not be travelling to any of these countries
         </CheckboxesItem>
       </Checkboxes>
@@ -134,7 +141,120 @@ export const WithNoneOption: Story = {
   render: () => <WithNoneOptionRender />,
 };
 
-const ConditionalRevealRender = () => {
+const WithNoneAndConditionalRender = () => {
+  const [values, handleChange] = useExclusiveNone();
+
+  return (
+    <Fieldset>
+      <FieldsetLegend>Do you have any access needs?</FieldsetLegend>
+      <Hint>Select all that apply</Hint>
+      <Checkboxes value={values} onValueChange={handleChange}>
+        <CheckboxesItem name='access-needs' value='toilets'>
+          Accessible toilets available
+        </CheckboxesItem>
+        <CheckboxesItem name='access-needs' value='braille'>
+          Braille translation service available
+        </CheckboxesItem>
+        <CheckboxesItem name='access-needs' value='other'>
+          Something else
+        </CheckboxesItem>
+        {values.includes('other') && (
+          <CheckboxesConditional>
+            <Label htmlFor='access-needs-other'>
+              Describe your access needs
+            </Label>
+            <TextInput id='access-needs-other' width={20} />
+          </CheckboxesConditional>
+        )}
+        <CheckboxesDivider />
+        <CheckboxesItem name='access-needs' value='none'>
+          No, I do not have any access needs
+        </CheckboxesItem>
+      </Checkboxes>
+    </Fieldset>
+  );
+};
+
+export const WithNoneAndConditional: Story = {
+  render: () => <WithNoneAndConditionalRender />,
+};
+
+export const PreChecked: Story = {
+  render: () => (
+    <Fieldset>
+      <FieldsetLegend>How do you want to be contacted?</FieldsetLegend>
+      <Hint>Select all that apply</Hint>
+      <Checkboxes defaultValue={['email', 'text']}>
+        <CheckboxesItem name='contact-pre' value='email'>
+          Email
+        </CheckboxesItem>
+        <CheckboxesItem name='contact-pre' value='phone'>
+          Phone
+        </CheckboxesItem>
+        <CheckboxesItem name='contact-pre' value='text'>
+          Text message
+        </CheckboxesItem>
+      </Checkboxes>
+    </Fieldset>
+  ),
+};
+
+export const LegendAsPageHeading: Story = {
+  render: () => (
+    <Fieldset aria-describedby='waste-heading-hint'>
+      <FieldsetLegend size='l'>
+        <FieldsetHeading>
+          Which types of waste do you transport regularly?
+        </FieldsetHeading>
+      </FieldsetLegend>
+      <Hint id='waste-heading-hint'>Select all that apply</Hint>
+      <Checkboxes defaultValue={[]}>
+        <CheckboxesItem name='waste-heading' value='animal'>
+          Waste from animal carcasses
+        </CheckboxesItem>
+        <CheckboxesItem name='waste-heading' value='mines'>
+          Waste from mines or quarries
+        </CheckboxesItem>
+        <CheckboxesItem name='waste-heading' value='farm'>
+          Farm or agricultural waste
+        </CheckboxesItem>
+      </Checkboxes>
+    </Fieldset>
+  ),
+};
+
+export const LongOptionText: Story = {
+  render: () => (
+    <Fieldset>
+      <FieldsetLegend>Which statements apply to you?</FieldsetLegend>
+      <Checkboxes defaultValue={[]}>
+        <CheckboxesItem
+          name='long-text'
+          value='first'
+          hint='Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.'
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+          faucibus mollis interdum. Donec sed odio dui. Cras mattis consectetur
+          purus sit amet fermentum. Vestibulum id ligula porta felis euismod
+          semper.
+        </CheckboxesItem>
+        <CheckboxesItem name='long-text' value='second'>
+          Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a
+          ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla
+          non metus auctor fringilla.
+        </CheckboxesItem>
+      </Checkboxes>
+    </Fieldset>
+  ),
+};
+
+const ConditionalRevealRender = ({
+  id,
+  small,
+}: {
+  id: string;
+  small?: boolean;
+}) => {
   const [values, setValues] = useState<string[]>([]);
 
   return (
@@ -142,45 +262,45 @@ const ConditionalRevealRender = () => {
       <FieldsetLegend>How would you like to be contacted?</FieldsetLegend>
       <Hint>Select all that apply</Hint>
       <Checkboxes value={values} onValueChange={setValues}>
-        <CheckboxesItem name='contact' value='email'>
+        <CheckboxesItem small={small} name={id} value='email'>
           Email
         </CheckboxesItem>
         {values.includes('email') && (
-          <CheckboxesConditional>
-            <Label htmlFor='email-address'>Email address</Label>
+          <CheckboxesConditional small={small}>
+            <Label htmlFor={`${id}-email`}>Email address</Label>
             <TextInput
-              id='email-address'
-              name='email-address'
+              id={`${id}-email`}
+              name={`${id}-email`}
               type='email'
               width={20}
             />
           </CheckboxesConditional>
         )}
 
-        <CheckboxesItem name='contact' value='phone'>
+        <CheckboxesItem small={small} name={id} value='phone'>
           Phone
         </CheckboxesItem>
         {values.includes('phone') && (
-          <CheckboxesConditional>
-            <Label htmlFor='phone-number'>Phone number</Label>
+          <CheckboxesConditional small={small}>
+            <Label htmlFor={`${id}-phone`}>Phone number</Label>
             <TextInput
-              id='phone-number'
-              name='phone-number'
+              id={`${id}-phone`}
+              name={`${id}-phone`}
               type='tel'
               width={20}
             />
           </CheckboxesConditional>
         )}
 
-        <CheckboxesItem name='contact' value='text'>
+        <CheckboxesItem small={small} name={id} value='text'>
           Text message
         </CheckboxesItem>
         {values.includes('text') && (
-          <CheckboxesConditional>
-            <Label htmlFor='mobile-number'>Mobile phone number</Label>
+          <CheckboxesConditional small={small}>
+            <Label htmlFor={`${id}-mobile`}>Mobile phone number</Label>
             <TextInput
-              id='mobile-number'
-              name='mobile-number'
+              id={`${id}-mobile`}
+              name={`${id}-mobile`}
               type='tel'
               width={20}
             />
@@ -192,7 +312,7 @@ const ConditionalRevealRender = () => {
 };
 
 export const ConditionalReveal: Story = {
-  render: () => <ConditionalRevealRender />,
+  render: () => <ConditionalRevealRender id='contact' />,
 };
 
 export const Small: Story = {
@@ -217,34 +337,91 @@ export const Small: Story = {
   ),
 };
 
-export const WithError: Story = {
+export const SmallWithHint: Story = {
   render: () => (
     <Fieldset>
-      <FieldsetLegend>What is your nationality?</FieldsetLegend>
-      <Hint>
-        If you have dual nationality, select all options that are relevant to
-        you.
-      </Hint>
-      <ErrorMessage>
-        Select if you are British, Irish or a citizen of a different country
-      </ErrorMessage>
+      <FieldsetLegend>Filter by</FieldsetLegend>
       <Checkboxes defaultValue={[]}>
         <CheckboxesItem
-          name='nationality'
-          value='british'
-          hint='including English, Scottish, Welsh and Northern Irish'
+          small
+          name='small-hint'
+          value='open'
+          hint='Consultations you can still respond to'
         >
-          British
+          Open consultations
         </CheckboxesItem>
-
-        <CheckboxesItem name='nationality' value='irish'>
-          Irish
-        </CheckboxesItem>
-
-        <CheckboxesItem name='nationality' value='other'>
-          Citizen of another country
+        <CheckboxesItem
+          small
+          name='small-hint'
+          value='closed'
+          hint='Consultations that have closed for responses'
+        >
+          Closed consultations
         </CheckboxesItem>
       </Checkboxes>
     </Fieldset>
+  ),
+};
+
+export const SmallWithError: Story = {
+  render: () => (
+    <FormGroup error>
+      <Fieldset aria-describedby='small-filter-error'>
+        <FieldsetLegend>Filter by</FieldsetLegend>
+        <ErrorMessage id='small-filter-error'>
+          Select at least one filter
+        </ErrorMessage>
+        <Checkboxes defaultValue={[]}>
+          <CheckboxesItem small name='small-error' value='open'>
+            Open consultations
+          </CheckboxesItem>
+          <CheckboxesItem small name='small-error' value='closed'>
+            Closed consultations
+          </CheckboxesItem>
+        </Checkboxes>
+      </Fieldset>
+    </FormGroup>
+  ),
+};
+
+export const SmallWithConditionalReveal: Story = {
+  render: () => <ConditionalRevealRender id='small-contact' small />,
+};
+
+export const SmallWithNoneOption: Story = {
+  render: () => <WithNoneOptionRender small />,
+};
+
+export const WithError: Story = {
+  render: () => (
+    <FormGroup error>
+      <Fieldset aria-describedby='nationality-error-hint nationality-error'>
+        <FieldsetLegend>What is your nationality?</FieldsetLegend>
+        <Hint id='nationality-error-hint'>
+          If you have dual nationality, select all options that are relevant
+          to you.
+        </Hint>
+        <ErrorMessage id='nationality-error'>
+          Select if you are British, Irish or a citizen of a different country
+        </ErrorMessage>
+        <Checkboxes defaultValue={[]}>
+          <CheckboxesItem
+            name='nationality'
+            value='british'
+            hint='including English, Scottish, Welsh and Northern Irish'
+          >
+            British
+          </CheckboxesItem>
+
+          <CheckboxesItem name='nationality' value='irish'>
+            Irish
+          </CheckboxesItem>
+
+          <CheckboxesItem name='nationality' value='other'>
+            Citizen of another country
+          </CheckboxesItem>
+        </Checkboxes>
+      </Fieldset>
+    </FormGroup>
   ),
 };

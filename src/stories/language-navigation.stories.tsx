@@ -61,3 +61,109 @@ export const Inverse: Story = {
     </div>
   ),
 };
+
+export const MultipleLanguages: Story = {
+  render: () => (
+    <LanguageNavigation>
+      <LanguageNavigationItem>
+        <LanguageNavigationCurrent lang='en'>English</LanguageNavigationCurrent>
+      </LanguageNavigationItem>
+      <LanguageNavigationItem>
+        <LanguageNavigationLink href='#' lang='cy'>
+          Cymraeg
+        </LanguageNavigationLink>
+      </LanguageNavigationItem>
+      <LanguageNavigationItem>
+        <LanguageNavigationLink href='#' lang='gd'>
+          Gàidhlig
+        </LanguageNavigationLink>
+      </LanguageNavigationItem>
+      <LanguageNavigationItem>
+        <LanguageNavigationLink href='#' lang='ga'>
+          Gaeilge
+        </LanguageNavigationLink>
+      </LanguageNavigationItem>
+    </LanguageNavigation>
+  ),
+};
+
+const manyLanguages = [
+  { lang: 'cy', name: 'Cymraeg' },
+  { lang: 'de', name: 'Deutsch' },
+  { lang: 'es', name: 'Español' },
+  { lang: 'fr', name: 'Français' },
+  { lang: 'it', name: 'Italiano' },
+  { lang: 'pl', name: 'Polski' },
+  { lang: 'pt', name: 'Português' },
+  { lang: 'ro', name: 'Română' },
+  { lang: 'uk', name: 'Українська' },
+  { lang: 'zh', name: '中文' },
+];
+
+export const ManyLanguages: Story = {
+  render: () => (
+    <LanguageNavigation>
+      <LanguageNavigationItem>
+        <LanguageNavigationCurrent lang='en'>English</LanguageNavigationCurrent>
+      </LanguageNavigationItem>
+      {manyLanguages.map(({ lang, name }) => (
+        <LanguageNavigationItem key={lang}>
+          <LanguageNavigationLink href='#' lang={lang}>
+            {name}
+          </LanguageNavigationLink>
+        </LanguageNavigationItem>
+      ))}
+    </LanguageNavigation>
+  ),
+};
+
+export const MixedTextDirections: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Give right-to-left languages `dir="rtl"` so the name renders in the right direction.',
+      },
+    },
+  },
+  render: () => (
+    <LanguageNavigation>
+      <LanguageNavigationItem>
+        <LanguageNavigationCurrent lang='en'>English</LanguageNavigationCurrent>
+      </LanguageNavigationItem>
+      <LanguageNavigationItem>
+        <LanguageNavigationLink href='#' lang='ar' dir='rtl'>
+          العربية
+        </LanguageNavigationLink>
+      </LanguageNavigationItem>
+      <LanguageNavigationItem>
+        <LanguageNavigationLink href='#' lang='ur' dir='rtl'>
+          اردو
+        </LanguageNavigationLink>
+      </LanguageNavigationItem>
+    </LanguageNavigation>
+  ),
+};
+
+export const TranslatedLabel: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Override `aria-label` to translate the navigation label into the current page language.',
+      },
+    },
+  },
+  render: () => (
+    <LanguageNavigation aria-label='Iaith'>
+      <LanguageNavigationItem>
+        <LanguageNavigationLink href='#' lang='en'>
+          English
+        </LanguageNavigationLink>
+      </LanguageNavigationItem>
+      <LanguageNavigationItem>
+        <LanguageNavigationCurrent lang='cy'>Cymraeg</LanguageNavigationCurrent>
+      </LanguageNavigationItem>
+    </LanguageNavigation>
+  ),
+};

@@ -225,3 +225,22 @@ export const CardWithActions: Story = {
     </SummaryListCard>
   ),
 };
+
+export const NoBorderOnLastRow: Story = {
+  render: () => (
+    <SummaryList>
+      <SummaryListRow noActions>
+        <SummaryListKey>Name</SummaryListKey>
+        <SummaryListValue>Sarah Philips</SummaryListValue>
+      </SummaryListRow>
+      <SummaryListRow noActions>
+        <SummaryListKey>Date of birth</SummaryListKey>
+        <SummaryListValue>5 January 1978</SummaryListValue>
+      </SummaryListRow>
+      <SummaryListRow noActions noBorder>
+        <SummaryListKey>Contact details</SummaryListKey>
+        <SummaryListValue>sarah.phillips@example.com</SummaryListValue>
+      </SummaryListRow>
+    </SummaryList>
+  ),
+};

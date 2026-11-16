@@ -6,6 +6,7 @@ import { cn, mergeRefs } from '@/lib/utils';
 
 interface FileUploadProps extends Omit<React.ComponentProps<'input'>, 'type'> {
   error?: boolean;
+  enhanced?: boolean;
   chooseFileButtonText?: string;
   dropInstructionText?: string;
   noFileChosenText?: string;
@@ -53,6 +54,7 @@ const FileUpload = ({
   id,
   disabled,
   error,
+  enhanced = true,
   chooseFileButtonText = 'Choose file',
   dropInstructionText = 'or drop file',
   noFileChosenText = 'No file chosen',
@@ -74,6 +76,32 @@ const FileUpload = ({
     fileNames.length > 1
       ? `${fileNames.length} files chosen`
       : (fileNames[0] ?? noFileChosenText);
+
+  if (!enhanced) {
+    return (
+      <input
+        ref={ref}
+        id={id}
+        type='file'
+        disabled={disabled}
+        onChange={onChange}
+        aria-describedby={ariaDescribedBy}
+        className={cn(
+          'max-w-full -ml-govuk-1 p-govuk-1',
+          'font-govuk text-govuk-body text-govuk-black',
+          'file:font-govuk file:text-govuk-body file:text-inherit',
+          'file:mr-govuk-2 file:px-govuk-2 file:py-px file:cursor-pointer',
+          'file:border file:border-govuk-dark-grey file:rounded-xs',
+          'file:bg-govuk-light-grey hover:file:bg-govuk-mid-grey',
+          'focus:outline-3 focus:outline-govuk-yellow',
+          'focus:inset-ring-4 focus:inset-ring-govuk-black',
+          'disabled:opacity-50 disabled:cursor-not-allowed',
+          className,
+        )}
+        {...props}
+      />
+    );
+  }
 
   return (
     <div

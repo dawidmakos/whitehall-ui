@@ -81,3 +81,32 @@ export const WholeService: Story = {
     </NotificationBanner>
   ),
 };
+
+export const WithLotsOfContent: Story = {
+  render: () => (
+    <NotificationBanner>
+      <NotificationBannerHeader>
+        <NotificationBannerTitle>Important</NotificationBannerTitle>
+      </NotificationBannerHeader>
+      <NotificationBannerContent>
+        <NotificationBannerHeading>
+          Check if you need to apply for a visa to do this type of work
+        </NotificationBannerHeading>
+        <p className='font-govuk text-govuk-body mt-0 mb-govuk-4'>
+          You may need a visa if you are coming to the UK to work for a short
+          time. Check the guidance before you travel.
+        </p>
+        <ul className='font-govuk text-govuk-body mt-0 mb-govuk-4 pl-govuk-4 list-disc'>
+          <li>you have a job offer from a UK employer</li>
+          <li>your job is on the list of eligible occupations</li>
+          <li>you will be paid at least the minimum salary</li>
+        </ul>
+        <p className='font-govuk text-govuk-body m-0'>
+          <NotificationBannerLink href='#'>
+            Read the visa guidance
+          </NotificationBannerLink>
+        </p>
+      </NotificationBannerContent>
+    </NotificationBanner>
+  ),
+};
