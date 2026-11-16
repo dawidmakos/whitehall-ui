@@ -1,7 +1,6 @@
 import { cn } from '@/lib/utils';
 
-interface ErrorMessageProps extends React.HTMLAttributes<HTMLParagraphElement> {
-  ref?: React.Ref<HTMLParagraphElement>;
+interface ErrorMessageProps extends React.ComponentProps<'p'> {
   visuallyHiddenText?: string;
 }
 
@@ -9,11 +8,9 @@ const ErrorMessage = ({
   className,
   children,
   visuallyHiddenText = 'Error',
-  ref,
   ...props
 }: ErrorMessageProps) => (
   <p
-    ref={ref}
     className={cn(
       'block',
       'mt-0 mb-govuk-3',

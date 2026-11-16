@@ -15,75 +15,49 @@ type TableCaptionSize = NonNullable<
   VariantProps<typeof tableCaptionVariants>['size']
 >;
 
-interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> {
-  ref?: React.Ref<HTMLTableElement>;
+interface TableProps extends React.ComponentProps<'table'> {
   smallTextUntilTablet?: boolean;
 }
 
-interface TableContainerProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
+interface TableContainerProps extends React.ComponentProps<'div'> {
   label?: string;
 }
 
-interface TableCaptionProps
-  extends
-    React.HTMLAttributes<HTMLTableCaptionElement>,
-    VariantProps<typeof tableCaptionVariants> {
-  ref?: React.Ref<HTMLTableCaptionElement>;
-}
+type TableCaptionProps = React.ComponentProps<'caption'> &
+  VariantProps<typeof tableCaptionVariants>;
 
-interface TableHeadProps extends React.HTMLAttributes<HTMLTableSectionElement> {
-  ref?: React.Ref<HTMLTableSectionElement>;
-}
+type TableHeadProps = React.ComponentProps<'thead'>;
 
-interface TableBodyProps extends React.HTMLAttributes<HTMLTableSectionElement> {
-  ref?: React.Ref<HTMLTableSectionElement>;
-}
+type TableBodyProps = React.ComponentProps<'tbody'>;
 
-interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
-  ref?: React.Ref<HTMLTableRowElement>;
-}
+type TableRowProps = React.ComponentProps<'tr'>;
 
-interface TableHeaderProps extends React.ThHTMLAttributes<HTMLTableCellElement> {
-  ref?: React.Ref<HTMLTableCellElement>;
+interface TableHeaderProps extends React.ComponentProps<'th'> {
   numeric?: boolean;
 }
 
-interface TableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {
-  ref?: React.Ref<HTMLTableCellElement>;
+interface TableCellProps extends React.ComponentProps<'td'> {
   numeric?: boolean;
 }
 
-const Table = ({
-  className,
-  ref,
-  children,
-  smallTextUntilTablet,
-  ...props
-}: TableProps) => (
+const Table = ({ className, smallTextUntilTablet, ...props }: TableProps) => (
   <table
-    ref={ref}
     className={cn(
-      'w-full mb-govuk-6 border-spacing-0 border-collapse',
+      'w-full mb-govuk-r6 border-spacing-0 border-collapse',
       'font-govuk text-govuk-body text-govuk-black',
       smallTextUntilTablet && 'max-sm:text-govuk-body-small',
       className,
     )}
     {...props}
-  >
-    {children}
-  </table>
+  />
 );
 
 const TableContainer = ({
   className,
-  ref,
-  children,
   label = 'Table',
   ...props
 }: TableContainerProps) => (
   <div
-    ref={ref}
     role='region'
     aria-label={label}
     tabIndex={0}
@@ -93,87 +67,42 @@ const TableContainer = ({
       className,
     )}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
 
-const TableCaption = ({
-  className,
-  ref,
-  children,
-  size,
-  ...props
-}: TableCaptionProps) => (
+const TableCaption = ({ className, size, ...props }: TableCaptionProps) => (
   <caption
-    ref={ref}
-    className={cn(
-      'font-govuk font-bold table-caption text-left',
-      tableCaptionVariants({ size }),
-      className,
-    )}
+    className={cn('font-govuk', tableCaptionVariants({ size }), className)}
     {...props}
-  >
-    {children}
-  </caption>
+  />
 );
 
-const TableHead = ({ className, ref, children, ...props }: TableHeadProps) => (
-  <thead ref={ref} className={cn(className)} {...props}>
-    {children}
-  </thead>
-);
+const TableHead = (props: TableHeadProps) => <thead {...props} />;
 
-const TableBody = ({ className, ref, children, ...props }: TableBodyProps) => (
-  <tbody ref={ref} className={cn(className)} {...props}>
-    {children}
-  </tbody>
-);
+const TableBody = (props: TableBodyProps) => <tbody {...props} />;
 
-const TableRow = ({ className, ref, children, ...props }: TableRowProps) => (
-  <tr ref={ref} className={cn(className)} {...props}>
-    {children}
-  </tr>
-);
+const TableRow = (props: TableRowProps) => <tr {...props} />;
 
-const TableHeader = ({
-  className,
-  ref,
-  children,
-  numeric,
-  ...props
-}: TableHeaderProps) => (
+const TableHeader = ({ className, numeric, ...props }: TableHeaderProps) => (
   <th
-    ref={ref}
     className={cn(
       'govuk-table-cell font-bold',
       numeric && 'text-right tabular-nums',
       className,
     )}
     {...props}
-  >
-    {children}
-  </th>
+  />
 );
 
-const TableCell = ({
-  className,
-  ref,
-  children,
-  numeric,
-  ...props
-}: TableCellProps) => (
+const TableCell = ({ className, numeric, ...props }: TableCellProps) => (
   <td
-    ref={ref}
     className={cn(
       'govuk-table-cell',
       numeric && 'text-right tabular-nums',
       className,
     )}
     {...props}
-  >
-    {children}
-  </td>
+  />
 );
 
 export {

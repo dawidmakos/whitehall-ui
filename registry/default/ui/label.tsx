@@ -10,21 +10,13 @@ const labelVariants = cva(['block', 'font-govuk text-govuk-black'], {
       s: 'text-govuk-body font-bold mb-govuk-1',
     },
   },
-  defaultVariants: {
-    size: undefined,
-  },
 });
 
-interface LabelProps
-  extends
-    React.LabelHTMLAttributes<HTMLLabelElement>,
-    VariantProps<typeof labelVariants> {
-  ref?: React.Ref<HTMLLabelElement>;
-}
+type LabelProps = React.ComponentProps<'label'> &
+  VariantProps<typeof labelVariants>;
 
-const Label = ({ className, size, htmlFor, ref, ...props }: LabelProps) => (
+const Label = ({ className, size, htmlFor, ...props }: LabelProps) => (
   <label
-    ref={ref}
     htmlFor={htmlFor}
     className={cn(
       labelVariants({ size }),
@@ -35,18 +27,19 @@ const Label = ({ className, size, htmlFor, ref, ...props }: LabelProps) => (
   />
 );
 
-interface LabelWrapperProps extends React.HTMLAttributes<HTMLHeadingElement> {
+interface LabelWrapperProps extends React.ComponentProps<'h1'> {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  ref?: React.Ref<HTMLHeadingElement>;
 }
 
 const LabelWrapper = ({
   as: Tag = 'h1',
   className,
-  ref,
+  children,
   ...props
 }: LabelWrapperProps) => (
-  <Tag ref={ref} className={cn('m-0', className)} {...props} />
+  <Tag className={cn('m-0', className)} {...props}>
+    {children}
+  </Tag>
 );
 
 export {

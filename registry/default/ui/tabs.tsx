@@ -1,4 +1,6 @@
-import { createContext, useContext, useId, useSyncExternalStore } from 'react';
+'use client';
+
+import { createContext, use, useId, useSyncExternalStore } from 'react';
 import { Tabs as BaseUITabs } from '@base-ui/react/tabs';
 import { cn } from '@/lib/utils';
 
@@ -28,18 +30,10 @@ const useIsStacked = () =>
     getStackedServerSnapshot,
   );
 
-interface TabsContextValue {
-  stacked: boolean;
-  idPrefix: string;
-}
-
-const TabsContext = createContext<TabsContextValue>({
-  stacked: false,
-  idPrefix: '',
-});
+const TabsContext = createContext({ stacked: false, idPrefix: '' });
 
 const usePanelId = (value: unknown) => {
-  const { idPrefix } = useContext(TabsContext);
+  const { idPrefix } = use(TabsContext);
   return `${idPrefix}-${String(value)}`;
 };
 
@@ -51,13 +45,12 @@ const domStyle = <T,>(
 ) => (typeof style === 'function' ? undefined : style);
 
 const rootStyles =
-  'mt-govuk-1 mb-govuk-6 font-govuk text-govuk-body text-govuk-black';
+  'mt-govuk-1 mb-govuk-r6 font-govuk text-govuk-body text-govuk-black';
 
 interface TabsProps extends Omit<
   React.ComponentProps<typeof BaseUITabs.Root>,
   'className'
 > {
-  ref?: React.Ref<HTMLDivElement>;
   className?: string;
 }
 
@@ -65,7 +58,6 @@ interface TabsListProps extends Omit<
   React.ComponentProps<typeof BaseUITabs.List>,
   'className'
 > {
-  ref?: React.Ref<HTMLDivElement>;
   className?: string;
   contentsLabel?: string;
 }
@@ -74,7 +66,6 @@ interface TabsTabProps extends Omit<
   React.ComponentProps<typeof BaseUITabs.Tab>,
   'className'
 > {
-  ref?: React.Ref<HTMLButtonElement>;
   className?: string;
 }
 
@@ -82,14 +73,11 @@ interface TabsPanelProps extends Omit<
   React.ComponentProps<typeof BaseUITabs.Panel>,
   'className'
 > {
-  ref?: React.Ref<HTMLDivElement>;
   className?: string;
 }
 
 const Tabs = ({
   className,
-  ref,
-  children,
   defaultValue,
   value,
   onValueChange,
@@ -103,23 +91,19 @@ const Tabs = ({
 
   if (stacked) {
     return (
-      <TabsContext.Provider value={{ stacked: true, idPrefix }}>
+      <TabsContext value={{ stacked: true, idPrefix }}>
         <div
-          ref={ref}
           className={cn(rootStyles, className)}
           style={domStyle(style)}
           {...props}
-        >
-          {children}
-        </div>
-      </TabsContext.Provider>
+        />
+      </TabsContext>
     );
   }
 
   return (
-    <TabsContext.Provider value={{ stacked: false, idPrefix }}>
+    <TabsContext value={{ stacked: false, idPrefix }}>
       <BaseUITabs.Root
-        ref={ref}
         defaultValue={defaultValue}
         value={value}
         onValueChange={onValueChange}
@@ -128,35 +112,31 @@ const Tabs = ({
         style={style}
         className={cn(rootStyles, className)}
         {...props}
-      >
-        {children}
-      </BaseUITabs.Root>
-    </TabsContext.Provider>
+      />
+    </TabsContext>
   );
 };
 
 const TabsList = ({
   className,
-  ref,
   children,
   contentsLabel = 'Contents',
   activateOnFocus = true,
-  loopFocus,
+  loopFocus = false,
   render,
   style,
   ...props
 }: TabsListProps) => {
-  const { stacked } = useContext(TabsContext);
+  const { stacked } = use(TabsContext);
 
   if (stacked) {
     return (
       <div
-        ref={ref}
         className={cn('mb-govuk-4', className)}
         style={domStyle(style)}
         {...props}
       >
-        <h2 className='mt-0 mb-govuk-2 text-govuk-heading-m font-bold'>
+        <h2 className='mt-0 mb-govuk-2 text-govuk-body font-normal'>
           {contentsLabel}
         </h2>
         <ul className='m-0 p-0 list-none'>{children}</ul>
@@ -166,12 +146,11 @@ const TabsList = ({
 
   return (
     <BaseUITabs.List
-      ref={ref}
       activateOnFocus={activateOnFocus}
       loopFocus={loopFocus}
       render={render}
       style={style}
-      className={cn('flex m-0 p-0 border-b border-govuk-mid-grey', className)}
+      className={cn('flex flex-wrap m-0 p-0 border-b border-govuk-mid-grey', className)}
       {...props}
     >
       {children}
@@ -179,23 +158,19 @@ const TabsList = ({
   );
 };
 
-const TabsTab = ({
-  className,
-  ref,
-  children,
-  value,
-  ...props
-}: TabsTabProps) => {
-  const { stacked } = useContext(TabsContext);
+const TabsTab = ({ className, children, value, ...props }: TabsTabProps) => {
+  const { stacked } = use(TabsContext);
   const panelId = usePanelId(value);
 
   if (stacked) {
     return (
-      <li className='mb-govuk-1'>
+      <li className="ml-govuk-5 before:-ml-govuk-5 before:pr-govuk-1 before:content-['—_']">
         <a
           href={`#${panelId}`}
           className={cn(
-            'text-govuk-brand underline govuk-link-underline',
+            'inline-block mb-govuk-2',
+            'text-govuk-link underline govuk-link-underline',
+            'visited:text-govuk-visited active:text-govuk-black',
             'hover:text-govuk-brand-hover hover:govuk-link-underline-hover',
             'focus:govuk-link-focus',
             className,
@@ -209,7 +184,6 @@ const TabsTab = ({
 
   return (
     <BaseUITabs.Tab
-      ref={ref}
       value={value}
       className={cn(
         'group relative cursor-pointer border-0 outline-none',
@@ -236,34 +210,28 @@ const TabsTab = ({
 
 const TabsPanel = ({
   className,
-  ref,
-  children,
   value,
   keepMounted,
   render,
   style,
   ...props
 }: TabsPanelProps) => {
-  const { stacked } = useContext(TabsContext);
+  const { stacked } = use(TabsContext);
   const panelId = usePanelId(value);
 
   if (stacked) {
     return (
       <div
-        ref={ref}
         id={panelId}
         className={cn('mb-govuk-6 *:last:mb-0', className)}
         style={domStyle(style)}
         {...props}
-      >
-        {children}
-      </div>
+      />
     );
   }
 
   return (
     <BaseUITabs.Panel
-      ref={ref}
       value={value}
       keepMounted={keepMounted}
       render={render}
@@ -276,9 +244,7 @@ const TabsPanel = ({
         className,
       )}
       {...props}
-    >
-      {children}
-    </BaseUITabs.Panel>
+    />
   );
 };
 

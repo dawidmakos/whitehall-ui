@@ -1,15 +1,15 @@
-import { useId, useState } from 'react';
+'use client';
+
+import { useEffect, useId, useRef, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { cn } from '@/lib/utils';
-import { TextInput } from '@/ui/text-input';
+import { TextInput, type TextInputProps } from '@/ui/text-input';
 import { Button } from '@/ui/button';
 
 interface PasswordInputProps extends Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  'type' | 'width'
+  TextInputProps,
+  'type' | 'width' | 'prefix' | 'suffix'
 > {
-  ref?: React.Ref<HTMLInputElement>;
-  error?: boolean;
-  disabled?: boolean;
   showPasswordText?: string;
   hidePasswordText?: string;
   showPasswordAriaLabel?: string;
@@ -21,37 +21,48 @@ interface PasswordInputProps extends Omit<
 const PasswordInput = ({
   className,
   id,
-  error = false,
-  disabled = false,
-  autoComplete = 'current-password',
+  disabled,
   showPasswordText = 'Show',
   hidePasswordText = 'Hide',
   showPasswordAriaLabel = 'Show password',
   hidePasswordAriaLabel = 'Hide password',
-  passwordShownAnnouncement = 'Your password is shown',
+  passwordShownAnnouncement = 'Your password is visible',
   passwordHiddenAnnouncement = 'Your password is hidden',
-  ref,
   ...props
 }: PasswordInputProps) => {
   const generatedId = useId();
   const inputId = id ?? generatedId;
-  const [shown, setShown] = useState(false);
+  const [shown, setShown] = useState<boolean>();
+  const toggleRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const form = toggleRef.current?.closest('form');
+    const hide = () => flushSync(() => setShown((prev) => prev && false));
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) hide();
+    };
+    form?.addEventListener('submit', hide);
+    globalThis.addEventListener('pageshow', handlePageShow);
+    return () => {
+      form?.removeEventListener('submit', hide);
+      globalThis.removeEventListener('pageshow', handlePageShow);
+    };
+  }, []);
 
   return (
     <div className='flex items-start'>
       <TextInput
-        ref={ref}
         id={inputId}
         type={shown ? 'text' : 'password'}
-        error={error}
         disabled={disabled}
         spellCheck={false}
         autoCapitalize='none'
-        autoComplete={autoComplete}
+        autoComplete='current-password'
         className={cn('flex-auto', className)}
         {...props}
       />
       <Button
+        ref={toggleRef}
         type='button'
         variant='secondary'
         disabled={disabled}
@@ -61,13 +72,14 @@ const PasswordInput = ({
         className={cn(
           'mt-0 mb-0 ml-govuk-1',
           'w-24 sm:w-24 shrink-0 grow-0',
-          'leading-none whitespace-nowrap',
+          'whitespace-nowrap',
         )}
       >
         {shown ? hidePasswordText : showPasswordText}
       </Button>
       <span className='sr-only' aria-live='polite'>
-        {shown ? passwordShownAnnouncement : passwordHiddenAnnouncement}
+        {shown !== undefined &&
+          (shown ? passwordShownAnnouncement : passwordHiddenAnnouncement)}
       </span>
     </div>
   );

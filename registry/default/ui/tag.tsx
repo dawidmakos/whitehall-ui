@@ -8,7 +8,7 @@ const tagVariants = cva(
     'mt-govuk-tag-mt mb-govuk-tag-mb',
     'rounded-govuk-tag',
     'text-govuk-tag font-normal font-govuk',
-    'no-underline break-words',
+    'no-underline wrap-break-word',
     'max-w-govuk-tag-max-width',
     'forced-colors:font-bold',
   ],
@@ -34,20 +34,11 @@ const tagVariants = cva(
 
 type TagColour = NonNullable<VariantProps<typeof tagVariants>['colour']>;
 
-interface TagProps
-  extends
-    Omit<React.HTMLAttributes<HTMLElement>, 'className' | 'color'>,
-    VariantProps<typeof tagVariants> {
-  ref?: React.Ref<HTMLElement>;
-  className?: string;
-}
+type TagProps = Omit<React.ComponentProps<'strong'>, 'color'> &
+  VariantProps<typeof tagVariants>;
 
-const Tag = ({ className, colour = 'blue', ref, ...props }: TagProps) => (
-  <strong
-    ref={ref}
-    className={cn(tagVariants({ colour }), className)}
-    {...props}
-  />
+const Tag = ({ className, colour = 'blue', ...props }: TagProps) => (
+  <strong className={cn(tagVariants({ colour }), className)} {...props} />
 );
 
 export { Tag, tagVariants, type TagProps, type TagColour };

@@ -1,36 +1,27 @@
 import { cn } from '@/lib/utils';
 
-interface BreadcrumbsProps extends React.HTMLAttributes<HTMLElement> {
-  ref?: React.Ref<HTMLElement>;
+interface BreadcrumbsProps extends React.ComponentProps<'nav'> {
   collapseOnMobile?: boolean;
   inverse?: boolean;
 }
 
-interface BreadcrumbsListProps extends React.HTMLAttributes<HTMLOListElement> {
-  ref?: React.Ref<HTMLOListElement>;
-}
+type BreadcrumbsListProps = React.ComponentProps<'ol'>;
 
-interface BreadcrumbsListItemProps extends React.HTMLAttributes<HTMLLIElement> {
-  ref?: React.Ref<HTMLLIElement>;
-}
+type BreadcrumbsListItemProps = React.ComponentProps<'li'>;
 
-interface BreadcrumbsLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  ref?: React.Ref<HTMLAnchorElement>;
-}
+type BreadcrumbsLinkProps = React.ComponentProps<'a'>;
 
 const Breadcrumbs = ({
   className,
   collapseOnMobile,
   inverse,
-  ref,
-  children,
   ...props
 }: BreadcrumbsProps) => (
   <nav
-    ref={ref}
     aria-label='Breadcrumb'
+    data-inverse={inverse || undefined}
     className={cn(
-      'font-govuk text-govuk-header',
+      'group/breadcrumbs font-govuk text-govuk-body-small',
       'mt-govuk-3 mb-govuk-2',
       inverse ? 'text-white' : 'text-govuk-black',
       collapseOnMobile &&
@@ -38,30 +29,19 @@ const Breadcrumbs = ({
       className,
     )}
     {...props}
-  >
-    {children}
-  </nav>
+  />
 );
 
-const BreadcrumbsList = ({
-  className,
-  ref,
-  children,
-  ...props
-}: BreadcrumbsListProps) => (
-  <ol ref={ref} className={cn('m-0 p-0 list-none', className)} {...props}>
-    {children}
-  </ol>
+const BreadcrumbsList = ({ className, ...props }: BreadcrumbsListProps) => (
+  <ol className={cn('m-0 p-0 list-none', className)} {...props} />
 );
 
 const BreadcrumbsListItem = ({
   className,
-  ref,
   children,
   ...props
 }: BreadcrumbsListItemProps) => (
   <li
-    ref={ref}
     className={cn(
       'inline-block mb-govuk-1',
       'first:ml-0 first:pl-0 first:[&>svg]:hidden',
@@ -70,7 +50,7 @@ const BreadcrumbsListItem = ({
     {...props}
   >
     <svg
-      className='inline-block align-middle mx-govuk-2 -mt-px'
+      className='inline-block align-middle mx-govuk-2 -mt-px text-govuk-dark-grey group-data-[inverse]/breadcrumbs:text-current'
       xmlns='http://www.w3.org/2000/svg'
       width='7'
       height='11'
@@ -83,7 +63,6 @@ const BreadcrumbsListItem = ({
         d='M1 1L5.5 5.5L1 10'
         stroke='currentColor'
         strokeWidth='1'
-        strokeOpacity='0.65'
       />
     </svg>
     {children}
@@ -92,15 +71,13 @@ const BreadcrumbsListItem = ({
 
 const BreadcrumbsLink = ({
   className,
-  ref,
   children,
   ...props
 }: BreadcrumbsLinkProps) => (
   <a
-    ref={ref}
     className={cn(
-      'text-govuk-black underline govuk-link-underline',
-      'hover:text-govuk-black hover:govuk-link-underline-hover',
+      'text-inherit underline govuk-link-underline',
+      'hover:govuk-link-underline-hover',
       'focus:govuk-link-focus',
       className,
     )}

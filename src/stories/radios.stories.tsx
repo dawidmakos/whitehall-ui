@@ -21,9 +21,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    children: null,
-  },
   render: () => (
     <Fieldset>
       <FieldsetLegend>Where do you live?</FieldsetLegend>
@@ -38,9 +35,6 @@ export const Default: Story = {
 };
 
 export const Inline: Story = {
-  args: {
-    children: null,
-  },
   render: () => (
     <Fieldset>
       <FieldsetLegend>Have you changed your name?</FieldsetLegend>
@@ -53,9 +47,6 @@ export const Inline: Story = {
 };
 
 export const WithHints: Story = {
-  args: {
-    children: null,
-  },
   render: () => (
     <Fieldset>
       <FieldsetLegend>How do you want to sign in?</FieldsetLegend>
@@ -77,9 +68,6 @@ export const WithHints: Story = {
 };
 
 export const WithDivider: Story = {
-  args: {
-    children: null,
-  },
   render: () => (
     <Fieldset>
       <FieldsetLegend>Where do you live?</FieldsetLegend>
@@ -97,9 +85,6 @@ export const WithDivider: Story = {
 };
 
 export const Disabled: Story = {
-  args: {
-    children: null,
-  },
   render: () => (
     <Fieldset>
       <FieldsetLegend>Where do you live?</FieldsetLegend>
@@ -113,9 +98,6 @@ export const Disabled: Story = {
 };
 
 export const PreSelected: Story = {
-  args: {
-    children: null,
-  },
   render: () => (
     <Fieldset>
       <FieldsetLegend>Where do you live?</FieldsetLegend>

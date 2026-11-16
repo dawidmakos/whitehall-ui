@@ -66,6 +66,23 @@ export const Start: Story = {
   },
 };
 
+export const StartAsLink: Story = {
+  name: 'Start (as link)',
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Start buttons usually navigate, so render them as a link with the `render` prop and `nativeButton={false}`.',
+      },
+    },
+  },
+  render: () => (
+    <Button variant='start' render={<a href='#' />} nativeButton={false}>
+      Start now
+    </Button>
+  ),
+};
+
 export const Inverse: Story = {
   args: {
     variant: 'inverse',

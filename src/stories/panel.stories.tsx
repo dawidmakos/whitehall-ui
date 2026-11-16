@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Panel, PanelTitle, PanelBody } from '@/ui/panel';
+import { Panel, PanelTitle, PanelBody, PanelActions } from '@/ui/panel';
+import { Button } from '@/ui/button';
+import { Link } from '@/ui/link';
 
 const meta = {
   title: 'Whitehall-UI/Panel',
@@ -72,6 +74,34 @@ export const Mobile: Story = {
         <br />
         <strong>HDJ2123F0000111122223333444455556666</strong>
       </PanelBody>
+    </Panel>
+  ),
+};
+
+export const Interruption: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Interruption panel (GOV.UK Frontend 6.4). Use it on an interruption page to warn users before they do something unusual or that cannot be undone.',
+      },
+    },
+  },
+  render: () => (
+    <Panel variant='interruption'>
+      <PanelTitle>Are you sure you want to delete this application?</PanelTitle>
+      <PanelBody>
+        <p className='mt-0 mb-govuk-4'>
+          You will not be able to get it back. Any answers you have given will
+          be lost.
+        </p>
+      </PanelBody>
+      <PanelActions>
+        <Button variant='inverse'>Delete application</Button>
+        <Link variant='inverse' href='#'>
+          Cancel
+        </Link>
+      </PanelActions>
     </Panel>
   ),
 };

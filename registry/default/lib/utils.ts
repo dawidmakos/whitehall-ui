@@ -4,16 +4,30 @@ import { extendTailwindMerge } from 'tailwind-merge';
 /**
  * Custom tailwind-merge instance that understands Whitehall-UI @theme tokens.
  *
- * Tailwind 4 uses the `--text-*` namespace for both font-size utilities
- * (e.g. `text-govuk-body`) and color utilities (e.g. `text-white`).
- * Out-of-the-box tailwind-merge treats unknown `text-*` classes as
- * text-color, so `text-govuk-body` gets stripped when `text-white` is
- * also present. We fix this by telling tailwind-merge which custom
- * `text-*` classes are font-sizes.
+ * Out of the box tailwind-merge only knows Tailwind's default scales, so:
+ * - `--spacing-govuk-*` utilities (`mb-govuk-3`) aren't recognised as spacing,
+ *   and a `className="mb-0"` override would be kept alongside them and lose.
+ * - Unknown `text-*` / `border-*` values are treated as colours, so font sizes
+ *   (`text-govuk-body`) and border widths (`border-t-govuk-wide`) get stripped
+ *   when a colour class from the same group is also present.
  */
+const govukBorderWidths = [
+  'govuk-standard',
+  'govuk-wide',
+  'govuk-exit-page-dot',
+  'govuk-warning-icon-border',
+];
+
 const twMerge = extendTailwindMerge({
   extend: {
+    theme: {
+      spacing: [(value: string) => value.startsWith('govuk-')],
+    },
     classGroups: {
+      'border-w': [{ border: govukBorderWidths }],
+      'border-w-t': [{ 'border-t': govukBorderWidths }],
+      'border-w-b': [{ 'border-b': govukBorderWidths }],
+      'border-w-l': [{ 'border-l': govukBorderWidths }],
       'font-size': [
         {
           text: [
@@ -36,3 +50,15 @@ const twMerge = extendTailwindMerge({
 });
 
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
+
+export const mergeRefs =
+  <T>(...refs: (React.Ref<T> | undefined)[]) =>
+  (node: T | null) => {
+    for (const ref of refs) {
+      if (typeof ref === 'function') {
+        ref(node);
+      } else if (ref) {
+        ref.current = node;
+      }
+    }
+  };

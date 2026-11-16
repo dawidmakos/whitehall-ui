@@ -74,17 +74,17 @@ export const Inverse: Story = {
       <Breadcrumbs inverse>
         <BreadcrumbsList>
           <BreadcrumbsListItem>
-            <BreadcrumbsLink href='#' className='text-white hover:text-white'>
+            <BreadcrumbsLink href='#'>
               Home
             </BreadcrumbsLink>
           </BreadcrumbsListItem>
           <BreadcrumbsListItem>
-            <BreadcrumbsLink href='#' className='text-white hover:text-white'>
+            <BreadcrumbsLink href='#'>
               Passports, travel and living abroad
             </BreadcrumbsLink>
           </BreadcrumbsListItem>
           <BreadcrumbsListItem>
-            <BreadcrumbsLink href='#' className='text-white hover:text-white'>
+            <BreadcrumbsLink href='#'>
               Travel abroad
             </BreadcrumbsLink>
           </BreadcrumbsListItem>

@@ -3,34 +3,22 @@ import { Checkbox } from '@base-ui/react/checkbox';
 import { CheckboxGroup } from '@base-ui/react/checkbox-group';
 import { cn } from '@/lib/utils';
 
-interface CheckboxesProps extends Omit<
-  React.ComponentProps<typeof CheckboxGroup>,
-  'className' | 'children'
-> {
-  className?: string;
-  children: React.ReactNode;
-}
+type CheckboxesProps = React.ComponentProps<typeof CheckboxGroup>;
 
-const Checkboxes = ({ className, children, ...props }: CheckboxesProps) => (
-  <CheckboxGroup className={cn(className)} {...props}>
-    {children}
-  </CheckboxGroup>
-);
+const Checkboxes = (props: CheckboxesProps) => <CheckboxGroup {...props} />;
 
 interface CheckboxesItemProps extends Omit<
   React.ComponentProps<typeof Checkbox.Root>,
-  'className' | 'children'
+  'className'
 > {
   className?: string;
-  children: React.ReactNode;
   small?: boolean;
 }
 
 const CheckboxesItem = ({
   className,
   children,
-  value,
-  small = false,
+  small,
   ...props
 }: CheckboxesItemProps) => {
   const labelId = useId();
@@ -40,19 +28,20 @@ const CheckboxesItem = ({
       className={cn(
         'flex flex-wrap items-start',
         'relative',
-        small ? 'group/item mb-0' : 'mb-2.5 last:mb-0',
-        'cursor-pointer touch-action-manipulation',
+        small ? 'group/item mb-0' : 'mb-govuk-2 last:mb-0',
+        'cursor-pointer touch-manipulation',
+        'has-data-[disabled]:opacity-50 has-data-[disabled]:cursor-not-allowed',
         className,
       )}
     >
       <Checkbox.Root
-        value={value}
         aria-labelledby={labelId}
         className={cn(
           'group/checkbox',
           'relative flex-none',
           'w-govuk-checkbox-touch-target h-govuk-checkbox-touch-target',
-          'cursor-pointer outline-none',
+          'outline-none',
+          small && '-ml-govuk-2',
         )}
         {...props}
       >
@@ -89,7 +78,9 @@ const CheckboxesItem = ({
           'self-center',
           'py-govuk-checkbox-label-padding-y px-govuk-checkbox-label-padding-x',
           'text-govuk-tag font-normal font-govuk',
-          'cursor-pointer',
+          small
+            ? 'pl-px max-w-[calc(100%-50px)]'
+            : 'max-w-[calc(100%-74px)]',
         )}
       >
         {children}
@@ -98,15 +89,13 @@ const CheckboxesItem = ({
   );
 };
 
-interface CheckboxesHintProps extends React.HTMLAttributes<HTMLSpanElement> {
-  className?: string;
-}
+type CheckboxesHintProps = React.ComponentProps<'span'>;
 
 const CheckboxesHint = ({ className, ...props }: CheckboxesHintProps) => (
   <span
     className={cn(
       'block w-full',
-      '-mt-govuk-1',
+      '-mt-govuk-3 mb-govuk-2 last:mb-0',
       'pr-govuk-checkbox-label-padding-x',
       'pl-[calc(var(--spacing-govuk-checkbox-label-padding-x)+var(--spacing-govuk-checkbox-touch-target))]',
       'text-govuk-tag font-normal font-govuk text-govuk-dark-grey',
@@ -116,15 +105,14 @@ const CheckboxesHint = ({ className, ...props }: CheckboxesHintProps) => (
   />
 );
 
-interface CheckboxesDividerProps extends React.HTMLAttributes<HTMLDivElement> {
-  className?: string;
+interface CheckboxesDividerProps extends React.ComponentProps<'div'> {
   small?: boolean;
 }
 
 const CheckboxesDivider = ({
   className,
   children = 'or',
-  small = false,
+  small,
   ...props
 }: CheckboxesDividerProps) => (
   <div
@@ -142,9 +130,7 @@ const CheckboxesDivider = ({
   </div>
 );
 
-interface CheckboxesConditionalProps extends React.HTMLAttributes<HTMLDivElement> {
-  className?: string;
-}
+type CheckboxesConditionalProps = React.ComponentProps<'div'>;
 
 const CheckboxesConditional = ({
   className,
@@ -153,8 +139,8 @@ const CheckboxesConditional = ({
   <div
     className={cn(
       'ml-govuk-checkbox-conditional-ml pl-govuk-checkbox-conditional-pl',
-      'mb-5',
-      'border-l-2 border-govuk-grey',
+      'mb-govuk-3 sm:mb-govuk-4',
+      'border-l-4 border-govuk-grey',
       '*:last:mb-0',
       className,
     )}

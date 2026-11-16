@@ -1,81 +1,59 @@
 import { cn } from '@/lib/utils';
 
-interface DateInputProps extends React.ComponentPropsWithoutRef<'div'> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type DateInputProps = React.ComponentProps<'div'>;
 
-interface DateInputItemProps extends React.ComponentPropsWithoutRef<'div'> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type DateInputItemProps = React.ComponentProps<'div'>;
 
-interface DateInputLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
-  ref?: React.Ref<HTMLLabelElement>;
-}
+type DateInputLabelProps = React.ComponentProps<'label'>;
 
-interface DateInputInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  ref?: React.Ref<HTMLInputElement>;
+interface DateInputInputProps extends React.ComponentProps<'input'> {
   error?: boolean;
 }
 
-const DateInput = ({ className, children, ref, ...props }: DateInputProps) => (
-  <div ref={ref} className={cn('govuk-date-input', className)} {...props}>
-    {children}
-  </div>
+const DateInput = ({ className, ...props }: DateInputProps) => (
+  <div className={cn('govuk-date-input', className)} {...props} />
 );
 
-const DateInputItem = ({
-  className,
-  children,
-  ref,
-  ...props
-}: DateInputItemProps) => (
+const DateInputItem = ({ className, ...props }: DateInputItemProps) => (
   <div
-    ref={ref}
     className={cn('inline-block mr-govuk-4 mb-0 align-bottom', className)}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
 
 const DateInputLabel = ({
   className,
-  children,
   htmlFor,
-  ref,
   ...props
 }: DateInputLabelProps) => (
   <label
-    ref={ref}
     htmlFor={htmlFor}
     className={cn(
-      'block font-govuk text-govuk-body text-govuk-black',
+      'block mb-govuk-1 font-govuk text-govuk-body text-govuk-black',
       className,
     )}
     {...props}
-  >
-    {children}
-  </label>
+  />
 );
 
 const DateInputInput = ({
   className,
-  error = false,
-  ref,
+  error,
   ...props
 }: DateInputInputProps) => (
   <input
-    ref={ref}
     type='text'
     inputMode='numeric'
+    aria-invalid={error || undefined}
     className={cn(
-      'govuk-date-input-field box-border',
+      'mb-0 box-border',
       'p-govuk-1 h-10',
       'border-2 border-govuk-black',
       'rounded-none appearance-none',
       'text-govuk-body font-normal font-govuk',
       'focus:outline-3 focus:outline-govuk-yellow focus:outline-offset-0',
       'focus:inset-ring-2 focus:inset-ring-govuk-black',
+      'disabled:opacity-50 disabled:bg-transparent disabled:cursor-not-allowed',
       error && 'border-govuk-error focus:border-govuk-black',
       className,
     )}

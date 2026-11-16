@@ -1,132 +1,128 @@
-import { useId, useState } from 'react';
+'use client';
+
+import { Children, useId, useState, useSyncExternalStore } from 'react';
 import { cn } from '@/lib/utils';
 
-interface ServiceNavigationProps extends React.HTMLAttributes<HTMLElement> {
-  ref?: React.Ref<HTMLElement>;
-}
+type ServiceNavigationProps = React.ComponentProps<'section'>;
 
-interface ServiceNavigationContainerProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type ServiceNavigationContainerProps = React.ComponentProps<'div'>;
 
-interface ServiceNavigationServiceNameProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  ref?: React.Ref<HTMLAnchorElement>;
-}
+type ServiceNavigationServiceNameProps = React.ComponentProps<'a'>;
 
-interface ServiceNavigationNavProps extends React.HTMLAttributes<HTMLElement> {
-  ref?: React.Ref<HTMLElement>;
+interface ServiceNavigationNavProps extends React.ComponentProps<'nav'> {
   menuButtonText?: string;
+  collapseOnMobile?: boolean;
 }
 
-interface ServiceNavigationItemProps extends React.LiHTMLAttributes<HTMLLIElement> {
-  ref?: React.Ref<HTMLLIElement>;
+interface ServiceNavigationItemProps extends React.ComponentProps<'li'> {
   active?: boolean;
 }
 
-interface ServiceNavigationLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  ref?: React.Ref<HTMLAnchorElement>;
-}
+type ServiceNavigationLinkProps = React.ComponentProps<'a'>;
 
-const serviceNavigationLinkStyles = [
+const subscribeToNothing = () => () => {};
+
+const useHydrated = () =>
+  useSyncExternalStore(
+    subscribeToNothing,
+    () => true,
+    () => false,
+  );
+
+const linkStyles = [
   'font-govuk cursor-pointer',
-  'no-underline hover:underline',
-  'hover:govuk-link-underline hover:govuk-link-underline-hover',
+  'no-underline hover:underline active:underline',
+  'govuk-link-underline hover:govuk-link-underline-hover',
   'focus:govuk-link-focus',
 ];
 
 const itemStyles = [
   'relative my-govuk-2',
-  'sm:my-0 sm:inline-block sm:py-govuk-3',
+  'sm:my-0 sm:inline-block sm:py-govuk-3 sm:leading-govuk-service-nav',
   'sm:not-last:mr-govuk-6',
 ];
 
-const ServiceNavigation = ({
-  className,
-  ref,
-  children,
-  ...props
-}: ServiceNavigationProps) => (
+const ServiceNavigation = ({ className, ...props }: ServiceNavigationProps) => (
   <section
-    ref={ref}
-    aria-label={props['aria-label'] ?? 'Service information'}
+    aria-label='Service information'
     className={cn(
       'font-govuk text-govuk-body text-govuk-black',
-      'border-b border-b-govuk-mid-grey',
-      'bg-govuk-light-grey',
+      'border-b border-b-govuk-surface-border',
+      'bg-govuk-surface',
       className,
     )}
     {...props}
-  >
-    {children}
-  </section>
+  />
 );
 
 const ServiceNavigationContainer = ({
   className,
-  ref,
-  children,
   ...props
 }: ServiceNavigationContainerProps) => (
   <div
-    ref={ref}
     className={cn(
-      'max-w-240 mx-auto px-govuk-3',
+      'govuk-width-container',
       'flex flex-col items-start',
       'sm:flex-row sm:flex-wrap',
       className,
     )}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
 
 const ServiceNavigationServiceName = ({
   className,
-  ref,
   children,
+  href,
   ...props
 }: ServiceNavigationServiceNameProps) => (
-  <a
-    ref={ref}
-    className={cn(
-      itemStyles,
-      'font-bold',
-      'text-govuk-black visited:text-govuk-black hover:text-govuk-black',
-      serviceNavigationLinkStyles,
-      className,
-    )}
-    {...props}
+  <span
+    className={cn(itemStyles, 'font-bold max-sm:not-last:mb-0', className)}
   >
-    {children}
-  </a>
+    {href ? (
+      <a
+        href={href}
+        className={cn(
+          'text-govuk-black visited:text-govuk-black',
+          'hover:text-govuk-black active:text-govuk-black',
+          linkStyles,
+        )}
+        {...props}
+      >
+        {children}
+      </a>
+    ) : (
+      children
+    )}
+  </span>
 );
 
 const ServiceNavigationNav = ({
   className,
-  ref,
   children,
   menuButtonText = 'Menu',
+  collapseOnMobile = Children.count(children) > 1,
   ...props
 }: ServiceNavigationNavProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const listId = useId();
+  const collapsible = useHydrated() && collapseOnMobile;
 
   return (
     <nav
-      ref={ref}
-      aria-label={props['aria-label'] ?? menuButtonText}
+      aria-label={menuButtonText}
       className={cn('max-sm:w-full sm:grow', className)}
       {...props}
     >
       <button
         type='button'
+        hidden={!collapsible}
         className={cn(
           'sm:hidden inline-flex items-center gap-govuk-1',
           'my-govuk-2 p-0',
           'font-govuk text-govuk-body font-bold',
-          'bg-transparent border-0 text-govuk-brand cursor-pointer',
-          'hover:underline focus:govuk-link-focus',
+          'bg-transparent border-0 text-govuk-link cursor-pointer',
+          'focus:govuk-link-focus',
         )}
         onClick={() => setMenuOpen((prev) => !prev)}
         aria-expanded={menuOpen}
@@ -149,7 +145,7 @@ const ServiceNavigationNav = ({
         className={cn(
           'list-none m-0 mb-govuk-3 p-0',
           'sm:flex sm:flex-wrap sm:mb-0',
-          menuOpen ? 'max-sm:block' : 'max-sm:hidden',
+          collapsible && !menuOpen && 'max-sm:hidden',
         )}
       >
         {children}
@@ -161,15 +157,12 @@ const ServiceNavigationNav = ({
 const ServiceNavigationItem = ({
   className,
   active,
-  ref,
-  children,
   ...props
 }: ServiceNavigationItemProps) => (
   <li
-    ref={ref}
     className={cn(
       itemStyles,
-      'border-govuk-brand',
+      'border-govuk-link',
       active && [
         'max-sm:-ml-govuk-3 max-sm:pl-govuk-2 max-sm:border-l-govuk-standard',
         'sm:border-b-govuk-standard sm:pb-govuk-2',
@@ -177,22 +170,19 @@ const ServiceNavigationItem = ({
       className,
     )}
     {...props}
-  >
-    {children}
-  </li>
+  />
 );
 
 const ServiceNavigationLink = ({
   className,
-  ref,
   children,
   ...props
 }: ServiceNavigationLinkProps) => (
   <a
-    ref={ref}
     className={cn(
-      'text-govuk-brand visited:text-govuk-brand hover:text-govuk-brand-hover',
-      serviceNavigationLinkStyles,
+      'text-govuk-link visited:text-govuk-link',
+      'hover:text-govuk-brand-hover active:text-govuk-black',
+      linkStyles,
       className,
     )}
     {...props}

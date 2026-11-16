@@ -18,27 +18,28 @@
   --font-govuk: Arial, Helvetica, sans-serif;
 
   --color-govuk-brand: #1d70b8;
-  --color-govuk-brand-hover: #003078;
-  --color-govuk-visited: #4c2c92;
+  --color-govuk-brand-hover: #0f385c;
+  --color-govuk-link: #1a65a6;
+  --color-govuk-visited: #54319f;
+  --color-govuk-surface: #f4f8fb;
+  --color-govuk-surface-border: #8eb8dc;
   --color-govuk-green: #0f7a52;
   --color-govuk-green-hover: #0b5c3e;
-  --color-govuk-green-shadow: #083d29;
+  --color-govuk-success-hover: #083d29;
   --color-govuk-black: #0b0c0c;
   --color-govuk-light-grey: #f3f3f3;
-  --color-govuk-light-grey-shadow: #858686;
   --color-govuk-grey: #cecece;
-  --color-govuk-mid-grey: #b1b4b6;
-  --color-govuk-dark-grey: #505a5f;
+  --color-govuk-mid-grey: #cecece;
+  --color-govuk-dark-grey: #484949;
   --color-govuk-red: #ca3535;
   --color-govuk-red-hover: #982828;
-  --color-govuk-red-shadow: #651b1b;
   --color-govuk-inverse-hover: #f4f8fb;
-  --color-govuk-inverse-shadow: #0f385c;
   --color-govuk-yellow: #ffdd00;
+  --color-govuk-teal-accent: #00ffe0;
 
   /* Error */
-  --color-govuk-error: #d4351c;
-  --color-govuk-error-hover: #6a1b0e;
+  --color-govuk-error: #ca3535;
+  --color-govuk-error-hover: #651b1b;
 
   /* Tag colours */
   --color-govuk-tag-blue: #0f385c;
@@ -76,7 +77,7 @@
   --text-govuk-heading-l: 36px;
   --text-govuk-heading-l--line-height: 40px;
   --text-govuk-heading-m: 24px;
-  --text-govuk-heading-m--line-height: 25px;
+  --text-govuk-heading-m--line-height: 30px;
   --text-govuk-warning-icon: 30px;
   --text-govuk-warning-icon--line-height: 29px;
   --text-govuk-phase-banner: 16px;
@@ -94,10 +95,11 @@
   --spacing-govuk-6: 30px;
   --spacing-govuk-7: 40px;
   --spacing-govuk-8: 50px;
+  --spacing-govuk-r6: 30px;
   --spacing-govuk-button-x: 10px;
   --spacing-govuk-button-pt: 8px;
   --spacing-govuk-button-pb: 7px;
-  --spacing-govuk-button-bottom: 18px;
+  --spacing-govuk-button-bottom: 32px;
   --spacing-govuk-button-press: 2px;
 
   /* File upload (improved / JS-enhanced) */
@@ -105,7 +107,7 @@
   --spacing-govuk-file-upload-lg: 23px;
   --spacing-govuk-file-upload-pseudo-mb: 3px;
   --spacing-govuk-file-upload-instruction-mt: 7px;
-  --color-govuk-file-upload-hover-border: #6f777b;
+  --color-govuk-file-upload-hover-border: #858686;
 
   /* Exit this page */
   --z-index-govuk-exit-page: 1000;
@@ -124,14 +126,12 @@
   --spacing-govuk-warning-icon-size: 35px;
   --spacing-govuk-warning-text-pl: 45px;
   --spacing-govuk-warning-icon-mt: -7px;
-  --spacing-govuk-warning-icon-border: 3px;
+  --border-width-govuk-warning-icon-border: 3px;
 
   /* Radios & Checkboxes */
   --spacing-govuk-radio-size: 40px;
   --spacing-govuk-radio-touch-target: 44px;
-  --spacing-govuk-radio-small-size: 24px;
   --spacing-govuk-radio-dot: 10px;
-  --spacing-govuk-radio-small-dot: 5px;
   --spacing-govuk-radio-label-padding-x: 15px;
   --spacing-govuk-radio-focus-width: 4px;
   --spacing-govuk-radio-gutter: 4px;
@@ -153,8 +153,8 @@
   --spacing-govuk-checkbox-small-check-width: 12px;
   --spacing-govuk-checkbox-small-check-height: 6.5px;
   --spacing-govuk-checkbox-small-check-stroke: 3px;
-  --spacing-govuk-checkbox-conditional-ml: 21px;
-  --spacing-govuk-checkbox-conditional-pl: 36px;
+  --spacing-govuk-checkbox-conditional-ml: 20px;
+  --spacing-govuk-checkbox-conditional-pl: 35px;
   --spacing-govuk-hover-width: 10px;
 
   /* Tag padding */
@@ -174,16 +174,20 @@
   --spacing-govuk-input-width-3: 3.75em;
   --spacing-govuk-input-width-2: 2.75em;
 
-  --spacing-govuk-select-item-px: 7px;
-
   /* Pagination */
   --spacing-govuk-pagination-touch: 45px;
 
-  /* Header */
-  --spacing-govuk-header-link-underline: 3px;
+  /* Header, panel, notification banner */
+  --spacing-govuk-header-pt: 16px;
+  --spacing-govuk-header-pb: 12px;
+  --spacing-govuk-panel: 35px;
+  --spacing-govuk-notification-content: 605px;
 
   /* Letter spacing – extra spacing for codes and reference numbers */
   --tracking-govuk-code: 0.05em;
+
+  /* Line heights */
+  --leading-govuk-service-nav: 29px;
 
   /* Shadows – bottom edge shadows used across buttons, tags, etc. */
   --shadow-govuk-green: 0 2px 0 #083d29;
@@ -218,6 +222,8 @@
     --text-govuk-heading-m: 21px;
     --text-govuk-heading-m--line-height: 25px;
     --text-govuk-start: 21px;
+    --spacing-govuk-r6: 20px;
+    --spacing-govuk-button-bottom: 22px;
   }
 }
 
@@ -264,14 +270,6 @@
   background: transparent;
 }
 
-@utility min-w-anchor {
-  min-width: var(--anchor-width);
-}
-
-@utility w-anchor {
-  width: var(--anchor-width);
-}
-
 @utility govuk-link-focus {
   outline: 3px solid transparent;
   color: var(--color-govuk-black);
@@ -309,12 +307,13 @@
   position: absolute;
   width: 1px;
   height: 1px;
-  margin: -1px;
+  margin: 0;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
+  user-select: none;
 
   &:focus {
     position: static;
@@ -325,6 +324,7 @@
     clip: auto;
     clip-path: none;
     white-space: normal;
+    user-select: text;
     z-index: 50;
     outline: 3px solid var(--color-govuk-yellow);
     outline-offset: 0;
@@ -356,10 +356,6 @@
   border-top: 1px solid var(--color-govuk-mid-grey);
 }
 
-@utility govuk-accordion-chevron {
-  vertical-align: middle;
-}
-
 @utility govuk-table-cell {
   padding: var(--spacing-govuk-2) var(--spacing-govuk-4) var(--spacing-govuk-2)
     0;
@@ -374,16 +370,16 @@
 
 @utility govuk-pagination-nav-item {
   &:hover {
-    background-color: #f3f2f1;
+    background-color: var(--color-govuk-light-grey);
   }
 }
 
 @utility govuk-pagination-item-current {
   outline: 1px solid transparent;
-  background-color: var(--color-govuk-brand);
+  background-color: var(--color-govuk-link);
 
   &:hover {
-    background-color: var(--color-govuk-brand);
+    background-color: var(--color-govuk-link);
   }
 
   & a,
@@ -392,6 +388,10 @@
   & a:hover,
   & a:active {
     color: white;
+  }
+
+  & a:focus {
+    color: var(--color-govuk-black);
   }
 }
 
@@ -412,6 +412,10 @@
   width: 0.9375rem;
   height: 0.8125rem;
   color: var(--color-govuk-dark-grey);
+
+  a:focus & {
+    color: var(--color-govuk-black);
+  }
 }
 
 @utility govuk-pagination-nav-link {
@@ -458,6 +462,140 @@
   }
 }
 
-@utility govuk-date-input-field {
-  margin-bottom: 0;
+/* 960px page container with 15px/30px gutters, centred once there's room */
+@utility govuk-width-container {
+  max-width: 960px;
+  margin-right: max(15px, calc(15px + env(safe-area-inset-right)));
+  margin-left: max(15px, calc(15px + env(safe-area-inset-left)));
+
+  @media (width >= 40rem) {
+    margin-right: max(30px, calc(15px + env(safe-area-inset-right)));
+    margin-left: max(30px, calc(15px + env(safe-area-inset-left)));
+  }
+
+  @media (width >= 1020px) {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* Row of buttons and links (cookie banner, interruption panel, forms) */
+@utility govuk-button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: calc(var(--spacing-govuk-r6) - var(--spacing-govuk-3));
+
+  & > button,
+  & > a[role='button'] {
+    margin-bottom: var(--spacing-govuk-3);
+  }
+
+  & > a:not([role='button']) {
+    display: inline-block;
+    max-width: 100%;
+    margin-top: var(--spacing-govuk-1);
+    margin-bottom: calc(var(--spacing-govuk-1) + var(--spacing-govuk-3));
+    font-size: var(--text-govuk-body);
+    line-height: 19px;
+    text-align: center;
+  }
+
+  @media (width >= 40rem) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    margin-right: calc(var(--spacing-govuk-3) * -1);
+
+    & > * {
+      margin-right: var(--spacing-govuk-3);
+    }
+
+    & > a:not([role='button']) {
+      text-align: left;
+    }
+  }
+}
+
+@utility govuk-logo {
+  display: inline-block;
+  position: relative;
+  top: -3px;
+  margin-right: 0.4375rem;
+  margin-bottom: 2px;
+  vertical-align: top;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  & .govuk-logo-dot {
+    fill: var(--color-govuk-teal-accent);
+  }
+
+  a:focus & .govuk-logo-dot,
+  &:where(:is(a:focus *)) .govuk-logo-dot {
+    fill: currentcolor;
+  }
+
+  @media (forced-colors: active) {
+    forced-color-adjust: none;
+    color: LinkText;
+
+    & .govuk-logo-dot {
+      fill: currentcolor;
+    }
+  }
+
+  @media print {
+    & .govuk-logo-dot {
+      fill: currentcolor;
+    }
+  }
+}
+
+/* Header links show a 3px bar (not an underline) so it also works under the SVG logo */
+@utility govuk-header-link {
+  color: white;
+  text-decoration: none;
+
+  &:hover,
+  &:active {
+    margin-bottom: -3px;
+    border-bottom: 3px solid currentcolor;
+  }
+
+  &:focus {
+    margin-bottom: 0;
+    border-bottom: 0;
+  }
+}
+
+@utility govuk-header-product-name {
+  display: inline-table;
+  margin-bottom: -1px;
+  font-size: 1.9375rem;
+  line-height: 1;
+  letter-spacing: -0.015em;
+  vertical-align: top;
+
+  @media (forced-colors: active) {
+    forced-color-adjust: none;
+    color: LinkText;
+  }
+}
+
+/* Exit this page: hide everything except the overlay once activated */
+.govuk-exit-this-page-hide-content {
+  & * {
+    display: none !important;
+  }
+
+  & [data-exit-overlay] {
+    display: block !important;
+  }
+}
+
+html:has([data-exit-this-page]) {
+  scroll-padding-top: 60px;
 }

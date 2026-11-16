@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect } from 'storybook/test';
 import { CharacterCount } from '@/ui/character-count';
 import { Label } from '@/ui/label';
 import { Hint } from '@/ui/hint';
@@ -84,6 +85,11 @@ export const OverLimit: Story = {
       />
     </div>
   ),
+  play: async ({ canvas }) => {
+    await expect(
+      canvas.getByText('You have 38 characters too many'),
+    ).toBeVisible();
+  },
 };
 
 export const WithError: Story = {

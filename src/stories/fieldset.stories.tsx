@@ -15,7 +15,6 @@ interface FieldsetStoryArgs {
 
 const meta = {
   title: 'Whitehall-UI/Fieldset',
-  component: Fieldset,
   argTypes: {
     legendText: {
       control: 'text',
@@ -37,7 +36,7 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Fieldset>;
+} satisfies Meta<FieldsetStoryArgs>;
 
 export default meta;
 type Story = StoryObj<FieldsetStoryArgs>;

@@ -1,49 +1,36 @@
-import { createContext, useContext } from 'react';
+'use client';
+
+import { createContext, use } from 'react';
 import { cn } from '@/lib/utils';
 
 const PaginationBlockContext = createContext(false);
 
-interface PaginationProps extends React.ComponentPropsWithoutRef<'nav'> {
-  ref?: React.Ref<HTMLElement>;
+interface PaginationProps extends React.ComponentProps<'nav'> {
   block?: boolean;
 }
 
-interface PaginationPreviousProps extends React.ComponentPropsWithoutRef<'div'> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type PaginationPreviousProps = React.ComponentProps<'div'>;
 
-interface PaginationNextProps extends React.ComponentPropsWithoutRef<'div'> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type PaginationNextProps = React.ComponentProps<'div'>;
 
-interface PaginationListProps extends React.ComponentPropsWithoutRef<'ul'> {
-  ref?: React.Ref<HTMLUListElement>;
-}
+type PaginationListProps = React.ComponentProps<'ul'>;
 
-interface PaginationItemProps extends React.ComponentPropsWithoutRef<'li'> {
-  ref?: React.Ref<HTMLLIElement>;
+interface PaginationItemProps extends React.ComponentProps<'li'> {
   current?: boolean;
 }
 
-interface PaginationEllipsisProps extends React.ComponentPropsWithoutRef<'li'> {
-  ref?: React.Ref<HTMLLIElement>;
-}
+type PaginationEllipsisProps = React.ComponentProps<'li'>;
 
-interface PaginationLinkProps extends React.ComponentPropsWithoutRef<'a'> {
-  ref?: React.Ref<HTMLAnchorElement>;
-}
+type PaginationLinkProps = React.ComponentProps<'a'>;
 
-interface PaginationLinkTitleProps extends React.ComponentPropsWithoutRef<'span'> {
-  ref?: React.Ref<HTMLSpanElement>;
+interface PaginationLinkTitleProps extends React.ComponentProps<'span'> {
   decorated?: boolean;
 }
 
-interface PaginationLinkLabelProps extends React.ComponentPropsWithoutRef<'span'> {
-  ref?: React.Ref<HTMLSpanElement>;
-}
+type PaginationLinkLabelProps = React.ComponentProps<'span'>;
 
 const PrevArrow = () => {
-  const isBlock = useContext(PaginationBlockContext);
+  const isBlock = use(PaginationBlockContext);
   return (
     <svg
       className={cn(
@@ -63,7 +50,7 @@ const PrevArrow = () => {
 };
 
 const NextArrow = () => {
-  const isBlock = useContext(PaginationBlockContext);
+  const isBlock = use(PaginationBlockContext);
   return (
     <svg
       className={cn(
@@ -82,44 +69,29 @@ const NextArrow = () => {
   );
 };
 
-const Pagination = ({
-  className,
-  block,
-  children,
-  ref,
-  ...props
-}: PaginationProps) => {
-  const blockValue = block ?? false;
-  return (
-    <PaginationBlockContext.Provider value={blockValue}>
-      <nav
-        ref={ref}
-        className={cn(
-          'font-govuk mb-govuk-6',
-          block
-            ? 'govuk-pagination-block'
-            : 'flex flex-col flex-wrap items-center md:flex-row md:items-start',
-          className,
-        )}
-        aria-label={props['aria-label'] ?? 'Pagination'}
-        {...props}
-      >
-        {children}
-      </nav>
-    </PaginationBlockContext.Provider>
-  );
-};
+const Pagination = ({ className, block = false, ...props }: PaginationProps) => (
+  <PaginationBlockContext value={block}>
+    <nav
+      aria-label='Pagination'
+      className={cn(
+        'font-govuk mb-govuk-r6',
+        block
+          ? 'govuk-pagination-block'
+          : 'flex flex-col flex-wrap items-center sm:flex-row sm:items-start',
+        className,
+      )}
+      {...props}
+    />
+  </PaginationBlockContext>
+);
 
 const PaginationPrevious = ({
   className,
-  children,
-  ref,
   ...props
 }: PaginationPreviousProps) => {
-  const isBlock = useContext(PaginationBlockContext);
+  const isBlock = use(PaginationBlockContext);
   return (
     <div
-      ref={ref}
       className={cn(
         'govuk-pagination-nav-item box-border relative',
         'min-w-govuk-pagination-touch min-h-govuk-pagination-touch',
@@ -128,22 +100,14 @@ const PaginationPrevious = ({
         className,
       )}
       {...props}
-    >
-      {children}
-    </div>
+    />
   );
 };
 
-const PaginationNext = ({
-  className,
-  children,
-  ref,
-  ...props
-}: PaginationNextProps) => {
-  const isBlock = useContext(PaginationBlockContext);
+const PaginationNext = ({ className, ...props }: PaginationNextProps) => {
+  const isBlock = use(PaginationBlockContext);
   return (
     <div
-      ref={ref}
       className={cn(
         'govuk-pagination-nav-item box-border relative',
         'min-w-govuk-pagination-touch min-h-govuk-pagination-touch',
@@ -154,55 +118,39 @@ const PaginationNext = ({
         className,
       )}
       {...props}
-    >
-      {children}
-    </div>
+    />
   );
 };
 
-const PaginationList = ({
-  className,
-  children,
-  ref,
-  ...props
-}: PaginationListProps) => (
-  <ul ref={ref} className={cn('m-0 p-0 list-none', className)} {...props}>
-    {children}
-  </ul>
+const PaginationList = ({ className, ...props }: PaginationListProps) => (
+  <ul className={cn('m-0 p-0 list-none', className)} {...props} />
 );
 
 const PaginationItem = ({
   className,
   current,
-  children,
-  ref,
   ...props
 }: PaginationItemProps) => (
   <li
-    ref={ref}
     className={cn(
       'box-border relative',
       'min-w-govuk-pagination-touch min-h-govuk-pagination-touch',
       'py-govuk-2 px-govuk-3 float-left text-center text-govuk-body',
-      'hidden first:block last:block md:block',
+      'hidden first:block last:block sm:block',
       current
         ? 'block font-bold govuk-pagination-item-current'
         : 'hover:bg-govuk-light-grey',
       className,
     )}
     {...props}
-  >
-    {children}
-  </li>
+  />
 );
 
 const PaginationEllipsis = ({
   className,
-  ref,
   ...props
 }: PaginationEllipsisProps) => (
   <li
-    ref={ref}
     className={cn(
       'box-border relative',
       'min-w-govuk-pagination-touch min-h-govuk-pagination-touch',
@@ -213,25 +161,23 @@ const PaginationEllipsis = ({
     )}
     {...props}
   >
-    {'\u22EF'}
+    {'⋯'}
   </li>
 );
 
 const PaginationLink = ({
   className,
   children,
-  ref,
   ...props
 }: PaginationLinkProps) => {
-  const isBlock = useContext(PaginationBlockContext);
+  const isBlock = use(PaginationBlockContext);
   return (
     <a
-      ref={ref}
       className={cn(
-        'govuk-pagination-link min-w-govuk-3',
-        'text-govuk-brand underline govuk-link-underline',
+        'group govuk-pagination-link min-w-govuk-3',
+        'text-govuk-link underline govuk-link-underline',
         'hover:text-govuk-brand-hover hover:govuk-link-underline-hover',
-        'visited:text-govuk-visited',
+        'visited:text-govuk-visited active:text-govuk-black',
         'focus:govuk-link-focus',
         isBlock
           ? 'inline-block pl-govuk-6 text-left govuk-pagination-block-link'
@@ -248,43 +194,35 @@ const PaginationLink = ({
 const PaginationLinkTitle = ({
   className,
   decorated,
-  children,
-  ref,
   ...props
 }: PaginationLinkTitleProps) => {
-  const isBlock = useContext(PaginationBlockContext);
+  const isBlock = use(PaginationBlockContext);
   return (
     <span
-      ref={ref}
       className={cn(
-        'decoration-inherit',
-        decorated && 'underline govuk-link-underline',
+        '[text-decoration-thickness:inherit]',
+        decorated &&
+          'govuk-link-underline group-hover:underline group-active:underline group-hover:govuk-link-underline-hover group-focus:no-underline',
         isBlock && 'govuk-pagination-block-title',
         className,
       )}
       {...props}
-    >
-      {children}
-    </span>
+    />
   );
 };
 
 const PaginationLinkLabel = ({
   className,
-  children,
-  ref,
   ...props
 }: PaginationLinkLabelProps) => (
   <span
-    ref={ref}
     className={cn(
       'font-normal underline govuk-link-underline inline-block',
+      'group-hover:govuk-link-underline-hover group-focus:no-underline',
       className,
     )}
     {...props}
-  >
-    {children}
-  </span>
+  />
 );
 
 export {

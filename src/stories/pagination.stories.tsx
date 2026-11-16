@@ -52,8 +52,8 @@ export const Default: Story = {
             2
           </PaginationLink>
         </PaginationItem>
-        <PaginationItem current aria-current='page'>
-          <PaginationLink href='/page/3' aria-label='Page 3'>
+        <PaginationItem current>
+          <PaginationLink aria-current='page' href='/page/3' aria-label='Page 3'>
             3
           </PaginationLink>
         </PaginationItem>
@@ -98,8 +98,8 @@ export const WithEllipsis: Story = {
             14
           </PaginationLink>
         </PaginationItem>
-        <PaginationItem current aria-current='page'>
-          <PaginationLink href='/page/15' aria-label='Page 15'>
+        <PaginationItem current>
+          <PaginationLink aria-current='page' href='/page/15' aria-label='Page 15'>
             15
           </PaginationLink>
         </PaginationItem>
@@ -136,8 +136,8 @@ export const FirstPage: Story = {
   render: () => (
     <Pagination>
       <PaginationList>
-        <PaginationItem current aria-current='page'>
-          <PaginationLink href='/page/1' aria-label='Page 1'>
+        <PaginationItem current>
+          <PaginationLink aria-current='page' href='/page/1' aria-label='Page 1'>
             1
           </PaginationLink>
         </PaginationItem>
@@ -186,8 +186,8 @@ export const LastPage: Story = {
             2
           </PaginationLink>
         </PaginationItem>
-        <PaginationItem current aria-current='page'>
-          <PaginationLink href='/page/3' aria-label='Page 3'>
+        <PaginationItem current>
+          <PaginationLink aria-current='page' href='/page/3' aria-label='Page 3'>
             3
           </PaginationLink>
         </PaginationItem>
@@ -202,7 +202,7 @@ export const BlockLevel: Story = {
       <PaginationPrevious>
         <PaginationLink href='/previous-page' rel='prev'>
           <PrevArrow />
-          <PaginationLinkTitle decorated>
+          <PaginationLinkTitle>
             Previous<span className='sr-only'> page</span>
           </PaginationLinkTitle>
           <span className='sr-only'>:</span>
@@ -214,7 +214,7 @@ export const BlockLevel: Story = {
       <PaginationNext>
         <PaginationLink href='/next-page' rel='next'>
           <NextArrow />
-          <PaginationLinkTitle decorated>
+          <PaginationLinkTitle>
             Next<span className='sr-only'> page</span>
           </PaginationLinkTitle>
           <span className='sr-only'>:</span>

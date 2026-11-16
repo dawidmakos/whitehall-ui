@@ -5,44 +5,30 @@ import { cn } from '@/lib/utils';
 
 interface RadiosProps extends Omit<
   React.ComponentProps<typeof RadioGroup>,
-  'className' | 'children'
+  'className'
 > {
   className?: string;
-  children: React.ReactNode;
   inline?: boolean;
 }
 
-const Radios = ({
-  className,
-  inline = false,
-  children,
-  ...props
-}: RadiosProps) => (
+const Radios = ({ className, inline, ...props }: RadiosProps) => (
   <RadioGroup
     className={cn(
-      inline && 'sm:flex sm:flex-wrap sm:items-start sm:gap-x-5',
+      inline && 'sm:flex sm:flex-wrap sm:items-start sm:gap-x-govuk-4',
       className,
     )}
     {...props}
-  >
-    {children}
-  </RadioGroup>
+  />
 );
 
 interface RadiosItemProps extends Omit<
   React.ComponentProps<typeof Radio.Root>,
-  'className' | 'children'
+  'className'
 > {
   className?: string;
-  children: React.ReactNode;
 }
 
-const RadiosItem = ({
-  className,
-  children,
-  value,
-  ...props
-}: RadiosItemProps) => {
+const RadiosItem = ({ className, children, ...props }: RadiosItemProps) => {
   const labelId = useId();
 
   return (
@@ -50,20 +36,19 @@ const RadiosItem = ({
       className={cn(
         'flex flex-wrap items-start',
         'relative',
-        'mb-2.5 last:mb-0',
+        'mb-govuk-2 last:mb-0',
         'cursor-pointer',
+        'has-data-[disabled]:opacity-50 has-data-[disabled]:cursor-not-allowed',
         className,
       )}
     >
       <Radio.Root
-        value={value}
         aria-labelledby={labelId}
         className={cn(
           'group/radio',
           'relative flex-none',
           'w-govuk-radio-touch-target h-govuk-radio-touch-target',
-          'cursor-pointer outline-none',
-          'data-disabled:cursor-not-allowed data-disabled:opacity-50',
+          'outline-none',
         )}
         {...props}
       >
@@ -101,7 +86,7 @@ const RadiosItem = ({
           'self-center',
           'py-govuk-button-pb px-govuk-radio-label-padding-x',
           'text-govuk-tag font-normal font-govuk',
-          'cursor-pointer',
+          'max-w-[calc(100%-74px)]',
         )}
       >
         {children}
@@ -110,15 +95,13 @@ const RadiosItem = ({
   );
 };
 
-interface RadiosHintProps extends React.HTMLAttributes<HTMLSpanElement> {
-  className?: string;
-}
+type RadiosHintProps = React.ComponentProps<'span'>;
 
 const RadiosHint = ({ className, ...props }: RadiosHintProps) => (
   <span
     className={cn(
       'block w-full',
-      '-mt-govuk-1',
+      '-mt-govuk-3 mb-govuk-2 last:mb-0',
       'pr-govuk-radio-label-padding-x',
       'pl-[calc(var(--spacing-govuk-radio-label-padding-x)+var(--spacing-govuk-radio-touch-target))]',
       'text-govuk-tag font-normal font-govuk text-govuk-dark-grey',
@@ -128,9 +111,7 @@ const RadiosHint = ({ className, ...props }: RadiosHintProps) => (
   />
 );
 
-interface RadiosDividerProps extends React.HTMLAttributes<HTMLDivElement> {
-  className?: string;
-}
+type RadiosDividerProps = React.ComponentProps<'div'>;
 
 const RadiosDivider = ({
   className,
@@ -140,7 +121,7 @@ const RadiosDivider = ({
   <div
     className={cn(
       'w-govuk-radio-size',
-      'mb-2.5',
+      'mb-govuk-2',
       'text-govuk-tag font-normal font-govuk text-govuk-black',
       'text-center',
       className,

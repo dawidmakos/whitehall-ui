@@ -32,8 +32,8 @@ export const Default: Story = {
     <Table>
       <TableHead>
         <TableRow>
-          <TableHeader>Date</TableHeader>
-          <TableHeader>Amount</TableHeader>
+          <TableHeader scope='col'>Date</TableHeader>
+          <TableHeader scope='col'>Amount</TableHeader>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -60,8 +60,8 @@ export const WithCaption: Story = {
       <TableCaption size='m'>Dates and amounts</TableCaption>
       <TableHead>
         <TableRow>
-          <TableHeader>Date</TableHeader>
-          <TableHeader>Amount</TableHeader>
+          <TableHeader scope='col'>Date</TableHeader>
+          <TableHeader scope='col'>Amount</TableHeader>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -88,9 +88,9 @@ export const WithNumericValues: Story = {
       <TableCaption size='m'>Months and rates</TableCaption>
       <TableHead>
         <TableRow>
-          <TableHeader>Month</TableHeader>
-          <TableHeader numeric>Rate for vehicles</TableHeader>
-          <TableHeader numeric>Rate for bicycles</TableHeader>
+          <TableHeader scope='col'>Month</TableHeader>
+          <TableHeader scope='col' numeric>Rate for vehicles</TableHeader>
+          <TableHeader scope='col' numeric>Rate for bicycles</TableHeader>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -120,9 +120,9 @@ export const WithRowHeaders: Story = {
       <TableCaption size='m'>Cases opened and closed per month</TableCaption>
       <TableHead>
         <TableRow>
-          <TableHeader>Case manager</TableHeader>
-          <TableHeader numeric>Cases opened</TableHeader>
-          <TableHeader numeric>Cases closed</TableHeader>
+          <TableHeader scope='col'>Case manager</TableHeader>
+          <TableHeader scope='col' numeric>Cases opened</TableHeader>
+          <TableHeader scope='col' numeric>Cases closed</TableHeader>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -163,9 +163,9 @@ export const SmallTextUntilTablet: Story = {
       <TableCaption size='m'>Cases by manager</TableCaption>
       <TableHead>
         <TableRow>
-          <TableHeader>Case manager</TableHeader>
-          <TableHeader numeric>Opened</TableHeader>
-          <TableHeader numeric>Closed</TableHeader>
+          <TableHeader scope='col'>Case manager</TableHeader>
+          <TableHeader scope='col' numeric>Opened</TableHeader>
+          <TableHeader scope='col' numeric>Closed</TableHeader>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -207,13 +207,13 @@ export const ScrollableOnMobile: Story = {
         <TableCaption size='m'>Monthly case statistics</TableCaption>
         <TableHead>
           <TableRow>
-            <TableHeader>Case manager</TableHeader>
-            <TableHeader numeric>January</TableHeader>
-            <TableHeader numeric>February</TableHeader>
-            <TableHeader numeric>March</TableHeader>
-            <TableHeader numeric>April</TableHeader>
-            <TableHeader numeric>May</TableHeader>
-            <TableHeader numeric>June</TableHeader>
+            <TableHeader scope='col'>Case manager</TableHeader>
+            <TableHeader scope='col' numeric>January</TableHeader>
+            <TableHeader scope='col' numeric>February</TableHeader>
+            <TableHeader scope='col' numeric>March</TableHeader>
+            <TableHeader scope='col' numeric>April</TableHeader>
+            <TableHeader scope='col' numeric>May</TableHeader>
+            <TableHeader scope='col' numeric>June</TableHeader>
           </TableRow>
         </TableHead>
         <TableBody>

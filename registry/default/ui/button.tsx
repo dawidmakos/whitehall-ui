@@ -9,7 +9,7 @@ const buttonVariants = cva(
     'box-border',
     'px-govuk-button-x pt-govuk-button-pt pb-govuk-button-pb',
     'mb-govuk-button-bottom',
-    'text-govuk-body font-normal',
+    'text-govuk-body leading-none font-normal',
     'font-govuk',
     'text-center no-underline',
     'cursor-pointer',
@@ -22,6 +22,7 @@ const buttonVariants = cva(
     'focus:not-[:active]:not-[:hover]:shadow-govuk-yellow',
     'focus:not-[:active]:not-[:hover]:inset-ring-0',
     'focus:not-[:active]:not-[:hover]:border-govuk-yellow',
+    'data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed data-[disabled]:active:top-0',
   ],
   {
     variants: {
@@ -66,12 +67,9 @@ const buttonVariants = cva(
   },
 );
 
-const disabledStyles =
-  'data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed data-[disabled]:active:top-0';
-
 const StartIcon = () => (
   <svg
-    className='ml-govuk-1 sm:ml-govuk-2 align-middle shrink-0 self-center forced-color-adjust-auto'
+    className='ml-govuk-1 md:ml-govuk-2 align-middle shrink-0 self-center forced-color-adjust-auto'
     xmlns='http://www.w3.org/2000/svg'
     width='17.5'
     height='19'
@@ -89,32 +87,30 @@ type ButtonVariant = NonNullable<
 
 interface ButtonProps
   extends
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    Omit<React.ComponentProps<typeof BaseButton>, 'className'>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
-  disabled?: boolean;
-  focusableWhenDisabled?: boolean;
-  ref?: React.Ref<HTMLButtonElement>;
+  className?: string;
 }
 
 const Button = ({
   className,
   variant = 'default',
-  disabled = false,
-  focusableWhenDisabled = false,
   children,
-  ref,
   ...props
 }: ButtonProps) => (
   <BaseButton
-    ref={ref}
-    disabled={disabled}
-    focusableWhenDisabled={focusableWhenDisabled}
-    className={cn(buttonVariants({ variant }), disabledStyles, className)}
+    type={props.nativeButton === false ? undefined : 'submit'}
+    className={cn(buttonVariants({ variant }), className)}
     {...props}
   >
-    {children}
-    {variant === 'start' && <StartIcon />}
+    {variant === 'start' ? (
+      <>
+        <span>{children}</span>
+        <StartIcon />
+      </>
+    ) : (
+      children
+    )}
   </BaseButton>
 );
 

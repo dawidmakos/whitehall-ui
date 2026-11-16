@@ -12,23 +12,21 @@ const linkVariants = cva(
     variants: {
       variant: {
         default: [
-          'text-govuk-brand',
+          'text-govuk-link',
           'hover:text-govuk-brand-hover',
           'visited:text-govuk-visited',
-          'active:text-govuk-brand',
+          'active:text-govuk-black',
         ],
         muted: [
           'text-govuk-dark-grey',
-          'hover:text-govuk-dark-grey',
+          'hover:text-govuk-black',
           'visited:text-govuk-dark-grey',
-          'active:text-govuk-dark-grey',
+          'active:text-govuk-black',
         ],
         inverse: [
           'text-white',
           'hover:text-white',
           'visited:text-white',
-          'active:text-white',
-          'focus:not-focus:bg-transparent',
         ],
       },
       noUnderline: {
@@ -42,7 +40,7 @@ const linkVariants = cva(
       {
         variant: 'default',
         noVisitedState: true,
-        className: 'visited:text-govuk-brand',
+        className: 'visited:text-govuk-link',
       },
     ],
     defaultVariants: {
@@ -53,24 +51,17 @@ const linkVariants = cva(
 
 type LinkVariant = NonNullable<VariantProps<typeof linkVariants>['variant']>;
 
-interface LinkProps
-  extends
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    VariantProps<typeof linkVariants> {
-  ref?: React.Ref<HTMLAnchorElement>;
-}
+type LinkProps = React.ComponentProps<'a'> & VariantProps<typeof linkVariants>;
 
 const Link = ({
   className,
   variant,
   noUnderline,
   noVisitedState,
-  ref,
   children,
   ...props
 }: LinkProps) => (
   <a
-    ref={ref}
     className={cn(
       linkVariants({ variant, noUnderline, noVisitedState }),
       className,

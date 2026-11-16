@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Select, SelectItem } from '@/ui/select';
+import { Select } from '@/ui/select';
 import { Label } from '@/ui/label';
 import { Hint } from '@/ui/hint';
 import { ErrorMessage } from '@/ui/error-message';
@@ -22,124 +22,73 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {
-    children: null,
-  },
-  render: () => {
-    const items = [
-      { value: 'recently-published', label: 'Recently published' },
-      { value: 'recently-updated', label: 'Recently updated' },
-      { value: 'most-views', label: 'Most views' },
-      { value: 'most-comments', label: 'Most comments' },
-    ];
+const locations = [
+  'East Midlands',
+  'East of England',
+  'London',
+  'North East',
+  'North West',
+  'South East',
+  'South West',
+  'West Midlands',
+  'Yorkshire and the Humber',
+];
 
-    return (
-      <>
-        <Label id='sort-by-label'>Sort by</Label>
-        <Select
-          defaultValue='recently-published'
-          items={items}
-          aria-labelledby='sort-by-label'
-        >
-          <SelectItem value='recently-published'>Recently published</SelectItem>
-          <SelectItem value='recently-updated'>Recently updated</SelectItem>
-          <SelectItem value='most-views'>Most views</SelectItem>
-          <SelectItem value='most-comments'>Most comments</SelectItem>
-        </Select>
-      </>
-    );
-  },
+const locationOptions = (
+  <>
+    <option value=''>Choose location</option>
+    {locations.map((location) => (
+      <option key={location} value={location}>
+        {location}
+      </option>
+    ))}
+  </>
+);
+
+export const Default: Story = {
+  render: () => (
+    <>
+      <Label htmlFor='sort-by'>Sort by</Label>
+      <Select id='sort-by' name='sort-by' defaultValue='recently-published'>
+        <option value='recently-published'>Recently published</option>
+        <option value='recently-updated'>Recently updated</option>
+        <option value='most-views'>Most views</option>
+        <option value='most-comments'>Most comments</option>
+      </Select>
+    </>
+  ),
 };
 
 export const WithHint: Story = {
-  args: {
-    children: null,
-  },
-  render: () => {
-    const items = [
-      { value: 'east-midlands', label: 'East Midlands' },
-      { value: 'east-of-england', label: 'East of England' },
-      { value: 'london', label: 'London' },
-      { value: 'north-east', label: 'North East' },
-      { value: 'north-west', label: 'North West' },
-      { value: 'south-east', label: 'South East' },
-      { value: 'south-west', label: 'South West' },
-      { value: 'west-midlands', label: 'West Midlands' },
-      { value: 'yorkshire-and-the-humber', label: 'Yorkshire and the Humber' },
-    ];
-
-    return (
-      <>
-        <Label id='location-label'>Choose location</Label>
-        <Hint id='location-hint'>
-          This can be different to where you went before
-        </Hint>
-        <Select
-          placeholder='Choose location'
-          items={items}
-          aria-labelledby='location-label location-hint'
-        >
-          <SelectItem value='east-midlands'>East Midlands</SelectItem>
-          <SelectItem value='east-of-england'>East of England</SelectItem>
-          <SelectItem value='london'>London</SelectItem>
-          <SelectItem value='north-east'>North East</SelectItem>
-          <SelectItem value='north-west'>North West</SelectItem>
-          <SelectItem value='south-east'>South East</SelectItem>
-          <SelectItem value='south-west'>South West</SelectItem>
-          <SelectItem value='west-midlands'>West Midlands</SelectItem>
-          <SelectItem value='yorkshire-and-the-humber'>
-            Yorkshire and the Humber
-          </SelectItem>
-        </Select>
-      </>
-    );
-  },
+  render: () => (
+    <>
+      <Label htmlFor='location'>Choose location</Label>
+      <Hint id='location-hint'>
+        This can be different to where you went before
+      </Hint>
+      <Select id='location' name='location' aria-describedby='location-hint'>
+        {locationOptions}
+      </Select>
+    </>
+  ),
 };
 
 export const WithError: Story = {
-  args: {
-    children: null,
-  },
-  render: () => {
-    const items = [
-      { value: 'east-midlands', label: 'East Midlands' },
-      { value: 'east-of-england', label: 'East of England' },
-      { value: 'london', label: 'London' },
-      { value: 'north-east', label: 'North East' },
-      { value: 'north-west', label: 'North West' },
-      { value: 'south-east', label: 'South East' },
-      { value: 'south-west', label: 'South West' },
-      { value: 'west-midlands', label: 'West Midlands' },
-      { value: 'yorkshire-and-the-humber', label: 'Yorkshire and the Humber' },
-    ];
-
-    return (
-      <>
-        <Label id='error-location-label'>Choose location</Label>
-        <Hint id='error-location-hint'>
-          This can be different to where you went before
-        </Hint>
-        <ErrorMessage id='error-location-error'>Select a location</ErrorMessage>
-        <Select
-          error
-          placeholder='Choose location'
-          items={items}
-          aria-labelledby='error-location-label error-location-hint error-location-error'
-        >
-          <SelectItem value='east-midlands'>East Midlands</SelectItem>
-          <SelectItem value='east-of-england'>East of England</SelectItem>
-          <SelectItem value='london'>London</SelectItem>
-          <SelectItem value='north-east'>North East</SelectItem>
-          <SelectItem value='north-west'>North West</SelectItem>
-          <SelectItem value='south-east'>South East</SelectItem>
-          <SelectItem value='south-west'>South West</SelectItem>
-          <SelectItem value='west-midlands'>West Midlands</SelectItem>
-          <SelectItem value='yorkshire-and-the-humber'>
-            Yorkshire and the Humber
-          </SelectItem>
-        </Select>
-      </>
-    );
-  },
+  render: () => (
+    <>
+      <Label htmlFor='error-location'>Choose location</Label>
+      <Hint id='error-location-hint'>
+        This can be different to where you went before
+      </Hint>
+      <ErrorMessage id='error-location-error'>Select a location</ErrorMessage>
+      <Select
+        id='error-location'
+        name='error-location'
+        error
+        aria-describedby='error-location-hint error-location-error'
+      >
+        {locationOptions}
+      </Select>
+    </>
+  ),
 };
