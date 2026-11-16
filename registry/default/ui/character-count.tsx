@@ -1,49 +1,42 @@
-import { useState, useCallback } from 'react';
+'use client';
+
+import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Textarea } from '@/ui/textarea';
+import { Textarea, type TextareaProps } from '@/ui/textarea';
 
 type CountMode = 'characters' | 'words';
 
-interface CharacterCountProps {
+interface CharacterCountProps extends Omit<
+  TextareaProps,
+  'value' | 'defaultValue'
+> {
   id: string;
   maxCount: number;
   mode?: CountMode;
   threshold?: number;
-  rows?: number;
-  defaultValue?: string;
   value?: string;
-  error?: boolean;
-  disabled?: boolean;
-  className?: string;
+  defaultValue?: string;
   textareaClassName?: string;
-  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  name?: string;
-  ref?: React.Ref<HTMLTextAreaElement>;
+  descriptionText?: string;
   formatMessage?: (remaining: number, mode: CountMode) => string;
 }
 
-interface CharacterCountMessageProps extends React.ComponentPropsWithoutRef<'div'> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type CharacterCountMessageProps = React.ComponentProps<'div'>;
 
-const countWords = (text: string): number => {
-  const trimmed = text.trim();
-  if (trimmed === '') return 0;
-  return trimmed.split(/\s+/).length;
-};
+const countText = (text: string, mode: CountMode) =>
+  Array.from(
+    new Intl.Segmenter(undefined, {
+      granularity: mode === 'words' ? 'word' : 'grapheme',
+    }).segment(text),
+  ).filter((segment) => mode === 'characters' || segment.isWordLike).length;
 
-const defaultFormatMessage = (remaining: number, mode: CountMode): string => {
-  const unit = mode === 'words' ? 'words' : 'characters';
-  if (remaining >= 0) {
-    return `You have ${remaining} ${unit} remaining`;
-  }
-  const over = Math.abs(remaining);
-  return `You have ${over} ${unit} too many`;
-};
-
-const getCount = (text: string, mode: CountMode): number => {
-  if (mode === 'words') return countWords(text);
-  return text.length;
+const defaultFormatMessage = (remaining: number, mode: CountMode) => {
+  const count = Math.abs(remaining);
+  const noun = mode === 'words' ? 'word' : 'character';
+  const unit = count === 1 ? noun : `${noun}s`;
+  return remaining < 0
+    ? `You have ${count} ${unit} too many`
+    : `You have ${count} ${unit} remaining`;
 };
 
 const CharacterCount = ({
@@ -51,53 +44,50 @@ const CharacterCount = ({
   maxCount,
   mode = 'characters',
   threshold = 0,
-  rows = 5,
   defaultValue = '',
   value,
-  error = false,
-  disabled = false,
+  error,
   className,
   textareaClassName,
+  descriptionText = `You can enter up to ${maxCount} ${mode}`,
   onChange,
-  name,
-  ref,
   formatMessage = defaultFormatMessage,
+  'aria-describedby': ariaDescribedBy,
+  ...props
 }: CharacterCountProps) => {
   const [internalValue, setInternalValue] = useState(defaultValue);
+  const [announcement, setAnnouncement] = useState('');
   const currentValue = value ?? internalValue;
-  const currentCount = getCount(currentValue, mode);
-  const remaining = maxCount - currentCount;
+  const remaining = maxCount - countText(currentValue, mode);
   const isOverLimit = remaining < 0;
-  const thresholdValue = Math.ceil((maxCount * threshold) / 100);
-  const showMessage = threshold === 0 || currentCount >= thresholdValue;
+  const showMessage =
+    maxCount - remaining >= Math.ceil((maxCount * threshold) / 100);
   const message = formatMessage(remaining, mode);
 
-  const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      if (value === undefined) {
-        setInternalValue(e.target.value);
-      }
-      onChange?.(e);
-    },
-    [value, onChange],
-  );
+  useEffect(() => {
+    const timeout = setTimeout(() => setAnnouncement(message), 1000);
+    return () => clearTimeout(timeout);
+  }, [message]);
 
   return (
-    <div className={cn('font-govuk mb-govuk-6', className)}>
+    <div className={cn('font-govuk mb-govuk-r6', className)}>
       <Textarea
-        ref={ref}
         id={id}
-        name={name}
-        rows={rows}
         value={currentValue}
-        onChange={handleChange}
+        onChange={(event) => {
+          if (value === undefined) setInternalValue(event.target.value);
+          onChange?.(event);
+        }}
         error={error || isOverLimit}
-        disabled={disabled}
-        aria-describedby={`${id}-info`}
+        aria-describedby={`${ariaDescribedBy ?? ''} ${id}-info`.trim()}
         className={cn('mb-govuk-1', textareaClassName)}
+        {...props}
       />
+      <div id={`${id}-info`} className='sr-only'>
+        {descriptionText}
+      </div>
       <CharacterCountMessage
-        id={`${id}-info`}
+        aria-hidden='true'
         className={cn(
           isOverLimit && 'text-govuk-error font-bold',
           !showMessage && 'invisible',
@@ -105,27 +95,25 @@ const CharacterCount = ({
       >
         {message}
       </CharacterCountMessage>
+      <div className='sr-only' aria-live='polite' aria-hidden={!showMessage}>
+        {announcement}
+      </div>
     </div>
   );
 };
 
 const CharacterCountMessage = ({
   className,
-  children,
-  ref,
   ...props
 }: CharacterCountMessageProps) => (
   <div
-    ref={ref}
     className={cn(
       'font-govuk text-govuk-body text-govuk-dark-grey',
       'mt-0 mb-0 tabular-nums',
       className,
     )}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
 
 export {

@@ -41,7 +41,7 @@ export const Default: Story = {
         <FooterMeta>
           <FooterMetaItem grow>
             <FooterContentLicence>
-              All content is available under the
+              All content is available under the{' '}
               <FooterLink
                 href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
                 rel='license'
@@ -145,7 +145,7 @@ export const WithNavigation: Story = {
         <FooterMeta>
           <FooterMetaItem grow>
             <FooterContentLicence>
-              All content is available under the
+              All content is available under the{' '}
               <FooterLink
                 href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
                 rel='license'

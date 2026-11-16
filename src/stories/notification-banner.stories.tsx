@@ -46,7 +46,7 @@ export const Default: Story = {
 
 export const Success: Story = {
   render: () => (
-    <NotificationBanner variant='success'>
+    <NotificationBanner variant='success' disableAutoFocus>
       <NotificationBannerHeader>
         <NotificationBannerTitle>Success</NotificationBannerTitle>
       </NotificationBannerHeader>

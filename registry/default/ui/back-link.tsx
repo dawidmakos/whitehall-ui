@@ -1,26 +1,24 @@
 import { cn } from '@/lib/utils';
 
-interface BackLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  ref?: React.Ref<HTMLAnchorElement>;
+interface BackLinkProps extends React.ComponentProps<'a'> {
   inverse?: boolean;
 }
 
 const BackLink = ({
   className,
   inverse,
-  ref,
   children = 'Back',
   ...props
 }: BackLinkProps) => (
   <a
-    ref={ref}
     className={cn(
-      'font-govuk text-govuk-header leading-tight',
+      'relative font-govuk text-govuk-header leading-tight',
       'inline-flex items-center gap-govuk-1',
       'my-govuk-3',
       'underline govuk-link-underline',
       'hover:govuk-link-underline-hover',
       'focus:govuk-link-focus',
+      'after:absolute after:inset-x-0 after:-top-govuk-3 after:-bottom-govuk-3',
       inverse
         ? [
             'text-white visited:text-white',
@@ -35,7 +33,12 @@ const BackLink = ({
     {...props}
   >
     <svg
-      className='shrink-0'
+      className={cn(
+        'shrink-0',
+        inverse
+          ? 'text-current'
+          : 'text-govuk-dark-grey [a:focus_&]:text-govuk-black',
+      )}
       xmlns='http://www.w3.org/2000/svg'
       width='7'
       height='11'

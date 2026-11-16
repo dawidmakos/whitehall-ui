@@ -20,13 +20,7 @@ import {
   FooterMeta,
   FooterMetaItem,
 } from '@/ui/footer';
-import {
-  Header,
-  HeaderContainer,
-  HeaderLink,
-  HeaderLogo,
-  HeaderServiceName,
-} from '@/ui/header';
+import { Header } from '@/ui/header';
 import { Hint } from '@/ui/hint';
 import { InsetText } from '@/ui/inset-text';
 import { Label } from '@/ui/label';
@@ -39,6 +33,11 @@ import {
   PhaseBannerText,
 } from '@/ui/phase-banner';
 import { Radios, RadiosHint, RadiosItem } from '@/ui/radios';
+import {
+  ServiceNavigation,
+  ServiceNavigationContainer,
+  ServiceNavigationServiceName,
+} from '@/ui/service-navigation';
 import { SkipLink } from '@/ui/skip-link';
 import {
   SummaryList,
@@ -157,31 +156,30 @@ const ServiceLayout = ({ children }: ServiceLayoutProps) => (
   <div className='flex min-h-screen flex-col font-govuk text-govuk-black'>
     <SkipLink href='#main-content'>Skip to main content</SkipLink>
 
-    <Header>
-      <HeaderContainer>
-        <HeaderLogo>
-          <HeaderLink href='#'>GOV.UK</HeaderLink>
-        </HeaderLogo>
-        <HeaderServiceName href='#'>
-          Apply for a fishing licence
-        </HeaderServiceName>
-      </HeaderContainer>
-    </Header>
+    <header>
+      <Header />
+      <ServiceNavigation>
+        <ServiceNavigationContainer>
+          <ServiceNavigationServiceName href='#'>
+            Apply for a fishing licence
+          </ServiceNavigationServiceName>
+        </ServiceNavigationContainer>
+      </ServiceNavigation>
+      <PhaseBanner>
+        <PhaseBannerContent>
+          <PhaseBannerTag>
+            <Tag>Alpha</Tag>
+          </PhaseBannerTag>
+          <PhaseBannerText>
+            This is a new service. Your <Link href='#'>feedback</Link> will
+            help us improve it.
+          </PhaseBannerText>
+        </PhaseBannerContent>
+      </PhaseBanner>
+    </header>
 
     <div className='grow'>
-      <div className='mx-auto max-w-240 px-govuk-3'>
-        <PhaseBanner>
-          <PhaseBannerContent>
-            <PhaseBannerTag>
-              <Tag>Alpha</Tag>
-            </PhaseBannerTag>
-            <PhaseBannerText>
-              This is a new service. Your <Link href='#'>feedback</Link> will
-              help us improve it.
-            </PhaseBannerText>
-          </PhaseBannerContent>
-        </PhaseBanner>
-
+      <div className='govuk-width-container'>
         <main id='main-content' className='py-govuk-7'>
           <div className='md:w-2/3'>{children}</div>
         </main>
@@ -193,7 +191,7 @@ const ServiceLayout = ({ children }: ServiceLayoutProps) => (
         <FooterMeta>
           <FooterMetaItem grow>
             <FooterContentLicence>
-              All content is available under the
+              All content is available under the{' '}
               <FooterLink
                 href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
                 rel='license'
@@ -662,7 +660,7 @@ const ConfirmationPage = ({ onStartAgain }: ConfirmationPageProps) => (
 
 const ApplyForAFishingLicence = () => {
   const [page, setPage] = useState<PageId>('start');
-  const [answers, setAnswers] = useState<Answers>(emptyAnswers);
+  const [answers, setAnswers] = useState(emptyAnswers);
   const [errors, setErrors] = useState<ErrorSummaryItem[]>([]);
 
   const goTo = (next: PageId) => {

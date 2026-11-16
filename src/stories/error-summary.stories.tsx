@@ -19,6 +19,9 @@ const meta = {
     },
   },
   tags: ['autodocs'],
+  args: {
+    disableAutoFocus: true,
+  },
   argTypes: {
     titleText: {
       control: 'text',

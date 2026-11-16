@@ -19,39 +19,23 @@ const fieldsetLegendVariants = cva(
         s: 'text-govuk-body font-bold mb-govuk-2',
       },
     },
-    defaultVariants: {
-      size: undefined,
-    },
   },
 );
 
-interface FieldsetProps extends React.FieldsetHTMLAttributes<HTMLFieldSetElement> {
-  ref?: React.Ref<HTMLFieldSetElement>;
-}
+type FieldsetProps = React.ComponentProps<'fieldset'>;
 
-const Fieldset = ({ className, ref, ...props }: FieldsetProps) => (
+const Fieldset = ({ className, ...props }: FieldsetProps) => (
   <fieldset
-    ref={ref}
     className={cn('min-w-0 m-0 p-0 border-0', className)}
     {...props}
   />
 );
 
-interface FieldsetLegendProps
-  extends
-    React.HTMLAttributes<HTMLLegendElement>,
-    VariantProps<typeof fieldsetLegendVariants> {
-  ref?: React.Ref<HTMLLegendElement>;
-}
+type FieldsetLegendProps = React.ComponentProps<'legend'> &
+  VariantProps<typeof fieldsetLegendVariants>;
 
-const FieldsetLegend = ({
-  className,
-  size,
-  ref,
-  ...props
-}: FieldsetLegendProps) => (
+const FieldsetLegend = ({ className, size, ...props }: FieldsetLegendProps) => (
   <legend
-    ref={ref}
     className={cn(
       fieldsetLegendVariants({ size }),
       !size && 'text-govuk-body mb-govuk-2',
@@ -61,22 +45,22 @@ const FieldsetLegend = ({
   />
 );
 
-interface FieldsetHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
+interface FieldsetHeadingProps extends React.ComponentProps<'h1'> {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  ref?: React.Ref<HTMLHeadingElement>;
 }
 
 const FieldsetHeading = ({
   as: Tag = 'h1',
   className,
-  ref,
+  children,
   ...props
 }: FieldsetHeadingProps) => (
   <Tag
-    ref={ref}
     className={cn('m-0 text-[length:inherit] font-[weight:inherit]', className)}
     {...props}
-  />
+  >
+    {children}
+  </Tag>
 );
 
 export {

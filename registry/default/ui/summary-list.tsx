@@ -1,183 +1,118 @@
 import { cn } from '@/lib/utils';
 
-interface SummaryListProps extends React.HTMLAttributes<HTMLDListElement> {
-  ref?: React.Ref<HTMLDListElement>;
+interface SummaryListProps extends React.ComponentProps<'dl'> {
   noBorder?: boolean;
 }
 
-interface SummaryListRowProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
+interface SummaryListRowProps extends React.ComponentProps<'div'> {
   noBorder?: boolean;
   noActions?: boolean;
 }
 
-interface SummaryListKeyProps extends React.HTMLAttributes<HTMLElement> {
-  ref?: React.Ref<HTMLElement>;
-}
+type SummaryListKeyProps = React.ComponentProps<'dt'>;
 
-interface SummaryListValueProps extends React.HTMLAttributes<HTMLElement> {
-  ref?: React.Ref<HTMLElement>;
-}
+type SummaryListValueProps = React.ComponentProps<'dd'>;
 
-interface SummaryListActionsProps extends React.HTMLAttributes<HTMLElement> {
-  ref?: React.Ref<HTMLElement>;
-}
+type SummaryListActionsProps = React.ComponentProps<'dd'>;
 
-interface SummaryListCardProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type SummaryListCardProps = React.ComponentProps<'div'>;
 
-interface SummaryListCardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type SummaryListCardHeaderProps = React.ComponentProps<'div'>;
 
-interface SummaryListCardContentProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type SummaryListCardContentProps = React.ComponentProps<'div'>;
 
-interface SummaryListCardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  ref?: React.Ref<HTMLHeadingElement>;
-}
+type SummaryListCardTitleProps = React.ComponentProps<'h2'>;
 
-interface SummaryListCardActionsProps extends React.HTMLAttributes<HTMLUListElement> {
-  ref?: React.Ref<HTMLUListElement>;
-}
+type SummaryListCardActionsProps = React.ComponentProps<'ul'>;
 
-interface SummaryListCardActionProps extends React.HTMLAttributes<HTMLLIElement> {
-  ref?: React.Ref<HTMLLIElement>;
-}
+type SummaryListCardActionProps = React.ComponentProps<'li'>;
 
-const SummaryList = ({
-  className,
-  noBorder,
-  ref,
-  children,
-  ...props
-}: SummaryListProps) => (
+const SummaryList = ({ className, noBorder, ...props }: SummaryListProps) => (
   <dl
-    ref={ref}
     className={cn(
       'font-govuk text-govuk-body text-govuk-black',
-      'm-0 mb-govuk-6',
+      'm-0 mb-govuk-r6',
       'sm:table sm:w-full sm:table-fixed sm:border-collapse',
       noBorder && '[&_div]:border-0 sm:[&_dt]:pb-2.75 sm:[&_dd]:pb-2.75',
       className,
     )}
     {...props}
-  >
-    {children}
-  </dl>
+  />
 );
 
 const SummaryListRow = ({
   className,
   noBorder,
   noActions,
-  ref,
-  children,
   ...props
 }: SummaryListRowProps) => (
   <div
-    ref={ref}
     className={cn(
       'border-b border-govuk-mid-grey',
       'max-sm:mb-govuk-3',
       'sm:table-row',
       noBorder && 'border-0 sm:[&>dt]:pb-2.75 sm:[&>dd]:pb-2.75',
-      noActions && 'sm:after:content-[""] sm:after:table-cell sm:after:w-[20%]',
+      noActions && 'sm:after:table-cell sm:after:w-1/5',
       className,
     )}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
 
-const SummaryListKey = ({
-  className,
-  ref,
-  children,
-  ...props
-}: SummaryListKeyProps) => (
+const SummaryListKey = ({ className, ...props }: SummaryListKeyProps) => (
   <dt
-    ref={ref}
     className={cn(
       'm-0 mb-govuk-1 font-bold',
       'wrap-break-word',
-      'sm:table-cell sm:pt-govuk-2 sm:pr-govuk-4 sm:pb-govuk-2 sm:align-top sm:w-[30%]',
+      'sm:table-cell sm:pt-govuk-2 sm:pr-govuk-4 sm:pb-govuk-2 sm:align-top sm:w-3/10',
       className,
     )}
     {...props}
-  >
-    {children}
-  </dt>
+  />
 );
 
-const SummaryListValue = ({
-  className,
-  ref,
-  children,
-  ...props
-}: SummaryListValueProps) => (
+const SummaryListValue = ({ className, ...props }: SummaryListValueProps) => (
   <dd
-    ref={ref}
     className={cn(
       'm-0 max-sm:mb-govuk-3',
-      'wrap-break-word',
+      'wrap-break-word [&>p]:mb-govuk-2 *:last:mb-0',
       'sm:table-cell sm:pt-govuk-2 sm:pr-govuk-4 sm:pb-govuk-2 sm:align-top',
       className,
     )}
     {...props}
-  >
-    {children}
-  </dd>
+  />
 );
 
 const SummaryListActions = ({
   className,
-  ref,
-  children,
   ...props
 }: SummaryListActionsProps) => (
   <dd
-    ref={ref}
     className={cn(
       'm-0 mb-govuk-3',
-      'sm:table-cell sm:pt-govuk-2 sm:pb-govuk-2 sm:w-[20%] sm:text-right sm:align-top',
+      'sm:table-cell sm:pt-govuk-2 sm:pb-govuk-2 sm:w-1/5 sm:text-right sm:align-top',
       className,
     )}
     {...props}
-  >
-    {children}
-  </dd>
+  />
 );
 
-const SummaryListCard = ({
-  className,
-  ref,
-  children,
-  ...props
-}: SummaryListCardProps) => (
+const SummaryListCard = ({ className, ...props }: SummaryListCardProps) => (
   <div
-    ref={ref}
-    className={cn('mb-govuk-6 border border-govuk-mid-grey', className)}
+    className={cn('mb-govuk-r6 border border-govuk-mid-grey', className)}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
 
 const SummaryListCardTitle = ({
   className,
-  ref,
   children,
   ...props
 }: SummaryListCardTitleProps) => (
   <h2
-    ref={ref}
     className={cn(
       'font-govuk text-govuk-body font-bold text-govuk-black',
-      'm-0 mr-govuk-4 mb-govuk-1',
+      'mt-govuk-1 mr-govuk-4 mb-govuk-2 sm:mb-govuk-1',
       className,
     )}
     {...props}
@@ -188,12 +123,9 @@ const SummaryListCardTitle = ({
 
 const SummaryListCardHeader = ({
   className,
-  ref,
-  children,
   ...props
 }: SummaryListCardHeaderProps) => (
   <div
-    ref={ref}
     className={cn(
       'p-govuk-3 sm:px-govuk-4',
       'border-b border-transparent bg-govuk-light-grey',
@@ -201,19 +133,14 @@ const SummaryListCardHeader = ({
       className,
     )}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
 
 const SummaryListCardActions = ({
   className,
-  ref,
-  children,
   ...props
 }: SummaryListCardActionsProps) => (
   <ul
-    ref={ref}
     className={cn(
       'font-govuk text-govuk-body font-bold',
       'm-0 my-govuk-1 p-0 list-none',
@@ -222,19 +149,14 @@ const SummaryListCardActions = ({
       className,
     )}
     {...props}
-  >
-    {children}
-  </ul>
+  />
 );
 
 const SummaryListCardAction = ({
   className,
-  ref,
-  children,
   ...props
 }: SummaryListCardActionProps) => (
   <li
-    ref={ref}
     className={cn(
       'inline',
       'max-sm:mr-govuk-2 max-sm:pr-govuk-2 max-sm:border-r max-sm:border-govuk-mid-grey max-sm:last:mr-0 max-sm:last:pr-0 max-sm:last:border-0',
@@ -242,28 +164,21 @@ const SummaryListCardAction = ({
       className,
     )}
     {...props}
-  >
-    {children}
-  </li>
+  />
 );
 
 const SummaryListCardContent = ({
   className,
-  ref,
-  children,
   ...props
 }: SummaryListCardContentProps) => (
   <div
-    ref={ref}
     className={cn(
       'pt-govuk-3 px-govuk-3 sm:px-govuk-4 sm:pb-govuk-3',
       '[&_dl]:mb-0 [&_dl_div:last-of-type]:mb-0 [&_dl_div:last-of-type]:border-b-0',
       className,
     )}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
 
 export {

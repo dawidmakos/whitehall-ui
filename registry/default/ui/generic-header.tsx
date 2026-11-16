@@ -1,32 +1,24 @@
 import { cn } from '@/lib/utils';
 
-interface GenericHeaderProps extends React.HTMLAttributes<HTMLElement> {
-  ref?: React.Ref<HTMLElement>;
+interface GenericHeaderProps extends React.ComponentProps<'div'> {
   fullWidth?: boolean;
 }
 
-interface GenericHeaderContainerProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
+interface GenericHeaderContainerProps extends React.ComponentProps<'div'> {
   fullWidth?: boolean;
 }
 
-interface GenericHeaderLogoProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type GenericHeaderLogoProps = React.ComponentProps<'div'>;
 
-interface GenericHeaderLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  ref?: React.Ref<HTMLAnchorElement>;
-}
+type GenericHeaderLinkProps = React.ComponentProps<'a'>;
 
 const GenericHeader = ({
   className,
   fullWidth,
-  ref,
   children,
   ...props
 }: GenericHeaderProps) => (
-  <header
-    ref={ref}
+  <div
     className={cn(
       'font-govuk text-govuk-header',
       'border-b border-b-transparent',
@@ -40,54 +32,43 @@ const GenericHeader = ({
         <GenericHeaderLogo />
       </GenericHeaderContainer>
     )}
-  </header>
+  </div>
 );
 
 const GenericHeaderContainer = ({
   className,
   fullWidth,
-  ref,
-  children,
   ...props
 }: GenericHeaderContainerProps) => (
   <div
-    ref={ref}
     className={cn(
-      fullWidth ? 'px-govuk-3' : 'max-w-240 mx-auto px-govuk-3',
+      fullWidth ? 'px-govuk-3' : 'govuk-width-container',
       className,
     )}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
 
-const GenericHeaderLogo = ({
-  className,
-  ref,
-  children,
-  ...props
-}: GenericHeaderLogoProps) => (
-  <div ref={ref} className={cn('flex py-govuk-3', className)} {...props}>
-    {children}
-  </div>
+const GenericHeaderLogo = ({ className, ...props }: GenericHeaderLogoProps) => (
+  <div
+    className={cn(
+      'flex pt-govuk-header-pt pb-govuk-header-pb',
+      className,
+    )}
+    {...props}
+  />
 );
 
 const GenericHeaderLink = ({
   className,
-  ref,
   children,
   ...props
 }: GenericHeaderLinkProps) => (
   <a
-    ref={ref}
     className={cn(
       'inline-flex items-center gap-govuk-1',
       'text-govuk-header-link',
-      'text-white no-underline',
-      'visited:text-white active:text-white',
-      'hover:underline hover:govuk-link-underline hover:govuk-link-underline-hover',
-      'focus:govuk-link-focus',
+      'govuk-header-link focus:govuk-link-focus',
       className,
     )}
     {...props}

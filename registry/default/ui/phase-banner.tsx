@@ -1,36 +1,29 @@
 import { cn } from '@/lib/utils';
 
-interface PhaseBannerProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type PhaseBannerProps = React.ComponentProps<'div'>;
 
-interface PhaseBannerContentProps extends React.HTMLAttributes<HTMLParagraphElement> {
-  ref?: React.Ref<HTMLParagraphElement>;
-}
+type PhaseBannerContentProps = React.ComponentProps<'p'>;
 
-interface PhaseBannerTagProps extends React.HTMLAttributes<HTMLSpanElement> {
-  ref?: React.Ref<HTMLSpanElement>;
-}
+type PhaseBannerTagProps = React.ComponentProps<'span'>;
 
-interface PhaseBannerTextProps extends React.HTMLAttributes<HTMLSpanElement> {
-  ref?: React.Ref<HTMLSpanElement>;
-}
+type PhaseBannerTextProps = React.ComponentProps<'span'>;
 
-const PhaseBanner = ({ className, ref, ...props }: PhaseBannerProps) => (
+const PhaseBanner = ({ className, ...props }: PhaseBannerProps) => (
   <div
-    ref={ref}
-    className={cn('py-govuk-2 border-b border-govuk-mid-grey', className)}
+    className={cn(
+      'govuk-width-container [.govuk-width-container_&]:mx-0',
+      'py-govuk-2 border-b border-govuk-mid-grey',
+      className,
+    )}
     {...props}
   />
 );
 
 const PhaseBannerContent = ({
   className,
-  ref,
   ...props
 }: PhaseBannerContentProps) => (
   <p
-    ref={ref}
     className={cn(
       'table m-0 font-govuk text-govuk-phase-banner text-govuk-black',
       className,
@@ -39,24 +32,18 @@ const PhaseBannerContent = ({
   />
 );
 
-const PhaseBannerTag = ({ className, ref, ...props }: PhaseBannerTagProps) => (
+const PhaseBannerTag = ({ className, ...props }: PhaseBannerTagProps) => (
   <span
-    ref={ref}
-    className={cn('mr-govuk-3 sm:mr-govuk-2', className)}
+    className={cn(
+      'mr-govuk-3 sm:mr-govuk-2 *:text-govuk-body-small',
+      className,
+    )}
     {...props}
   />
 );
 
-const PhaseBannerText = ({
-  className,
-  ref,
-  ...props
-}: PhaseBannerTextProps) => (
-  <span
-    ref={ref}
-    className={cn('table-cell align-middle', className)}
-    {...props}
-  />
+const PhaseBannerText = ({ className, ...props }: PhaseBannerTextProps) => (
+  <span className={cn('table-cell align-middle', className)} {...props} />
 );
 
 export {

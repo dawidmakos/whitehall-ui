@@ -1,90 +1,61 @@
 import { cn } from '@/lib/utils';
 
-interface CookieBannerProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type CookieBannerProps = React.ComponentProps<'section'>;
 
-interface CookieBannerMessageProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type CookieBannerMessageProps = React.ComponentProps<'div'>;
 
-interface CookieBannerContentProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type CookieBannerContentProps = React.ComponentProps<'div'>;
 
-interface CookieBannerHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  ref?: React.Ref<HTMLHeadingElement>;
-}
+type CookieBannerHeadingProps = React.ComponentProps<'h2'>;
 
-interface CookieBannerActionsProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type CookieBannerActionsProps = React.ComponentProps<'div'>;
 
-const CookieBanner = ({
-  className,
-  ref,
-  children,
-  role = 'region',
-  ...props
-}: CookieBannerProps) => (
-  <div
-    ref={ref}
-    role={role}
+const CookieBanner = ({ className, ...props }: CookieBannerProps) => (
+  <section
+    aria-label='Cookie banner'
     data-nosnippet
     className={cn(
-      'font-govuk text-govuk-body',
+      'font-govuk text-govuk-body text-govuk-black',
       'pt-govuk-4',
       'border-b-govuk-wide border-b-transparent',
-      'bg-govuk-light-grey',
+      'bg-govuk-surface',
       className,
     )}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
 
 const CookieBannerMessage = ({
   className,
-  ref,
-  children,
   ...props
 }: CookieBannerMessageProps) => (
   <div
-    ref={ref}
-    className={cn('max-w-240 mx-auto px-govuk-3', '-mb-govuk-2', className)}
+    className={cn(
+      'govuk-width-container',
+      '-mb-govuk-2',
+      'focus:outline-none',
+      className,
+    )}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
 
 const CookieBannerContent = ({
   className,
-  ref,
-  children,
   ...props
 }: CookieBannerContentProps) => (
-  <div
-    ref={ref}
-    className={cn('sm:w-2/3', 'mb-govuk-3', '*:last:mb-0', className)}
-    {...props}
-  >
-    {children}
-  </div>
+  <div className={cn('sm:w-2/3', className)} {...props} />
 );
 
 const CookieBannerHeading = ({
   className,
-  ref,
   children,
   ...props
 }: CookieBannerHeadingProps) => (
   <h2
-    ref={ref}
     className={cn(
       'text-govuk-heading-m font-bold text-govuk-black',
-      'm-0 mb-govuk-3',
+      'm-0 mb-govuk-3 sm:mb-govuk-4',
       className,
     )}
     {...props}
@@ -95,22 +66,9 @@ const CookieBannerHeading = ({
 
 const CookieBannerActions = ({
   className,
-  ref,
-  children,
   ...props
 }: CookieBannerActionsProps) => (
-  <div
-    ref={ref}
-    className={cn(
-      'flex flex-col items-start',
-      'sm:flex-row sm:flex-wrap sm:items-baseline',
-      'gap-govuk-3',
-      className,
-    )}
-    {...props}
-  >
-    {children}
-  </div>
+  <div className={cn('govuk-button-group', className)} {...props} />
 );
 
 export {

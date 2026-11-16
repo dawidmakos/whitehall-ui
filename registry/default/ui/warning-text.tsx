@@ -1,22 +1,19 @@
 import { cn } from '@/lib/utils';
 
-interface WarningTextProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
+interface WarningTextProps extends React.ComponentProps<'div'> {
   assistiveText?: string;
 }
 
 const WarningText = ({
   className,
-  ref,
   assistiveText = 'Warning',
   children,
   ...props
 }: WarningTextProps) => (
   <div
-    ref={ref}
     className={cn(
       'font-govuk text-govuk-body font-bold',
-      'relative py-govuk-2 mb-govuk-6',
+      'relative py-govuk-2 mb-govuk-r6',
       className,
     )}
     {...props}
@@ -29,14 +26,15 @@ const WarningText = ({
         'mt-govuk-warning-icon-mt',
         'border-govuk-warning-icon-border border-solid border-govuk-black rounded-full',
         'bg-govuk-black text-white',
-        'text-3xl',
+        'text-govuk-warning-icon',
         'select-none',
+        'forced-color-adjust-none forced-colors:border-govuk-canvas-text forced-colors:text-govuk-canvas-text forced-colors:bg-transparent',
       )}
       aria-hidden='true'
     >
       !
     </span>
-    <strong className={cn('block pl-govuk-warning-text-pl font-inherit')}>
+    <strong className='block pl-govuk-warning-text-pl'>
       <span className='sr-only'>{assistiveText}</span>
       {children}
     </strong>

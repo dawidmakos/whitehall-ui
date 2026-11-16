@@ -1,6 +1,6 @@
 {
   "name": "whitehall-ui",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "description": "GOV.UK Design System component library for React 19 + Tailwind CSS 4. Available as an npm package and a shadcn-compatible registry.",
   "license": "MIT",
@@ -35,7 +35,6 @@
     "README.md"
   ],
   "main": "./dist/index.js",
-  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
@@ -47,165 +46,15 @@
       "types": "./dist/lib/utils.d.ts",
       "import": "./dist/lib/utils.js"
     },
-    "./accordion": {
-      "types": "./dist/ui/accordion.d.ts",
-      "import": "./dist/ui/accordion.js"
-    },
-    "./back-link": {
-      "types": "./dist/ui/back-link.d.ts",
-      "import": "./dist/ui/back-link.js"
-    },
-    "./breadcrumbs": {
-      "types": "./dist/ui/breadcrumbs.d.ts",
-      "import": "./dist/ui/breadcrumbs.js"
-    },
-    "./button": {
-      "types": "./dist/ui/button.d.ts",
-      "import": "./dist/ui/button.js"
-    },
-    "./character-count": {
-      "types": "./dist/ui/character-count.d.ts",
-      "import": "./dist/ui/character-count.js"
-    },
-    "./checkboxes": {
-      "types": "./dist/ui/checkboxes.d.ts",
-      "import": "./dist/ui/checkboxes.js"
-    },
-    "./cookie-banner": {
-      "types": "./dist/ui/cookie-banner.d.ts",
-      "import": "./dist/ui/cookie-banner.js"
-    },
-    "./date-input": {
-      "types": "./dist/ui/date-input.d.ts",
-      "import": "./dist/ui/date-input.js"
-    },
-    "./details": {
-      "types": "./dist/ui/details.d.ts",
-      "import": "./dist/ui/details.js"
-    },
-    "./error-message": {
-      "types": "./dist/ui/error-message.d.ts",
-      "import": "./dist/ui/error-message.js"
-    },
-    "./error-summary": {
-      "types": "./dist/ui/error-summary.d.ts",
-      "import": "./dist/ui/error-summary.js"
-    },
-    "./exit-this-page": {
-      "types": "./dist/ui/exit-this-page.d.ts",
-      "import": "./dist/ui/exit-this-page.js"
-    },
-    "./fieldset": {
-      "types": "./dist/ui/fieldset.d.ts",
-      "import": "./dist/ui/fieldset.js"
-    },
-    "./file-upload": {
-      "types": "./dist/ui/file-upload.d.ts",
-      "import": "./dist/ui/file-upload.js"
-    },
-    "./footer": {
-      "types": "./dist/ui/footer.d.ts",
-      "import": "./dist/ui/footer.js"
-    },
-    "./generic-header": {
-      "types": "./dist/ui/generic-header.d.ts",
-      "import": "./dist/ui/generic-header.js"
-    },
-    "./header": {
-      "types": "./dist/ui/header.d.ts",
-      "import": "./dist/ui/header.js"
-    },
-    "./hint": {
-      "types": "./dist/ui/hint.d.ts",
-      "import": "./dist/ui/hint.js"
-    },
-    "./inset-text": {
-      "types": "./dist/ui/inset-text.d.ts",
-      "import": "./dist/ui/inset-text.js"
-    },
-    "./label": {
-      "types": "./dist/ui/label.d.ts",
-      "import": "./dist/ui/label.js"
-    },
-    "./link": {
-      "types": "./dist/ui/link.d.ts",
-      "import": "./dist/ui/link.js"
-    },
-    "./notification-banner": {
-      "types": "./dist/ui/notification-banner.d.ts",
-      "import": "./dist/ui/notification-banner.js"
-    },
-    "./pagination": {
-      "types": "./dist/ui/pagination.d.ts",
-      "import": "./dist/ui/pagination.js"
-    },
-    "./panel": {
-      "types": "./dist/ui/panel.d.ts",
-      "import": "./dist/ui/panel.js"
-    },
-    "./password-input": {
-      "types": "./dist/ui/password-input.d.ts",
-      "import": "./dist/ui/password-input.js"
-    },
-    "./phase-banner": {
-      "types": "./dist/ui/phase-banner.d.ts",
-      "import": "./dist/ui/phase-banner.js"
-    },
-    "./radios": {
-      "types": "./dist/ui/radios.d.ts",
-      "import": "./dist/ui/radios.js"
-    },
-    "./select": {
-      "types": "./dist/ui/select.d.ts",
-      "import": "./dist/ui/select.js"
-    },
-    "./service-navigation": {
-      "types": "./dist/ui/service-navigation.d.ts",
-      "import": "./dist/ui/service-navigation.js"
-    },
-    "./skip-link": {
-      "types": "./dist/ui/skip-link.d.ts",
-      "import": "./dist/ui/skip-link.js"
-    },
-    "./summary-list": {
-      "types": "./dist/ui/summary-list.d.ts",
-      "import": "./dist/ui/summary-list.js"
-    },
-    "./table": {
-      "types": "./dist/ui/table.d.ts",
-      "import": "./dist/ui/table.js"
-    },
-    "./tabs": {
-      "types": "./dist/ui/tabs.d.ts",
-      "import": "./dist/ui/tabs.js"
-    },
-    "./tag": {
-      "types": "./dist/ui/tag.d.ts",
-      "import": "./dist/ui/tag.js"
-    },
-    "./task-list": {
-      "types": "./dist/ui/task-list.d.ts",
-      "import": "./dist/ui/task-list.js"
-    },
-    "./text-input": {
-      "types": "./dist/ui/text-input.d.ts",
-      "import": "./dist/ui/text-input.js"
-    },
-    "./textarea": {
-      "types": "./dist/ui/textarea.d.ts",
-      "import": "./dist/ui/textarea.js"
-    },
-    "./warning-text": {
-      "types": "./dist/ui/warning-text.d.ts",
-      "import": "./dist/ui/warning-text.js"
+    "./*": {
+      "types": "./dist/ui/*.d.ts",
+      "import": "./dist/ui/*.js"
     }
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
     "build:lib": "tsup",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "typecheck": "tsc -b",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "registry:build": "node scripts/build-registry.mjs",
@@ -213,10 +62,10 @@
     "test": "vitest --project=storybook"
   },
   "peerDependencies": {
-    "@base-ui/react": "^1.6.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tailwindcss": "^4.0.0"
+    "@base-ui/react": "^1.9.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwindcss": "^4.3.0"
   },
   "peerDependenciesMeta": {
     "@base-ui/react": {

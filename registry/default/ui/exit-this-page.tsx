@@ -1,9 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+'use client';
+
+import { useEffect, useEffectEvent, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/ui/button';
 
-interface ExitThisPageProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
+interface ExitThisPageProps extends React.ComponentProps<'div'> {
   redirectUrl?: string;
   text?: string;
   activatedText?: string;
@@ -14,17 +16,7 @@ interface ExitThisPageProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const REQUIRED_PRESSES = 3;
 const TIMEOUT_MS = 5000;
-
-const indicatorStyles = [
-  'p-govuk-2 pb-0 pointer-events-none text-center',
-];
-
-const dotStyles = [
-  'inline-block box-border rounded-full',
-  'w-govuk-exit-page-dot h-govuk-exit-page-dot',
-  'mx-govuk-exit-page-dot-gap',
-  'border-2 border-solid border-current',
-];
+const HIDE_CONTENT_CLASS = 'govuk-exit-this-page-hide-content';
 
 const ExitThisPage = ({
   className,
@@ -34,7 +26,6 @@ const ExitThisPage = ({
   timedOutText = 'Exit this page expired.',
   pressTwoMoreTimesText = 'Shift, press 2 more times to exit.',
   pressOneMoreTimeText = 'Shift, press 1 more time to exit.',
-  ref,
   ...props
 }: ExitThisPageProps) => {
   const [keypressCount, setKeypressCount] = useState(0);
@@ -43,101 +34,92 @@ const ExitThisPage = ({
 
   const countRef = useRef(0);
   const lastKeyModifiedRef = useRef(false);
-  const keypressTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const messageTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const keypressTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const messageTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const exitPage = () => {
     setAnnouncement('');
     setActivated(true);
+    document.body.classList.add(HIDE_CONTENT_CLASS);
     globalThis.location.assign(redirectUrl);
   };
 
-  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    exitPage();
+  const clearKeypressTimer = () => {
+    globalThis.clearTimeout(keypressTimeoutRef.current);
+    keypressTimeoutRef.current = undefined;
   };
 
-  useEffect(() => {
-    const clearKeypressTimer = () => {
-      if (keypressTimeoutRef.current !== null) {
-        globalThis.clearTimeout(keypressTimeoutRef.current);
-        keypressTimeoutRef.current = null;
-      }
-    };
+  const resetKeypressTimer = () => {
+    clearKeypressTimer();
+    countRef.current = 0;
+    setKeypressCount(0);
+    setAnnouncement(timedOutText);
+    globalThis.clearTimeout(messageTimeoutRef.current);
+    messageTimeoutRef.current = globalThis.setTimeout(() => {
+      setAnnouncement('');
+    }, TIMEOUT_MS);
+  };
 
-    const resetKeypressTimer = () => {
-      clearKeypressTimer();
+  const onKeyup = useEffectEvent((event: KeyboardEvent) => {
+    if (event.key === 'Shift' && !lastKeyModifiedRef.current) {
+      countRef.current += 1;
+      setKeypressCount(countRef.current);
+      globalThis.clearTimeout(messageTimeoutRef.current);
+
+      if (countRef.current >= REQUIRED_PRESSES) {
+        countRef.current = 0;
+        clearKeypressTimer();
+        exitPage();
+      } else {
+        setAnnouncement(
+          countRef.current === 1 ? pressTwoMoreTimesText : pressOneMoreTimeText,
+        );
+        clearKeypressTimer();
+        keypressTimeoutRef.current = globalThis.setTimeout(
+          resetKeypressTimer,
+          TIMEOUT_MS,
+        );
+      }
+    } else if (keypressTimeoutRef.current !== undefined) {
+      resetKeypressTimer();
+    }
+
+    lastKeyModifiedRef.current = event.shiftKey;
+  });
+
+  useEffect(() => {
+    const keypressTimeout = keypressTimeoutRef;
+    const messageTimeout = messageTimeoutRef;
+    const handleKeyup = (event: KeyboardEvent) => onKeyup(event);
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (!event.persisted) return;
+      document.body.classList.remove(HIDE_CONTENT_CLASS);
+      globalThis.clearTimeout(keypressTimeout.current);
+      globalThis.clearTimeout(messageTimeout.current);
+      keypressTimeout.current = undefined;
       countRef.current = 0;
       setKeypressCount(0);
-      setAnnouncement(timedOutText);
-      if (messageTimeoutRef.current !== null) {
-        globalThis.clearTimeout(messageTimeoutRef.current);
-      }
-      messageTimeoutRef.current = globalThis.setTimeout(() => {
-        setAnnouncement('');
-      }, TIMEOUT_MS);
-    };
-
-    const setKeypressTimer = () => {
-      clearKeypressTimer();
-      keypressTimeoutRef.current = globalThis.setTimeout(
-        resetKeypressTimer,
-        TIMEOUT_MS,
-      );
-    };
-
-    const handleKeyup = (event: KeyboardEvent) => {
-      if (event.key === 'Shift' && !lastKeyModifiedRef.current) {
-        countRef.current += 1;
-        setKeypressCount(countRef.current);
-
-        if (messageTimeoutRef.current !== null) {
-          globalThis.clearTimeout(messageTimeoutRef.current);
-          messageTimeoutRef.current = null;
-        }
-
-        if (countRef.current >= REQUIRED_PRESSES) {
-          countRef.current = 0;
-          clearKeypressTimer();
-          exitPage();
-        } else {
-          setAnnouncement(
-            countRef.current === 1
-              ? pressTwoMoreTimesText
-              : pressOneMoreTimeText,
-          );
-          setKeypressTimer();
-        }
-      } else if (keypressTimeoutRef.current !== null) {
-        resetKeypressTimer();
-      }
-
-      lastKeyModifiedRef.current = event.shiftKey;
+      setAnnouncement('');
+      setActivated(false);
     };
 
     document.addEventListener('keyup', handleKeyup, true);
+    globalThis.addEventListener('pageshow', handlePageShow);
     return () => {
       document.removeEventListener('keyup', handleKeyup, true);
-      clearKeypressTimer();
-      if (messageTimeoutRef.current !== null) {
-        globalThis.clearTimeout(messageTimeoutRef.current);
-      }
+      globalThis.removeEventListener('pageshow', handlePageShow);
+      globalThis.clearTimeout(keypressTimeout.current);
+      globalThis.clearTimeout(messageTimeout.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    redirectUrl,
-    timedOutText,
-    pressTwoMoreTimesText,
-    pressOneMoreTimeText,
-  ]);
+  }, []);
 
   return (
     <div
-      ref={ref}
+      data-exit-this-page
       className={cn(
         'block sm:inline-block',
         'sticky top-0 left-0 z-govuk-exit-page w-full',
-        'mb-govuk-8',
+        'mb-govuk-6 sm:mb-govuk-8',
         'sm:right-0 sm:left-auto sm:w-auto sm:float-right',
         'print:hidden',
         className,
@@ -146,8 +128,18 @@ const ExitThisPage = ({
     >
       <a
         href={redirectUrl}
+        role='button'
+        draggable={false}
         rel='nofollow noreferrer'
-        onClick={handleClick}
+        onClick={(event) => {
+          event.preventDefault();
+          exitPage();
+        }}
+        onKeyDown={(event) => {
+          if (event.key !== ' ') return;
+          event.preventDefault();
+          event.currentTarget.click();
+        }}
         className={cn(
           buttonVariants({ variant: 'warning' }),
           'mb-0 max-sm:w-full',
@@ -156,30 +148,37 @@ const ExitThisPage = ({
         <span className='sr-only'>Emergency</span> {text}
         <span
           aria-hidden='true'
-          className={cn(indicatorStyles, keypressCount > 0 ? 'block' : 'hidden')}
+          className={cn(
+            'p-govuk-2 pb-0 leading-0 pointer-events-none text-center',
+            keypressCount > 0 ? 'block' : 'hidden',
+          )}
         >
           {[0, 1, 2].map((index) => (
             <span
               key={index}
               className={cn(
-                dotStyles,
+                'inline-block box-border rounded-full',
+                'w-govuk-exit-page-dot h-govuk-exit-page-dot',
+                'mx-govuk-exit-page-dot-gap',
+                'border-2 border-solid border-current',
                 index < keypressCount && 'border-govuk-exit-page-dot',
               )}
             />
           ))}
         </span>
       </a>
-      <output className='sr-only'>
-        {announcement}
-      </output>
-      {activated && (
-        <div
-          role='alert'
-          className='fixed inset-0 z-govuk-exit-page-overlay bg-govuk-canvas text-govuk-canvas-text'
-        >
-          {activatedText}
-        </div>
-      )}
+      <output className='sr-only'>{announcement}</output>
+      {activated &&
+        createPortal(
+          <div
+            role='alert'
+            data-exit-overlay
+            className='fixed inset-0 z-govuk-exit-page-overlay bg-govuk-canvas text-govuk-canvas-text'
+          >
+            {activatedText}
+          </div>,
+          document.body,
+        )}
     </div>
   );
 };

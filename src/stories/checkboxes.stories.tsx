@@ -32,9 +32,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    children: null,
-  },
   render: () => (
     <Fieldset>
       <FieldsetLegend>Which types of waste do you transport?</FieldsetLegend>
@@ -55,9 +52,6 @@ export const Default: Story = {
 };
 
 export const WithHints: Story = {
-  args: {
-    children: null,
-  },
   render: () => (
     <Fieldset>
       <FieldsetLegend>What is your nationality?</FieldsetLegend>
@@ -129,9 +123,6 @@ const WithNoneOptionRender = () => {
 };
 
 export const WithNoneOption: Story = {
-  args: {
-    children: null,
-  },
   render: () => <WithNoneOptionRender />,
 };
 
@@ -193,16 +184,10 @@ const ConditionalRevealRender = () => {
 };
 
 export const ConditionalReveal: Story = {
-  args: {
-    children: null,
-  },
   render: () => <ConditionalRevealRender />,
 };
 
 export const Small: Story = {
-  args: {
-    children: null,
-  },
   render: () => (
     <Fieldset>
       <FieldsetLegend>Organisation</FieldsetLegend>
@@ -225,9 +210,6 @@ export const Small: Story = {
 };
 
 export const WithError: Story = {
-  args: {
-    children: null,
-  },
   render: () => (
     <Fieldset>
       <FieldsetLegend>What is your nationality?</FieldsetLegend>

@@ -198,7 +198,7 @@ export const CardWithActions: Story = {
             <SummaryListValue>38</SummaryListValue>
             <SummaryListActions>
               <Link href='#'>
-                Change<span className='sr-only'> age</span>
+                Change<span className='sr-only'> age (Lead tenant)</span>
               </Link>
             </SummaryListActions>
           </SummaryListRow>
@@ -207,7 +207,7 @@ export const CardWithActions: Story = {
             <SummaryListValue>UK national resident in UK</SummaryListValue>
             <SummaryListActions>
               <Link href='#'>
-                Change<span className='sr-only'> nationality</span>
+                Change<span className='sr-only'> nationality (Lead tenant)</span>
               </Link>
             </SummaryListActions>
           </SummaryListRow>
@@ -216,7 +216,7 @@ export const CardWithActions: Story = {
             <SummaryListValue>Part time - Loss of hours</SummaryListValue>
             <SummaryListActions>
               <Link href='#'>
-                Change<span className='sr-only'> working situation</span>
+                Change<span className='sr-only'> working situation (Lead tenant)</span>
               </Link>
             </SummaryListActions>
           </SummaryListRow>

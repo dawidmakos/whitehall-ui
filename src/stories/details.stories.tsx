@@ -35,7 +35,7 @@ export const Default: Story = {
 
 export const DefaultOpen: Story = {
   render: () => (
-    <Details defaultOpen>
+    <Details open>
       <DetailsSummary>Help with nationality</DetailsSummary>
       <DetailsText>
         <p className='font-govuk text-govuk-body'>

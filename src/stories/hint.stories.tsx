@@ -3,9 +3,12 @@ import { Hint } from '@/ui/hint';
 import { Label } from '@/ui/label';
 import { TextInput } from '@/ui/text-input';
 
+interface HintStoryArgs {
+  hintText: string;
+}
+
 const meta = {
   title: 'Whitehall-UI/Hint',
-  component: Hint,
   argTypes: {
     hintText: {
       control: 'text',
@@ -22,13 +25,9 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Hint>;
+} satisfies Meta<HintStoryArgs>;
 
 export default meta;
-
-interface HintStoryArgs {
-  hintText: string;
-}
 
 type Story = StoryObj<HintStoryArgs>;
 

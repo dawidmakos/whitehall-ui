@@ -442,7 +442,7 @@ export const StackedOnMobile: Story = {
           Apply online and pay the fee. Most applications are processed within 5
           working days.
         </p>
-        <WarningText iconFallbackText='Warning'>
+        <WarningText assistiveText='Warning'>
           You must not fish until your licence arrives.
         </WarningText>
       </TabsPanel>

@@ -14,7 +14,7 @@
     {
       "path": "registry/default/ui/error-message.tsx",
       "type": "registry:ui",
-      "content": "import { cn } from '@/lib/utils';\r\n\r\ninterface ErrorMessageProps extends React.HTMLAttributes<HTMLParagraphElement> {\r\n  ref?: React.Ref<HTMLParagraphElement>;\r\n  visuallyHiddenText?: string;\r\n}\r\n\r\nconst ErrorMessage = ({\r\n  className,\r\n  children,\r\n  visuallyHiddenText = 'Error',\r\n  ref,\r\n  ...props\r\n}: ErrorMessageProps) => (\r\n  <p\r\n    ref={ref}\r\n    className={cn(\r\n      'block',\r\n      'mt-0 mb-govuk-3',\r\n      'clear-both',\r\n      'font-govuk text-govuk-body font-bold',\r\n      'text-govuk-error',\r\n      className,\r\n    )}\r\n    {...props}\r\n  >\r\n    {visuallyHiddenText && (\r\n      <span className='sr-only'>{visuallyHiddenText}:</span>\r\n    )}{' '}\r\n    {children}\r\n  </p>\r\n);\r\n\r\nexport { ErrorMessage, type ErrorMessageProps };\r\n"
+      "content": "import { cn } from '@/lib/utils';\n\ninterface ErrorMessageProps extends React.ComponentProps<'p'> {\n  visuallyHiddenText?: string;\n}\n\nconst ErrorMessage = ({\n  className,\n  children,\n  visuallyHiddenText = 'Error',\n  ...props\n}: ErrorMessageProps) => (\n  <p\n    className={cn(\n      'block',\n      'mt-0 mb-govuk-3',\n      'clear-both',\n      'font-govuk text-govuk-body font-bold',\n      'text-govuk-error',\n      className,\n    )}\n    {...props}\n  >\n    {visuallyHiddenText && (\n      <span className='sr-only'>{visuallyHiddenText}:</span>\n    )}{' '}\n    {children}\n  </p>\n);\n\nexport { ErrorMessage, type ErrorMessageProps };\n"
     }
   ]
 }

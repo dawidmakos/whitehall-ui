@@ -47,7 +47,7 @@
       "type": "registry:ui",
       "title": "Text Input",
       "description": "Whitehall-UI text input (based on GOV.UK Design System) with fixed-width and fluid-width variants, error state and extra letter spacing for codes.",
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "dependencies": ["class-variance-authority"],
       "registryDependencies": ["utils", "govuk-tokens"],
       "files": [
         {
@@ -130,8 +130,8 @@
       "name": "select",
       "type": "registry:ui",
       "title": "Select",
-      "description": "Whitehall-UI select (based on GOV.UK Design System) for choosing an option from a dropdown list, with error state support.",
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "description": "Whitehall-UI select (based on GOV.UK Design System) for choosing an option from a native dropdown list, with error state support.",
+      "dependencies": ["class-variance-authority"],
       "registryDependencies": ["utils", "govuk-tokens"],
       "files": [
         {
@@ -144,7 +144,7 @@
       "name": "service-navigation",
       "type": "registry:ui",
       "title": "Service Navigation",
-      "description": "Whitehall-UI service navigation component (based on GOV.UK Design System) that shows the service name and lets users navigate around the service, with a collapsible menu on mobile.",
+      "description": "Whitehall-UI service navigation component (based on GOV.UK Design System) that shows the service name and lets users navigate around the service, with a collapsible menu on mobile that stays usable before JavaScript loads.",
       "registryDependencies": ["utils", "govuk-tokens"],
       "files": [
         {
@@ -305,7 +305,7 @@
       "name": "panel",
       "type": "registry:ui",
       "title": "Panel",
-      "description": "Whitehall-UI panel component (based on GOV.UK Design System) for confirmation pages. Displays a green banner with title and optional reference number.",
+      "description": "Whitehall-UI panel component (based on GOV.UK Design System) for confirmation pages. Green confirmation panel with title and reference number, plus the GOV.UK Frontend 6.4 blue interruption variant with actions.",
       "registryDependencies": ["utils", "govuk-tokens"],
       "files": [
         {
@@ -331,7 +331,7 @@
       "name": "header",
       "type": "registry:ui",
       "title": "Header",
-      "description": "Whitehall-UI header component. A composable masthead bar for branding, with sub-components for container, logo area, link and product name.",
+      "description": "Whitehall-UI header component. GOV.UK header (based on GOV.UK Design System v6) with the GOV.UK logo and optional product name. Put the service name and navigation in Service navigation inside the same page <header>.",
       "registryDependencies": ["utils", "govuk-tokens"],
       "files": [
         {
@@ -409,8 +409,7 @@
       "name": "details",
       "type": "registry:ui",
       "title": "Details",
-      "description": "Whitehall-UI details component (based on GOV.UK Design System) for letting users reveal more detailed information only if they need it. Built on Base UI Collapsible.",
-      "dependencies": ["@base-ui/react"],
+      "description": "Whitehall-UI details component (based on GOV.UK Design System) for letting users reveal more detailed information only if they need it. Built on the native <details> element, so it works without JavaScript.",
       "registryDependencies": ["utils", "govuk-tokens"],
       "files": [
         {
@@ -535,6 +534,32 @@
       "files": [
         {
           "path": "registry/default/ui/date-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "language-navigation",
+      "type": "registry:ui",
+      "title": "Language Navigation",
+      "description": "Whitehall-UI language navigation component (based on GOV.UK Design System, trial in GOV.UK Frontend 6.5) that lets users switch between the languages a service offers.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/language-navigation.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "feedback",
+      "type": "registry:ui",
+      "title": "Feedback",
+      "description": "Whitehall-UI feedback component (based on GOV.UK Design System, trial in GOV.UK Frontend 6.5) that asks users for feedback about a service.",
+      "registryDependencies": ["utils", "govuk-tokens"],
+      "files": [
+        {
+          "path": "registry/default/ui/feedback.tsx",
           "type": "registry:ui"
         }
       ]

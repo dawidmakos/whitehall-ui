@@ -1,4 +1,3 @@
-import { Input } from '@base-ui/react/input';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
@@ -13,7 +12,7 @@ const textInputVariants = cva(
     'text-govuk-body font-normal font-govuk',
     'focus:outline-3 focus:outline-govuk-yellow focus:outline-offset-0',
     'focus:inset-ring-2 focus:inset-ring-govuk-black',
-    'data-[disabled]:opacity-50 data-[disabled]:bg-transparent data-[disabled]:cursor-not-allowed',
+    'disabled:opacity-50 disabled:bg-transparent disabled:cursor-not-allowed',
   ],
   {
     variants: {
@@ -29,17 +28,13 @@ const textInputVariants = cva(
       },
       error: {
         true: 'border-govuk-error focus:border-govuk-black',
-        false: '',
       },
       extraLetterSpacing: {
         true: 'tracking-govuk-code tabular-nums',
-        false: '',
       },
     },
     defaultVariants: {
       width: 'full',
-      error: false,
-      extraLetterSpacing: false,
     },
   },
 );
@@ -49,23 +44,29 @@ const affixStyles = [
   'min-w-10 h-10',
   'p-govuk-1',
   'border-2 border-govuk-black',
-  'bg-govuk-light-grey',
+  'bg-govuk-light-grey text-govuk-black',
   'text-govuk-body font-normal font-govuk',
   'text-center whitespace-nowrap',
   'cursor-default flex-none',
-  'max-sm:block max-sm:h-auto max-sm:whitespace-normal',
+  'max-[20em]:block max-[20em]:h-auto max-[20em]:whitespace-normal',
 ].join(' ');
 
-const prefixStyles = cn(affixStyles, 'sm:border-r-0', 'max-sm:border-b-0');
+const prefixStyles = cn(
+  affixStyles,
+  'min-[20em]:border-r-0',
+  'max-[20em]:border-b-0',
+);
 
-const suffixStyles = cn(affixStyles, 'sm:border-l-0', 'max-sm:border-t-0');
+const suffixStyles = cn(
+  affixStyles,
+  'min-[20em]:border-l-0',
+  'max-[20em]:border-t-0',
+);
 
 interface TextInputProps
   extends
-    Omit<React.InputHTMLAttributes<HTMLInputElement>, 'width' | 'prefix'>,
+    Omit<React.ComponentProps<'input'>, 'width' | 'prefix'>,
     VariantProps<typeof textInputVariants> {
-  ref?: React.Ref<HTMLInputElement>;
-  disabled?: boolean;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
 }
@@ -73,23 +74,18 @@ interface TextInputProps
 const TextInput = ({
   className,
   width = 'full',
-  error = false,
-  extraLetterSpacing = false,
-  type = 'text',
-  disabled = false,
+  error,
+  extraLetterSpacing,
   prefix,
   suffix,
-  ref,
   ...props
 }: TextInputProps) => {
   const input = (
-    <Input
-      ref={ref}
-      type={type}
-      disabled={disabled}
+    <input
+      aria-invalid={error || undefined}
       className={cn(
         textInputVariants({ width, error, extraLetterSpacing }),
-        (prefix || suffix) && 'flex-auto focus:z-10 max-sm:max-w-full',
+        (prefix || suffix) && 'flex-auto focus:z-10 max-[20em]:max-w-full',
         className,
       )}
       {...props}
@@ -99,7 +95,7 @@ const TextInput = ({
   if (!prefix && !suffix) return input;
 
   return (
-    <div className='flex max-sm:block'>
+    <div className='flex max-[20em]:block'>
       {prefix && (
         <span className={prefixStyles} aria-hidden='true'>
           {prefix}

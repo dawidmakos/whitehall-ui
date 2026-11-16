@@ -1,8 +1,4 @@
 import type { StorybookConfig } from '@storybook/react-vite';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const config: StorybookConfig = {
   stories: [
@@ -16,13 +12,5 @@ const config: StorybookConfig = {
     '@storybook/addon-docs',
   ],
   framework: '@storybook/react-vite',
-  async viteFinal(config) {
-    config.resolve = config.resolve ?? {};
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': path.resolve(__dirname, '../registry/default'),
-    };
-    return config;
-  },
 };
 export default config;

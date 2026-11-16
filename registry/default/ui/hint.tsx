@@ -1,15 +1,14 @@
 import { cn } from '@/lib/utils';
 
-interface HintProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type HintProps = React.ComponentProps<'div'>;
 
-const Hint = ({ className, ref, ...props }: HintProps) => (
+const Hint = ({ className, ...props }: HintProps) => (
   <div
-    ref={ref}
     className={cn(
       'font-govuk text-govuk-body text-govuk-dark-grey',
       'mb-govuk-3',
+      '[legend+&]:-mt-govuk-1',
+      '[label:not([class*=heading])+&]:mb-govuk-2 [legend:not([class*=heading])+&]:mb-govuk-2',
       className,
     )}
     {...props}

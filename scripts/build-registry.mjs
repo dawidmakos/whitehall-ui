@@ -9,11 +9,9 @@
  */
 
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const root = resolve(__dirname, '..');
+const root = resolve(import.meta.dirname, '..');
 
 const registry = JSON.parse(
   readFileSync(resolve(root, 'registry.json'), 'utf-8'),

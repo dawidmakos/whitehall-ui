@@ -10,6 +10,8 @@ applyTo: "src/stories/**/*.stories.tsx"
 - **Always include** `tags: ['autodocs']`.
 - **Import from** `@/ui/component-name` (the `@` alias resolves to `registry/default/`).
 - **Use render functions** for composed, multi-component examples.
+- **No placeholder args.** Never add `args: { children: null }` (or similar) just to satisfy types — if a story needs it, the component's props are over-typed; fix the component.
+- **Custom story args** (controls that aren't component props) use `satisfies Meta<StoryArgs>` with `StoryObj<StoryArgs>` and no `component` key.
 - **Rename any story named `Error` to `WithError`** (SonarQube S2137 — don't shadow built-ins).
 
 ```tsx

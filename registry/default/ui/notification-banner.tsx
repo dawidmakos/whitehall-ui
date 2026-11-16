@@ -1,87 +1,83 @@
-import { cn } from '@/lib/utils';
+'use client';
 
-interface NotificationBannerProps extends React.HTMLAttributes<HTMLElement> {
-  ref?: React.Ref<HTMLElement>;
+import { useEffect, useRef } from 'react';
+import { cn, mergeRefs } from '@/lib/utils';
+
+interface NotificationBannerProps extends React.ComponentProps<'section'> {
   variant?: 'default' | 'success';
+  disableAutoFocus?: boolean;
 }
 
-interface NotificationBannerHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type NotificationBannerHeaderProps = React.ComponentProps<'div'>;
 
-interface NotificationBannerTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  ref?: React.Ref<HTMLHeadingElement>;
-}
+type NotificationBannerTitleProps = React.ComponentProps<'h2'>;
 
-interface NotificationBannerContentProps extends React.HTMLAttributes<HTMLDivElement> {
-  ref?: React.Ref<HTMLDivElement>;
-}
+type NotificationBannerContentProps = React.ComponentProps<'div'>;
 
-interface NotificationBannerHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  ref?: React.Ref<HTMLHeadingElement>;
-}
+type NotificationBannerHeadingProps = React.ComponentProps<'h3'>;
 
-interface NotificationBannerLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  ref?: React.Ref<HTMLAnchorElement>;
-}
+type NotificationBannerLinkProps = React.ComponentProps<'a'>;
 
 const NotificationBanner = ({
   className,
   variant = 'default',
+  disableAutoFocus,
   ref,
-  children,
   ...props
-}: NotificationBannerProps) => (
-  <section
-    ref={ref}
-    role={variant === 'success' ? 'alert' : undefined}
-    aria-labelledby={
-      props['aria-labelledby'] ?? 'govuk-notification-banner-title'
-    }
-    className={cn(
-      'font-govuk text-govuk-body',
-      'mb-govuk-8',
-      variant === 'success'
-        ? 'border-govuk-notification-banner-success bg-govuk-green'
-        : 'border-govuk-notification-banner bg-govuk-brand',
-      'focus:outline-3 focus:outline-govuk-yellow',
-      className,
-    )}
-    {...props}
-  >
-    {children}
-  </section>
-);
+}: NotificationBannerProps) => {
+  const innerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const node = innerRef.current;
+    if (variant !== 'success' || disableAutoFocus || !node) return;
+    node.setAttribute('tabindex', '-1');
+    node.addEventListener('blur', () => node.removeAttribute('tabindex'), {
+      once: true,
+    });
+    node.focus();
+  }, [variant, disableAutoFocus]);
+
+  return (
+    <section
+      ref={mergeRefs(innerRef, ref)}
+      role={variant === 'success' ? 'alert' : undefined}
+      aria-labelledby='govuk-notification-banner-title'
+      data-variant={variant}
+      className={cn(
+        'group/banner font-govuk text-govuk-body',
+        'mb-govuk-6 sm:mb-govuk-8',
+        variant === 'success'
+          ? 'border-govuk-notification-banner-success bg-govuk-green'
+          : 'border-govuk-notification-banner bg-govuk-brand',
+        'focus:outline-3 focus:outline-govuk-yellow',
+        className,
+      )}
+      {...props}
+    />
+  );
+};
 
 const NotificationBannerHeader = ({
   className,
-  ref,
-  children,
   ...props
 }: NotificationBannerHeaderProps) => (
   <div
-    ref={ref}
     className={cn(
       'py-govuk-1 px-govuk-3 sm:px-govuk-4',
       'border-b border-b-transparent',
       className,
     )}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
 
 const NotificationBannerTitle = ({
   className,
-  ref,
   children = 'Important',
-  id = 'govuk-notification-banner-title',
   ...props
 }: NotificationBannerTitleProps) => (
   <h2
-    ref={ref}
-    id={id}
+    id='govuk-notification-banner-title'
     className={cn('text-govuk-body font-bold m-0 p-0 text-white', className)}
     {...props}
   >
@@ -91,32 +87,25 @@ const NotificationBannerTitle = ({
 
 const NotificationBannerContent = ({
   className,
-  ref,
-  children,
   ...props
 }: NotificationBannerContentProps) => (
   <div
-    ref={ref}
     className={cn(
       'p-govuk-3 sm:p-govuk-4',
       'text-govuk-black bg-white',
-      '*:last:mb-0',
+      '*:box-border *:max-w-govuk-notification-content *:last:mb-0',
       className,
     )}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
 
 const NotificationBannerHeading = ({
   className,
-  ref,
   children,
   ...props
 }: NotificationBannerHeadingProps) => (
   <h3
-    ref={ref}
     className={cn(
       'text-govuk-heading-m font-bold m-0 mb-govuk-3 p-0',
       className,
@@ -129,18 +118,19 @@ const NotificationBannerHeading = ({
 
 const NotificationBannerLink = ({
   className,
-  ref,
   children,
   ...props
 }: NotificationBannerLinkProps) => (
   <a
-    ref={ref}
     className={cn(
-      'font-govuk text-govuk-brand font-bold',
-      'underline govuk-link-underline',
-      'hover:govuk-link-underline-hover',
-      'focus:govuk-link-focus',
-      'visited:text-govuk-brand',
+      'font-govuk underline govuk-link-underline',
+      'hover:govuk-link-underline-hover focus:govuk-link-focus',
+      'text-govuk-link visited:text-govuk-link',
+      'hover:text-govuk-brand-hover active:text-govuk-black',
+      'group-data-[variant=success]/banner:text-govuk-green',
+      'group-data-[variant=success]/banner:visited:text-govuk-green',
+      'group-data-[variant=success]/banner:hover:text-govuk-success-hover',
+      'group-data-[variant=success]/banner:active:text-govuk-green',
       className,
     )}
     {...props}

@@ -3,12 +3,12 @@ import { cn } from '@/lib/utils';
 
 const textareaVariants = cva(
   [
-    'box-border w-full',
+    'box-border block w-full mb-govuk-r6',
     'p-govuk-1',
     'border-2 border-govuk-black',
     'rounded-none',
     'appearance-none resize-y',
-    'text-govuk-body font-normal font-govuk',
+    'text-govuk-body leading-tight font-normal font-govuk',
     'focus:outline-3 focus:outline-govuk-yellow focus:outline-offset-0',
     'focus:inset-ring-2 focus:inset-ring-govuk-black',
     'disabled:opacity-50 disabled:bg-transparent disabled:cursor-not-allowed',
@@ -17,38 +17,18 @@ const textareaVariants = cva(
     variants: {
       error: {
         true: 'border-govuk-error focus:border-govuk-black',
-        false: '',
       },
-    },
-    defaultVariants: {
-      error: false,
     },
   },
 );
 
-interface TextareaProps
-  extends
-    Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'className'>,
-    VariantProps<typeof textareaVariants> {
-  ref?: React.Ref<HTMLTextAreaElement>;
-  className?: string;
-}
+type TextareaProps = React.ComponentProps<'textarea'> &
+  VariantProps<typeof textareaVariants>;
 
-const Textarea = ({
-  className,
-  error = false,
-  rows = 5,
-  disabled = false,
-  'aria-describedby': ariaDescribedBy,
-  ref,
-  ...props
-}: TextareaProps) => (
+const Textarea = ({ className, error, rows = 5, ...props }: TextareaProps) => (
   <textarea
-    ref={ref}
     rows={rows}
-    disabled={disabled}
     aria-invalid={error || undefined}
-    aria-describedby={ariaDescribedBy || undefined}
     className={cn(textareaVariants({ error }), className)}
     {...props}
   />
