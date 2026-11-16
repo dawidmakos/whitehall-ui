@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Radios, RadiosItem, RadiosHint, RadiosDivider } from '@/ui/radios';
+import { Radios, RadiosItem, RadiosDivider } from '@/ui/radios';
 import { Fieldset, FieldsetLegend } from '@/ui/fieldset';
 
 const meta = {
@@ -51,17 +51,19 @@ export const WithHints: Story = {
     <Fieldset>
       <FieldsetLegend>How do you want to sign in?</FieldsetLegend>
       <Radios name='sign-in' defaultValue=''>
-        <RadiosItem value='gateway'>Sign in with Government Gateway</RadiosItem>
-        <RadiosHint>
-          You'll have a user ID if you've registered for Self Assessment or
-          filed a tax return online before.
-        </RadiosHint>
+        <RadiosItem
+          value='gateway'
+          hint="You'll have a user ID if you've registered for Self Assessment or filed a tax return online before."
+        >
+          Sign in with Government Gateway
+        </RadiosItem>
 
-        <RadiosItem value='verify'>Sign in with GOV.UK Verify</RadiosItem>
-        <RadiosHint>
-          You'll have an account if you've already proved your identity with a
-          certified company.
-        </RadiosHint>
+        <RadiosItem
+          value='verify'
+          hint="You'll have an account if you've already proved your identity with a certified company."
+        >
+          Sign in with GOV.UK Verify
+        </RadiosItem>
       </Radios>
     </Fieldset>
   ),

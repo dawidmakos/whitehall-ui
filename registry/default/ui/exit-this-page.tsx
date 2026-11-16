@@ -3,7 +3,7 @@
 import { useEffect, useEffectEvent, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { cn } from '@/lib/utils';
-import { buttonVariants } from '@/ui/button';
+import { buttonVariants } from './button';
 
 interface ExitThisPageProps extends React.ComponentProps<'div'> {
   redirectUrl?: string;

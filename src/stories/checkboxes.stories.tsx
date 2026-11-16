@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect } from 'storybook/test';
 import {
   Checkboxes,
   CheckboxesItem,
-  CheckboxesHint,
   CheckboxesDivider,
   CheckboxesConditional,
 } from '@/ui/checkboxes';
@@ -60,12 +60,13 @@ export const WithHints: Story = {
         you.
       </Hint>
       <Checkboxes defaultValue={[]}>
-        <CheckboxesItem name='nationality' value='british'>
+        <CheckboxesItem
+          name='nationality'
+          value='british'
+          hint='including English, Scottish, Welsh and Northern Irish'
+        >
           British
         </CheckboxesItem>
-        <CheckboxesHint>
-          including English, Scottish, Welsh and Northern Irish
-        </CheckboxesHint>
 
         <CheckboxesItem name='nationality' value='irish'>
           Irish
@@ -77,6 +78,13 @@ export const WithHints: Story = {
       </Checkboxes>
     </Fieldset>
   ),
+  play: async ({ canvas }) => {
+    await expect(
+      canvas.getByRole('checkbox', { name: 'British' }),
+    ).toHaveAccessibleDescription(
+      'including English, Scottish, Welsh and Northern Irish',
+    );
+  },
 };
 
 const WithNoneOptionRender = () => {
@@ -221,12 +229,13 @@ export const WithError: Story = {
         Select if you are British, Irish or a citizen of a different country
       </ErrorMessage>
       <Checkboxes defaultValue={[]}>
-        <CheckboxesItem name='nationality' value='british'>
+        <CheckboxesItem
+          name='nationality'
+          value='british'
+          hint='including English, Scottish, Welsh and Northern Irish'
+        >
           British
         </CheckboxesItem>
-        <CheckboxesHint>
-          including English, Scottish, Welsh and Northern Irish
-        </CheckboxesHint>
 
         <CheckboxesItem name='nationality' value='irish'>
           Irish

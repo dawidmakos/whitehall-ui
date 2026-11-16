@@ -4,11 +4,9 @@
   "type": "registry:ui",
   "title": "Warning Text",
   "description": "Whitehall-UI warning text component (based on GOV.UK Design System) for warning users about important consequences, with an exclamation icon and visually hidden assistive prefix.",
-  "dependencies": [],
-  "devDependencies": [],
   "registryDependencies": [
-    "utils",
-    "govuk-tokens"
+    "https://dawidmakos.github.io/whitehall-ui/r/utils.json",
+    "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"
   ],
   "files": [
     {

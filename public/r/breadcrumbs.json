@@ -4,11 +4,9 @@
   "type": "registry:ui",
   "title": "Breadcrumbs",
   "description": "Whitehall-UI breadcrumbs component (based on GOV.UK Design System) for helping users understand where they are in a website's structure. Supports collapse on mobile and inverse variants.",
-  "dependencies": [],
-  "devDependencies": [],
   "registryDependencies": [
-    "utils",
-    "govuk-tokens"
+    "https://dawidmakos.github.io/whitehall-ui/r/utils.json",
+    "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"
   ],
   "files": [
     {

@@ -4,11 +4,9 @@
   "type": "registry:ui",
   "title": "Generic Header",
   "description": "Whitehall-UI generic header component (based on GOV.UK Design System) for government services not on the GOV.UK website. Shows a custom brand logo and homepage link without the crown or GOV.UK branding.",
-  "dependencies": [],
-  "devDependencies": [],
   "registryDependencies": [
-    "utils",
-    "govuk-tokens"
+    "https://dawidmakos.github.io/whitehall-ui/r/utils.json",
+    "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"
   ],
   "files": [
     {

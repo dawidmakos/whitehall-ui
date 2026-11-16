@@ -4,11 +4,9 @@
   "type": "registry:ui",
   "title": "Skip Link",
   "description": "Whitehall-UI skip link component (based on GOV.UK Design System) for keyboard-only users to skip navigation and jump to main content. Visually hidden until focused.",
-  "dependencies": [],
-  "devDependencies": [],
   "registryDependencies": [
-    "utils",
-    "govuk-tokens"
+    "https://dawidmakos.github.io/whitehall-ui/r/utils.json",
+    "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"
   ],
   "files": [
     {

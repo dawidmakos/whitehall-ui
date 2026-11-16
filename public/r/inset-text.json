@@ -5,10 +5,9 @@
   "title": "Inset Text",
   "description": "Whitehall-UI inset text (based on GOV.UK Design System) for differentiating a block of text from surrounding content.",
   "dependencies": [],
-  "devDependencies": [],
   "registryDependencies": [
-    "utils",
-    "govuk-tokens"
+    "https://dawidmakos.github.io/whitehall-ui/r/utils.json",
+    "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"
   ],
   "files": [
     {

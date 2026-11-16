@@ -32,7 +32,7 @@ import {
   PhaseBannerTag,
   PhaseBannerText,
 } from '@/ui/phase-banner';
-import { Radios, RadiosHint, RadiosItem } from '@/ui/radios';
+import { Radios, RadiosItem } from '@/ui/radios';
 import {
   ServiceNavigation,
   ServiceNavigationContainer,
@@ -522,16 +522,18 @@ const LicencePage = ({
           value={answers.licence}
           onValueChange={(value) => onChange({ licence: String(value) })}
         >
-          <RadiosItem value='trout-2-rod'>
+          <RadiosItem value='trout-2-rod' hint='Costs £30 for a full year.'>
             Trout and coarse, up to 2 rods
           </RadiosItem>
-          <RadiosHint>Costs £30 for a full year.</RadiosHint>
-          <RadiosItem value='trout-3-rod'>
+          <RadiosItem value='trout-3-rod' hint='Costs £45 for a full year.'>
             Trout and coarse, up to 3 rods
           </RadiosItem>
-          <RadiosHint>Costs £45 for a full year.</RadiosHint>
-          <RadiosItem value='salmon-sea-trout'>Salmon and sea trout</RadiosItem>
-          <RadiosHint>Costs £82 for a full year.</RadiosHint>
+          <RadiosItem
+            value='salmon-sea-trout'
+            hint='Costs £82 for a full year.'
+          >
+            Salmon and sea trout
+          </RadiosItem>
         </Radios>
       </Fieldset>
 

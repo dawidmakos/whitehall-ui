@@ -3,8 +3,8 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
 import { cn } from '@/lib/utils';
-import { TextInput, type TextInputProps } from '@/ui/text-input';
-import { Button } from '@/ui/button';
+import { TextInput, type TextInputProps } from './text-input';
+import { Button } from './button';
 
 interface PasswordInputProps extends Omit<
   TextInputProps,

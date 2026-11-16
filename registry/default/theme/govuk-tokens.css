@@ -9,7 +9,7 @@
  * `@import "tailwindcss"`:
  *
  *   @import "tailwindcss";
- *   @import "@/theme/govuk-tokens.css";
+ *   @import "./styles/govuk-tokens.css";   (path relative to src/index.css)
  *
  * ------------------------------------------------------------------------- */
 

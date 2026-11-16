@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect } from 'storybook/test';
 import {
   TaskList,
   TaskListItem,
@@ -72,6 +73,11 @@ export const Default: Story = {
       </TaskListItem>
     </TaskList>
   ),
+  play: async ({ canvas }) => {
+    await expect(
+      canvas.getByRole('link', { name: 'Company Directors' }),
+    ).toHaveAccessibleDescription('Completed');
+  },
 };
 
 export const CannotStartYet: Story = {

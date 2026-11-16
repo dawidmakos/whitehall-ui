@@ -4,11 +4,9 @@
   "type": "registry:ui",
   "title": "Header",
   "description": "Whitehall-UI header component. GOV.UK header (based on GOV.UK Design System v6) with the GOV.UK logo and optional product name. Put the service name and navigation in Service navigation inside the same page <header>.",
-  "dependencies": [],
-  "devDependencies": [],
   "registryDependencies": [
-    "utils",
-    "govuk-tokens"
+    "https://dawidmakos.github.io/whitehall-ui/r/utils.json",
+    "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"
   ],
   "files": [
     {

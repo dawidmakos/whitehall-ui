@@ -4,11 +4,9 @@
   "type": "registry:ui",
   "title": "Feedback",
   "description": "Whitehall-UI feedback component (based on GOV.UK Design System, trial in GOV.UK Frontend 6.5) that asks users for feedback about a service.",
-  "dependencies": [],
-  "devDependencies": [],
   "registryDependencies": [
-    "utils",
-    "govuk-tokens"
+    "https://dawidmakos.github.io/whitehall-ui/r/utils.json",
+    "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"
   ],
   "files": [
     {

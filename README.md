@@ -77,6 +77,13 @@ Copy the component source into your own codebase (fully editable, no runtime dep
 npx shadcn@latest add https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json
 ```
 
+This writes `src/styles/govuk-tokens.css`. Import it in your CSS entry point after Tailwind:
+
+```css
+@import "tailwindcss";
+@import "./styles/govuk-tokens.css"; /* path relative to src/index.css */
+```
+
 ### 2. Add components
 
 ```bash
@@ -84,7 +91,7 @@ npx shadcn@latest add https://dawidmakos.github.io/whitehall-ui/r/button.json
 npx shadcn@latest add https://dawidmakos.github.io/whitehall-ui/r/text-input.json
 ```
 
-Swap `button` / `text-input` for any component name below. The CLI resolves each component's dependencies (e.g. the `cn` util) automatically.
+Swap `button` / `text-input` for any component name below. The CLI resolves each component's dependencies automatically. One of those is `lib/utils.ts`, which replaces shadcn's default `cn` with a version that understands the GOV.UK token classes and adds `mergeRefs`. Accept the overwrite prompt.
 
 ### 3. Use it
 
@@ -100,7 +107,7 @@ export function Example() {
 
 ## Available components
 
-`accordion` · `back-link` · `breadcrumbs` · `button` · `character-count` · `checkboxes` · `cookie-banner` · `date-input` · `details` · `error-message` · `error-summary` · `exit-this-page` · `fieldset` · `file-upload` · `footer` · `generic-header` · `header` · `hint` · `inset-text` · `label` · `link` · `notification-banner` · `pagination` · `panel` · `password-input` · `phase-banner` · `radios` · `select` · `service-navigation` · `skip-link` · `summary-list` · `table` · `tabs` · `tag` · `task-list` · `text-input` · `textarea` · `warning-text`
+`accordion` · `back-link` · `breadcrumbs` · `button` · `character-count` · `checkboxes` · `cookie-banner` · `date-input` · `details` · `error-message` · `error-summary` · `exit-this-page` · `feedback` · `fieldset` · `file-upload` · `footer` · `generic-header` · `header` · `hint` · `inset-text` · `label` · `language-navigation` · `link` · `notification-banner` · `pagination` · `panel` · `password-input` · `phase-banner` · `radios` · `select` · `service-navigation` · `skip-link` · `summary-list` · `table` · `tabs` · `tag` · `task-list` · `text-input` · `textarea` · `warning-text`
 
 See the [Storybook](https://dawidmakos.github.io/whitehall-ui/) for props and live examples.
 
