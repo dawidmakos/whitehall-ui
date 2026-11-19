@@ -1,6 +1,6 @@
 {
   "name": "whitehall-ui",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "type": "module",
   "description": "GOV.UK Design System component library for React 19 + Tailwind CSS 4. Available as an npm package and a shadcn-compatible registry.",
   "license": "MIT",
@@ -31,6 +31,7 @@
   },
   "files": [
     "dist",
+    "tokens.css",
     "registry/default/theme/govuk-tokens.css",
     "README.md"
   ],
@@ -41,7 +42,7 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./tokens.css": "./registry/default/theme/govuk-tokens.css",
+    "./tokens.css": "./tokens.css",
     "./lib/utils": {
       "types": "./dist/lib/utils.d.ts",
       "import": "./dist/lib/utils.js"
@@ -62,23 +63,17 @@
     "test": "vitest --project=storybook"
   },
   "peerDependencies": {
-    "@base-ui/react": "^1.9.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "tailwindcss": "^4.3.0"
   },
-  "peerDependenciesMeta": {
-    "@base-ui/react": {
-      "optional": true
-    }
-  },
   "dependencies": {
+    "@base-ui/react": "^1.9.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
-    "@base-ui/react": "^1.9.0",
     "@chromatic-com/storybook": "^5.6.0",
     "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.3.5",

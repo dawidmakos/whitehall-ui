@@ -27,10 +27,10 @@ list, form validation, check your answers and confirmation.
 
 ## Requirements
 
-These are peer dependencies — install them in your app:
+Peer dependencies (your app almost certainly has these already):
 
 ```bash
-npm install react@^19.3 react-dom@^19.3 tailwindcss@^4.3 @base-ui/react@^1.9
+npm install react@^19.3 react-dom@^19.3 tailwindcss@^4.3
 ```
 
 ---
@@ -48,11 +48,10 @@ Import the design tokens in your CSS entry point, **after** Tailwind:
 ```css
 @import 'tailwindcss';
 @import 'whitehall-ui/tokens.css';
-@source '../node_modules/whitehall-ui/dist';
 ```
 
-Tailwind 4 doesn't scan `node_modules`, so without the `@source` line the component classes
-are never generated and everything renders unstyled. The path is relative to your CSS file.
+This import also registers the package's components with Tailwind, so you don't need an
+`@source` line pointing into `node_modules`.
 
 Then import components from the package root:
 
@@ -118,8 +117,8 @@ import { Button } from '@/components/ui/button';
 
 Interactive components — accordion, button, checkboxes, radios and tabs — wrap
 [Base UI](https://base-ui.com) headless primitives for their behaviour and accessibility,
-then apply GOV.UK styling on top. Base UI is an optional peer dependency: components that
-do not need it work without it installed.
+then apply GOV.UK styling on top. Base UI ships as a dependency of whitehall-ui, so there
+is nothing extra to install.
 
 Styling comes entirely from design tokens defined as Tailwind 4 `@theme` variables, so
 `bg-govuk-green`, `text-govuk-heading-l` and `mb-govuk-4` are real utility classes you can

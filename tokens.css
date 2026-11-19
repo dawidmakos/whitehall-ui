@@ -1,0 +1,4 @@
+/* npm entry for `whitehall-ui/tokens.css`. The @source path resolves relative to this
+ * file, so consumers don't need their own @source pointing into node_modules. */
+@import './registry/default/theme/govuk-tokens.css';
+@source './dist';

@@ -13,10 +13,10 @@ Distributed two ways:
 
 ## Requirements
 
-These are peer dependencies — install them in your app:
+Peer dependencies (your app almost certainly has these already):
 
 ```bash
-npm install react@^19.3 react-dom@^19.3 tailwindcss@^4.3 @base-ui/react@^1.9
+npm install react@^19.3 react-dom@^19.3 tailwindcss@^4.3
 ```
 
 ---
@@ -36,10 +36,9 @@ Import the GOV.UK design tokens in your CSS entry point, **after** Tailwind:
 ```css
 @import 'tailwindcss';
 @import 'whitehall-ui/tokens.css';
-@source '../node_modules/whitehall-ui/dist';
 ```
 
-Tailwind 4 doesn't scan `node_modules`, so without the `@source` line the component classes are never generated and everything renders unstyled. The path is relative to your CSS file — adjust it if your CSS doesn't live one level below the project root.
+This import also registers the package's components with Tailwind, so you don't need an `@source` line pointing into `node_modules`.
 
 ### 3. Use a component
 
