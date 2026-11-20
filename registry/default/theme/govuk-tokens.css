@@ -540,20 +540,16 @@
   }
 }
 
-/* Header links show a 3px bar (not an underline) so it also works under the SVG logo */
+/* Header links show a 3px box-shadow bar (not an underline) so it also works under the SVG logo.
+ * GOV.UK uses border + negative margin, which shifts layout on our block-level links at
+ * fractional DPI. focus:govuk-link-focus overrides box-shadow, so no focus reset is needed. */
 @utility govuk-header-link {
   color: white;
   text-decoration: none;
 
   &:hover,
   &:active {
-    margin-bottom: -3px;
-    border-bottom: 3px solid currentcolor;
-  }
-
-  &:focus {
-    margin-bottom: 0;
-    border-bottom: 0;
+    box-shadow: 0 3px currentcolor;
   }
 }
 
