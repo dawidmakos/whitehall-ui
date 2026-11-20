@@ -10,7 +10,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Whitehall-UI header component. Shows users they are on GOV.UK. Based on the [GOV.UK Design System Header](https://design-system.service.gov.uk/components/header/). Renders the GOV.UK logo by default. Put the service name and navigation in a Service navigation component inside the same page `<header>` element. Services that are not on GOV.UK should use the Generic header.',
+          'Whitehall-UI header component. Shows the Whitehall-UI logo by default. To show your own logo instead, put it inside `Header.Logo` and `Header.Link`, or use the Generic header. Put the service name and navigation in a Service navigation component inside the same page `<header>` element. Based on the [GOV.UK Design System Header](https://design-system.service.gov.uk/components/header/).',
       },
     },
   },
@@ -21,21 +21,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
-
-export const WithProductName: Story = {
-  render: () => (
-    <Header.Root>
-      <Header.Container>
-        <Header.Logo>
-          <Header.Link href='https://www.gov.uk/'>
-            <Header.Logotype />
-            <Header.ProductName>Design System</Header.ProductName>
-          </Header.Link>
-        </Header.Logo>
-      </Header.Container>
-    </Header.Root>
-  ),
-};
 
 export const WithServiceNavigation: Story = {
   render: () => (

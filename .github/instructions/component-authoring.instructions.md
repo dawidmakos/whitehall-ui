@@ -1,5 +1,5 @@
 ---
-description: 'Use when creating or editing GOV.UK UI components in registry/default/ui. Covers arrow-function components, ref-as-prop, cn() merging, CVA variants, Base UI headless primitives, naming, exports, and px-based govuk-* tokens.'
+description: 'Use when creating or editing Whitehall-UI components in registry/default/ui. Covers arrow-function components, ref-as-prop, cn() merging, CVA variants, Base UI headless primitives, naming, exports, and px-based govuk-* tokens.'
 applyTo: 'registry/default/ui/**/*.tsx'
 ---
 

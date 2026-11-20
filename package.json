@@ -1,8 +1,8 @@
 {
   "name": "whitehall-ui",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "type": "module",
-  "description": "GOV.UK Design System component library for React 19 + Tailwind CSS 4. Available as an npm package and a shadcn-compatible registry.",
+  "description": "Component library based on the GOV.UK Design System, for React 19 + Tailwind CSS 4. Available as an npm package and a shadcn-compatible registry.",
   "license": "MIT",
   "author": "dawidmakos",
   "homepage": "https://dawidmakos.github.io/whitehall-ui/",

@@ -1,6 +1,6 @@
 # Whitehall-UI — Copilot Instructions
 
-GOV.UK Design System component library built with React 19, TypeScript, Tailwind CSS 4, and Storybook.
+Component library based on the GOV.UK Design System, built with React 19, TypeScript, Tailwind CSS 4, and Storybook.
 Interactive components wrap `@base-ui/react` headless primitives (an optional peer dependency).
 Dual distribution: shadcn-compatible registry (`public/r/`) and npm package (`dist/`).
 
@@ -8,7 +8,7 @@ Dual distribution: shadcn-compatible registry (`public/r/`) and npm package (`di
 
 ```
 registry/default/ui/       ← component source of truth
-registry/default/theme/    ← GOV.UK design tokens (Tailwind 4 @theme)
+registry/default/theme/    ← design tokens (Tailwind 4 @theme)
 registry/default/lib/      ← shared utilities (cn, mergeRefs)
 registry/default/index.ts  ← barrel exports
 src/stories/               ← Storybook stories
@@ -45,6 +45,7 @@ Every story is checked with axe at desktop width and at 390px (`storybook-mobile
 - **CVA for variants** — use `class-variance-authority` when a component has visual variants.
 - **Interface naming** — `ComponentNameProps` for props, `ComponentNameVariant` for variant type aliases.
 - **Compound components are namespaces** — complex components (Header, Footer) are a set of parts, not one monolith, following Base UI's pattern. Keep prefixed local names (`PanelTitle`) and alias them in the export block (`Panel as Root`, `PanelTitle as Title`, `type PanelTitleProps as TitleProps`). The barrel turns the module into the namespace, so consumers write `Panel.Root` and `Panel.Title`. Never build it with an object literal or `Object.assign`: dotting into a `'use client'` module's export throws in React Server Components.
+- **No GOV.UK branding** — never add the crown, GOV.UK logotype, Royal Arms, Open Government Licence logo, "Crown copyright" or links to gov.uk to components, stories or docs, and use fictional names instead of real government services or departments. GOV.UK branding is only for services on GOV.UK; `Header` uses the Whitehall-UI logo.
 - **Named export block at end of file** — separate `export { }` statement with types, never `export default`.
 - **No comments in component code** — code should be self-explanatory.
 - **No arbitrary Tailwind values** — always use design tokens (`govuk-*` classes).

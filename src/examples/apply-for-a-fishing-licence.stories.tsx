@@ -157,18 +157,15 @@ const ServiceLayout = ({ children }: ServiceLayoutProps) => (
         <Footer.Meta>
           <Footer.MetaItem grow>
             <Footer.ContentLicence>
-              All content is available under the{' '}
-              <Footer.Link
-                href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
-                rel='license'
-              >
-                Open Government Licence v3.0
+              All content is available under{' '}
+              <Footer.Link href='#' rel='license'>
+                your content licence
               </Footer.Link>
               , except where otherwise stated
             </Footer.ContentLicence>
           </Footer.MetaItem>
           <Footer.MetaItem>
-            <Footer.Link href='#'>© Crown copyright</Footer.Link>
+            <Footer.Link href='#'>© Your Organisation 2026</Footer.Link>
           </Footer.MetaItem>
         </Footer.Meta>
       </Footer.Container>

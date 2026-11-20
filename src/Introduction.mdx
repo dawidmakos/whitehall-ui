@@ -5,11 +5,15 @@ import * as Table from '@/ui/table';
 
 # Whitehall-UI
 
-GOV.UK Design System component library for **React 19** and **Tailwind CSS 4**.
+Component library based on the GOV.UK Design System, for **React 19** and **Tailwind CSS 4**.
 
-Every component is built from GOV.UK design tokens, ships with keyboard and screen reader
+Every component is built from design tokens, ships with keyboard and screen reader
 support, and can be dropped into a service either as an npm dependency or as source you own
 outright.
+
+Whitehall-UI ships no GOV.UK branding (no crown, GOV.UK logotype or Open Government Licence
+logo), because that branding is only for services on GOV.UK. `Header` shows the Whitehall-UI
+logo instead. Whitehall-UI is not affiliated with GOV.UK or the Government Digital Service.
 
 See the
 [Apply for a fishing licence](?path=/story/examples-apply-for-a-fishing-licence--service)
@@ -90,7 +94,7 @@ This writes `src/styles/govuk-tokens.css`. Import it in your CSS entry point aft
 
 Then add components as you need them. The CLI resolves each component's dependencies
 automatically. One of those is `lib/utils.ts`, which replaces shadcn's default `cn` with a
-version that understands the GOV.UK token classes and adds `mergeRefs` — accept the
+version that understands the `govuk-*` token classes and adds `mergeRefs` — accept the
 overwrite prompt:
 
 ```bash
