@@ -35,7 +35,6 @@
   --color-govuk-red-hover: #982828;
   --color-govuk-inverse-hover: #f4f8fb;
   --color-govuk-yellow: #ffdd00;
-  --color-govuk-teal-accent: #00ffe0;
 
   /* Error */
   --color-govuk-error: #ca3535;
@@ -535,28 +534,9 @@
     margin-right: 0;
   }
 
-  & .govuk-logo-dot {
-    fill: var(--color-govuk-teal-accent);
-  }
-
-  a:focus & .govuk-logo-dot,
-  &:where(:is(a:focus *)) .govuk-logo-dot {
-    fill: currentcolor;
-  }
-
   @media (forced-colors: active) {
     forced-color-adjust: none;
     color: LinkText;
-
-    & .govuk-logo-dot {
-      fill: currentcolor;
-    }
-  }
-
-  @media print {
-    & .govuk-logo-dot {
-      fill: currentcolor;
-    }
   }
 }
 

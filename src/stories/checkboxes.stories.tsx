@@ -315,17 +315,17 @@ export const Small: Story = {
     <Fieldset.Root>
       <Fieldset.Legend>Organisation</Fieldset.Legend>
       <Checkboxes.Root defaultValue={[]}>
-        <Checkboxes.Item small name='organisation' value='hmrc'>
-          HM Revenue and Customs (HMRC)
+        <Checkboxes.Item small name='organisation' value='agency'>
+          Example Agency
         </Checkboxes.Item>
-        <Checkboxes.Item small name='organisation' value='employment'>
-          Employment Tribunal
+        <Checkboxes.Item small name='organisation' value='tribunal'>
+          Example Tribunal
         </Checkboxes.Item>
-        <Checkboxes.Item small name='organisation' value='mod'>
-          Ministry of Defence
+        <Checkboxes.Item small name='organisation' value='department'>
+          Example Department
         </Checkboxes.Item>
-        <Checkboxes.Item small name='organisation' value='dfe'>
-          Department for Education
+        <Checkboxes.Item small name='organisation' value='office'>
+          Example Office
         </Checkboxes.Item>
       </Checkboxes.Root>
     </Fieldset.Root>

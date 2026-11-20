@@ -1,6 +1,6 @@
 # Whitehall-UI
 
-GOV.UK Design System component library for **React 19** + **Tailwind CSS 4**.
+Component library based on the GOV.UK Design System, for **React 19** + **Tailwind CSS 4**.
 
 Distributed two ways:
 
@@ -31,7 +31,7 @@ npm install whitehall-ui
 
 ### 2. Load the theme tokens
 
-Import the GOV.UK design tokens in your CSS entry point, **after** Tailwind:
+Import the design tokens in your CSS entry point, **after** Tailwind:
 
 ```css
 @import 'tailwindcss';
@@ -90,7 +90,7 @@ npx shadcn@latest add https://dawidmakos.github.io/whitehall-ui/r/button.json
 npx shadcn@latest add https://dawidmakos.github.io/whitehall-ui/r/text-input.json
 ```
 
-Swap `button` / `text-input` for any component name below. The CLI resolves each component's dependencies automatically. One of those is `lib/utils.ts`, which replaces shadcn's default `cn` with a version that understands the GOV.UK token classes and adds `mergeRefs`. Accept the overwrite prompt.
+Swap `button` / `text-input` for any component name below. The CLI resolves each component's dependencies automatically. One of those is `lib/utils.ts`, which replaces shadcn's default `cn` with a version that understands the `govuk-*` token classes and adds `mergeRefs`. Accept the overwrite prompt.
 
 ### 3. Use it
 
@@ -154,6 +154,16 @@ Helpers move onto their namespace too:
 - `tableCaptionVariants` → `Table.captionVariants`
 - `TableCaptionSize` → `Table.CaptionSize`
 - `PrevArrow` / `NextArrow` → `Pagination.PrevArrow` / `Pagination.NextArrow`
+
+---
+
+## Branding
+
+Whitehall-UI ships no GOV.UK branding: no crown, GOV.UK logotype, Royal Arms or Open Government Licence logo. That branding is only for services on GOV.UK. `Header` shows the Whitehall-UI logo; compose it with your own logo, or use `GenericHeader`.
+
+3.0.1 removed `Footer.Crown` and `Footer.LicenceLogo`, and `Header.Root` now links to `/` instead of gov.uk.
+
+Whitehall-UI is not affiliated with or endorsed by GOV.UK or the Government Digital Service.
 
 ---
 

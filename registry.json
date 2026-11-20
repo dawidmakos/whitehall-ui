@@ -345,7 +345,7 @@
       "name": "header",
       "type": "registry:ui",
       "title": "Header",
-      "description": "Whitehall-UI header component. GOV.UK header (based on GOV.UK Design System v6) with the GOV.UK logo and optional product name. Put the service name and navigation in Service navigation inside the same page <header>.",
+      "description": "Whitehall-UI header component (based on GOV.UK Design System) with the Whitehall-UI logo and optional product name. Put the service name and navigation in Service navigation inside the same page <header>.",
       "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {
@@ -358,7 +358,7 @@
       "name": "generic-header",
       "type": "registry:ui",
       "title": "Generic Header",
-      "description": "Whitehall-UI generic header component (based on GOV.UK Design System) for government services not on the GOV.UK website. Shows a custom brand logo and homepage link without the crown or GOV.UK branding.",
+      "description": "Whitehall-UI generic header component (based on GOV.UK Design System) that shows the logo and homepage link of your own organisation instead of the Whitehall-UI logo.",
       "registryDependencies": ["https://dawidmakos.github.io/whitehall-ui/r/utils.json", "https://dawidmakos.github.io/whitehall-ui/r/govuk-tokens.json"],
       "files": [
         {

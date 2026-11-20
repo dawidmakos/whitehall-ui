@@ -26,12 +26,9 @@ export const Default: Story = {
         <Footer.Meta>
           <Footer.MetaItem grow>
             <Footer.ContentLicence>
-              All content is available under the{' '}
-              <Footer.Link
-                href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
-                rel='license'
-              >
-                Open Government Licence v3.0
+              All content is available under{' '}
+              <Footer.Link href='#' rel='license'>
+                your content licence
               </Footer.Link>
               , except where otherwise stated
             </Footer.ContentLicence>
@@ -67,12 +64,9 @@ export const WithLinks: Story = {
               </Footer.InlineListItem>
             </Footer.InlineList>
             <Footer.ContentLicence>
-              All content is available under the{' '}
-              <Footer.Link
-                href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
-                rel='license'
-              >
-                Open Government Licence v3.0
+              All content is available under{' '}
+              <Footer.Link href='#' rel='license'>
+                your content licence
               </Footer.Link>
               , except where otherwise stated
             </Footer.ContentLicence>
@@ -92,36 +86,36 @@ export const WithNavigation: Story = {
       <Footer.Container>
         <Footer.Navigation>
           <Footer.Section width='two-thirds'>
-            <Footer.Heading>Services and information</Footer.Heading>
+            <Footer.Heading>Services</Footer.Heading>
             <Footer.List columns={2}>
               <Footer.ListItem>
-                <Footer.Link href='#'>Benefits</Footer.Link>
+                <Footer.Link href='#'>Navigation item 1</Footer.Link>
               </Footer.ListItem>
               <Footer.ListItem>
-                <Footer.Link href='#'>Births, deaths, marriages</Footer.Link>
+                <Footer.Link href='#'>Navigation item 2</Footer.Link>
               </Footer.ListItem>
               <Footer.ListItem>
-                <Footer.Link href='#'>Business and self-employed</Footer.Link>
+                <Footer.Link href='#'>Navigation item 3</Footer.Link>
               </Footer.ListItem>
               <Footer.ListItem>
-                <Footer.Link href='#'>Education and learning</Footer.Link>
+                <Footer.Link href='#'>Navigation item 4</Footer.Link>
               </Footer.ListItem>
               <Footer.ListItem>
-                <Footer.Link href='#'>Housing and local services</Footer.Link>
+                <Footer.Link href='#'>Navigation item 5</Footer.Link>
               </Footer.ListItem>
               <Footer.ListItem>
-                <Footer.Link href='#'>Money and tax</Footer.Link>
+                <Footer.Link href='#'>Navigation item 6</Footer.Link>
               </Footer.ListItem>
             </Footer.List>
           </Footer.Section>
           <Footer.Section width='one-third'>
-            <Footer.Heading>Departments</Footer.Heading>
+            <Footer.Heading>About</Footer.Heading>
             <Footer.List>
               <Footer.ListItem>
-                <Footer.Link href='#'>All departments</Footer.Link>
+                <Footer.Link href='#'>Navigation item 1</Footer.Link>
               </Footer.ListItem>
               <Footer.ListItem>
-                <Footer.Link href='#'>All policy papers</Footer.Link>
+                <Footer.Link href='#'>Navigation item 2</Footer.Link>
               </Footer.ListItem>
             </Footer.List>
           </Footer.Section>
@@ -130,12 +124,9 @@ export const WithNavigation: Story = {
         <Footer.Meta>
           <Footer.MetaItem grow>
             <Footer.ContentLicence>
-              All content is available under the{' '}
-              <Footer.Link
-                href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
-                rel='license'
-              >
-                Open Government Licence v3.0
+              All content is available under{' '}
+              <Footer.Link href='#' rel='license'>
+                your content licence
               </Footer.Link>
               , except where otherwise stated
             </Footer.ContentLicence>
@@ -155,36 +146,36 @@ export const Full: Story = {
       <Footer.Container>
         <Footer.Navigation>
           <Footer.Section width='two-thirds'>
-            <Footer.Heading>Services and information</Footer.Heading>
+            <Footer.Heading>Services</Footer.Heading>
             <Footer.List columns={2}>
               <Footer.ListItem>
-                <Footer.Link href='#'>Benefits</Footer.Link>
+                <Footer.Link href='#'>Navigation item 1</Footer.Link>
               </Footer.ListItem>
               <Footer.ListItem>
-                <Footer.Link href='#'>Births, deaths, marriages</Footer.Link>
+                <Footer.Link href='#'>Navigation item 2</Footer.Link>
               </Footer.ListItem>
               <Footer.ListItem>
-                <Footer.Link href='#'>Business and self-employed</Footer.Link>
+                <Footer.Link href='#'>Navigation item 3</Footer.Link>
               </Footer.ListItem>
               <Footer.ListItem>
-                <Footer.Link href='#'>Education and learning</Footer.Link>
+                <Footer.Link href='#'>Navigation item 4</Footer.Link>
               </Footer.ListItem>
               <Footer.ListItem>
-                <Footer.Link href='#'>Housing and local services</Footer.Link>
+                <Footer.Link href='#'>Navigation item 5</Footer.Link>
               </Footer.ListItem>
               <Footer.ListItem>
-                <Footer.Link href='#'>Money and tax</Footer.Link>
+                <Footer.Link href='#'>Navigation item 6</Footer.Link>
               </Footer.ListItem>
             </Footer.List>
           </Footer.Section>
           <Footer.Section width='one-third'>
-            <Footer.Heading>Departments</Footer.Heading>
+            <Footer.Heading>About</Footer.Heading>
             <Footer.List>
               <Footer.ListItem>
-                <Footer.Link href='#'>All departments</Footer.Link>
+                <Footer.Link href='#'>Navigation item 1</Footer.Link>
               </Footer.ListItem>
               <Footer.ListItem>
-                <Footer.Link href='#'>All policy papers</Footer.Link>
+                <Footer.Link href='#'>Navigation item 2</Footer.Link>
               </Footer.ListItem>
             </Footer.List>
           </Footer.Section>
@@ -211,12 +202,9 @@ export const Full: Story = {
               </Footer.InlineListItem>
             </Footer.InlineList>
             <Footer.ContentLicence>
-              Built by the Example Team. All content is available under the{' '}
-              <Footer.Link
-                href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
-                rel='license'
-              >
-                Open Government Licence v3.0
+              Built by the Example Team. All content is available under{' '}
+              <Footer.Link href='#' rel='license'>
+                your content licence
               </Footer.Link>
               , except where otherwise stated
             </Footer.ContentLicence>
@@ -262,7 +250,7 @@ export const WithCustomMeta: Story = {
             </Footer.InlineList>
             <p className='m-0'>
               Built by the{' '}
-              <Footer.Link href='#'>Government Digital Service</Footer.Link>
+              <Footer.Link href='#'>Example Team</Footer.Link>
             </p>
           </Footer.MetaItem>
           <Footer.MetaItem>
@@ -304,12 +292,9 @@ export const ThreeEqualColumns: Story = {
         <Footer.Meta>
           <Footer.MetaItem grow>
             <Footer.ContentLicence>
-              All content is available under the{' '}
-              <Footer.Link
-                href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
-                rel='license'
-              >
-                Open Government Licence v3.0
+              All content is available under{' '}
+              <Footer.Link href='#' rel='license'>
+                your content licence
               </Footer.Link>
               , except where otherwise stated
             </Footer.ContentLicence>

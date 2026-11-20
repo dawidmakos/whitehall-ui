@@ -28,7 +28,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Whitehall-UI generic header component. Use for a public-facing government service that is not on the GOV.UK website, so it does not use the crown, GOV.UK logotype or brand colours. Based on the [GOV.UK Design System Generic header](https://design-system.service.gov.uk/components/generic-header/).',
+          'Whitehall-UI generic header component. Shows the logo and name of your own organisation instead of the Whitehall-UI logo. Based on the [GOV.UK Design System Generic header](https://design-system.service.gov.uk/components/generic-header/).',
       },
     },
   },

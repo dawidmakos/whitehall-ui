@@ -58,17 +58,17 @@ export const WithHints: Story = {
       <Fieldset.Legend>How do you want to sign in?</Fieldset.Legend>
       <Radios.Root name='sign-in' defaultValue=''>
         <Radios.Item
-          value='gateway'
-          hint="You'll have a user ID if you've registered for Self Assessment or filed a tax return online before."
+          value='user-id'
+          hint="You'll have a user ID if you've registered with us before."
         >
-          Sign in with Government Gateway
+          Sign in with a user ID
         </Radios.Item>
 
         <Radios.Item
-          value='verify'
-          hint="You'll have an account if you've already proved your identity with a certified company."
+          value='email'
+          hint="You'll have an account if you've signed up with your email address."
         >
-          Sign in with GOV.UK Verify
+          Sign in with an email address
         </Radios.Item>
       </Radios.Root>
     </Fieldset.Root>
@@ -314,17 +314,17 @@ export const SmallWithHint: Story = {
       <Radios.Root name='small-sign-in' defaultValue=''>
         <Radios.Item
           small
-          value='gateway'
-          hint="You'll have a user ID if you've registered for Self Assessment or filed a tax return online before."
+          value='user-id'
+          hint="You'll have a user ID if you've registered with us before."
         >
-          Sign in with Government Gateway
+          Sign in with a user ID
         </Radios.Item>
         <Radios.Item
           small
-          value='one-login'
-          hint="You'll have an account if you've already proved your identity with GOV.UK One Login."
+          value='email'
+          hint="You'll have an account if you've signed up with your email address."
         >
-          Sign in with GOV.UK One Login
+          Sign in with an email address
         </Radios.Item>
       </Radios.Root>
     </Fieldset.Root>
@@ -355,11 +355,11 @@ export const SmallWithDivider: Story = {
     <Fieldset.Root>
       <Fieldset.Legend size='m'>How do you want to sign in?</Fieldset.Legend>
       <Radios.Root name='small-divider' defaultValue=''>
-        <Radios.Item small value='gateway'>
-          Use Government Gateway
+        <Radios.Item small value='user-id'>
+          Use a user ID
         </Radios.Item>
-        <Radios.Item small value='one-login'>
-          Use GOV.UK One Login
+        <Radios.Item small value='email'>
+          Use an email address
         </Radios.Item>
         <Radios.Divider small />
         <Radios.Item small value='create'>
