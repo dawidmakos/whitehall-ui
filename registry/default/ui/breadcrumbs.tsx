@@ -88,12 +88,12 @@ const BreadcrumbsLink = ({
 );
 
 export {
-  Breadcrumbs,
-  BreadcrumbsList,
-  BreadcrumbsListItem,
-  BreadcrumbsLink,
-  type BreadcrumbsProps,
-  type BreadcrumbsListProps,
-  type BreadcrumbsListItemProps,
-  type BreadcrumbsLinkProps,
+  Breadcrumbs as Root,
+  BreadcrumbsList as List,
+  BreadcrumbsListItem as ListItem,
+  BreadcrumbsLink as Link,
+  type BreadcrumbsProps as RootProps,
+  type BreadcrumbsListProps as ListProps,
+  type BreadcrumbsListItemProps as ListItemProps,
+  type BreadcrumbsLinkProps as LinkProps,
 };

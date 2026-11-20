@@ -174,14 +174,14 @@ const CheckboxesConditional = ({
 );
 
 export {
-  Checkboxes,
-  CheckboxesItem,
-  CheckboxesHint,
-  CheckboxesDivider,
-  CheckboxesConditional,
-  type CheckboxesProps,
-  type CheckboxesItemProps,
-  type CheckboxesHintProps,
-  type CheckboxesDividerProps,
-  type CheckboxesConditionalProps,
+  Checkboxes as Root,
+  CheckboxesItem as Item,
+  CheckboxesHint as Hint,
+  CheckboxesDivider as Divider,
+  CheckboxesConditional as Conditional,
+  type CheckboxesProps as RootProps,
+  type CheckboxesItemProps as ItemProps,
+  type CheckboxesHintProps as HintProps,
+  type CheckboxesDividerProps as DividerProps,
+  type CheckboxesConditionalProps as ConditionalProps,
 };

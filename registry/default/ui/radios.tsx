@@ -199,14 +199,14 @@ const RadiosConditional = ({
 );
 
 export {
-  Radios,
-  RadiosItem,
-  RadiosHint,
-  RadiosDivider,
-  RadiosConditional,
-  type RadiosProps,
-  type RadiosItemProps,
-  type RadiosHintProps,
-  type RadiosDividerProps,
-  type RadiosConditionalProps,
+  Radios as Root,
+  RadiosItem as Item,
+  RadiosHint as Hint,
+  RadiosDivider as Divider,
+  RadiosConditional as Conditional,
+  type RadiosProps as RootProps,
+  type RadiosItemProps as ItemProps,
+  type RadiosHintProps as HintProps,
+  type RadiosDividerProps as DividerProps,
+  type RadiosConditionalProps as ConditionalProps,
 };

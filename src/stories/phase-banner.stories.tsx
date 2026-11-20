@@ -1,16 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  PhaseBanner,
-  PhaseBannerContent,
-  PhaseBannerTag,
-  PhaseBannerText,
-} from '@/ui/phase-banner';
+import * as PhaseBanner from '@/ui/phase-banner';
 import { Tag } from '@/ui/tag';
 import { Link } from '@/ui/link';
 
 const meta = {
   title: 'Whitehall-UI/PhaseBanner',
-  component: PhaseBanner,
+  component: PhaseBanner.Root,
   parameters: {
     docs: {
       description: {
@@ -20,39 +15,39 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof PhaseBanner>;
+} satisfies Meta<typeof PhaseBanner.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Alpha: Story = {
   render: () => (
-    <PhaseBanner>
-      <PhaseBannerContent>
-        <PhaseBannerTag>
+    <PhaseBanner.Root>
+      <PhaseBanner.Content>
+        <PhaseBanner.Tag>
           <Tag>Alpha</Tag>
-        </PhaseBannerTag>
-        <PhaseBannerText>
+        </PhaseBanner.Tag>
+        <PhaseBanner.Text>
           This is a new service. Help us improve it and{' '}
           <Link href='#'>give your feedback by email</Link>.
-        </PhaseBannerText>
-      </PhaseBannerContent>
-    </PhaseBanner>
+        </PhaseBanner.Text>
+      </PhaseBanner.Content>
+    </PhaseBanner.Root>
   ),
 };
 
 export const Beta: Story = {
   render: () => (
-    <PhaseBanner>
-      <PhaseBannerContent>
-        <PhaseBannerTag>
+    <PhaseBanner.Root>
+      <PhaseBanner.Content>
+        <PhaseBanner.Tag>
           <Tag>Beta</Tag>
-        </PhaseBannerTag>
-        <PhaseBannerText>
+        </PhaseBanner.Tag>
+        <PhaseBanner.Text>
           This is a new service. Help us improve it and{' '}
           <Link href='#'>give your feedback (opens in new tab)</Link>.
-        </PhaseBannerText>
-      </PhaseBannerContent>
-    </PhaseBanner>
+        </PhaseBanner.Text>
+      </PhaseBanner.Content>
+    </PhaseBanner.Root>
   ),
 };

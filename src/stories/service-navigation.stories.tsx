@@ -1,115 +1,102 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  ServiceNavigation,
-  ServiceNavigationContainer,
-  ServiceNavigationServiceName,
-  ServiceNavigationNav,
-  ServiceNavigationItem,
-  ServiceNavigationLink,
-  ServiceNavigationEnd,
-} from '@/ui/service-navigation';
-import {
-  LanguageNavigation,
-  LanguageNavigationItem,
-  LanguageNavigationLink,
-  LanguageNavigationCurrent,
-} from '@/ui/language-navigation';
+import * as ServiceNavigation from '@/ui/service-navigation';
+import * as LanguageNavigation from '@/ui/language-navigation';
 
 const meta = {
   title: 'Whitehall-UI/ServiceNavigation',
-  component: ServiceNavigation,
+  component: ServiceNavigation.Root,
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
         component:
-          'Whitehall-UI service navigation component. Helps users understand that they are using your service and lets them navigate around it. Based on the [GOV.UK Design System Service navigation](https://design-system.service.gov.uk/components/service-navigation/). Pass `inverse` for the blue variant, and put a `LanguageNavigation` in `ServiceNavigationEnd` (stacked below the menu by default, or `inline` to sit on the same row).',
+          'Whitehall-UI service navigation component. Helps users understand that they are using your service and lets them navigate around it. Based on the [GOV.UK Design System Service navigation](https://design-system.service.gov.uk/components/service-navigation/). Pass `inverse` for the blue variant, and put a `LanguageNavigation` in `ServiceNavigation.End` (stacked below the menu by default, or `inline` to sit on the same row).',
       },
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof ServiceNavigation>;
+} satisfies Meta<typeof ServiceNavigation.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const WithServiceName: Story = {
   render: () => (
-    <ServiceNavigation>
-      <ServiceNavigationContainer>
-        <ServiceNavigationServiceName href='#'>
+    <ServiceNavigation.Root>
+      <ServiceNavigation.Container>
+        <ServiceNavigation.ServiceName href='#'>
           Service name
-        </ServiceNavigationServiceName>
-      </ServiceNavigationContainer>
-    </ServiceNavigation>
+        </ServiceNavigation.ServiceName>
+      </ServiceNavigation.Container>
+    </ServiceNavigation.Root>
   ),
 };
 
 export const WithServiceNameAndNavigation: Story = {
   render: () => (
-    <ServiceNavigation>
-      <ServiceNavigationContainer>
-        <ServiceNavigationServiceName href='#'>
+    <ServiceNavigation.Root>
+      <ServiceNavigation.Container>
+        <ServiceNavigation.ServiceName href='#'>
           Service name
-        </ServiceNavigationServiceName>
-        <ServiceNavigationNav>
-          <ServiceNavigationItem active>
-            <ServiceNavigationLink href='#' aria-current='true'>
+        </ServiceNavigation.ServiceName>
+        <ServiceNavigation.Nav>
+          <ServiceNavigation.Item active>
+            <ServiceNavigation.Link href='#' aria-current='true'>
               <strong className='font-normal'>Navigation item 1</strong>
-            </ServiceNavigationLink>
-          </ServiceNavigationItem>
-          <ServiceNavigationItem>
-            <ServiceNavigationLink href='#'>
+            </ServiceNavigation.Link>
+          </ServiceNavigation.Item>
+          <ServiceNavigation.Item>
+            <ServiceNavigation.Link href='#'>
               Navigation item 2
-            </ServiceNavigationLink>
-          </ServiceNavigationItem>
-          <ServiceNavigationItem>
-            <ServiceNavigationLink href='#'>
+            </ServiceNavigation.Link>
+          </ServiceNavigation.Item>
+          <ServiceNavigation.Item>
+            <ServiceNavigation.Link href='#'>
               Navigation item 3
-            </ServiceNavigationLink>
-          </ServiceNavigationItem>
-        </ServiceNavigationNav>
-      </ServiceNavigationContainer>
-    </ServiceNavigation>
+            </ServiceNavigation.Link>
+          </ServiceNavigation.Item>
+        </ServiceNavigation.Nav>
+      </ServiceNavigation.Container>
+    </ServiceNavigation.Root>
   ),
 };
 
 export const NavigationOnly: Story = {
   render: () => (
-    <ServiceNavigation aria-label='Menu'>
-      <ServiceNavigationContainer>
-        <ServiceNavigationNav>
-          <ServiceNavigationItem active>
-            <ServiceNavigationLink href='#' aria-current='true'>
+    <ServiceNavigation.Root aria-label='Menu'>
+      <ServiceNavigation.Container>
+        <ServiceNavigation.Nav>
+          <ServiceNavigation.Item active>
+            <ServiceNavigation.Link href='#' aria-current='true'>
               <strong className='font-normal'>Navigation item 1</strong>
-            </ServiceNavigationLink>
-          </ServiceNavigationItem>
-          <ServiceNavigationItem>
-            <ServiceNavigationLink href='#'>
+            </ServiceNavigation.Link>
+          </ServiceNavigation.Item>
+          <ServiceNavigation.Item>
+            <ServiceNavigation.Link href='#'>
               Navigation item 2
-            </ServiceNavigationLink>
-          </ServiceNavigationItem>
-          <ServiceNavigationItem>
-            <ServiceNavigationLink href='#'>
+            </ServiceNavigation.Link>
+          </ServiceNavigation.Item>
+          <ServiceNavigation.Item>
+            <ServiceNavigation.Link href='#'>
               Navigation item 3
-            </ServiceNavigationLink>
-          </ServiceNavigationItem>
-        </ServiceNavigationNav>
-      </ServiceNavigationContainer>
-    </ServiceNavigation>
+            </ServiceNavigation.Link>
+          </ServiceNavigation.Item>
+        </ServiceNavigation.Nav>
+      </ServiceNavigation.Container>
+    </ServiceNavigation.Root>
   ),
 };
 
 const navigationItems = (labels: string[]) =>
   labels.map((label, index) => (
-    <ServiceNavigationItem key={label} active={index === 0}>
-      <ServiceNavigationLink
+    <ServiceNavigation.Item key={label} active={index === 0}>
+      <ServiceNavigation.Link
         href='#'
         aria-current={index === 0 ? 'true' : undefined}
       >
         {index === 0 ? <strong className='font-normal'>{label}</strong> : label}
-      </ServiceNavigationLink>
-    </ServiceNavigationItem>
+      </ServiceNavigation.Link>
+    </ServiceNavigation.Item>
   ));
 
 const threeItems = [
@@ -119,16 +106,16 @@ const threeItems = [
 ];
 
 const Languages = ({ inverse }: { inverse?: boolean }) => (
-  <LanguageNavigation inverse={inverse}>
-    <LanguageNavigationItem>
-      <LanguageNavigationCurrent lang='en'>English</LanguageNavigationCurrent>
-    </LanguageNavigationItem>
-    <LanguageNavigationItem>
-      <LanguageNavigationLink href='#' lang='cy'>
+  <LanguageNavigation.Root inverse={inverse}>
+    <LanguageNavigation.Item>
+      <LanguageNavigation.Current lang='en'>English</LanguageNavigation.Current>
+    </LanguageNavigation.Item>
+    <LanguageNavigation.Item>
+      <LanguageNavigation.Link href='#' lang='cy'>
         Cymraeg
-      </LanguageNavigationLink>
-    </LanguageNavigationItem>
-  </LanguageNavigation>
+      </LanguageNavigation.Link>
+    </LanguageNavigation.Item>
+  </LanguageNavigation.Root>
 );
 
 export const SingleItem: Story = {
@@ -141,27 +128,27 @@ export const SingleItem: Story = {
     },
   },
   render: () => (
-    <ServiceNavigation>
-      <ServiceNavigationContainer>
-        <ServiceNavigationServiceName href='#'>
+    <ServiceNavigation.Root>
+      <ServiceNavigation.Container>
+        <ServiceNavigation.ServiceName href='#'>
           Service name
-        </ServiceNavigationServiceName>
-        <ServiceNavigationNav>
+        </ServiceNavigation.ServiceName>
+        <ServiceNavigation.Nav>
           {navigationItems(['Navigation item 1'])}
-        </ServiceNavigationNav>
-      </ServiceNavigationContainer>
-    </ServiceNavigation>
+        </ServiceNavigation.Nav>
+      </ServiceNavigation.Container>
+    </ServiceNavigation.Root>
   ),
 };
 
 export const LargeNavigation: Story = {
   render: () => (
-    <ServiceNavigation>
-      <ServiceNavigationContainer>
-        <ServiceNavigationServiceName href='#'>
+    <ServiceNavigation.Root>
+      <ServiceNavigation.Container>
+        <ServiceNavigation.ServiceName href='#'>
           Apply for a juggling licence
-        </ServiceNavigationServiceName>
-        <ServiceNavigationNav>
+        </ServiceNavigation.ServiceName>
+        <ServiceNavigation.Nav>
           {navigationItems([
             'Home',
             'Your applications',
@@ -172,92 +159,92 @@ export const LargeNavigation: Story = {
             'Contact us',
             'Sign out',
           ])}
-        </ServiceNavigationNav>
-      </ServiceNavigationContainer>
-    </ServiceNavigation>
+        </ServiceNavigation.Nav>
+      </ServiceNavigation.Container>
+    </ServiceNavigation.Root>
   ),
 };
 
 export const NoCollapseOnMobile: Story = {
   render: () => (
-    <ServiceNavigation>
-      <ServiceNavigationContainer>
-        <ServiceNavigationServiceName href='#'>
+    <ServiceNavigation.Root>
+      <ServiceNavigation.Container>
+        <ServiceNavigation.ServiceName href='#'>
           Service name
-        </ServiceNavigationServiceName>
-        <ServiceNavigationNav collapseOnMobile={false}>
+        </ServiceNavigation.ServiceName>
+        <ServiceNavigation.Nav collapseOnMobile={false}>
           {navigationItems(threeItems)}
-        </ServiceNavigationNav>
-      </ServiceNavigationContainer>
-    </ServiceNavigation>
+        </ServiceNavigation.Nav>
+      </ServiceNavigation.Container>
+    </ServiceNavigation.Root>
   ),
 };
 
 export const Inverse: Story = {
   render: () => (
-    <ServiceNavigation inverse>
-      <ServiceNavigationContainer>
-        <ServiceNavigationServiceName href='#'>
+    <ServiceNavigation.Root inverse>
+      <ServiceNavigation.Container>
+        <ServiceNavigation.ServiceName href='#'>
           Apply for a juggling licence
-        </ServiceNavigationServiceName>
-        <ServiceNavigationNav>
+        </ServiceNavigation.ServiceName>
+        <ServiceNavigation.Nav>
           {navigationItems(threeItems)}
-        </ServiceNavigationNav>
-      </ServiceNavigationContainer>
-    </ServiceNavigation>
+        </ServiceNavigation.Nav>
+      </ServiceNavigation.Container>
+    </ServiceNavigation.Root>
   ),
 };
 
 export const WithLanguageNavigation: Story = {
   render: () => (
-    <ServiceNavigation>
-      <ServiceNavigationContainer>
-        <ServiceNavigationServiceName href='#'>
+    <ServiceNavigation.Root>
+      <ServiceNavigation.Container>
+        <ServiceNavigation.ServiceName href='#'>
           Service name
-        </ServiceNavigationServiceName>
-        <ServiceNavigationNav>
+        </ServiceNavigation.ServiceName>
+        <ServiceNavigation.Nav>
           {navigationItems(threeItems)}
-        </ServiceNavigationNav>
-        <ServiceNavigationEnd>
+        </ServiceNavigation.Nav>
+        <ServiceNavigation.End>
           <Languages />
-        </ServiceNavigationEnd>
-      </ServiceNavigationContainer>
-    </ServiceNavigation>
+        </ServiceNavigation.End>
+      </ServiceNavigation.Container>
+    </ServiceNavigation.Root>
   ),
 };
 
 export const WithInlineLanguageNavigation: Story = {
   render: () => (
-    <ServiceNavigation>
-      <ServiceNavigationContainer>
-        <ServiceNavigationServiceName href='#'>
+    <ServiceNavigation.Root>
+      <ServiceNavigation.Container>
+        <ServiceNavigation.ServiceName href='#'>
           Service name
-        </ServiceNavigationServiceName>
-        <ServiceNavigationNav>
+        </ServiceNavigation.ServiceName>
+        <ServiceNavigation.Nav>
           {navigationItems(threeItems)}
-        </ServiceNavigationNav>
-        <ServiceNavigationEnd inline>
+        </ServiceNavigation.Nav>
+        <ServiceNavigation.End inline>
           <Languages />
-        </ServiceNavigationEnd>
-      </ServiceNavigationContainer>
-    </ServiceNavigation>
+        </ServiceNavigation.End>
+      </ServiceNavigation.Container>
+    </ServiceNavigation.Root>
   ),
 };
 
 export const InverseWithLanguageNavigation: Story = {
   render: () => (
-    <ServiceNavigation inverse>
-      <ServiceNavigationContainer>
-        <ServiceNavigationServiceName href='#'>
+    <ServiceNavigation.Root inverse>
+      <ServiceNavigation.Container>
+        <ServiceNavigation.ServiceName href='#'>
           Apply for a juggling licence
-        </ServiceNavigationServiceName>
-        <ServiceNavigationNav>
+        </ServiceNavigation.ServiceName>
+        <ServiceNavigation.Nav>
           {navigationItems(threeItems)}
-        </ServiceNavigationNav>
-        <ServiceNavigationEnd inline>
+        </ServiceNavigation.Nav>
+        <ServiceNavigation.End inline>
           <Languages inverse />
-        </ServiceNavigationEnd>
-      </ServiceNavigationContainer>
-    </ServiceNavigation>
+        </ServiceNavigation.End>
+      </ServiceNavigation.Container>
+    </ServiceNavigation.Root>
   ),
 };

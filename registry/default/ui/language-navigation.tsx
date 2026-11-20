@@ -87,12 +87,12 @@ const LanguageNavigationCurrent = (props: LanguageNavigationCurrentProps) => (
 );
 
 export {
-  LanguageNavigation,
-  LanguageNavigationItem,
-  LanguageNavigationLink,
-  LanguageNavigationCurrent,
-  type LanguageNavigationProps,
-  type LanguageNavigationItemProps,
-  type LanguageNavigationLinkProps,
-  type LanguageNavigationCurrentProps,
+  LanguageNavigation as Root,
+  LanguageNavigationItem as Item,
+  LanguageNavigationLink as Link,
+  LanguageNavigationCurrent as Current,
+  type LanguageNavigationProps as RootProps,
+  type LanguageNavigationItemProps as ItemProps,
+  type LanguageNavigationLinkProps as LinkProps,
+  type LanguageNavigationCurrentProps as CurrentProps,
 };

@@ -1,16 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  NotificationBanner,
-  NotificationBannerHeader,
-  NotificationBannerTitle,
-  NotificationBannerContent,
-  NotificationBannerHeading,
-  NotificationBannerLink,
-} from '@/ui/notification-banner';
+import * as NotificationBanner from '@/ui/notification-banner';
 
 const meta = {
   title: 'Whitehall-UI/NotificationBanner',
-  component: NotificationBanner,
+  component: NotificationBanner.Root,
   parameters: {
     docs: {
       description: {
@@ -20,78 +13,78 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof NotificationBanner>;
+} satisfies Meta<typeof NotificationBanner.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <NotificationBanner>
-      <NotificationBannerHeader>
-        <NotificationBannerTitle>Important</NotificationBannerTitle>
-      </NotificationBannerHeader>
-      <NotificationBannerContent>
+    <NotificationBanner.Root>
+      <NotificationBanner.Header>
+        <NotificationBanner.Title>Important</NotificationBanner.Title>
+      </NotificationBanner.Header>
+      <NotificationBanner.Content>
         <p className='font-govuk text-govuk-body'>
           You have 7 days left to send your application.{' '}
-          <NotificationBannerLink href='#'>
+          <NotificationBanner.Link href='#'>
             View application
-          </NotificationBannerLink>
+          </NotificationBanner.Link>
           .
         </p>
-      </NotificationBannerContent>
-    </NotificationBanner>
+      </NotificationBanner.Content>
+    </NotificationBanner.Root>
   ),
 };
 
 export const Success: Story = {
   render: () => (
-    <NotificationBanner variant='success' disableAutoFocus>
-      <NotificationBannerHeader>
-        <NotificationBannerTitle>Success</NotificationBannerTitle>
-      </NotificationBannerHeader>
-      <NotificationBannerContent>
-        <NotificationBannerHeading>
+    <NotificationBanner.Root variant='success' disableAutoFocus>
+      <NotificationBanner.Header>
+        <NotificationBanner.Title>Success</NotificationBanner.Title>
+      </NotificationBanner.Header>
+      <NotificationBanner.Content>
+        <NotificationBanner.Heading>
           Training outcome recorded and trainee notified
-        </NotificationBannerHeading>
+        </NotificationBanner.Heading>
         <p className='font-govuk text-govuk-body'>
           Contact{' '}
-          <NotificationBannerLink href='#'>
+          <NotificationBanner.Link href='#'>
             example@email.com
-          </NotificationBannerLink>{' '}
+          </NotificationBanner.Link>{' '}
           if the email has not arrived within 24 hours.
         </p>
-      </NotificationBannerContent>
-    </NotificationBanner>
+      </NotificationBanner.Content>
+    </NotificationBanner.Root>
   ),
 };
 
 export const WholeService: Story = {
   render: () => (
-    <NotificationBanner>
-      <NotificationBannerHeader>
-        <NotificationBannerTitle>Important</NotificationBannerTitle>
-      </NotificationBannerHeader>
-      <NotificationBannerContent>
+    <NotificationBanner.Root>
+      <NotificationBanner.Header>
+        <NotificationBanner.Title>Important</NotificationBanner.Title>
+      </NotificationBanner.Header>
+      <NotificationBanner.Content>
         <p className='font-govuk text-govuk-body'>
           There may be a delay in processing your application because of the
           coronavirus outbreak.
         </p>
-      </NotificationBannerContent>
-    </NotificationBanner>
+      </NotificationBanner.Content>
+    </NotificationBanner.Root>
   ),
 };
 
 export const WithLotsOfContent: Story = {
   render: () => (
-    <NotificationBanner>
-      <NotificationBannerHeader>
-        <NotificationBannerTitle>Important</NotificationBannerTitle>
-      </NotificationBannerHeader>
-      <NotificationBannerContent>
-        <NotificationBannerHeading>
+    <NotificationBanner.Root>
+      <NotificationBanner.Header>
+        <NotificationBanner.Title>Important</NotificationBanner.Title>
+      </NotificationBanner.Header>
+      <NotificationBanner.Content>
+        <NotificationBanner.Heading>
           Check if you need to apply for a visa to do this type of work
-        </NotificationBannerHeading>
+        </NotificationBanner.Heading>
         <p className='font-govuk text-govuk-body mt-0 mb-govuk-4'>
           You may need a visa if you are coming to the UK to work for a short
           time. Check the guidance before you travel.
@@ -102,11 +95,11 @@ export const WithLotsOfContent: Story = {
           <li>you will be paid at least the minimum salary</li>
         </ul>
         <p className='font-govuk text-govuk-body m-0'>
-          <NotificationBannerLink href='#'>
+          <NotificationBanner.Link href='#'>
             Read the visa guidance
-          </NotificationBannerLink>
+          </NotificationBanner.Link>
         </p>
-      </NotificationBannerContent>
-    </NotificationBanner>
+      </NotificationBanner.Content>
+    </NotificationBanner.Root>
   ),
 };

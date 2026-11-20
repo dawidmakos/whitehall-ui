@@ -1,14 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  LanguageNavigation,
-  LanguageNavigationItem,
-  LanguageNavigationLink,
-  LanguageNavigationCurrent,
-} from '@/ui/language-navigation';
+import * as LanguageNavigation from '@/ui/language-navigation';
 
 const meta = {
   title: 'Whitehall-UI/LanguageNavigation',
-  component: LanguageNavigation,
+  component: LanguageNavigation.Root,
   parameters: {
     layout: 'padded',
     docs: {
@@ -19,71 +14,71 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof LanguageNavigation>;
+} satisfies Meta<typeof LanguageNavigation.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <LanguageNavigation>
-      <LanguageNavigationItem>
-        <LanguageNavigationCurrent lang='en'>English</LanguageNavigationCurrent>
-      </LanguageNavigationItem>
-      <LanguageNavigationItem>
-        <LanguageNavigationLink
+    <LanguageNavigation.Root>
+      <LanguageNavigation.Item>
+        <LanguageNavigation.Current lang='en'>English</LanguageNavigation.Current>
+      </LanguageNavigation.Item>
+      <LanguageNavigation.Item>
+        <LanguageNavigation.Link
           href='#'
           lang='cy'
           description="Newid yr iaith i'r Cymraeg"
         >
           Cymraeg
-        </LanguageNavigationLink>
-      </LanguageNavigationItem>
-    </LanguageNavigation>
+        </LanguageNavigation.Link>
+      </LanguageNavigation.Item>
+    </LanguageNavigation.Root>
   ),
 };
 
 export const Inverse: Story = {
   render: () => (
     <div className='bg-govuk-brand p-govuk-4'>
-      <LanguageNavigation inverse className='mb-0'>
-        <LanguageNavigationItem>
-          <LanguageNavigationCurrent lang='en'>
+      <LanguageNavigation.Root inverse className='mb-0'>
+        <LanguageNavigation.Item>
+          <LanguageNavigation.Current lang='en'>
             English
-          </LanguageNavigationCurrent>
-        </LanguageNavigationItem>
-        <LanguageNavigationItem>
-          <LanguageNavigationLink href='#' lang='cy'>
+          </LanguageNavigation.Current>
+        </LanguageNavigation.Item>
+        <LanguageNavigation.Item>
+          <LanguageNavigation.Link href='#' lang='cy'>
             Cymraeg
-          </LanguageNavigationLink>
-        </LanguageNavigationItem>
-      </LanguageNavigation>
+          </LanguageNavigation.Link>
+        </LanguageNavigation.Item>
+      </LanguageNavigation.Root>
     </div>
   ),
 };
 
 export const MultipleLanguages: Story = {
   render: () => (
-    <LanguageNavigation>
-      <LanguageNavigationItem>
-        <LanguageNavigationCurrent lang='en'>English</LanguageNavigationCurrent>
-      </LanguageNavigationItem>
-      <LanguageNavigationItem>
-        <LanguageNavigationLink href='#' lang='cy'>
+    <LanguageNavigation.Root>
+      <LanguageNavigation.Item>
+        <LanguageNavigation.Current lang='en'>English</LanguageNavigation.Current>
+      </LanguageNavigation.Item>
+      <LanguageNavigation.Item>
+        <LanguageNavigation.Link href='#' lang='cy'>
           Cymraeg
-        </LanguageNavigationLink>
-      </LanguageNavigationItem>
-      <LanguageNavigationItem>
-        <LanguageNavigationLink href='#' lang='gd'>
+        </LanguageNavigation.Link>
+      </LanguageNavigation.Item>
+      <LanguageNavigation.Item>
+        <LanguageNavigation.Link href='#' lang='gd'>
           Gàidhlig
-        </LanguageNavigationLink>
-      </LanguageNavigationItem>
-      <LanguageNavigationItem>
-        <LanguageNavigationLink href='#' lang='ga'>
+        </LanguageNavigation.Link>
+      </LanguageNavigation.Item>
+      <LanguageNavigation.Item>
+        <LanguageNavigation.Link href='#' lang='ga'>
           Gaeilge
-        </LanguageNavigationLink>
-      </LanguageNavigationItem>
-    </LanguageNavigation>
+        </LanguageNavigation.Link>
+      </LanguageNavigation.Item>
+    </LanguageNavigation.Root>
   ),
 };
 
@@ -102,18 +97,18 @@ const manyLanguages = [
 
 export const ManyLanguages: Story = {
   render: () => (
-    <LanguageNavigation>
-      <LanguageNavigationItem>
-        <LanguageNavigationCurrent lang='en'>English</LanguageNavigationCurrent>
-      </LanguageNavigationItem>
+    <LanguageNavigation.Root>
+      <LanguageNavigation.Item>
+        <LanguageNavigation.Current lang='en'>English</LanguageNavigation.Current>
+      </LanguageNavigation.Item>
       {manyLanguages.map(({ lang, name }) => (
-        <LanguageNavigationItem key={lang}>
-          <LanguageNavigationLink href='#' lang={lang}>
+        <LanguageNavigation.Item key={lang}>
+          <LanguageNavigation.Link href='#' lang={lang}>
             {name}
-          </LanguageNavigationLink>
-        </LanguageNavigationItem>
+          </LanguageNavigation.Link>
+        </LanguageNavigation.Item>
       ))}
-    </LanguageNavigation>
+    </LanguageNavigation.Root>
   ),
 };
 
@@ -127,21 +122,21 @@ export const MixedTextDirections: Story = {
     },
   },
   render: () => (
-    <LanguageNavigation>
-      <LanguageNavigationItem>
-        <LanguageNavigationCurrent lang='en'>English</LanguageNavigationCurrent>
-      </LanguageNavigationItem>
-      <LanguageNavigationItem>
-        <LanguageNavigationLink href='#' lang='ar' dir='rtl'>
+    <LanguageNavigation.Root>
+      <LanguageNavigation.Item>
+        <LanguageNavigation.Current lang='en'>English</LanguageNavigation.Current>
+      </LanguageNavigation.Item>
+      <LanguageNavigation.Item>
+        <LanguageNavigation.Link href='#' lang='ar' dir='rtl'>
           العربية
-        </LanguageNavigationLink>
-      </LanguageNavigationItem>
-      <LanguageNavigationItem>
-        <LanguageNavigationLink href='#' lang='ur' dir='rtl'>
+        </LanguageNavigation.Link>
+      </LanguageNavigation.Item>
+      <LanguageNavigation.Item>
+        <LanguageNavigation.Link href='#' lang='ur' dir='rtl'>
           اردو
-        </LanguageNavigationLink>
-      </LanguageNavigationItem>
-    </LanguageNavigation>
+        </LanguageNavigation.Link>
+      </LanguageNavigation.Item>
+    </LanguageNavigation.Root>
   ),
 };
 
@@ -155,15 +150,15 @@ export const TranslatedLabel: Story = {
     },
   },
   render: () => (
-    <LanguageNavigation aria-label='Iaith'>
-      <LanguageNavigationItem>
-        <LanguageNavigationLink href='#' lang='en'>
+    <LanguageNavigation.Root aria-label='Iaith'>
+      <LanguageNavigation.Item>
+        <LanguageNavigation.Link href='#' lang='en'>
           English
-        </LanguageNavigationLink>
-      </LanguageNavigationItem>
-      <LanguageNavigationItem>
-        <LanguageNavigationCurrent lang='cy'>Cymraeg</LanguageNavigationCurrent>
-      </LanguageNavigationItem>
-    </LanguageNavigation>
+        </LanguageNavigation.Link>
+      </LanguageNavigation.Item>
+      <LanguageNavigation.Item>
+        <LanguageNavigation.Current lang='cy'>Cymraeg</LanguageNavigation.Current>
+      </LanguageNavigation.Item>
+    </LanguageNavigation.Root>
   ),
 };

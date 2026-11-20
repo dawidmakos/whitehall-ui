@@ -1,12 +1,7 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Radios,
-  RadiosItem,
-  RadiosDivider,
-  RadiosConditional,
-} from '@/ui/radios';
-import { Fieldset, FieldsetLegend, FieldsetHeading } from '@/ui/fieldset';
+import * as Radios from '@/ui/radios';
+import * as Fieldset from '@/ui/fieldset';
 import { FormGroup } from '@/ui/form-group';
 import { Hint } from '@/ui/hint';
 import { ErrorMessage } from '@/ui/error-message';
@@ -15,120 +10,120 @@ import { TextInput } from '@/ui/text-input';
 
 const meta = {
   title: 'Whitehall-UI/Radios',
-  component: Radios,
+  component: Radios.Root,
   parameters: {
     layout: 'padded',
     docs: {
       description: {
         component:
-          'Whitehall-UI radios component. Lets users select one option from a list. Based on the [GOV.UK Design System Radios](https://design-system.service.gov.uk/components/radios/). Pass `hint` to `RadiosItem` to show hint text under an option; it is linked to the radio with `aria-describedby` automatically.',
+          'Whitehall-UI radios component. Lets users select one option from a list. Based on the [GOV.UK Design System Radios](https://design-system.service.gov.uk/components/radios/). Pass `hint` to `Radios.Item` to show hint text under an option; it is linked to the radio with `aria-describedby` automatically.',
       },
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Radios>;
+} satisfies Meta<typeof Radios.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Fieldset>
-      <FieldsetLegend>Where do you live?</FieldsetLegend>
-      <Radios name='where-do-you-live' defaultValue=''>
-        <RadiosItem value='england'>England</RadiosItem>
-        <RadiosItem value='scotland'>Scotland</RadiosItem>
-        <RadiosItem value='wales'>Wales</RadiosItem>
-        <RadiosItem value='northern-ireland'>Northern Ireland</RadiosItem>
-      </Radios>
-    </Fieldset>
+    <Fieldset.Root>
+      <Fieldset.Legend>Where do you live?</Fieldset.Legend>
+      <Radios.Root name='where-do-you-live' defaultValue=''>
+        <Radios.Item value='england'>England</Radios.Item>
+        <Radios.Item value='scotland'>Scotland</Radios.Item>
+        <Radios.Item value='wales'>Wales</Radios.Item>
+        <Radios.Item value='northern-ireland'>Northern Ireland</Radios.Item>
+      </Radios.Root>
+    </Fieldset.Root>
   ),
 };
 
 export const Inline: Story = {
   render: () => (
-    <Fieldset>
-      <FieldsetLegend>Have you changed your name?</FieldsetLegend>
-      <Radios name='changed-name' inline defaultValue=''>
-        <RadiosItem value='yes'>Yes</RadiosItem>
-        <RadiosItem value='no'>No</RadiosItem>
-      </Radios>
-    </Fieldset>
+    <Fieldset.Root>
+      <Fieldset.Legend>Have you changed your name?</Fieldset.Legend>
+      <Radios.Root name='changed-name' inline defaultValue=''>
+        <Radios.Item value='yes'>Yes</Radios.Item>
+        <Radios.Item value='no'>No</Radios.Item>
+      </Radios.Root>
+    </Fieldset.Root>
   ),
 };
 
 export const WithHints: Story = {
   render: () => (
-    <Fieldset>
-      <FieldsetLegend>How do you want to sign in?</FieldsetLegend>
-      <Radios name='sign-in' defaultValue=''>
-        <RadiosItem
+    <Fieldset.Root>
+      <Fieldset.Legend>How do you want to sign in?</Fieldset.Legend>
+      <Radios.Root name='sign-in' defaultValue=''>
+        <Radios.Item
           value='gateway'
           hint="You'll have a user ID if you've registered for Self Assessment or filed a tax return online before."
         >
           Sign in with Government Gateway
-        </RadiosItem>
+        </Radios.Item>
 
-        <RadiosItem
+        <Radios.Item
           value='verify'
           hint="You'll have an account if you've already proved your identity with a certified company."
         >
           Sign in with GOV.UK Verify
-        </RadiosItem>
-      </Radios>
-    </Fieldset>
+        </Radios.Item>
+      </Radios.Root>
+    </Fieldset.Root>
   ),
 };
 
 export const WithDivider: Story = {
   render: () => (
-    <Fieldset>
-      <FieldsetLegend>Where do you live?</FieldsetLegend>
-      <Radios name='where-divider' defaultValue=''>
-        <RadiosItem value='england'>England</RadiosItem>
-        <RadiosItem value='scotland'>Scotland</RadiosItem>
-        <RadiosItem value='wales'>Wales</RadiosItem>
-        <RadiosDivider />
-        <RadiosItem value='abroad'>
+    <Fieldset.Root>
+      <Fieldset.Legend>Where do you live?</Fieldset.Legend>
+      <Radios.Root name='where-divider' defaultValue=''>
+        <Radios.Item value='england'>England</Radios.Item>
+        <Radios.Item value='scotland'>Scotland</Radios.Item>
+        <Radios.Item value='wales'>Wales</Radios.Item>
+        <Radios.Divider />
+        <Radios.Item value='abroad'>
           I am a British citizen living abroad
-        </RadiosItem>
-      </Radios>
-    </Fieldset>
+        </Radios.Item>
+      </Radios.Root>
+    </Fieldset.Root>
   ),
 };
 
 export const Disabled: Story = {
   render: () => (
-    <Fieldset>
-      <FieldsetLegend>Where do you live?</FieldsetLegend>
-      <Radios name='disabled-radios' disabled defaultValue=''>
-        <RadiosItem value='england'>England</RadiosItem>
-        <RadiosItem value='scotland'>Scotland</RadiosItem>
-        <RadiosItem value='wales'>Wales</RadiosItem>
-      </Radios>
-    </Fieldset>
+    <Fieldset.Root>
+      <Fieldset.Legend>Where do you live?</Fieldset.Legend>
+      <Radios.Root name='disabled-radios' disabled defaultValue=''>
+        <Radios.Item value='england'>England</Radios.Item>
+        <Radios.Item value='scotland'>Scotland</Radios.Item>
+        <Radios.Item value='wales'>Wales</Radios.Item>
+      </Radios.Root>
+    </Fieldset.Root>
   ),
 };
 
 export const PreSelected: Story = {
   render: () => (
-    <Fieldset>
-      <FieldsetLegend>Where do you live?</FieldsetLegend>
-      <Radios name='pre-selected' defaultValue='scotland'>
-        <RadiosItem value='england'>England</RadiosItem>
-        <RadiosItem value='scotland'>Scotland</RadiosItem>
-        <RadiosItem value='wales'>Wales</RadiosItem>
-        <RadiosItem value='northern-ireland'>Northern Ireland</RadiosItem>
-      </Radios>
-    </Fieldset>
+    <Fieldset.Root>
+      <Fieldset.Legend>Where do you live?</Fieldset.Legend>
+      <Radios.Root name='pre-selected' defaultValue='scotland'>
+        <Radios.Item value='england'>England</Radios.Item>
+        <Radios.Item value='scotland'>Scotland</Radios.Item>
+        <Radios.Item value='wales'>Wales</Radios.Item>
+        <Radios.Item value='northern-ireland'>Northern Ireland</Radios.Item>
+      </Radios.Root>
+    </Fieldset.Root>
   ),
 };
 
 export const WithError: Story = {
   render: () => (
     <FormGroup error>
-      <Fieldset aria-describedby='changed-name-error-hint changed-name-error'>
-        <FieldsetLegend>Have you changed your name?</FieldsetLegend>
+      <Fieldset.Root aria-describedby='changed-name-error-hint changed-name-error'>
+        <Fieldset.Legend>Have you changed your name?</Fieldset.Legend>
         <Hint id='changed-name-error-hint'>
           This includes changing your last name or spelling your name
           differently
@@ -136,29 +131,29 @@ export const WithError: Story = {
         <ErrorMessage id='changed-name-error'>
           Select yes if you have changed your name
         </ErrorMessage>
-        <Radios name='changed-name-error' inline defaultValue=''>
-          <RadiosItem value='yes'>Yes</RadiosItem>
-          <RadiosItem value='no'>No</RadiosItem>
-        </Radios>
-      </Fieldset>
+        <Radios.Root name='changed-name-error' inline defaultValue=''>
+          <Radios.Item value='yes'>Yes</Radios.Item>
+          <Radios.Item value='no'>No</Radios.Item>
+        </Radios.Root>
+      </Fieldset.Root>
     </FormGroup>
   ),
 };
 
 export const LegendAsPageHeading: Story = {
   render: () => (
-    <Fieldset aria-describedby='housing-act-hint'>
-      <FieldsetLegend size='l'>
-        <FieldsetHeading>
+    <Fieldset.Root aria-describedby='housing-act-hint'>
+      <Fieldset.Legend size='l'>
+        <Fieldset.Heading>
           Which part of the Housing Act was your licence issued under?
-        </FieldsetHeading>
-      </FieldsetLegend>
+        </Fieldset.Heading>
+      </Fieldset.Legend>
       <Hint id='housing-act-hint'>Select one of the options below.</Hint>
-      <Radios name='housing-act' defaultValue=''>
-        <RadiosItem value='part-2'>Part 2 of the Housing Act 2004</RadiosItem>
-        <RadiosItem value='part-3'>Part 3 of the Housing Act 2004</RadiosItem>
-      </Radios>
-    </Fieldset>
+      <Radios.Root name='housing-act' defaultValue=''>
+        <Radios.Item value='part-2'>Part 2 of the Housing Act 2004</Radios.Item>
+        <Radios.Item value='part-3'>Part 3 of the Housing Act 2004</Radios.Item>
+      </Radios.Root>
+    </Fieldset.Root>
   ),
 };
 
@@ -172,20 +167,20 @@ export const WithoutFieldset: Story = {
     },
   },
   render: () => (
-    <Radios name='colours' aria-label='Colour' defaultValue=''>
-      <RadiosItem value='red'>Red</RadiosItem>
-      <RadiosItem value='green'>Green</RadiosItem>
-      <RadiosItem value='blue'>Blue</RadiosItem>
-    </Radios>
+    <Radios.Root name='colours' aria-label='Colour' defaultValue=''>
+      <Radios.Item value='red'>Red</Radios.Item>
+      <Radios.Item value='green'>Green</Radios.Item>
+      <Radios.Item value='blue'>Blue</Radios.Item>
+    </Radios.Root>
   ),
 };
 
 export const LongOptionText: Story = {
   render: () => (
-    <Fieldset>
-      <FieldsetLegend>Which statement best describes you?</FieldsetLegend>
-      <Radios name='long-text' defaultValue=''>
-        <RadiosItem
+    <Fieldset.Root>
+      <Fieldset.Legend>Which statement best describes you?</Fieldset.Legend>
+      <Radios.Root name='long-text' defaultValue=''>
+        <Radios.Item
           value='first'
           hint='Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.'
         >
@@ -193,14 +188,14 @@ export const LongOptionText: Story = {
           faucibus mollis interdum. Donec sed odio dui. Cras mattis consectetur
           purus sit amet fermentum. Vestibulum id ligula porta felis euismod
           semper.
-        </RadiosItem>
-        <RadiosItem value='second'>
+        </Radios.Item>
+        <Radios.Item value='second'>
           Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a
           ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla
           non metus auctor fringilla.
-        </RadiosItem>
-      </Radios>
-    </Fieldset>
+        </Radios.Item>
+      </Radios.Root>
+    </Fieldset.Root>
   ),
 };
 
@@ -208,19 +203,19 @@ const ContactRadios = ({ id, small }: { id: string; small?: boolean }) => {
   const [value, setValue] = useState('');
 
   return (
-    <Fieldset aria-describedby={`${id}-hint`}>
-      <FieldsetLegend>How would you prefer to be contacted?</FieldsetLegend>
+    <Fieldset.Root aria-describedby={`${id}-hint`}>
+      <Fieldset.Legend>How would you prefer to be contacted?</Fieldset.Legend>
       <Hint id={`${id}-hint`}>Select one option</Hint>
-      <Radios
+      <Radios.Root
         name={id}
         value={value}
         onValueChange={(next) => setValue(String(next))}
       >
-        <RadiosItem small={small} value='email'>
+        <Radios.Item small={small} value='email'>
           Email
-        </RadiosItem>
+        </Radios.Item>
         {value === 'email' && (
-          <RadiosConditional small={small}>
+          <Radios.Conditional small={small}>
             <Label htmlFor={`${id}-email`}>Email address</Label>
             <TextInput
               id={`${id}-email`}
@@ -228,14 +223,14 @@ const ContactRadios = ({ id, small }: { id: string; small?: boolean }) => {
               autoComplete='email'
               width={20}
             />
-          </RadiosConditional>
+          </Radios.Conditional>
         )}
 
-        <RadiosItem small={small} value='phone'>
+        <Radios.Item small={small} value='phone'>
           Phone
-        </RadiosItem>
+        </Radios.Item>
         {value === 'phone' && (
-          <RadiosConditional small={small}>
+          <Radios.Conditional small={small}>
             <Label htmlFor={`${id}-phone`}>Phone number</Label>
             <TextInput
               id={`${id}-phone`}
@@ -243,14 +238,14 @@ const ContactRadios = ({ id, small }: { id: string; small?: boolean }) => {
               autoComplete='tel'
               width={20}
             />
-          </RadiosConditional>
+          </Radios.Conditional>
         )}
 
-        <RadiosItem small={small} value='text'>
+        <Radios.Item small={small} value='text'>
           Text message
-        </RadiosItem>
+        </Radios.Item>
         {value === 'text' && (
-          <RadiosConditional small={small}>
+          <Radios.Conditional small={small}>
             <Label htmlFor={`${id}-mobile`}>Mobile phone number</Label>
             <TextInput
               id={`${id}-mobile`}
@@ -258,10 +253,10 @@ const ContactRadios = ({ id, small }: { id: string; small?: boolean }) => {
               autoComplete='tel'
               width={20}
             />
-          </RadiosConditional>
+          </Radios.Conditional>
         )}
-      </Radios>
-    </Fieldset>
+      </Radios.Root>
+    </Fieldset.Root>
   );
 };
 
@@ -270,7 +265,7 @@ export const ConditionalReveal: Story = {
     docs: {
       description: {
         story:
-          'Render a `RadiosConditional` after an item while it is selected. Only reveal one simple question.',
+          'Render a `Radios.Conditional` after an item while it is selected. Only reveal one simple question.',
       },
     },
   },
@@ -279,99 +274,99 @@ export const ConditionalReveal: Story = {
 
 export const Small: Story = {
   render: () => (
-    <Fieldset>
-      <FieldsetLegend size='m'>Filter</FieldsetLegend>
-      <Radios name='small-filter' defaultValue=''>
-        <RadiosItem small value='monthly'>
+    <Fieldset.Root>
+      <Fieldset.Legend size='m'>Filter</Fieldset.Legend>
+      <Radios.Root name='small-filter' defaultValue=''>
+        <Radios.Item small value='monthly'>
           Monthly
-        </RadiosItem>
-        <RadiosItem small value='yearly'>
+        </Radios.Item>
+        <Radios.Item small value='yearly'>
           Yearly
-        </RadiosItem>
-      </Radios>
-    </Fieldset>
+        </Radios.Item>
+      </Radios.Root>
+    </Fieldset.Root>
   ),
 };
 
 export const SmallInline: Story = {
   render: () => (
-    <Fieldset>
-      <FieldsetLegend size='m'>Sort by</FieldsetLegend>
-      <Radios name='small-sort' inline defaultValue='relevance'>
-        <RadiosItem small value='relevance'>
+    <Fieldset.Root>
+      <Fieldset.Legend size='m'>Sort by</Fieldset.Legend>
+      <Radios.Root name='small-sort' inline defaultValue='relevance'>
+        <Radios.Item small value='relevance'>
           Relevance
-        </RadiosItem>
-        <RadiosItem small value='title'>
+        </Radios.Item>
+        <Radios.Item small value='title'>
           A to Z
-        </RadiosItem>
-        <RadiosItem small value='updated'>
+        </Radios.Item>
+        <Radios.Item small value='updated'>
           Updated (newest)
-        </RadiosItem>
-      </Radios>
-    </Fieldset>
+        </Radios.Item>
+      </Radios.Root>
+    </Fieldset.Root>
   ),
 };
 
 export const SmallWithHint: Story = {
   render: () => (
-    <Fieldset>
-      <FieldsetLegend size='m'>How do you want to sign in?</FieldsetLegend>
-      <Radios name='small-sign-in' defaultValue=''>
-        <RadiosItem
+    <Fieldset.Root>
+      <Fieldset.Legend size='m'>How do you want to sign in?</Fieldset.Legend>
+      <Radios.Root name='small-sign-in' defaultValue=''>
+        <Radios.Item
           small
           value='gateway'
           hint="You'll have a user ID if you've registered for Self Assessment or filed a tax return online before."
         >
           Sign in with Government Gateway
-        </RadiosItem>
-        <RadiosItem
+        </Radios.Item>
+        <Radios.Item
           small
           value='one-login'
           hint="You'll have an account if you've already proved your identity with GOV.UK One Login."
         >
           Sign in with GOV.UK One Login
-        </RadiosItem>
-      </Radios>
-    </Fieldset>
+        </Radios.Item>
+      </Radios.Root>
+    </Fieldset.Root>
   ),
 };
 
 export const SmallWithError: Story = {
   render: () => (
     <FormGroup error>
-      <Fieldset aria-describedby='small-error-message'>
-        <FieldsetLegend size='m'>Filter</FieldsetLegend>
+      <Fieldset.Root aria-describedby='small-error-message'>
+        <Fieldset.Legend size='m'>Filter</Fieldset.Legend>
         <ErrorMessage id='small-error-message'>Select a filter</ErrorMessage>
-        <Radios name='small-error' defaultValue=''>
-          <RadiosItem small value='monthly'>
+        <Radios.Root name='small-error' defaultValue=''>
+          <Radios.Item small value='monthly'>
             Monthly
-          </RadiosItem>
-          <RadiosItem small value='yearly'>
+          </Radios.Item>
+          <Radios.Item small value='yearly'>
             Yearly
-          </RadiosItem>
-        </Radios>
-      </Fieldset>
+          </Radios.Item>
+        </Radios.Root>
+      </Fieldset.Root>
     </FormGroup>
   ),
 };
 
 export const SmallWithDivider: Story = {
   render: () => (
-    <Fieldset>
-      <FieldsetLegend size='m'>How do you want to sign in?</FieldsetLegend>
-      <Radios name='small-divider' defaultValue=''>
-        <RadiosItem small value='gateway'>
+    <Fieldset.Root>
+      <Fieldset.Legend size='m'>How do you want to sign in?</Fieldset.Legend>
+      <Radios.Root name='small-divider' defaultValue=''>
+        <Radios.Item small value='gateway'>
           Use Government Gateway
-        </RadiosItem>
-        <RadiosItem small value='one-login'>
+        </Radios.Item>
+        <Radios.Item small value='one-login'>
           Use GOV.UK One Login
-        </RadiosItem>
-        <RadiosDivider small />
-        <RadiosItem small value='create'>
+        </Radios.Item>
+        <Radios.Divider small />
+        <Radios.Item small value='create'>
           Create an account
-        </RadiosItem>
-      </Radios>
-    </Fieldset>
+        </Radios.Item>
+      </Radios.Root>
+    </Fieldset.Root>
   ),
 };
 

@@ -180,12 +180,12 @@ const AccordionContent = ({ className, ...props }: AccordionContentProps) => (
 );
 
 export {
-  Accordion,
-  AccordionSection,
-  AccordionHeading,
-  AccordionContent,
-  type AccordionProps,
-  type AccordionSectionProps,
-  type AccordionHeadingProps,
-  type AccordionContentProps,
+  Accordion as Root,
+  AccordionSection as Section,
+  AccordionHeading as Heading,
+  AccordionContent as Content,
+  type AccordionProps as RootProps,
+  type AccordionSectionProps as SectionProps,
+  type AccordionHeadingProps as HeadingProps,
+  type AccordionContentProps as ContentProps,
 };

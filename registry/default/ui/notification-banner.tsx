@@ -140,16 +140,16 @@ const NotificationBannerLink = ({
 );
 
 export {
-  NotificationBanner,
-  NotificationBannerHeader,
-  NotificationBannerTitle,
-  NotificationBannerContent,
-  NotificationBannerHeading,
-  NotificationBannerLink,
-  type NotificationBannerProps,
-  type NotificationBannerHeaderProps,
-  type NotificationBannerTitleProps,
-  type NotificationBannerContentProps,
-  type NotificationBannerHeadingProps,
-  type NotificationBannerLinkProps,
+  NotificationBanner as Root,
+  NotificationBannerHeader as Header,
+  NotificationBannerTitle as Title,
+  NotificationBannerContent as Content,
+  NotificationBannerHeading as Heading,
+  NotificationBannerLink as Link,
+  type NotificationBannerProps as RootProps,
+  type NotificationBannerHeaderProps as HeaderProps,
+  type NotificationBannerTitleProps as TitleProps,
+  type NotificationBannerContentProps as ContentProps,
+  type NotificationBannerHeadingProps as HeadingProps,
+  type NotificationBannerLinkProps as LinkProps,
 };

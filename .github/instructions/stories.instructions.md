@@ -9,6 +9,7 @@ applyTo: "src/stories/**/*.stories.tsx"
 - **Title prefix** `Whitehall-UI/ComponentName`.
 - **Always include** `tags: ['autodocs']`.
 - **Import from** `@/ui/component-name` (the `@` alias resolves to `registry/default/`).
+- **Compound components are namespaces.** Use `import * as Panel from '@/ui/panel'`, then `component: Panel.Root`, `satisfies Meta<typeof Panel.Root>`, and `<Panel.Title>` in render functions.
 - **Use render functions** for composed, multi-component examples.
 - **No placeholder args.** Never add `args: { children: null }` (or similar) just to satisfy types — if a story needs it, the component's props are over-typed; fix the component.
 - **Custom story args** (controls that aren't component props) use `satisfies Meta<StoryArgs>` with `StoryObj<StoryArgs>` and no `component` key.

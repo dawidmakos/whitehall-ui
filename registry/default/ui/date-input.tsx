@@ -62,12 +62,12 @@ const DateInputInput = ({
 );
 
 export {
-  DateInput,
-  DateInputItem,
-  DateInputLabel,
-  DateInputInput,
-  type DateInputProps,
-  type DateInputItemProps,
-  type DateInputLabelProps,
-  type DateInputInputProps,
+  DateInput as Root,
+  DateInputItem as Item,
+  DateInputLabel as Label,
+  DateInputInput as Input,
+  type DateInputProps as RootProps,
+  type DateInputItemProps as ItemProps,
+  type DateInputLabelProps as LabelProps,
+  type DateInputInputProps as InputProps,
 };

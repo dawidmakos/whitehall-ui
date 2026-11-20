@@ -9,7 +9,7 @@ A component must be registered in every location below or it will be missing fro
 
 1. Create `registry/default/ui/component-name.tsx`.
 2. Create `src/stories/component-name.stories.tsx`.
-3. Add `export * from './ui/component-name';` to `registry/default/index.ts`.
+3. Add `export * from './ui/component-name';` to `registry/default/index.ts`. For a compound component, add `export * as ComponentName from './ui/component-name';` instead (see `component-authoring.instructions.md`).
 4. Add an entry to `registry.json` (list the npm `dependencies` the file imports and the `registryDependencies` it uses).
 5. Run `npm run registry:build`.
 6. Run `npx vitest run` to verify.

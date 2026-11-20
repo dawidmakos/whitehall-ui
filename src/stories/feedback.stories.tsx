@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Feedback, FeedbackTitle, FeedbackBody } from '@/ui/feedback';
+import * as Feedback from '@/ui/feedback';
 import { Link } from '@/ui/link';
 
 const meta = {
   title: 'Whitehall-UI/Feedback',
-  component: Feedback,
+  component: Feedback.Root,
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -15,21 +15,21 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Feedback>;
+} satisfies Meta<typeof Feedback.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Feedback>
-      <FeedbackTitle>Help us improve this service</FeedbackTitle>
-      <FeedbackBody>
+    <Feedback.Root>
+      <Feedback.Title>Help us improve this service</Feedback.Title>
+      <Feedback.Body>
         <p className='mt-0 mb-govuk-4'>
           Tell us about your experience using this service.{' '}
           <Link href='#'>Give us your feedback</Link>
         </p>
-      </FeedbackBody>
-    </Feedback>
+      </Feedback.Body>
+    </Feedback.Root>
   ),
 };

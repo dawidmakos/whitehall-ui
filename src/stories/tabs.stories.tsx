@@ -1,19 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Tabs, TabsList, TabsTab, TabsPanel } from '@/ui/tabs';
+import * as Tabs from '@/ui/tabs';
 import { InsetText } from '@/ui/inset-text';
 import { Link } from '@/ui/link';
-import {
-  SummaryList,
-  SummaryListRow,
-  SummaryListKey,
-  SummaryListValue,
-} from '@/ui/summary-list';
+import * as SummaryList from '@/ui/summary-list';
 import { Tag } from '@/ui/tag';
 import { WarningText } from '@/ui/warning-text';
 
 const meta = {
   title: 'Whitehall-UI/Tabs',
-  component: Tabs,
+  component: Tabs.Root,
   parameters: {
     docs: {
       description: {
@@ -23,20 +18,20 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Tabs>;
+} satisfies Meta<typeof Tabs.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Tabs defaultValue='past-day'>
-      <TabsList>
-        <TabsTab value='past-day'>Past day</TabsTab>
-        <TabsTab value='past-week'>Past week</TabsTab>
-        <TabsTab value='past-month'>Past month</TabsTab>
-      </TabsList>
-      <TabsPanel value='past-day'>
+    <Tabs.Root defaultValue='past-day'>
+      <Tabs.List>
+        <Tabs.Tab value='past-day'>Past day</Tabs.Tab>
+        <Tabs.Tab value='past-week'>Past week</Tabs.Tab>
+        <Tabs.Tab value='past-month'>Past month</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel value='past-day'>
         <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
           Past day
         </h2>
@@ -78,8 +73,8 @@ export const Default: Story = {
             </tr>
           </tbody>
         </table>
-      </TabsPanel>
-      <TabsPanel value='past-week'>
+      </Tabs.Panel>
+      <Tabs.Panel value='past-week'>
         <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
           Past week
         </h2>
@@ -121,8 +116,8 @@ export const Default: Story = {
             </tr>
           </tbody>
         </table>
-      </TabsPanel>
-      <TabsPanel value='past-month'>
+      </Tabs.Panel>
+      <Tabs.Panel value='past-month'>
         <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
           Past month
         </h2>
@@ -164,75 +159,75 @@ export const Default: Story = {
             </tr>
           </tbody>
         </table>
-      </TabsPanel>
-    </Tabs>
+      </Tabs.Panel>
+    </Tabs.Root>
   ),
 };
 
 export const WithSummaryLists: Story = {
   render: () => (
-    <Tabs defaultValue='personal'>
-      <TabsList>
-        <TabsTab value='personal'>Personal details</TabsTab>
-        <TabsTab value='contact'>Contact information</TabsTab>
-      </TabsList>
-      <TabsPanel value='personal'>
+    <Tabs.Root defaultValue='personal'>
+      <Tabs.List>
+        <Tabs.Tab value='personal'>Personal details</Tabs.Tab>
+        <Tabs.Tab value='contact'>Contact information</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel value='personal'>
         <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
           Personal details
         </h2>
-        <SummaryList>
-          <SummaryListRow>
-            <SummaryListKey>Name</SummaryListKey>
-            <SummaryListValue>Sarah Phillips</SummaryListValue>
-          </SummaryListRow>
-          <SummaryListRow>
-            <SummaryListKey>Date of birth</SummaryListKey>
-            <SummaryListValue>5 January 1978</SummaryListValue>
-          </SummaryListRow>
-          <SummaryListRow>
-            <SummaryListKey>National Insurance number</SummaryListKey>
-            <SummaryListValue>QQ 12 34 56 C</SummaryListValue>
-          </SummaryListRow>
-        </SummaryList>
-      </TabsPanel>
-      <TabsPanel value='contact'>
+        <SummaryList.Root>
+          <SummaryList.Row>
+            <SummaryList.Key>Name</SummaryList.Key>
+            <SummaryList.Value>Sarah Phillips</SummaryList.Value>
+          </SummaryList.Row>
+          <SummaryList.Row>
+            <SummaryList.Key>Date of birth</SummaryList.Key>
+            <SummaryList.Value>5 January 1978</SummaryList.Value>
+          </SummaryList.Row>
+          <SummaryList.Row>
+            <SummaryList.Key>National Insurance number</SummaryList.Key>
+            <SummaryList.Value>QQ 12 34 56 C</SummaryList.Value>
+          </SummaryList.Row>
+        </SummaryList.Root>
+      </Tabs.Panel>
+      <Tabs.Panel value='contact'>
         <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
           Contact information
         </h2>
-        <SummaryList>
-          <SummaryListRow>
-            <SummaryListKey>Email address</SummaryListKey>
-            <SummaryListValue>sarah.phillips@example.com</SummaryListValue>
-          </SummaryListRow>
-          <SummaryListRow>
-            <SummaryListKey>Phone number</SummaryListKey>
-            <SummaryListValue>07700 900457</SummaryListValue>
-          </SummaryListRow>
-          <SummaryListRow>
-            <SummaryListKey>Address</SummaryListKey>
-            <SummaryListValue>
+        <SummaryList.Root>
+          <SummaryList.Row>
+            <SummaryList.Key>Email address</SummaryList.Key>
+            <SummaryList.Value>sarah.phillips@example.com</SummaryList.Value>
+          </SummaryList.Row>
+          <SummaryList.Row>
+            <SummaryList.Key>Phone number</SummaryList.Key>
+            <SummaryList.Value>07700 900457</SummaryList.Value>
+          </SummaryList.Row>
+          <SummaryList.Row>
+            <SummaryList.Key>Address</SummaryList.Key>
+            <SummaryList.Value>
               72 Guild Street
               <br />
               London
               <br />
               SE23 6FH
-            </SummaryListValue>
-          </SummaryListRow>
-        </SummaryList>
-      </TabsPanel>
-    </Tabs>
+            </SummaryList.Value>
+          </SummaryList.Row>
+        </SummaryList.Root>
+      </Tabs.Panel>
+    </Tabs.Root>
   ),
 };
 
 export const WithMixedContent: Story = {
   render: () => (
-    <Tabs defaultValue='overview'>
-      <TabsList>
-        <TabsTab value='overview'>Overview</TabsTab>
-        <TabsTab value='status'>Application status</TabsTab>
-        <TabsTab value='important'>Important information</TabsTab>
-      </TabsList>
-      <TabsPanel value='overview'>
+    <Tabs.Root defaultValue='overview'>
+      <Tabs.List>
+        <Tabs.Tab value='overview'>Overview</Tabs.Tab>
+        <Tabs.Tab value='status'>Application status</Tabs.Tab>
+        <Tabs.Tab value='important'>Important information</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel value='overview'>
         <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
           Overview
         </h2>
@@ -247,33 +242,33 @@ export const WithMixedContent: Story = {
         <p className='font-govuk text-govuk-body text-govuk-black mb-govuk-4'>
           For more information, visit the <Link href='#'>guidance page</Link>.
         </p>
-      </TabsPanel>
-      <TabsPanel value='status'>
+      </Tabs.Panel>
+      <Tabs.Panel value='status'>
         <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
           Application status
         </h2>
-        <SummaryList>
-          <SummaryListRow>
-            <SummaryListKey>Application reference</SummaryListKey>
-            <SummaryListValue>HDJ2123F</SummaryListValue>
-          </SummaryListRow>
-          <SummaryListRow>
-            <SummaryListKey>Status</SummaryListKey>
-            <SummaryListValue>
+        <SummaryList.Root>
+          <SummaryList.Row>
+            <SummaryList.Key>Application reference</SummaryList.Key>
+            <SummaryList.Value>HDJ2123F</SummaryList.Value>
+          </SummaryList.Row>
+          <SummaryList.Row>
+            <SummaryList.Key>Status</SummaryList.Key>
+            <SummaryList.Value>
               <Tag colour='blue'>In progress</Tag>
-            </SummaryListValue>
-          </SummaryListRow>
-          <SummaryListRow>
-            <SummaryListKey>Submitted</SummaryListKey>
-            <SummaryListValue>14 March 2026</SummaryListValue>
-          </SummaryListRow>
-          <SummaryListRow>
-            <SummaryListKey>Last updated</SummaryListKey>
-            <SummaryListValue>28 March 2026</SummaryListValue>
-          </SummaryListRow>
-        </SummaryList>
-      </TabsPanel>
-      <TabsPanel value='important'>
+            </SummaryList.Value>
+          </SummaryList.Row>
+          <SummaryList.Row>
+            <SummaryList.Key>Submitted</SummaryList.Key>
+            <SummaryList.Value>14 March 2026</SummaryList.Value>
+          </SummaryList.Row>
+          <SummaryList.Row>
+            <SummaryList.Key>Last updated</SummaryList.Key>
+            <SummaryList.Value>28 March 2026</SummaryList.Value>
+          </SummaryList.Row>
+        </SummaryList.Root>
+      </Tabs.Panel>
+      <Tabs.Panel value='important'>
         <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
           Important information
         </h2>
@@ -286,19 +281,19 @@ export const WithMixedContent: Story = {
           application. See the{' '}
           <Link href='#'>full list of reportable changes</Link>.
         </p>
-      </TabsPanel>
-    </Tabs>
+      </Tabs.Panel>
+    </Tabs.Root>
   ),
 };
 
 export const TwoTabs: Story = {
   render: () => (
-    <Tabs defaultValue='england'>
-      <TabsList>
-        <TabsTab value='england'>England</TabsTab>
-        <TabsTab value='wales'>Wales</TabsTab>
-      </TabsList>
-      <TabsPanel value='england'>
+    <Tabs.Root defaultValue='england'>
+      <Tabs.List>
+        <Tabs.Tab value='england'>England</Tabs.Tab>
+        <Tabs.Tab value='wales'>Wales</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel value='england'>
         <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
           England
         </h2>
@@ -348,8 +343,8 @@ export const TwoTabs: Story = {
             </tr>
           </tbody>
         </table>
-      </TabsPanel>
-      <TabsPanel value='wales'>
+      </Tabs.Panel>
+      <Tabs.Panel value='wales'>
         <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
           Wales
         </h2>
@@ -399,8 +394,8 @@ export const TwoTabs: Story = {
             </tr>
           </tbody>
         </table>
-      </TabsPanel>
-    </Tabs>
+      </Tabs.Panel>
+    </Tabs.Root>
   ),
 };
 
@@ -417,13 +412,13 @@ export const StackedOnMobile: Story = {
     viewport: { value: 'govukMobileSmall' },
   },
   render: () => (
-    <Tabs defaultValue='eligibility'>
-      <TabsList>
-        <TabsTab value='eligibility'>Eligibility</TabsTab>
-        <TabsTab value='how-to-apply'>How to apply</TabsTab>
-        <TabsTab value='what-you-need'>What you need</TabsTab>
-      </TabsList>
-      <TabsPanel value='eligibility'>
+    <Tabs.Root defaultValue='eligibility'>
+      <Tabs.List>
+        <Tabs.Tab value='eligibility'>Eligibility</Tabs.Tab>
+        <Tabs.Tab value='how-to-apply'>How to apply</Tabs.Tab>
+        <Tabs.Tab value='what-you-need'>What you need</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel value='eligibility'>
         <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
           Eligibility
         </h2>
@@ -433,8 +428,8 @@ export const StackedOnMobile: Story = {
         <InsetText>
           You cannot apply if you already hold a licence for the same period.
         </InsetText>
-      </TabsPanel>
-      <TabsPanel value='how-to-apply'>
+      </Tabs.Panel>
+      <Tabs.Panel value='how-to-apply'>
         <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
           How to apply
         </h2>
@@ -445,8 +440,8 @@ export const StackedOnMobile: Story = {
         <WarningText assistiveText='Warning'>
           You must not fish until your licence arrives.
         </WarningText>
-      </TabsPanel>
-      <TabsPanel value='what-you-need'>
+      </Tabs.Panel>
+      <Tabs.Panel value='what-you-need'>
         <h2 className='font-govuk text-govuk-heading-l font-bold text-govuk-black mt-0 mb-govuk-4'>
           What you need
         </h2>
@@ -454,7 +449,7 @@ export const StackedOnMobile: Story = {
           You will need proof of address and a debit or credit card. See the{' '}
           <Link href='#'>full list of accepted documents</Link>.
         </p>
-      </TabsPanel>
-    </Tabs>
+      </Tabs.Panel>
+    </Tabs.Root>
   ),
 };

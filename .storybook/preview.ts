@@ -4,6 +4,23 @@ import type { Preview } from '@storybook/react-vite';
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 import '../src/index.css';
 
+// "Show code" names compound parts by their public path (Fieldset.Legend) instead of
+// their unexported local name (FieldsetLegend). import.meta.glob keeps the registry
+// out of this file's tsconfig.
+const library = Object.values(
+  import.meta.glob<Record<string, unknown>>('../registry/default/index.ts', {
+    eager: true,
+  }),
+)[0];
+for (const [namespace, parts] of Object.entries(library)) {
+  if (typeof parts !== 'object' || parts === null) continue;
+  for (const [part, component] of Object.entries(parts)) {
+    if (typeof component === 'function' && /^[A-Z]/.test(part)) {
+      Object.assign(component, { displayName: `${namespace}.${part}` });
+    }
+  }
+}
+
 // Boundaries of the library's `sm:` breakpoint (40rem / 640px), so the
 // responsive type scale and the Tabs stacked layout can be checked either side.
 const govukViewports = {

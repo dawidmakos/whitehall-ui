@@ -3,58 +3,24 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { BackLink } from '@/ui/back-link';
 import { Button } from '@/ui/button';
-import {
-  DateInput,
-  DateInputInput,
-  DateInputItem,
-  DateInputLabel,
-} from '@/ui/date-input';
+import * as DateInput from '@/ui/date-input';
 import { ErrorMessage } from '@/ui/error-message';
 import { ErrorSummary, type ErrorSummaryItem } from '@/ui/error-summary';
-import { Fieldset, FieldsetHeading, FieldsetLegend } from '@/ui/fieldset';
-import {
-  Footer,
-  FooterContainer,
-  FooterContentLicence,
-  FooterLink,
-  FooterMeta,
-  FooterMetaItem,
-} from '@/ui/footer';
-import { Header } from '@/ui/header';
+import * as Fieldset from '@/ui/fieldset';
+import * as Footer from '@/ui/footer';
+import * as Header from '@/ui/header';
 import { Hint } from '@/ui/hint';
 import { InsetText } from '@/ui/inset-text';
 import { Label } from '@/ui/label';
 import { Link } from '@/ui/link';
-import { Panel, PanelBody, PanelTitle } from '@/ui/panel';
-import {
-  PhaseBanner,
-  PhaseBannerContent,
-  PhaseBannerTag,
-  PhaseBannerText,
-} from '@/ui/phase-banner';
-import { Radios, RadiosItem } from '@/ui/radios';
-import {
-  ServiceNavigation,
-  ServiceNavigationContainer,
-  ServiceNavigationServiceName,
-} from '@/ui/service-navigation';
+import * as Panel from '@/ui/panel';
+import * as PhaseBanner from '@/ui/phase-banner';
+import * as Radios from '@/ui/radios';
+import * as ServiceNavigation from '@/ui/service-navigation';
 import { SkipLink } from '@/ui/skip-link';
-import {
-  SummaryList,
-  SummaryListActions,
-  SummaryListKey,
-  SummaryListRow,
-  SummaryListValue,
-} from '@/ui/summary-list';
+import * as SummaryList from '@/ui/summary-list';
 import { Tag } from '@/ui/tag';
-import {
-  TaskList,
-  TaskListHint,
-  TaskListItem,
-  TaskListLink,
-  TaskListNameAndHint,
-  TaskListStatus,
-} from '@/ui/task-list';
+import * as TaskList from '@/ui/task-list';
 import { TextInput } from '@/ui/text-input';
 
 type TaskId = 'name' | 'dateOfBirth' | 'licence';
@@ -157,25 +123,25 @@ const ServiceLayout = ({ children }: ServiceLayoutProps) => (
     <SkipLink href='#main-content'>Skip to main content</SkipLink>
 
     <header>
-      <Header />
-      <ServiceNavigation>
-        <ServiceNavigationContainer>
-          <ServiceNavigationServiceName href='#'>
+      <Header.Root />
+      <ServiceNavigation.Root>
+        <ServiceNavigation.Container>
+          <ServiceNavigation.ServiceName href='#'>
             Apply for a fishing licence
-          </ServiceNavigationServiceName>
-        </ServiceNavigationContainer>
-      </ServiceNavigation>
-      <PhaseBanner>
-        <PhaseBannerContent>
-          <PhaseBannerTag>
+          </ServiceNavigation.ServiceName>
+        </ServiceNavigation.Container>
+      </ServiceNavigation.Root>
+      <PhaseBanner.Root>
+        <PhaseBanner.Content>
+          <PhaseBanner.Tag>
             <Tag>Alpha</Tag>
-          </PhaseBannerTag>
-          <PhaseBannerText>
+          </PhaseBanner.Tag>
+          <PhaseBanner.Text>
             This is a new service. Your <Link href='#'>feedback</Link> will
             help us improve it.
-          </PhaseBannerText>
-        </PhaseBannerContent>
-      </PhaseBanner>
+          </PhaseBanner.Text>
+        </PhaseBanner.Content>
+      </PhaseBanner.Root>
     </header>
 
     <div className='grow'>
@@ -186,27 +152,27 @@ const ServiceLayout = ({ children }: ServiceLayoutProps) => (
       </div>
     </div>
 
-    <Footer>
-      <FooterContainer>
-        <FooterMeta>
-          <FooterMetaItem grow>
-            <FooterContentLicence>
+    <Footer.Root>
+      <Footer.Container>
+        <Footer.Meta>
+          <Footer.MetaItem grow>
+            <Footer.ContentLicence>
               All content is available under the{' '}
-              <FooterLink
+              <Footer.Link
                 href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
                 rel='license'
               >
                 Open Government Licence v3.0
-              </FooterLink>
+              </Footer.Link>
               , except where otherwise stated
-            </FooterContentLicence>
-          </FooterMetaItem>
-          <FooterMetaItem>
-            <FooterLink href='#'>© Crown copyright</FooterLink>
-          </FooterMetaItem>
-        </FooterMeta>
-      </FooterContainer>
-    </Footer>
+            </Footer.ContentLicence>
+          </Footer.MetaItem>
+          <Footer.MetaItem>
+            <Footer.Link href='#'>© Crown copyright</Footer.Link>
+          </Footer.MetaItem>
+        </Footer.Meta>
+      </Footer.Container>
+    </Footer.Root>
   </div>
 );
 
@@ -287,11 +253,11 @@ const TaskListPage = ({
         You have completed {completedCount} of {tasks.length} sections.
       </p>
 
-      <TaskList>
+      <TaskList.Root>
         {tasks.map((task) => (
-          <TaskListItem key={task.id} hasLink>
-            <TaskListNameAndHint>
-              <TaskListLink
+          <TaskList.Item key={task.id} hasLink>
+            <TaskList.NameAndHint>
+              <TaskList.Link
                 href={`#${task.id}`}
                 onClick={(event) => {
                   event.preventDefault();
@@ -299,23 +265,23 @@ const TaskListPage = ({
                 }}
               >
                 {task.name}
-              </TaskListLink>
-              <TaskListHint>{task.hint}</TaskListHint>
-            </TaskListNameAndHint>
-            <TaskListStatus>
+              </TaskList.Link>
+              <TaskList.Hint>{task.hint}</TaskList.Hint>
+            </TaskList.NameAndHint>
+            <TaskList.Status>
               {task.complete ? (
                 'Completed'
               ) : (
                 <Tag colour='blue'>Incomplete</Tag>
               )}
-            </TaskListStatus>
-          </TaskListItem>
+            </TaskList.Status>
+          </TaskList.Item>
         ))}
 
-        <TaskListItem hasLink={allComplete}>
-          <TaskListNameAndHint>
+        <TaskList.Item hasLink={allComplete}>
+          <TaskList.NameAndHint>
             {allComplete ? (
-              <TaskListLink
+              <TaskList.Link
                 href='#check'
                 onClick={(event) => {
                   event.preventDefault();
@@ -323,19 +289,19 @@ const TaskListPage = ({
                 }}
               >
                 Check your answers and submit
-              </TaskListLink>
+              </TaskList.Link>
             ) : (
               'Check your answers and submit'
             )}
-            <TaskListHint>
+            <TaskList.Hint>
               You can review everything before you send your application.
-            </TaskListHint>
-          </TaskListNameAndHint>
-          <TaskListStatus cannotStartYet={!allComplete}>
+            </TaskList.Hint>
+          </TaskList.NameAndHint>
+          <TaskList.Status cannotStartYet={!allComplete}>
             {allComplete ? <Tag colour='blue'>Ready</Tag> : 'Cannot start yet'}
-          </TaskListStatus>
-        </TaskListItem>
-      </TaskList>
+          </TaskList.Status>
+        </TaskList.Item>
+      </TaskList.Root>
     </>
   );
 };
@@ -423,23 +389,23 @@ const DateOfBirthPage = ({
 
       <ErrorSummaryPanel errors={errors} />
 
-      <Fieldset
+      <Fieldset.Root
         className='mt-govuk-6'
         aria-describedby='dob-hint'
         role='group'
       >
-        <FieldsetLegend size='xl'>
-          <FieldsetHeading as='h1'>What is your date of birth?</FieldsetHeading>
-        </FieldsetLegend>
+        <Fieldset.Legend size='xl'>
+          <Fieldset.Heading as='h1'>What is your date of birth?</Fieldset.Heading>
+        </Fieldset.Legend>
 
         <Hint id='dob-hint'>For example, 27 3 1985.</Hint>
 
         {dateError && <ErrorMessage>{dateError}</ErrorMessage>}
 
-        <DateInput>
-          <DateInputItem>
-            <DateInputLabel htmlFor='dob-day'>Day</DateInputLabel>
-            <DateInputInput
+        <DateInput.Root>
+          <DateInput.Item>
+            <DateInput.Label htmlFor='dob-day'>Day</DateInput.Label>
+            <DateInput.Input
               id='dob-day'
               name='dob-day'
               className='max-w-govuk-input-width-2'
@@ -447,10 +413,10 @@ const DateOfBirthPage = ({
               value={answers.day}
               onChange={(event) => onChange({ day: event.target.value })}
             />
-          </DateInputItem>
-          <DateInputItem>
-            <DateInputLabel htmlFor='dob-month'>Month</DateInputLabel>
-            <DateInputInput
+          </DateInput.Item>
+          <DateInput.Item>
+            <DateInput.Label htmlFor='dob-month'>Month</DateInput.Label>
+            <DateInput.Input
               id='dob-month'
               name='dob-month'
               className='max-w-govuk-input-width-2'
@@ -458,10 +424,10 @@ const DateOfBirthPage = ({
               value={answers.month}
               onChange={(event) => onChange({ month: event.target.value })}
             />
-          </DateInputItem>
-          <DateInputItem>
-            <DateInputLabel htmlFor='dob-year'>Year</DateInputLabel>
-            <DateInputInput
+          </DateInput.Item>
+          <DateInput.Item>
+            <DateInput.Label htmlFor='dob-year'>Year</DateInput.Label>
+            <DateInput.Input
               id='dob-year'
               name='dob-year'
               className='max-w-govuk-input-width-4'
@@ -469,9 +435,9 @@ const DateOfBirthPage = ({
               value={answers.year}
               onChange={(event) => onChange({ year: event.target.value })}
             />
-          </DateInputItem>
-        </DateInput>
-      </Fieldset>
+          </DateInput.Item>
+        </DateInput.Root>
+      </Fieldset.Root>
 
       <div className='mt-govuk-6'>
         <Button onClick={onContinue}>Continue</Button>
@@ -503,12 +469,12 @@ const LicencePage = ({
 
       <ErrorSummaryPanel errors={errors} />
 
-      <Fieldset className='mt-govuk-6' aria-describedby='licence-hint'>
-        <FieldsetLegend size='xl'>
-          <FieldsetHeading as='h1'>
+      <Fieldset.Root className='mt-govuk-6' aria-describedby='licence-hint'>
+        <Fieldset.Legend size='xl'>
+          <Fieldset.Heading as='h1'>
             Which type of licence do you want?
-          </FieldsetHeading>
-        </FieldsetLegend>
+          </Fieldset.Heading>
+        </Fieldset.Legend>
 
         <Hint id='licence-hint'>
           You can only hold one licence at a time.
@@ -516,26 +482,26 @@ const LicencePage = ({
 
         {licenceError && <ErrorMessage>{licenceError}</ErrorMessage>}
 
-        <Radios
+        <Radios.Root
           id='licence'
           name='licence'
           value={answers.licence}
           onValueChange={(value) => onChange({ licence: String(value) })}
         >
-          <RadiosItem value='trout-2-rod' hint='Costs £30 for a full year.'>
+          <Radios.Item value='trout-2-rod' hint='Costs £30 for a full year.'>
             Trout and coarse, up to 2 rods
-          </RadiosItem>
-          <RadiosItem value='trout-3-rod' hint='Costs £45 for a full year.'>
+          </Radios.Item>
+          <Radios.Item value='trout-3-rod' hint='Costs £45 for a full year.'>
             Trout and coarse, up to 3 rods
-          </RadiosItem>
-          <RadiosItem
+          </Radios.Item>
+          <Radios.Item
             value='salmon-sea-trout'
             hint='Costs £82 for a full year.'
           >
             Salmon and sea trout
-          </RadiosItem>
-        </Radios>
-      </Fieldset>
+          </Radios.Item>
+        </Radios.Root>
+      </Fieldset.Root>
 
       <div className='mt-govuk-6'>
         <Button onClick={onContinue}>Continue</Button>
@@ -587,12 +553,12 @@ const CheckAnswersPage = ({
         Check your answers before sending your application
       </h1>
 
-      <SummaryList>
+      <SummaryList.Root>
         {rows.map((row) => (
-          <SummaryListRow key={row.task}>
-            <SummaryListKey>{row.key}</SummaryListKey>
-            <SummaryListValue>{row.value}</SummaryListValue>
-            <SummaryListActions>
+          <SummaryList.Row key={row.task}>
+            <SummaryList.Key>{row.key}</SummaryList.Key>
+            <SummaryList.Value>{row.value}</SummaryList.Value>
+            <SummaryList.Actions>
               <Link
                 href='#'
                 onClick={(event) => {
@@ -602,10 +568,10 @@ const CheckAnswersPage = ({
               >
                 Change<span className='sr-only'> {row.key.toLowerCase()}</span>
               </Link>
-            </SummaryListActions>
-          </SummaryListRow>
+            </SummaryList.Actions>
+          </SummaryList.Row>
         ))}
-      </SummaryList>
+      </SummaryList.Root>
 
       <h2 className='mt-0 mb-govuk-3 text-govuk-heading-m font-bold'>
         Now send your application
@@ -626,14 +592,14 @@ interface ConfirmationPageProps {
 
 const ConfirmationPage = ({ onStartAgain }: ConfirmationPageProps) => (
   <>
-    <Panel>
-      <PanelTitle>Application complete</PanelTitle>
-      <PanelBody>
+    <Panel.Root>
+      <Panel.Title>Application complete</Panel.Title>
+      <Panel.Body>
         Your reference number
         <br />
         <strong>{referenceNumber}</strong>
-      </PanelBody>
-    </Panel>
+      </Panel.Body>
+    </Panel.Root>
 
     <p className='mb-govuk-4 text-govuk-body'>
       We have sent you a confirmation email.

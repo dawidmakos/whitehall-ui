@@ -1,21 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Pagination,
-  PaginationPrevious,
-  PaginationNext,
-  PaginationList,
-  PaginationItem,
-  PaginationEllipsis,
-  PaginationLink,
-  PaginationLinkTitle,
-  PaginationLinkLabel,
-  PrevArrow,
-  NextArrow,
-} from '@/ui/pagination';
+import * as Pagination from '@/ui/pagination';
 
 const meta = {
   title: 'Whitehall-UI/Pagination',
-  component: Pagination,
+  component: Pagination.Root,
   parameters: {
     docs: {
       description: {
@@ -25,263 +13,263 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Pagination>;
+} satisfies Meta<typeof Pagination.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Pagination>
-      <PaginationPrevious>
-        <PaginationLink href='/page/1' rel='prev'>
-          <PrevArrow />
-          <PaginationLinkTitle>
+    <Pagination.Root>
+      <Pagination.Previous>
+        <Pagination.Link href='/page/1' rel='prev'>
+          <Pagination.PrevArrow />
+          <Pagination.LinkTitle>
             Previous<span className='sr-only'> page</span>
-          </PaginationLinkTitle>
-        </PaginationLink>
-      </PaginationPrevious>
-      <PaginationList>
-        <PaginationItem>
-          <PaginationLink href='/page/1' aria-label='Page 1'>
+          </Pagination.LinkTitle>
+        </Pagination.Link>
+      </Pagination.Previous>
+      <Pagination.List>
+        <Pagination.Item>
+          <Pagination.Link href='/page/1' aria-label='Page 1'>
             1
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href='/page/2' aria-label='Page 2'>
+          </Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item>
+          <Pagination.Link href='/page/2' aria-label='Page 2'>
             2
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem current>
-          <PaginationLink aria-current='page' href='/page/3' aria-label='Page 3'>
+          </Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item current>
+          <Pagination.Link aria-current='page' href='/page/3' aria-label='Page 3'>
             3
-          </PaginationLink>
-        </PaginationItem>
-      </PaginationList>
-      <PaginationNext>
-        <PaginationLink href='/page/4' rel='next'>
-          <PaginationLinkTitle>
+          </Pagination.Link>
+        </Pagination.Item>
+      </Pagination.List>
+      <Pagination.Next>
+        <Pagination.Link href='/page/4' rel='next'>
+          <Pagination.LinkTitle>
             Next<span className='sr-only'> page</span>
-          </PaginationLinkTitle>
-          <NextArrow />
-        </PaginationLink>
-      </PaginationNext>
-    </Pagination>
+          </Pagination.LinkTitle>
+          <Pagination.NextArrow />
+        </Pagination.Link>
+      </Pagination.Next>
+    </Pagination.Root>
   ),
 };
 
 export const WithEllipsis: Story = {
   render: () => (
-    <Pagination>
-      <PaginationPrevious>
-        <PaginationLink href='/page/14' rel='prev'>
-          <PrevArrow />
-          <PaginationLinkTitle>
+    <Pagination.Root>
+      <Pagination.Previous>
+        <Pagination.Link href='/page/14' rel='prev'>
+          <Pagination.PrevArrow />
+          <Pagination.LinkTitle>
             Previous<span className='sr-only'> page</span>
-          </PaginationLinkTitle>
-        </PaginationLink>
-      </PaginationPrevious>
-      <PaginationList>
-        <PaginationItem>
-          <PaginationLink href='/page/1' aria-label='Page 1'>
+          </Pagination.LinkTitle>
+        </Pagination.Link>
+      </Pagination.Previous>
+      <Pagination.List>
+        <Pagination.Item>
+          <Pagination.Link href='/page/1' aria-label='Page 1'>
             1
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href='/page/2' aria-label='Page 2'>
+          </Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item>
+          <Pagination.Link href='/page/2' aria-label='Page 2'>
             2
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationEllipsis />
-        <PaginationItem>
-          <PaginationLink href='/page/14' aria-label='Page 14'>
+          </Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Ellipsis />
+        <Pagination.Item>
+          <Pagination.Link href='/page/14' aria-label='Page 14'>
             14
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem current>
-          <PaginationLink aria-current='page' href='/page/15' aria-label='Page 15'>
+          </Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item current>
+          <Pagination.Link aria-current='page' href='/page/15' aria-label='Page 15'>
             15
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href='/page/16' aria-label='Page 16'>
+          </Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item>
+          <Pagination.Link href='/page/16' aria-label='Page 16'>
             16
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationEllipsis />
-        <PaginationItem>
-          <PaginationLink href='/page/41' aria-label='Page 41'>
+          </Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Ellipsis />
+        <Pagination.Item>
+          <Pagination.Link href='/page/41' aria-label='Page 41'>
             41
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href='/page/42' aria-label='Page 42'>
+          </Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item>
+          <Pagination.Link href='/page/42' aria-label='Page 42'>
             42
-          </PaginationLink>
-        </PaginationItem>
-      </PaginationList>
-      <PaginationNext>
-        <PaginationLink href='/page/16' rel='next'>
-          <PaginationLinkTitle>
+          </Pagination.Link>
+        </Pagination.Item>
+      </Pagination.List>
+      <Pagination.Next>
+        <Pagination.Link href='/page/16' rel='next'>
+          <Pagination.LinkTitle>
             Next<span className='sr-only'> page</span>
-          </PaginationLinkTitle>
-          <NextArrow />
-        </PaginationLink>
-      </PaginationNext>
-    </Pagination>
+          </Pagination.LinkTitle>
+          <Pagination.NextArrow />
+        </Pagination.Link>
+      </Pagination.Next>
+    </Pagination.Root>
   ),
 };
 
 export const FirstPage: Story = {
   render: () => (
-    <Pagination>
-      <PaginationList>
-        <PaginationItem current>
-          <PaginationLink aria-current='page' href='/page/1' aria-label='Page 1'>
+    <Pagination.Root>
+      <Pagination.List>
+        <Pagination.Item current>
+          <Pagination.Link aria-current='page' href='/page/1' aria-label='Page 1'>
             1
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href='/page/2' aria-label='Page 2'>
+          </Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item>
+          <Pagination.Link href='/page/2' aria-label='Page 2'>
             2
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href='/page/3' aria-label='Page 3'>
+          </Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item>
+          <Pagination.Link href='/page/3' aria-label='Page 3'>
             3
-          </PaginationLink>
-        </PaginationItem>
-      </PaginationList>
-      <PaginationNext>
-        <PaginationLink href='/page/2' rel='next'>
-          <PaginationLinkTitle>
+          </Pagination.Link>
+        </Pagination.Item>
+      </Pagination.List>
+      <Pagination.Next>
+        <Pagination.Link href='/page/2' rel='next'>
+          <Pagination.LinkTitle>
             Next<span className='sr-only'> page</span>
-          </PaginationLinkTitle>
-          <NextArrow />
-        </PaginationLink>
-      </PaginationNext>
-    </Pagination>
+          </Pagination.LinkTitle>
+          <Pagination.NextArrow />
+        </Pagination.Link>
+      </Pagination.Next>
+    </Pagination.Root>
   ),
 };
 
 export const LastPage: Story = {
   render: () => (
-    <Pagination>
-      <PaginationPrevious>
-        <PaginationLink href='/page/2' rel='prev'>
-          <PrevArrow />
-          <PaginationLinkTitle>
+    <Pagination.Root>
+      <Pagination.Previous>
+        <Pagination.Link href='/page/2' rel='prev'>
+          <Pagination.PrevArrow />
+          <Pagination.LinkTitle>
             Previous<span className='sr-only'> page</span>
-          </PaginationLinkTitle>
-        </PaginationLink>
-      </PaginationPrevious>
-      <PaginationList>
-        <PaginationItem>
-          <PaginationLink href='/page/1' aria-label='Page 1'>
+          </Pagination.LinkTitle>
+        </Pagination.Link>
+      </Pagination.Previous>
+      <Pagination.List>
+        <Pagination.Item>
+          <Pagination.Link href='/page/1' aria-label='Page 1'>
             1
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href='/page/2' aria-label='Page 2'>
+          </Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item>
+          <Pagination.Link href='/page/2' aria-label='Page 2'>
             2
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem current>
-          <PaginationLink aria-current='page' href='/page/3' aria-label='Page 3'>
+          </Pagination.Link>
+        </Pagination.Item>
+        <Pagination.Item current>
+          <Pagination.Link aria-current='page' href='/page/3' aria-label='Page 3'>
             3
-          </PaginationLink>
-        </PaginationItem>
-      </PaginationList>
-    </Pagination>
+          </Pagination.Link>
+        </Pagination.Item>
+      </Pagination.List>
+    </Pagination.Root>
   ),
 };
 
 export const BlockLevel: Story = {
   render: () => (
-    <Pagination block>
-      <PaginationPrevious>
-        <PaginationLink href='/previous-page' rel='prev'>
-          <PrevArrow />
-          <PaginationLinkTitle>
+    <Pagination.Root block>
+      <Pagination.Previous>
+        <Pagination.Link href='/previous-page' rel='prev'>
+          <Pagination.PrevArrow />
+          <Pagination.LinkTitle>
             Previous<span className='sr-only'> page</span>
-          </PaginationLinkTitle>
+          </Pagination.LinkTitle>
           <span className='sr-only'>:</span>
-          <PaginationLinkLabel>
+          <Pagination.LinkLabel>
             Applying for a provisional lorry or bus licence
-          </PaginationLinkLabel>
-        </PaginationLink>
-      </PaginationPrevious>
-      <PaginationNext>
-        <PaginationLink href='/next-page' rel='next'>
-          <NextArrow />
-          <PaginationLinkTitle>
+          </Pagination.LinkLabel>
+        </Pagination.Link>
+      </Pagination.Previous>
+      <Pagination.Next>
+        <Pagination.Link href='/next-page' rel='next'>
+          <Pagination.NextArrow />
+          <Pagination.LinkTitle>
             Next<span className='sr-only'> page</span>
-          </PaginationLinkTitle>
+          </Pagination.LinkTitle>
           <span className='sr-only'>:</span>
-          <PaginationLinkLabel>
+          <Pagination.LinkLabel>
             Driver CPC part 1 test: theory
-          </PaginationLinkLabel>
-        </PaginationLink>
-      </PaginationNext>
-    </Pagination>
+          </Pagination.LinkLabel>
+        </Pagination.Link>
+      </Pagination.Next>
+    </Pagination.Root>
   ),
 };
 
 export const BlockWithoutLabels: Story = {
   render: () => (
-    <Pagination block>
-      <PaginationPrevious>
-        <PaginationLink href='/previous-page' rel='prev'>
-          <PrevArrow />
-          <PaginationLinkTitle>
+    <Pagination.Root block>
+      <Pagination.Previous>
+        <Pagination.Link href='/previous-page' rel='prev'>
+          <Pagination.PrevArrow />
+          <Pagination.LinkTitle>
             Previous<span className='sr-only'> page</span>
-          </PaginationLinkTitle>
-        </PaginationLink>
-      </PaginationPrevious>
-      <PaginationNext>
-        <PaginationLink href='/next-page' rel='next'>
-          <NextArrow />
-          <PaginationLinkTitle>
+          </Pagination.LinkTitle>
+        </Pagination.Link>
+      </Pagination.Previous>
+      <Pagination.Next>
+        <Pagination.Link href='/next-page' rel='next'>
+          <Pagination.NextArrow />
+          <Pagination.LinkTitle>
             Next<span className='sr-only'> page</span>
-          </PaginationLinkTitle>
-        </PaginationLink>
-      </PaginationNext>
-    </Pagination>
+          </Pagination.LinkTitle>
+        </Pagination.Link>
+      </Pagination.Next>
+    </Pagination.Root>
   ),
 };
 
 export const PreviousOnly: Story = {
   render: () => (
-    <Pagination block>
-      <PaginationPrevious>
-        <PaginationLink href='/previous-page' rel='prev'>
-          <PrevArrow />
-          <PaginationLinkTitle>
+    <Pagination.Root block>
+      <Pagination.Previous>
+        <Pagination.Link href='/previous-page' rel='prev'>
+          <Pagination.PrevArrow />
+          <Pagination.LinkTitle>
             Previous<span className='sr-only'> page</span>
-          </PaginationLinkTitle>
+          </Pagination.LinkTitle>
           <span className='sr-only'>:</span>
-          <PaginationLinkLabel>Driver CPC part 1 test: theory</PaginationLinkLabel>
-        </PaginationLink>
-      </PaginationPrevious>
-    </Pagination>
+          <Pagination.LinkLabel>Driver CPC part 1 test: theory</Pagination.LinkLabel>
+        </Pagination.Link>
+      </Pagination.Previous>
+    </Pagination.Root>
   ),
 };
 
 export const NextOnly: Story = {
   render: () => (
-    <Pagination block>
-      <PaginationNext>
-        <PaginationLink href='/next-page' rel='next'>
-          <NextArrow />
-          <PaginationLinkTitle>
+    <Pagination.Root block>
+      <Pagination.Next>
+        <Pagination.Link href='/next-page' rel='next'>
+          <Pagination.NextArrow />
+          <Pagination.LinkTitle>
             Next<span className='sr-only'> page</span>
-          </PaginationLinkTitle>
+          </Pagination.LinkTitle>
           <span className='sr-only'>:</span>
-          <PaginationLinkLabel>
+          <Pagination.LinkLabel>
             Driver CPC part 2 test: case studies
-          </PaginationLinkLabel>
-        </PaginationLink>
-      </PaginationNext>
-    </Pagination>
+          </Pagination.LinkLabel>
+        </Pagination.Link>
+      </Pagination.Next>
+    </Pagination.Root>
   ),
 };

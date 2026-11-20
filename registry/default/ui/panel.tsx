@@ -64,12 +64,12 @@ const PanelActions = ({ className, ...props }: PanelActionsProps) => (
 );
 
 export {
-  Panel,
-  PanelTitle,
-  PanelBody,
-  PanelActions,
-  type PanelProps,
-  type PanelTitleProps,
-  type PanelBodyProps,
-  type PanelActionsProps,
+  Panel as Root,
+  PanelTitle as Title,
+  PanelBody as Body,
+  PanelActions as Actions,
+  type PanelProps as RootProps,
+  type PanelTitleProps as TitleProps,
+  type PanelBodyProps as BodyProps,
+  type PanelActionsProps as ActionsProps,
 };

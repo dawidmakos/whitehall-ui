@@ -31,7 +31,30 @@ export { Tag, tagVariants, type TagProps, type TagColour };
 
 - Props interface: `ComponentNameProps`.
 - Variant type alias: `ComponentNameVariant` (or `...Colour`, etc.) derived via `NonNullable<VariantProps<...>[...]>`.
-- Complex components (Header, Footer) compose multiple exported sub-components — never one monolith.
+- Complex components (Header, Footer) are compound: a namespace of parts, never one monolith.
+
+## Compound components
+
+Follow Base UI's pattern. Keep prefixed local names so React DevTools and docgen show `PanelTitle`, and alias each part to a short name in the export block. The root is `Root`, and each prop type follows its part:
+
+```tsx
+export {
+  Panel as Root,
+  PanelTitle as Title,
+  PanelBody as Body,
+  PanelActions as Actions,
+  type PanelProps as RootProps,
+  type PanelTitleProps as TitleProps,
+  type PanelBodyProps as BodyProps,
+  type PanelActionsProps as ActionsProps,
+};
+```
+
+The barrel creates the namespace with `export * as Panel from './ui/panel'`, so consumers write `<Panel.Root>` and `Panel.TitleProps`. Never build the namespace with an object literal or `Object.assign`: in a `'use client'` file, `<Panel.Title>` rendered from a React Server Component throws "You cannot dot into a client module".
+
+These stay plain named exports:
+- components with a single part;
+- components with a helper next to them rather than parts (`Label` + `LabelWrapper`, `CharacterCount` + `CharacterCountMessage`).
 
 ## className & variants
 
@@ -42,7 +65,7 @@ export { Tag, tagVariants, type TagProps, type TagColour };
 
 ## Headless primitives (Base UI)
 
-- **Wire descriptions in the component, not the story.** Hints, statuses and error text that GOV.UK links with `aria-describedby` must be linked automatically (e.g. `CheckboxesItem`/`RadiosItem` `hint` prop, `TaskListItem` ids), merging any consumer `aria-describedby`.
+- **Wire descriptions in the component, not the story.** Hints, statuses and error text that GOV.UK links with `aria-describedby` must be linked automatically (e.g. `Checkboxes.Item`/`Radios.Item` `hint` prop, `TaskList.Item` ids), merging any consumer `aria-describedby`.
 - **Native first.** If a native element covers the behaviour (`<details>`, `<select>`, `<input>`, `<textarea>`), use it — no JS, works without hydration, and it's what GOV.UK ships.
 - Interactive components that need real interaction logic (accordion, button, checkboxes, radios, tabs) wrap [`@base-ui/react`](https://base-ui.com) primitives — an **optional peer dependency**.
 - Import the primitive aliased as `Base*`, then derive props from it. Omit `className` only to narrow it to a string for `cn()`; never re-add `ref` or `children`:
