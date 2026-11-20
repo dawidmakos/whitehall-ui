@@ -104,6 +104,59 @@ export function Example() {
 
 ---
 
+## Compound components
+
+Components made of several parts are namespaces, the same pattern as [Base UI](https://base-ui.com): a `Root` plus named parts.
+
+```tsx
+import { ServiceNavigation } from 'whitehall-ui';
+
+export function Navigation() {
+  return (
+    <ServiceNavigation.Root>
+      <ServiceNavigation.Container>
+        <ServiceNavigation.ServiceName href='/'>My service</ServiceNavigation.ServiceName>
+        <ServiceNavigation.Nav>
+          <ServiceNavigation.Item active>
+            <ServiceNavigation.Link href='/' aria-current='page'>
+              Dashboard
+            </ServiceNavigation.Link>
+          </ServiceNavigation.Item>
+        </ServiceNavigation.Nav>
+      </ServiceNavigation.Container>
+    </ServiceNavigation.Root>
+  );
+}
+```
+
+With a per-component subpath or a shadcn copy, import the module as the namespace:
+
+```tsx
+import * as ServiceNavigation from 'whitehall-ui/service-navigation';
+import * as ServiceNavigation from '@/components/ui/service-navigation';
+```
+
+Prop types are on the namespace too: `ServiceNavigation.LinkProps`.
+
+The namespaced components are Accordion, Breadcrumbs, Checkboxes, CookieBanner, DateInput, Details, Feedback, Fieldset, Footer, GenericHeader, Header, LanguageNavigation, NotificationBanner, Pagination, Panel, PhaseBanner, Radios, ServiceNavigation, SummaryList, Table, Tabs and TaskList. Every other component is a plain named export (`Button`, `Label`, `Tag`, …).
+
+### Upgrading from 2.x
+
+3.0 replaces the flat names with namespaces:
+
+- `ServiceNavigation` → `ServiceNavigation.Root`
+- `ServiceNavigationLink` → `ServiceNavigation.Link`
+- `ServiceNavigationLinkProps` → `ServiceNavigation.LinkProps`
+
+Helpers move onto their namespace too:
+
+- `fieldsetLegendVariants` → `Fieldset.legendVariants`
+- `tableCaptionVariants` → `Table.captionVariants`
+- `TableCaptionSize` → `Table.CaptionSize`
+- `PrevArrow` / `NextArrow` → `Pagination.PrevArrow` / `Pagination.NextArrow`
+
+---
+
 ## Available components
 
 `accordion` · `back-link` · `breadcrumbs` · `button` · `character-count` · `checkboxes` · `cookie-banner` · `date-input` · `details` · `error-message` · `error-summary` · `exit-this-page` · `feedback` · `fieldset` · `file-upload` · `footer` · `form-group` · `generic-header` · `header` · `hint` · `inset-text` · `label` · `language-navigation` · `link` · `notification-banner` · `pagination` · `panel` · `password-input` · `phase-banner` · `radios` · `select` · `service-navigation` · `skip-link` · `summary-list` · `table` · `tabs` · `tag` · `task-list` · `text-input` · `textarea` · `warning-text`

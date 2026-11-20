@@ -1,18 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Table,
-  TableContainer,
-  TableCaption,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableHeader,
-  TableCell,
-} from '@/ui/table';
+import * as Table from '@/ui/table';
 
 const meta = {
   title: 'Whitehall-UI/Table',
-  component: Table,
+  component: Table.Root,
   parameters: {
     docs: {
       description: {
@@ -22,127 +13,127 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Table>;
+} satisfies Meta<typeof Table.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableHeader scope='col'>Date</TableHeader>
-          <TableHeader scope='col'>Amount</TableHeader>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        <TableRow>
-          <TableCell>First 6 weeks</TableCell>
-          <TableCell>£109.80 per week</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Next 33 weeks</TableCell>
-          <TableCell>£109.80 per week</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Total estimated pay</TableCell>
-          <TableCell>£4,282.20</TableCell>
-        </TableRow>
-      </TableBody>
-    </Table>
+    <Table.Root>
+      <Table.Head>
+        <Table.Row>
+          <Table.Header scope='col'>Date</Table.Header>
+          <Table.Header scope='col'>Amount</Table.Header>
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>First 6 weeks</Table.Cell>
+          <Table.Cell>£109.80 per week</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Next 33 weeks</Table.Cell>
+          <Table.Cell>£109.80 per week</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Total estimated pay</Table.Cell>
+          <Table.Cell>£4,282.20</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table.Root>
   ),
 };
 
 export const WithCaption: Story = {
   render: () => (
-    <Table>
-      <TableCaption size='m'>Dates and amounts</TableCaption>
-      <TableHead>
-        <TableRow>
-          <TableHeader scope='col'>Date</TableHeader>
-          <TableHeader scope='col'>Amount</TableHeader>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        <TableRow>
-          <TableCell>First 6 weeks</TableCell>
-          <TableCell>£109.80 per week</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Next 33 weeks</TableCell>
-          <TableCell>£109.80 per week</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Total estimated pay</TableCell>
-          <TableCell>£4,282.20</TableCell>
-        </TableRow>
-      </TableBody>
-    </Table>
+    <Table.Root>
+      <Table.Caption size='m'>Dates and amounts</Table.Caption>
+      <Table.Head>
+        <Table.Row>
+          <Table.Header scope='col'>Date</Table.Header>
+          <Table.Header scope='col'>Amount</Table.Header>
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>First 6 weeks</Table.Cell>
+          <Table.Cell>£109.80 per week</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Next 33 weeks</Table.Cell>
+          <Table.Cell>£109.80 per week</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Total estimated pay</Table.Cell>
+          <Table.Cell>£4,282.20</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table.Root>
   ),
 };
 
 export const WithNumericValues: Story = {
   render: () => (
-    <Table>
-      <TableCaption size='m'>Months and rates</TableCaption>
-      <TableHead>
-        <TableRow>
-          <TableHeader scope='col'>Month</TableHeader>
-          <TableHeader scope='col' numeric>Rate for vehicles</TableHeader>
-          <TableHeader scope='col' numeric>Rate for bicycles</TableHeader>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        <TableRow>
-          <TableCell>January</TableCell>
-          <TableCell numeric>£165.00</TableCell>
-          <TableCell numeric>£85.00</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>February</TableCell>
-          <TableCell numeric>£165.00</TableCell>
-          <TableCell numeric>£85.00</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>March</TableCell>
-          <TableCell numeric>£151.00</TableCell>
-          <TableCell numeric>£77.00</TableCell>
-        </TableRow>
-      </TableBody>
-    </Table>
+    <Table.Root>
+      <Table.Caption size='m'>Months and rates</Table.Caption>
+      <Table.Head>
+        <Table.Row>
+          <Table.Header scope='col'>Month</Table.Header>
+          <Table.Header scope='col' numeric>Rate for vehicles</Table.Header>
+          <Table.Header scope='col' numeric>Rate for bicycles</Table.Header>
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>January</Table.Cell>
+          <Table.Cell numeric>£165.00</Table.Cell>
+          <Table.Cell numeric>£85.00</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>February</Table.Cell>
+          <Table.Cell numeric>£165.00</Table.Cell>
+          <Table.Cell numeric>£85.00</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>March</Table.Cell>
+          <Table.Cell numeric>£151.00</Table.Cell>
+          <Table.Cell numeric>£77.00</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table.Root>
   ),
 };
 
 export const WithRowHeaders: Story = {
   render: () => (
-    <Table>
-      <TableCaption size='m'>Cases opened and closed per month</TableCaption>
-      <TableHead>
-        <TableRow>
-          <TableHeader scope='col'>Case manager</TableHeader>
-          <TableHeader scope='col' numeric>Cases opened</TableHeader>
-          <TableHeader scope='col' numeric>Cases closed</TableHeader>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        <TableRow>
-          <TableHeader scope='row'>David Francis</TableHeader>
-          <TableCell numeric>98</TableCell>
-          <TableCell numeric>95</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableHeader scope='row'>Paul Farmer</TableHeader>
-          <TableCell numeric>122</TableCell>
-          <TableCell numeric>131</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableHeader scope='row'>Rita Patel</TableHeader>
-          <TableCell numeric>126</TableCell>
-          <TableCell numeric>142</TableCell>
-        </TableRow>
-      </TableBody>
-    </Table>
+    <Table.Root>
+      <Table.Caption size='m'>Cases opened and closed per month</Table.Caption>
+      <Table.Head>
+        <Table.Row>
+          <Table.Header scope='col'>Case manager</Table.Header>
+          <Table.Header scope='col' numeric>Cases opened</Table.Header>
+          <Table.Header scope='col' numeric>Cases closed</Table.Header>
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        <Table.Row>
+          <Table.Header scope='row'>David Francis</Table.Header>
+          <Table.Cell numeric>98</Table.Cell>
+          <Table.Cell numeric>95</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Header scope='row'>Paul Farmer</Table.Header>
+          <Table.Cell numeric>122</Table.Cell>
+          <Table.Cell numeric>131</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Header scope='row'>Rita Patel</Table.Header>
+          <Table.Cell numeric>126</Table.Cell>
+          <Table.Cell numeric>142</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table.Root>
   ),
 };
 
@@ -159,33 +150,33 @@ export const SmallTextUntilTablet: Story = {
     viewport: { value: 'govukMobileSmall' },
   },
   render: () => (
-    <Table smallTextUntilTablet>
-      <TableCaption size='m'>Cases by manager</TableCaption>
-      <TableHead>
-        <TableRow>
-          <TableHeader scope='col'>Case manager</TableHeader>
-          <TableHeader scope='col' numeric>Opened</TableHeader>
-          <TableHeader scope='col' numeric>Closed</TableHeader>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        <TableRow>
-          <TableHeader scope='row'>David Francis</TableHeader>
-          <TableCell numeric>98</TableCell>
-          <TableCell numeric>95</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableHeader scope='row'>Paul Farmer</TableHeader>
-          <TableCell numeric>122</TableCell>
-          <TableCell numeric>131</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableHeader scope='row'>Rita Patel</TableHeader>
-          <TableCell numeric>126</TableCell>
-          <TableCell numeric>142</TableCell>
-        </TableRow>
-      </TableBody>
-    </Table>
+    <Table.Root smallTextUntilTablet>
+      <Table.Caption size='m'>Cases by manager</Table.Caption>
+      <Table.Head>
+        <Table.Row>
+          <Table.Header scope='col'>Case manager</Table.Header>
+          <Table.Header scope='col' numeric>Opened</Table.Header>
+          <Table.Header scope='col' numeric>Closed</Table.Header>
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        <Table.Row>
+          <Table.Header scope='row'>David Francis</Table.Header>
+          <Table.Cell numeric>98</Table.Cell>
+          <Table.Cell numeric>95</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Header scope='row'>Paul Farmer</Table.Header>
+          <Table.Cell numeric>122</Table.Cell>
+          <Table.Cell numeric>131</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Header scope='row'>Rita Patel</Table.Header>
+          <Table.Cell numeric>126</Table.Cell>
+          <Table.Cell numeric>142</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table.Root>
   ),
 };
 
@@ -194,7 +185,7 @@ export const ScrollableOnMobile: Story = {
     docs: {
       description: {
         story:
-          'Wrapping a wide table in `TableContainer` keeps it inside the page instead of forcing the whole layout sideways. The container is a focusable region, so keyboard users can scroll it without a pointer.',
+          'Wrapping a wide table in `Table.Container` keeps it inside the page instead of forcing the whole layout sideways. The container is a focusable region, so keyboard users can scroll it without a pointer.',
       },
     },
   },
@@ -202,50 +193,50 @@ export const ScrollableOnMobile: Story = {
     viewport: { value: 'govukMobileSmall' },
   },
   render: () => (
-    <TableContainer label='Monthly case statistics'>
-      <Table smallTextUntilTablet>
-        <TableCaption size='m'>Monthly case statistics</TableCaption>
-        <TableHead>
-          <TableRow>
-            <TableHeader scope='col'>Case manager</TableHeader>
-            <TableHeader scope='col' numeric>January</TableHeader>
-            <TableHeader scope='col' numeric>February</TableHeader>
-            <TableHeader scope='col' numeric>March</TableHeader>
-            <TableHeader scope='col' numeric>April</TableHeader>
-            <TableHeader scope='col' numeric>May</TableHeader>
-            <TableHeader scope='col' numeric>June</TableHeader>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          <TableRow>
-            <TableHeader scope='row'>David Francis</TableHeader>
-            <TableCell numeric>98</TableCell>
-            <TableCell numeric>95</TableCell>
-            <TableCell numeric>112</TableCell>
-            <TableCell numeric>104</TableCell>
-            <TableCell numeric>121</TableCell>
-            <TableCell numeric>118</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableHeader scope='row'>Paul Farmer</TableHeader>
-            <TableCell numeric>122</TableCell>
-            <TableCell numeric>131</TableCell>
-            <TableCell numeric>127</TableCell>
-            <TableCell numeric>140</TableCell>
-            <TableCell numeric>135</TableCell>
-            <TableCell numeric>129</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableHeader scope='row'>Rita Patel</TableHeader>
-            <TableCell numeric>126</TableCell>
-            <TableCell numeric>142</TableCell>
-            <TableCell numeric>138</TableCell>
-            <TableCell numeric>151</TableCell>
-            <TableCell numeric>147</TableCell>
-            <TableCell numeric>144</TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <Table.Container label='Monthly case statistics'>
+      <Table.Root smallTextUntilTablet>
+        <Table.Caption size='m'>Monthly case statistics</Table.Caption>
+        <Table.Head>
+          <Table.Row>
+            <Table.Header scope='col'>Case manager</Table.Header>
+            <Table.Header scope='col' numeric>January</Table.Header>
+            <Table.Header scope='col' numeric>February</Table.Header>
+            <Table.Header scope='col' numeric>March</Table.Header>
+            <Table.Header scope='col' numeric>April</Table.Header>
+            <Table.Header scope='col' numeric>May</Table.Header>
+            <Table.Header scope='col' numeric>June</Table.Header>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          <Table.Row>
+            <Table.Header scope='row'>David Francis</Table.Header>
+            <Table.Cell numeric>98</Table.Cell>
+            <Table.Cell numeric>95</Table.Cell>
+            <Table.Cell numeric>112</Table.Cell>
+            <Table.Cell numeric>104</Table.Cell>
+            <Table.Cell numeric>121</Table.Cell>
+            <Table.Cell numeric>118</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Header scope='row'>Paul Farmer</Table.Header>
+            <Table.Cell numeric>122</Table.Cell>
+            <Table.Cell numeric>131</Table.Cell>
+            <Table.Cell numeric>127</Table.Cell>
+            <Table.Cell numeric>140</Table.Cell>
+            <Table.Cell numeric>135</Table.Cell>
+            <Table.Cell numeric>129</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Header scope='row'>Rita Patel</Table.Header>
+            <Table.Cell numeric>126</Table.Cell>
+            <Table.Cell numeric>142</Table.Cell>
+            <Table.Cell numeric>138</Table.Cell>
+            <Table.Cell numeric>151</Table.Cell>
+            <Table.Cell numeric>147</Table.Cell>
+            <Table.Cell numeric>144</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table.Root>
+    </Table.Container>
   ),
 };

@@ -64,11 +64,11 @@ const FieldsetHeading = ({
 );
 
 export {
-  Fieldset,
-  FieldsetLegend,
-  FieldsetHeading,
-  fieldsetLegendVariants,
-  type FieldsetProps,
-  type FieldsetLegendProps,
-  type FieldsetHeadingProps,
+  Fieldset as Root,
+  FieldsetLegend as Legend,
+  FieldsetHeading as Heading,
+  fieldsetLegendVariants as legendVariants,
+  type FieldsetProps as RootProps,
+  type FieldsetLegendProps as LegendProps,
+  type FieldsetHeadingProps as HeadingProps,
 };

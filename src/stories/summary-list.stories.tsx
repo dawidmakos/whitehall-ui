@@ -1,22 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  SummaryList,
-  SummaryListRow,
-  SummaryListKey,
-  SummaryListValue,
-  SummaryListActions,
-  SummaryListCard,
-  SummaryListCardHeader,
-  SummaryListCardTitle,
-  SummaryListCardActions,
-  SummaryListCardAction,
-  SummaryListCardContent,
-} from '@/ui/summary-list';
+import * as SummaryList from '@/ui/summary-list';
 import { Link } from '@/ui/link';
 
 const meta = {
   title: 'Whitehall-UI/SummaryList',
-  component: SummaryList,
+  component: SummaryList.Root,
   parameters: {
     docs: {
       description: {
@@ -26,221 +14,221 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof SummaryList>;
+} satisfies Meta<typeof SummaryList.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const WithActions: Story = {
   render: () => (
-    <SummaryList>
-      <SummaryListRow>
-        <SummaryListKey>Name</SummaryListKey>
-        <SummaryListValue>Sarah Philips</SummaryListValue>
-        <SummaryListActions>
+    <SummaryList.Root>
+      <SummaryList.Row>
+        <SummaryList.Key>Name</SummaryList.Key>
+        <SummaryList.Value>Sarah Philips</SummaryList.Value>
+        <SummaryList.Actions>
           <Link href='#'>
             Change<span className='sr-only'> name</span>
           </Link>
-        </SummaryListActions>
-      </SummaryListRow>
-      <SummaryListRow>
-        <SummaryListKey>Date of birth</SummaryListKey>
-        <SummaryListValue>5 January 1978</SummaryListValue>
-        <SummaryListActions>
+        </SummaryList.Actions>
+      </SummaryList.Row>
+      <SummaryList.Row>
+        <SummaryList.Key>Date of birth</SummaryList.Key>
+        <SummaryList.Value>5 January 1978</SummaryList.Value>
+        <SummaryList.Actions>
           <Link href='#'>
             Change<span className='sr-only'> date of birth</span>
           </Link>
-        </SummaryListActions>
-      </SummaryListRow>
-      <SummaryListRow>
-        <SummaryListKey>Address</SummaryListKey>
-        <SummaryListValue>
+        </SummaryList.Actions>
+      </SummaryList.Row>
+      <SummaryList.Row>
+        <SummaryList.Key>Address</SummaryList.Key>
+        <SummaryList.Value>
           72 Guild Street
           <br />
           London
           <br />
           SE23 6FH
-        </SummaryListValue>
-        <SummaryListActions>
+        </SummaryList.Value>
+        <SummaryList.Actions>
           <Link href='#'>
             Change<span className='sr-only'> address</span>
           </Link>
-        </SummaryListActions>
-      </SummaryListRow>
-      <SummaryListRow>
-        <SummaryListKey>Contact details</SummaryListKey>
-        <SummaryListValue>
+        </SummaryList.Actions>
+      </SummaryList.Row>
+      <SummaryList.Row>
+        <SummaryList.Key>Contact details</SummaryList.Key>
+        <SummaryList.Value>
           <p className='mb-govuk-2'>07700 900457</p>
           <p>sarah.phillips@example.com</p>
-        </SummaryListValue>
-        <SummaryListActions>
+        </SummaryList.Value>
+        <SummaryList.Actions>
           <Link href='#'>
             Change<span className='sr-only'> contact details</span>
           </Link>
-        </SummaryListActions>
-      </SummaryListRow>
-    </SummaryList>
+        </SummaryList.Actions>
+      </SummaryList.Row>
+    </SummaryList.Root>
   ),
 };
 
 export const WithoutActions: Story = {
   render: () => (
-    <SummaryList>
-      <SummaryListRow noActions>
-        <SummaryListKey>Name</SummaryListKey>
-        <SummaryListValue>Sarah Philips</SummaryListValue>
-      </SummaryListRow>
-      <SummaryListRow noActions>
-        <SummaryListKey>Date of birth</SummaryListKey>
-        <SummaryListValue>5 January 1978</SummaryListValue>
-      </SummaryListRow>
-      <SummaryListRow noActions>
-        <SummaryListKey>Address</SummaryListKey>
-        <SummaryListValue>
+    <SummaryList.Root>
+      <SummaryList.Row noActions>
+        <SummaryList.Key>Name</SummaryList.Key>
+        <SummaryList.Value>Sarah Philips</SummaryList.Value>
+      </SummaryList.Row>
+      <SummaryList.Row noActions>
+        <SummaryList.Key>Date of birth</SummaryList.Key>
+        <SummaryList.Value>5 January 1978</SummaryList.Value>
+      </SummaryList.Row>
+      <SummaryList.Row noActions>
+        <SummaryList.Key>Address</SummaryList.Key>
+        <SummaryList.Value>
           72 Guild Street
           <br />
           London
           <br />
           SE23 6FH
-        </SummaryListValue>
-      </SummaryListRow>
-      <SummaryListRow noActions>
-        <SummaryListKey>Contact details</SummaryListKey>
-        <SummaryListValue>
+        </SummaryList.Value>
+      </SummaryList.Row>
+      <SummaryList.Row noActions>
+        <SummaryList.Key>Contact details</SummaryList.Key>
+        <SummaryList.Value>
           <p className='mb-govuk-2'>07700 900457</p>
           <p>sarah.phillips@example.com</p>
-        </SummaryListValue>
-      </SummaryListRow>
-    </SummaryList>
+        </SummaryList.Value>
+      </SummaryList.Row>
+    </SummaryList.Root>
   ),
 };
 
 export const WithoutBorders: Story = {
   render: () => (
-    <SummaryList noBorder>
-      <SummaryListRow noActions>
-        <SummaryListKey>Name</SummaryListKey>
-        <SummaryListValue>Sarah Philips</SummaryListValue>
-      </SummaryListRow>
-      <SummaryListRow noActions>
-        <SummaryListKey>Date of birth</SummaryListKey>
-        <SummaryListValue>5 January 1978</SummaryListValue>
-      </SummaryListRow>
-      <SummaryListRow noActions>
-        <SummaryListKey>Address</SummaryListKey>
-        <SummaryListValue>
+    <SummaryList.Root noBorder>
+      <SummaryList.Row noActions>
+        <SummaryList.Key>Name</SummaryList.Key>
+        <SummaryList.Value>Sarah Philips</SummaryList.Value>
+      </SummaryList.Row>
+      <SummaryList.Row noActions>
+        <SummaryList.Key>Date of birth</SummaryList.Key>
+        <SummaryList.Value>5 January 1978</SummaryList.Value>
+      </SummaryList.Row>
+      <SummaryList.Row noActions>
+        <SummaryList.Key>Address</SummaryList.Key>
+        <SummaryList.Value>
           72 Guild Street
           <br />
           London
           <br />
           SE23 6FH
-        </SummaryListValue>
-      </SummaryListRow>
-      <SummaryListRow noActions>
-        <SummaryListKey>Contact details</SummaryListKey>
-        <SummaryListValue>
+        </SummaryList.Value>
+      </SummaryList.Row>
+      <SummaryList.Row noActions>
+        <SummaryList.Key>Contact details</SummaryList.Key>
+        <SummaryList.Value>
           <p className='mb-govuk-2'>07700 900457</p>
           <p>sarah.phillips@example.com</p>
-        </SummaryListValue>
-      </SummaryListRow>
-    </SummaryList>
+        </SummaryList.Value>
+      </SummaryList.Row>
+    </SummaryList.Root>
   ),
 };
 
 export const CardWithTitle: Story = {
   render: () => (
-    <SummaryListCard>
-      <SummaryListCardHeader>
-        <SummaryListCardTitle>Lead tenant</SummaryListCardTitle>
-      </SummaryListCardHeader>
-      <SummaryListCardContent>
-        <SummaryList>
-          <SummaryListRow noActions>
-            <SummaryListKey>Age</SummaryListKey>
-            <SummaryListValue>38</SummaryListValue>
-          </SummaryListRow>
-          <SummaryListRow noActions>
-            <SummaryListKey>Nationality</SummaryListKey>
-            <SummaryListValue>UK national resident in UK</SummaryListValue>
-          </SummaryListRow>
-          <SummaryListRow noActions>
-            <SummaryListKey>Working situation</SummaryListKey>
-            <SummaryListValue>Part time – Loss of hours</SummaryListValue>
-          </SummaryListRow>
-        </SummaryList>
-      </SummaryListCardContent>
-    </SummaryListCard>
+    <SummaryList.Card>
+      <SummaryList.CardHeader>
+        <SummaryList.CardTitle>Lead tenant</SummaryList.CardTitle>
+      </SummaryList.CardHeader>
+      <SummaryList.CardContent>
+        <SummaryList.Root>
+          <SummaryList.Row noActions>
+            <SummaryList.Key>Age</SummaryList.Key>
+            <SummaryList.Value>38</SummaryList.Value>
+          </SummaryList.Row>
+          <SummaryList.Row noActions>
+            <SummaryList.Key>Nationality</SummaryList.Key>
+            <SummaryList.Value>UK national resident in UK</SummaryList.Value>
+          </SummaryList.Row>
+          <SummaryList.Row noActions>
+            <SummaryList.Key>Working situation</SummaryList.Key>
+            <SummaryList.Value>Part time – Loss of hours</SummaryList.Value>
+          </SummaryList.Row>
+        </SummaryList.Root>
+      </SummaryList.CardContent>
+    </SummaryList.Card>
   ),
 };
 
 export const CardWithActions: Story = {
   render: () => (
-    <SummaryListCard>
-      <SummaryListCardHeader>
-        <SummaryListCardTitle>Lead tenant</SummaryListCardTitle>
-        <SummaryListCardActions>
-          <SummaryListCardAction>
+    <SummaryList.Card>
+      <SummaryList.CardHeader>
+        <SummaryList.CardTitle>Lead tenant</SummaryList.CardTitle>
+        <SummaryList.CardActions>
+          <SummaryList.CardAction>
             <Link href='#'>
               Remove<span className='sr-only'> lead tenant</span>
             </Link>
-          </SummaryListCardAction>
-          <SummaryListCardAction>
+          </SummaryList.CardAction>
+          <SummaryList.CardAction>
             <Link href='#'>
               Change<span className='sr-only'> lead tenant</span>
             </Link>
-          </SummaryListCardAction>
-        </SummaryListCardActions>
-      </SummaryListCardHeader>
-      <SummaryListCardContent>
-        <SummaryList>
-          <SummaryListRow>
-            <SummaryListKey>Age</SummaryListKey>
-            <SummaryListValue>38</SummaryListValue>
-            <SummaryListActions>
+          </SummaryList.CardAction>
+        </SummaryList.CardActions>
+      </SummaryList.CardHeader>
+      <SummaryList.CardContent>
+        <SummaryList.Root>
+          <SummaryList.Row>
+            <SummaryList.Key>Age</SummaryList.Key>
+            <SummaryList.Value>38</SummaryList.Value>
+            <SummaryList.Actions>
               <Link href='#'>
                 Change<span className='sr-only'> age (Lead tenant)</span>
               </Link>
-            </SummaryListActions>
-          </SummaryListRow>
-          <SummaryListRow>
-            <SummaryListKey>Nationality</SummaryListKey>
-            <SummaryListValue>UK national resident in UK</SummaryListValue>
-            <SummaryListActions>
+            </SummaryList.Actions>
+          </SummaryList.Row>
+          <SummaryList.Row>
+            <SummaryList.Key>Nationality</SummaryList.Key>
+            <SummaryList.Value>UK national resident in UK</SummaryList.Value>
+            <SummaryList.Actions>
               <Link href='#'>
                 Change<span className='sr-only'> nationality (Lead tenant)</span>
               </Link>
-            </SummaryListActions>
-          </SummaryListRow>
-          <SummaryListRow>
-            <SummaryListKey>Working situation</SummaryListKey>
-            <SummaryListValue>Part time - Loss of hours</SummaryListValue>
-            <SummaryListActions>
+            </SummaryList.Actions>
+          </SummaryList.Row>
+          <SummaryList.Row>
+            <SummaryList.Key>Working situation</SummaryList.Key>
+            <SummaryList.Value>Part time - Loss of hours</SummaryList.Value>
+            <SummaryList.Actions>
               <Link href='#'>
                 Change<span className='sr-only'> working situation (Lead tenant)</span>
               </Link>
-            </SummaryListActions>
-          </SummaryListRow>
-        </SummaryList>
-      </SummaryListCardContent>
-    </SummaryListCard>
+            </SummaryList.Actions>
+          </SummaryList.Row>
+        </SummaryList.Root>
+      </SummaryList.CardContent>
+    </SummaryList.Card>
   ),
 };
 
 export const NoBorderOnLastRow: Story = {
   render: () => (
-    <SummaryList>
-      <SummaryListRow noActions>
-        <SummaryListKey>Name</SummaryListKey>
-        <SummaryListValue>Sarah Philips</SummaryListValue>
-      </SummaryListRow>
-      <SummaryListRow noActions>
-        <SummaryListKey>Date of birth</SummaryListKey>
-        <SummaryListValue>5 January 1978</SummaryListValue>
-      </SummaryListRow>
-      <SummaryListRow noActions noBorder>
-        <SummaryListKey>Contact details</SummaryListKey>
-        <SummaryListValue>sarah.phillips@example.com</SummaryListValue>
-      </SummaryListRow>
-    </SummaryList>
+    <SummaryList.Root>
+      <SummaryList.Row noActions>
+        <SummaryList.Key>Name</SummaryList.Key>
+        <SummaryList.Value>Sarah Philips</SummaryList.Value>
+      </SummaryList.Row>
+      <SummaryList.Row noActions>
+        <SummaryList.Key>Date of birth</SummaryList.Key>
+        <SummaryList.Value>5 January 1978</SummaryList.Value>
+      </SummaryList.Row>
+      <SummaryList.Row noActions noBorder>
+        <SummaryList.Key>Contact details</SummaryList.Key>
+        <SummaryList.Value>sarah.phillips@example.com</SummaryList.Value>
+      </SummaryList.Row>
+    </SummaryList.Root>
   ),
 };

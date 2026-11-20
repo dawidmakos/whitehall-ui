@@ -63,10 +63,10 @@ const DetailsText = ({ className, ...props }: DetailsTextProps) => (
 );
 
 export {
-  Details,
-  DetailsSummary,
-  DetailsText,
-  type DetailsProps,
-  type DetailsSummaryProps,
-  type DetailsTextProps,
+  Details as Root,
+  DetailsSummary as Summary,
+  DetailsText as Text,
+  type DetailsProps as RootProps,
+  type DetailsSummaryProps as SummaryProps,
+  type DetailsTextProps as TextProps,
 };

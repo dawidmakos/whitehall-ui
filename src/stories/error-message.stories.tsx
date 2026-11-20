@@ -4,7 +4,7 @@ import { Label } from '@/ui/label';
 import { Hint } from '@/ui/hint';
 import { TextInput } from '@/ui/text-input';
 import { Textarea } from '@/ui/textarea';
-import { Fieldset, FieldsetLegend } from '@/ui/fieldset';
+import * as Fieldset from '@/ui/fieldset';
 import { FormGroup } from '@/ui/form-group';
 
 const meta = {
@@ -104,8 +104,8 @@ export const WithFieldset: Story = {
   },
   render: (args) => (
     <FormGroup error>
-      <Fieldset>
-        <FieldsetLegend size='l'>When was your passport issued?</FieldsetLegend>
+      <Fieldset.Root>
+        <Fieldset.Legend size='l'>When was your passport issued?</Fieldset.Legend>
         <Hint>For example, 27 3 2007</Hint>
         <ErrorMessage id='passport-issued-error' {...args} />
         <div className='flex gap-4'>
@@ -122,7 +122,7 @@ export const WithFieldset: Story = {
             <TextInput id='passport-year' width={4} error />
           </div>
         </div>
-      </Fieldset>
+      </Fieldset.Root>
     </FormGroup>
   ),
 };

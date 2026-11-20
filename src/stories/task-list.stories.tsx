@@ -1,77 +1,70 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { expect } from 'storybook/test';
-import {
-  TaskList,
-  TaskListItem,
-  TaskListNameAndHint,
-  TaskListLink,
-  TaskListHint,
-  TaskListStatus,
-} from '@/ui/task-list';
+import * as TaskList from '@/ui/task-list';
 import { Tag, type TagColour } from '@/ui/tag';
 
 const meta = {
   title: 'Whitehall-UI/TaskList',
-  component: TaskList,
+  component: TaskList.Root,
   parameters: {
     docs: {
       description: {
         component:
-          'Whitehall-UI task list component. Based on the [GOV.UK Design System Task list](https://design-system.service.gov.uk/components/task-list/). Displays all the tasks a user needs to do, allowing them to identify which ones are done. `TaskListHint` and `TaskListStatus` are linked to the `TaskListLink` in the same item with `aria-describedby` automatically.',
+          'Whitehall-UI task list component. Based on the [GOV.UK Design System Task list](https://design-system.service.gov.uk/components/task-list/). Displays all the tasks a user needs to do, allowing them to identify which ones are done. `TaskList.Hint` and `TaskList.Status` are linked to the `TaskList.Link` in the same item with `aria-describedby` automatically.',
       },
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof TaskList>;
+} satisfies Meta<typeof TaskList.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <TaskList>
-      <TaskListItem hasLink>
-        <TaskListNameAndHint>
-          <TaskListLink href='#'>Company Directors</TaskListLink>
-        </TaskListNameAndHint>
-        <TaskListStatus>Completed</TaskListStatus>
-      </TaskListItem>
-      <TaskListItem hasLink>
-        <TaskListNameAndHint>
-          <TaskListLink href='#'>Registered company details</TaskListLink>
-        </TaskListNameAndHint>
-        <TaskListStatus>
+    <TaskList.Root>
+      <TaskList.Item hasLink>
+        <TaskList.NameAndHint>
+          <TaskList.Link href='#'>Company Directors</TaskList.Link>
+        </TaskList.NameAndHint>
+        <TaskList.Status>Completed</TaskList.Status>
+      </TaskList.Item>
+      <TaskList.Item hasLink>
+        <TaskList.NameAndHint>
+          <TaskList.Link href='#'>Registered company details</TaskList.Link>
+        </TaskList.NameAndHint>
+        <TaskList.Status>
           <Tag colour='blue'>Incomplete</Tag>
-        </TaskListStatus>
-      </TaskListItem>
-      <TaskListItem hasLink>
-        <TaskListNameAndHint>
-          <TaskListLink href='#'>Financial history</TaskListLink>
-          <TaskListHint>
+        </TaskList.Status>
+      </TaskList.Item>
+      <TaskList.Item hasLink>
+        <TaskList.NameAndHint>
+          <TaskList.Link href='#'>Financial history</TaskList.Link>
+          <TaskList.Hint>
             Include 5 years of the company's relevant financial information
-          </TaskListHint>
-        </TaskListNameAndHint>
-        <TaskListStatus>
+          </TaskList.Hint>
+        </TaskList.NameAndHint>
+        <TaskList.Status>
           <Tag colour='blue'>Incomplete</Tag>
-        </TaskListStatus>
-      </TaskListItem>
-      <TaskListItem hasLink>
-        <TaskListNameAndHint>
-          <TaskListLink href='#'>Business plan</TaskListLink>
-        </TaskListNameAndHint>
-        <TaskListStatus>
+        </TaskList.Status>
+      </TaskList.Item>
+      <TaskList.Item hasLink>
+        <TaskList.NameAndHint>
+          <TaskList.Link href='#'>Business plan</TaskList.Link>
+        </TaskList.NameAndHint>
+        <TaskList.Status>
           <Tag colour='blue'>Incomplete</Tag>
-        </TaskListStatus>
-      </TaskListItem>
-      <TaskListItem hasLink>
-        <TaskListNameAndHint>
-          <TaskListLink href='#'>References</TaskListLink>
-        </TaskListNameAndHint>
-        <TaskListStatus>
+        </TaskList.Status>
+      </TaskList.Item>
+      <TaskList.Item hasLink>
+        <TaskList.NameAndHint>
+          <TaskList.Link href='#'>References</TaskList.Link>
+        </TaskList.NameAndHint>
+        <TaskList.Status>
           <Tag colour='blue'>Incomplete</Tag>
-        </TaskListStatus>
-      </TaskListItem>
-    </TaskList>
+        </TaskList.Status>
+      </TaskList.Item>
+    </TaskList.Root>
   ),
   play: async ({ canvas }) => {
     await expect(
@@ -83,17 +76,17 @@ export const Default: Story = {
 export const MergesConsumerDescription: Story = {
   tags: ['!autodocs', '!dev'],
   render: () => (
-    <TaskList>
-      <TaskListItem hasLink>
-        <TaskListNameAndHint>
-          <TaskListLink href='#' aria-describedby='directors-note'>
+    <TaskList.Root>
+      <TaskList.Item hasLink>
+        <TaskList.NameAndHint>
+          <TaskList.Link href='#' aria-describedby='directors-note'>
             Company Directors
-          </TaskListLink>
+          </TaskList.Link>
           <p id='directors-note'>Check all directors are listed</p>
-        </TaskListNameAndHint>
-        <TaskListStatus>Completed</TaskListStatus>
-      </TaskListItem>
-    </TaskList>
+        </TaskList.NameAndHint>
+        <TaskList.Status>Completed</TaskList.Status>
+      </TaskList.Item>
+    </TaskList.Root>
   ),
   play: async ({ canvas }) => {
     await expect(
@@ -104,30 +97,30 @@ export const MergesConsumerDescription: Story = {
 
 export const CannotStartYet: Story = {
   render: () => (
-    <TaskList>
-      <TaskListItem hasLink>
-        <TaskListNameAndHint>
-          <TaskListLink href='#'>Company Directors</TaskListLink>
-        </TaskListNameAndHint>
-        <TaskListStatus>Completed</TaskListStatus>
-      </TaskListItem>
-      <TaskListItem hasLink>
-        <TaskListNameAndHint>
-          <TaskListLink href='#'>Registered company details</TaskListLink>
-        </TaskListNameAndHint>
-        <TaskListStatus>
+    <TaskList.Root>
+      <TaskList.Item hasLink>
+        <TaskList.NameAndHint>
+          <TaskList.Link href='#'>Company Directors</TaskList.Link>
+        </TaskList.NameAndHint>
+        <TaskList.Status>Completed</TaskList.Status>
+      </TaskList.Item>
+      <TaskList.Item hasLink>
+        <TaskList.NameAndHint>
+          <TaskList.Link href='#'>Registered company details</TaskList.Link>
+        </TaskList.NameAndHint>
+        <TaskList.Status>
           <Tag colour='blue'>Incomplete</Tag>
-        </TaskListStatus>
-      </TaskListItem>
-      <TaskListItem>
-        <TaskListNameAndHint>Financial history</TaskListNameAndHint>
-        <TaskListStatus cannotStartYet>Cannot start yet</TaskListStatus>
-      </TaskListItem>
-      <TaskListItem>
-        <TaskListNameAndHint>Business plan</TaskListNameAndHint>
-        <TaskListStatus cannotStartYet>Cannot start yet</TaskListStatus>
-      </TaskListItem>
-    </TaskList>
+        </TaskList.Status>
+      </TaskList.Item>
+      <TaskList.Item>
+        <TaskList.NameAndHint>Financial history</TaskList.NameAndHint>
+        <TaskList.Status cannotStartYet>Cannot start yet</TaskList.Status>
+      </TaskList.Item>
+      <TaskList.Item>
+        <TaskList.NameAndHint>Business plan</TaskList.NameAndHint>
+        <TaskList.Status cannotStartYet>Cannot start yet</TaskList.Status>
+      </TaskList.Item>
+    </TaskList.Root>
   ),
 };
 
@@ -145,23 +138,23 @@ const statuses: { task: string; status: string; colour: TagColour }[] = [
 
 export const AllStatusColours: Story = {
   render: () => (
-    <TaskList>
-      <TaskListItem hasLink>
-        <TaskListNameAndHint>
-          <TaskListLink href='#'>Personal details</TaskListLink>
-        </TaskListNameAndHint>
-        <TaskListStatus>Completed</TaskListStatus>
-      </TaskListItem>
+    <TaskList.Root>
+      <TaskList.Item hasLink>
+        <TaskList.NameAndHint>
+          <TaskList.Link href='#'>Personal details</TaskList.Link>
+        </TaskList.NameAndHint>
+        <TaskList.Status>Completed</TaskList.Status>
+      </TaskList.Item>
       {statuses.map(({ task, status, colour }) => (
-        <TaskListItem key={task} hasLink>
-          <TaskListNameAndHint>
-            <TaskListLink href='#'>{task}</TaskListLink>
-          </TaskListNameAndHint>
-          <TaskListStatus>
+        <TaskList.Item key={task} hasLink>
+          <TaskList.NameAndHint>
+            <TaskList.Link href='#'>{task}</TaskList.Link>
+          </TaskList.NameAndHint>
+          <TaskList.Status>
             <Tag colour={colour}>{status}</Tag>
-          </TaskListStatus>
-        </TaskListItem>
+          </TaskList.Status>
+        </TaskList.Item>
       ))}
-    </TaskList>
+    </TaskList.Root>
   ),
 };

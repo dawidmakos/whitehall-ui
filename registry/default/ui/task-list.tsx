@@ -125,16 +125,16 @@ const TaskListStatus = ({
 };
 
 export {
-  TaskList,
-  TaskListItem,
-  TaskListNameAndHint,
-  TaskListLink,
-  TaskListHint,
-  TaskListStatus,
-  type TaskListProps,
-  type TaskListItemProps,
-  type TaskListNameAndHintProps,
-  type TaskListLinkProps,
-  type TaskListHintProps,
-  type TaskListStatusProps,
+  TaskList as Root,
+  TaskListItem as Item,
+  TaskListNameAndHint as NameAndHint,
+  TaskListLink as Link,
+  TaskListHint as Hint,
+  TaskListStatus as Status,
+  type TaskListProps as RootProps,
+  type TaskListItemProps as ItemProps,
+  type TaskListNameAndHintProps as NameAndHintProps,
+  type TaskListLinkProps as LinkProps,
+  type TaskListHintProps as HintProps,
+  type TaskListStatusProps as StatusProps,
 };

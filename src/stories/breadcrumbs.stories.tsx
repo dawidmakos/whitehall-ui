@@ -1,14 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Breadcrumbs,
-  BreadcrumbsList,
-  BreadcrumbsListItem,
-  BreadcrumbsLink,
-} from '@/ui/breadcrumbs';
+import * as Breadcrumbs from '@/ui/breadcrumbs';
 
 const meta = {
   title: 'Whitehall-UI/Breadcrumbs',
-  component: Breadcrumbs,
+  component: Breadcrumbs.Root,
   parameters: {
     docs: {
       description: {
@@ -18,106 +13,106 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Breadcrumbs>;
+} satisfies Meta<typeof Breadcrumbs.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Breadcrumbs>
-      <BreadcrumbsList>
-        <BreadcrumbsListItem>
-          <BreadcrumbsLink href='#'>Home</BreadcrumbsLink>
-        </BreadcrumbsListItem>
-        <BreadcrumbsListItem>
-          <BreadcrumbsLink href='#'>
+    <Breadcrumbs.Root>
+      <Breadcrumbs.List>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.Link href='#'>Home</Breadcrumbs.Link>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.Link href='#'>
             Passports, travel and living abroad
-          </BreadcrumbsLink>
-        </BreadcrumbsListItem>
-        <BreadcrumbsListItem>
-          <BreadcrumbsLink href='#'>Travel abroad</BreadcrumbsLink>
-        </BreadcrumbsListItem>
-      </BreadcrumbsList>
-    </Breadcrumbs>
+          </Breadcrumbs.Link>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.Link href='#'>Travel abroad</Breadcrumbs.Link>
+        </Breadcrumbs.ListItem>
+      </Breadcrumbs.List>
+    </Breadcrumbs.Root>
   ),
 };
 
 export const CollapseOnMobile: Story = {
   render: () => (
-    <Breadcrumbs collapseOnMobile>
-      <BreadcrumbsList>
-        <BreadcrumbsListItem>
-          <BreadcrumbsLink href='#'>Home</BreadcrumbsLink>
-        </BreadcrumbsListItem>
-        <BreadcrumbsListItem>
-          <BreadcrumbsLink href='#'>
+    <Breadcrumbs.Root collapseOnMobile>
+      <Breadcrumbs.List>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.Link href='#'>Home</Breadcrumbs.Link>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.Link href='#'>
             Environment and countryside
-          </BreadcrumbsLink>
-        </BreadcrumbsListItem>
-        <BreadcrumbsListItem>
-          <BreadcrumbsLink href='#'>Rural and countryside</BreadcrumbsLink>
-        </BreadcrumbsListItem>
-        <BreadcrumbsListItem>
-          <BreadcrumbsLink href='#'>
+          </Breadcrumbs.Link>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.Link href='#'>Rural and countryside</Breadcrumbs.Link>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.Link href='#'>
             Economic growth in rural areas
-          </BreadcrumbsLink>
-        </BreadcrumbsListItem>
-      </BreadcrumbsList>
-    </Breadcrumbs>
+          </Breadcrumbs.Link>
+        </Breadcrumbs.ListItem>
+      </Breadcrumbs.List>
+    </Breadcrumbs.Root>
   ),
 };
 
 export const Inverse: Story = {
   render: () => (
     <div className='bg-govuk-brand p-govuk-4'>
-      <Breadcrumbs inverse>
-        <BreadcrumbsList>
-          <BreadcrumbsListItem>
-            <BreadcrumbsLink href='#'>
+      <Breadcrumbs.Root inverse>
+        <Breadcrumbs.List>
+          <Breadcrumbs.ListItem>
+            <Breadcrumbs.Link href='#'>
               Home
-            </BreadcrumbsLink>
-          </BreadcrumbsListItem>
-          <BreadcrumbsListItem>
-            <BreadcrumbsLink href='#'>
+            </Breadcrumbs.Link>
+          </Breadcrumbs.ListItem>
+          <Breadcrumbs.ListItem>
+            <Breadcrumbs.Link href='#'>
               Passports, travel and living abroad
-            </BreadcrumbsLink>
-          </BreadcrumbsListItem>
-          <BreadcrumbsListItem>
-            <BreadcrumbsLink href='#'>
+            </Breadcrumbs.Link>
+          </Breadcrumbs.ListItem>
+          <Breadcrumbs.ListItem>
+            <Breadcrumbs.Link href='#'>
               Travel abroad
-            </BreadcrumbsLink>
-          </BreadcrumbsListItem>
-        </BreadcrumbsList>
-      </Breadcrumbs>
+            </Breadcrumbs.Link>
+          </Breadcrumbs.ListItem>
+        </Breadcrumbs.List>
+      </Breadcrumbs.Root>
     </div>
   ),
 };
 
 export const OneLevel: Story = {
   render: () => (
-    <Breadcrumbs>
-      <BreadcrumbsList>
-        <BreadcrumbsListItem>
-          <BreadcrumbsLink href='#'>Section</BreadcrumbsLink>
-        </BreadcrumbsListItem>
-      </BreadcrumbsList>
-    </Breadcrumbs>
+    <Breadcrumbs.Root>
+      <Breadcrumbs.List>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.Link href='#'>Section</Breadcrumbs.Link>
+        </Breadcrumbs.ListItem>
+      </Breadcrumbs.List>
+    </Breadcrumbs.Root>
   ),
 };
 
 export const WithoutHome: Story = {
   render: () => (
-    <Breadcrumbs>
-      <BreadcrumbsList>
-        <BreadcrumbsListItem>
-          <BreadcrumbsLink href='#'>Service manual</BreadcrumbsLink>
-        </BreadcrumbsListItem>
-        <BreadcrumbsListItem>
-          <BreadcrumbsLink href='#'>Agile delivery</BreadcrumbsLink>
-        </BreadcrumbsListItem>
-      </BreadcrumbsList>
-    </Breadcrumbs>
+    <Breadcrumbs.Root>
+      <Breadcrumbs.List>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.Link href='#'>Service manual</Breadcrumbs.Link>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.Link href='#'>Agile delivery</Breadcrumbs.Link>
+        </Breadcrumbs.ListItem>
+      </Breadcrumbs.List>
+    </Breadcrumbs.Root>
   ),
 };
 
@@ -131,20 +126,20 @@ export const CurrentPage: Story = {
     },
   },
   render: () => (
-    <Breadcrumbs>
-      <BreadcrumbsList>
-        <BreadcrumbsListItem>
-          <BreadcrumbsLink href='#'>Home</BreadcrumbsLink>
-        </BreadcrumbsListItem>
-        <BreadcrumbsListItem>
-          <BreadcrumbsLink href='#'>
+    <Breadcrumbs.Root>
+      <Breadcrumbs.List>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.Link href='#'>Home</Breadcrumbs.Link>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.ListItem>
+          <Breadcrumbs.Link href='#'>
             Passports, travel and living abroad
-          </BreadcrumbsLink>
-        </BreadcrumbsListItem>
-        <BreadcrumbsListItem aria-current='page'>
+          </Breadcrumbs.Link>
+        </Breadcrumbs.ListItem>
+        <Breadcrumbs.ListItem aria-current='page'>
           Travel abroad
-        </BreadcrumbsListItem>
-      </BreadcrumbsList>
-    </Breadcrumbs>
+        </Breadcrumbs.ListItem>
+      </Breadcrumbs.List>
+    </Breadcrumbs.Root>
   ),
 };

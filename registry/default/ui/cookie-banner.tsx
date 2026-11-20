@@ -72,14 +72,14 @@ const CookieBannerActions = ({
 );
 
 export {
-  CookieBanner,
-  CookieBannerMessage,
-  CookieBannerContent,
-  CookieBannerHeading,
-  CookieBannerActions,
-  type CookieBannerProps,
-  type CookieBannerMessageProps,
-  type CookieBannerContentProps,
-  type CookieBannerHeadingProps,
-  type CookieBannerActionsProps,
+  CookieBanner as Root,
+  CookieBannerMessage as Message,
+  CookieBannerContent as Content,
+  CookieBannerHeading as Heading,
+  CookieBannerActions as Actions,
+  type CookieBannerProps as RootProps,
+  type CookieBannerMessageProps as MessageProps,
+  type CookieBannerContentProps as ContentProps,
+  type CookieBannerHeadingProps as HeadingProps,
+  type CookieBannerActionsProps as ActionsProps,
 };

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Panel, PanelTitle, PanelBody, PanelActions } from '@/ui/panel';
+import * as Panel from '@/ui/panel';
 import { Button } from '@/ui/button';
 import { Link } from '@/ui/link';
 
 const meta = {
   title: 'Whitehall-UI/Panel',
-  component: Panel,
+  component: Panel.Root,
   parameters: {
     docs: {
       description: {
@@ -15,42 +15,42 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Panel>;
+} satisfies Meta<typeof Panel.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Panel>
-      <PanelTitle>Application complete</PanelTitle>
-      <PanelBody>
+    <Panel.Root>
+      <Panel.Title>Application complete</Panel.Title>
+      <Panel.Body>
         Your reference number
         <br />
         <strong>HDJ2123F</strong>
-      </PanelBody>
-    </Panel>
+      </Panel.Body>
+    </Panel.Root>
   ),
 };
 
 export const TitleOnly: Story = {
   render: () => (
-    <Panel>
-      <PanelTitle>Application complete</PanelTitle>
-    </Panel>
+    <Panel.Root>
+      <Panel.Title>Application complete</Panel.Title>
+    </Panel.Root>
   ),
 };
 
 export const WithLongReference: Story = {
   render: () => (
-    <Panel>
-      <PanelTitle>Payment confirmed</PanelTitle>
-      <PanelBody>
+    <Panel.Root>
+      <Panel.Title>Payment confirmed</Panel.Title>
+      <Panel.Body>
         Your reference number
         <br />
         <strong>ABCD-1234-EFGH-5678</strong>
-      </PanelBody>
-    </Panel>
+      </Panel.Body>
+    </Panel.Root>
   ),
 };
 
@@ -67,14 +67,14 @@ export const Mobile: Story = {
     viewport: { value: 'govukMobileSmall' },
   },
   render: () => (
-    <Panel>
-      <PanelTitle>Application complete</PanelTitle>
-      <PanelBody>
+    <Panel.Root>
+      <Panel.Title>Application complete</Panel.Title>
+      <Panel.Body>
         Your reference number
         <br />
         <strong>HDJ2123F0000111122223333444455556666</strong>
-      </PanelBody>
-    </Panel>
+      </Panel.Body>
+    </Panel.Root>
   ),
 };
 
@@ -88,31 +88,31 @@ export const Interruption: Story = {
     },
   },
   render: () => (
-    <Panel variant='interruption'>
-      <PanelTitle>Are you sure you want to delete this application?</PanelTitle>
-      <PanelBody>
+    <Panel.Root variant='interruption'>
+      <Panel.Title>Are you sure you want to delete this application?</Panel.Title>
+      <Panel.Body>
         <p className='mt-0 mb-govuk-4'>
           You will not be able to get it back. Any answers you have given will
           be lost.
         </p>
-      </PanelBody>
-      <PanelActions>
+      </Panel.Body>
+      <Panel.Actions>
         <Button variant='inverse'>Delete application</Button>
         <Link variant='inverse' href='#'>
           Cancel
         </Link>
-      </PanelActions>
-    </Panel>
+      </Panel.Actions>
+    </Panel.Root>
   ),
 };
 
 export const InterruptionWithContent: Story = {
   render: () => (
-    <Panel variant='interruption'>
-      <PanelTitle>
+    <Panel.Root variant='interruption'>
+      <Panel.Title>
         Your new answer affects other sections of this application
-      </PanelTitle>
-      <PanelBody>
+      </Panel.Title>
+      <Panel.Body>
         <h2 className='text-govuk-heading-m font-bold mt-0 mb-govuk-4'>
           Question: Where is Andy Cooke located?
         </h2>
@@ -126,13 +126,13 @@ export const InterruptionWithContent: Story = {
           <li className='mb-govuk-1'>enter their custody information</li>
           <li className='mb-govuk-1'>update the licence conditions section</li>
         </ul>
-      </PanelBody>
-      <PanelActions>
+      </Panel.Body>
+      <Panel.Actions>
         <Button variant='inverse'>Continue to other sections</Button>
         <Link variant='inverse' href='#'>
           Go back to application
         </Link>
-      </PanelActions>
-    </Panel>
+      </Panel.Actions>
+    </Panel.Root>
   ),
 };

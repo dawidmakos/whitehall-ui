@@ -1,18 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import {
-  CookieBanner,
-  CookieBannerMessage,
-  CookieBannerContent,
-  CookieBannerHeading,
-  CookieBannerActions,
-} from '@/ui/cookie-banner';
+import * as CookieBanner from '@/ui/cookie-banner';
 import { Button } from '@/ui/button';
 import { Link } from '@/ui/link';
 
 const meta = {
   title: 'Whitehall-UI/CookieBanner',
-  component: CookieBanner,
+  component: CookieBanner.Root,
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -23,19 +17,19 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof CookieBanner>;
+} satisfies Meta<typeof CookieBanner.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <CookieBanner aria-label='Cookies on [name of service]'>
-      <CookieBannerMessage>
-        <CookieBannerContent>
-          <CookieBannerHeading>
+    <CookieBanner.Root aria-label='Cookies on [name of service]'>
+      <CookieBanner.Message>
+        <CookieBanner.Content>
+          <CookieBanner.Heading>
             Cookies on [name of service]
-          </CookieBannerHeading>
+          </CookieBanner.Heading>
           <p className='font-govuk text-govuk-body mb-govuk-4'>
             We use some essential cookies to make this service work.
           </p>
@@ -43,14 +37,14 @@ export const Default: Story = {
             We&rsquo;d also like to use analytics cookies so we can understand
             how you use the service and make improvements.
           </p>
-        </CookieBannerContent>
-        <CookieBannerActions>
+        </CookieBanner.Content>
+        <CookieBanner.Actions>
           <Button>Accept analytics cookies</Button>
           <Button>Reject analytics cookies</Button>
           <Link href='#'>View cookies</Link>
-        </CookieBannerActions>
-      </CookieBannerMessage>
-    </CookieBanner>
+        </CookieBanner.Actions>
+      </CookieBanner.Message>
+    </CookieBanner.Root>
   ),
 };
 
@@ -65,12 +59,12 @@ const InteractiveCookieBanner = () => {
   }
 
   return (
-    <CookieBanner aria-label='Cookies on [name of service]'>
-      <CookieBannerMessage hidden={choice !== 'question'}>
-        <CookieBannerContent>
-          <CookieBannerHeading>
+    <CookieBanner.Root aria-label='Cookies on [name of service]'>
+      <CookieBanner.Message hidden={choice !== 'question'}>
+        <CookieBanner.Content>
+          <CookieBanner.Heading>
             Cookies on [name of service]
-          </CookieBannerHeading>
+          </CookieBanner.Heading>
           <p className='font-govuk text-govuk-body mb-govuk-4'>
             We use some essential cookies to make this service work.
           </p>
@@ -78,8 +72,8 @@ const InteractiveCookieBanner = () => {
             We&rsquo;d also like to use analytics cookies so we can understand
             how you use the service and make improvements.
           </p>
-        </CookieBannerContent>
-        <CookieBannerActions>
+        </CookieBanner.Content>
+        <CookieBanner.Actions>
           <Button onClick={() => setChoice('accepted')}>
             Accept analytics cookies
           </Button>
@@ -87,33 +81,33 @@ const InteractiveCookieBanner = () => {
             Reject analytics cookies
           </Button>
           <Link href='#'>View cookies</Link>
-        </CookieBannerActions>
-      </CookieBannerMessage>
+        </CookieBanner.Actions>
+      </CookieBanner.Message>
 
-      <CookieBannerMessage role='alert' hidden={choice !== 'accepted'}>
-        <CookieBannerContent>
+      <CookieBanner.Message role='alert' hidden={choice !== 'accepted'}>
+        <CookieBanner.Content>
           <p className='font-govuk text-govuk-body mb-govuk-4'>
             You&rsquo;ve accepted analytics cookies. You can{' '}
             <Link href='#'>change your cookie settings</Link> at any time.
           </p>
-        </CookieBannerContent>
-        <CookieBannerActions>
+        </CookieBanner.Content>
+        <CookieBanner.Actions>
           <Button onClick={() => setHidden(true)}>Hide cookie message</Button>
-        </CookieBannerActions>
-      </CookieBannerMessage>
+        </CookieBanner.Actions>
+      </CookieBanner.Message>
 
-      <CookieBannerMessage role='alert' hidden={choice !== 'rejected'}>
-        <CookieBannerContent>
+      <CookieBanner.Message role='alert' hidden={choice !== 'rejected'}>
+        <CookieBanner.Content>
           <p className='font-govuk text-govuk-body mb-govuk-4'>
             You&rsquo;ve rejected analytics cookies. You can{' '}
             <Link href='#'>change your cookie settings</Link> at any time.
           </p>
-        </CookieBannerContent>
-        <CookieBannerActions>
+        </CookieBanner.Content>
+        <CookieBanner.Actions>
           <Button onClick={() => setHidden(true)}>Hide cookie message</Button>
-        </CookieBannerActions>
-      </CookieBannerMessage>
-    </CookieBanner>
+        </CookieBanner.Actions>
+      </CookieBanner.Message>
+    </CookieBanner.Root>
   );
 };
 
@@ -123,36 +117,36 @@ export const Interactive: Story = {
 
 export const Accepted: Story = {
   render: () => (
-    <CookieBanner aria-label='Cookies on [name of service]'>
-      <CookieBannerMessage role='alert'>
-        <CookieBannerContent>
+    <CookieBanner.Root aria-label='Cookies on [name of service]'>
+      <CookieBanner.Message role='alert'>
+        <CookieBanner.Content>
           <p className='font-govuk text-govuk-body mb-govuk-4'>
             You&rsquo;ve accepted analytics cookies. You can{' '}
             <Link href='#'>change your cookie settings</Link> at any time.
           </p>
-        </CookieBannerContent>
-        <CookieBannerActions>
+        </CookieBanner.Content>
+        <CookieBanner.Actions>
           <Button>Hide cookie message</Button>
-        </CookieBannerActions>
-      </CookieBannerMessage>
-    </CookieBanner>
+        </CookieBanner.Actions>
+      </CookieBanner.Message>
+    </CookieBanner.Root>
   ),
 };
 
 export const Rejected: Story = {
   render: () => (
-    <CookieBanner aria-label='Cookies on [name of service]'>
-      <CookieBannerMessage role='alert'>
-        <CookieBannerContent>
+    <CookieBanner.Root aria-label='Cookies on [name of service]'>
+      <CookieBanner.Message role='alert'>
+        <CookieBanner.Content>
           <p className='font-govuk text-govuk-body mb-govuk-4'>
             You&rsquo;ve rejected analytics cookies. You can{' '}
             <Link href='#'>change your cookie settings</Link> at any time.
           </p>
-        </CookieBannerContent>
-        <CookieBannerActions>
+        </CookieBanner.Content>
+        <CookieBanner.Actions>
           <Button>Hide cookie message</Button>
-        </CookieBannerActions>
-      </CookieBannerMessage>
-    </CookieBanner>
+        </CookieBanner.Actions>
+      </CookieBanner.Message>
+    </CookieBanner.Root>
   ),
 };

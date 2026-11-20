@@ -78,12 +78,12 @@ const GenericHeaderLink = ({
 );
 
 export {
-  GenericHeader,
-  GenericHeaderContainer,
-  GenericHeaderLogo,
-  GenericHeaderLink,
-  type GenericHeaderProps,
-  type GenericHeaderContainerProps,
-  type GenericHeaderLogoProps,
-  type GenericHeaderLinkProps,
+  GenericHeader as Root,
+  GenericHeaderContainer as Container,
+  GenericHeaderLogo as Logo,
+  GenericHeaderLink as Link,
+  type GenericHeaderProps as RootProps,
+  type GenericHeaderContainerProps as ContainerProps,
+  type GenericHeaderLogoProps as LogoProps,
+  type GenericHeaderLinkProps as LinkProps,
 };

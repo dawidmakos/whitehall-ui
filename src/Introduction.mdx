@@ -1,12 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/ui/table';
+import * as Table from '@/ui/table';
 
 <Meta title='Introduction' />
 
@@ -127,72 +120,85 @@ use in your own markup alongside the components.
 GOV.UK spacing is px-based rather than Tailwind's rem scale, so `mb-govuk-4` is 20px and not
 1rem. The table below is the Whitehall-UI `Table` component rendering its own documentation:
 
-<Table>
-  <TableHead>
-    <TableRow>
-      <TableHeader>Token</TableHeader>
-      <TableHeader>Value</TableHeader>
-      <TableHeader>Token</TableHeader>
-      <TableHeader>Value</TableHeader>
-    </TableRow>
-  </TableHead>
-  <TableBody>
-    <TableRow>
-      <TableCell>govuk-1</TableCell>
-      <TableCell>5px</TableCell>
-      <TableCell>govuk-5</TableCell>
-      <TableCell>25px</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>govuk-2</TableCell>
-      <TableCell>10px</TableCell>
-      <TableCell>govuk-6</TableCell>
-      <TableCell>30px</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>govuk-3</TableCell>
-      <TableCell>15px</TableCell>
-      <TableCell>govuk-7</TableCell>
-      <TableCell>40px</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell>govuk-4</TableCell>
-      <TableCell>20px</TableCell>
-      <TableCell>govuk-8</TableCell>
-      <TableCell>50px</TableCell>
-    </TableRow>
-  </TableBody>
-</Table>
+<Table.Root>
+  <Table.Head>
+    <Table.Row>
+      <Table.Header>Token</Table.Header>
+      <Table.Header>Value</Table.Header>
+      <Table.Header>Token</Table.Header>
+      <Table.Header>Value</Table.Header>
+    </Table.Row>
+  </Table.Head>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>govuk-1</Table.Cell>
+      <Table.Cell>5px</Table.Cell>
+      <Table.Cell>govuk-5</Table.Cell>
+      <Table.Cell>25px</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>govuk-2</Table.Cell>
+      <Table.Cell>10px</Table.Cell>
+      <Table.Cell>govuk-6</Table.Cell>
+      <Table.Cell>30px</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>govuk-3</Table.Cell>
+      <Table.Cell>15px</Table.Cell>
+      <Table.Cell>govuk-7</Table.Cell>
+      <Table.Cell>40px</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>govuk-4</Table.Cell>
+      <Table.Cell>20px</Table.Cell>
+      <Table.Cell>govuk-8</Table.Cell>
+      <Table.Cell>50px</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table.Root>
 
 ---
 
 ## Composition
 
 Larger components are not monoliths. Header, Footer, Task list, Summary list and others
-export a set of sub-components you assemble yourself, so you control the markup and can
-adapt each one to your service:
+are namespaces of parts you assemble yourself, so you control the markup and can adapt each
+one to your service. As in [Base UI](https://base-ui.com), every namespace has a `Root` plus
+named parts:
 
 ```tsx
 <header>
-  <Header />
-  <ServiceNavigation>
-    <ServiceNavigationContainer>
-      <ServiceNavigationServiceName href='/'>My Service</ServiceNavigationServiceName>
-      <ServiceNavigationNav>
-        <ServiceNavigationItem active>
-          <ServiceNavigationLink href='/' aria-current='page'>
+  <Header.Root />
+  <ServiceNavigation.Root>
+    <ServiceNavigation.Container>
+      <ServiceNavigation.ServiceName href='/'>My Service</ServiceNavigation.ServiceName>
+      <ServiceNavigation.Nav>
+        <ServiceNavigation.Item active>
+          <ServiceNavigation.Link href='/' aria-current='page'>
             Dashboard
-          </ServiceNavigationLink>
-        </ServiceNavigationItem>
-      </ServiceNavigationNav>
-    </ServiceNavigationContainer>
-  </ServiceNavigation>
+          </ServiceNavigation.Link>
+        </ServiceNavigation.Item>
+      </ServiceNavigation.Nav>
+    </ServiceNavigation.Container>
+  </ServiceNavigation.Root>
 </header>
 ```
 
-Accessibility wiring comes with the composition. Pass `hint` to `CheckboxesItem` or
-`RadiosItem`, or render `TaskListHint` and `TaskListStatus` inside a `TaskListItem`, and the
-text is linked to the control with `aria-describedby` — no ids to manage.
+The package root exports each namespace by name. With a per-component subpath or a shadcn
+copy, import the module as the namespace:
+
+```tsx
+import { Header, ServiceNavigation } from 'whitehall-ui'; // package root
+import * as ServiceNavigation from 'whitehall-ui/service-navigation'; // subpath
+import * as ServiceNavigation from '@/components/ui/service-navigation'; // shadcn registry
+```
+
+Prop types live on the namespace too, for example `ServiceNavigation.LinkProps`. Single
+components such as `Button`, `Label` and `Tag` stay plain named exports.
+
+Accessibility wiring comes with the composition. Pass `hint` to `Checkboxes.Item` or
+`Radios.Item`, or render `TaskList.Hint` and `TaskList.Status` inside a `TaskList.Item`, and
+the text is linked to the control with `aria-describedby` — no ids to manage.
 
 ---
 

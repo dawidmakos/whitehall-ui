@@ -1,16 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Fieldset,
-  FieldsetLegend,
-  FieldsetHeading,
-  type FieldsetLegendProps,
-} from '@/ui/fieldset';
+import * as Fieldset from '@/ui/fieldset';
 import { TextInput } from '@/ui/text-input';
 import { Label } from '@/ui/label';
 
 interface FieldsetStoryArgs {
   legendText: string;
-  size: FieldsetLegendProps['size'];
+  size: Fieldset.LegendProps['size'];
 }
 
 const meta = {
@@ -47,10 +42,10 @@ export const Default: Story = {
     size: 'xl',
   },
   render: ({ legendText, size }) => (
-    <Fieldset>
-      <FieldsetLegend size={size}>
-        <FieldsetHeading as='h1'>{legendText}</FieldsetHeading>
-      </FieldsetLegend>
+    <Fieldset.Root>
+      <Fieldset.Legend size={size}>
+        <Fieldset.Heading as='h1'>{legendText}</Fieldset.Heading>
+      </Fieldset.Legend>
       <div className='flex flex-col gap-govuk-3'>
         <div>
           <Label htmlFor='address-line-1'>Address line 1</Label>
@@ -69,7 +64,7 @@ export const Default: Story = {
           <TextInput id='address-postcode' width={5} />
         </div>
       </div>
-    </Fieldset>
+    </Fieldset.Root>
   ),
 };
 
@@ -79,11 +74,11 @@ export const LegendSizeXL: Story = {
     size: 'xl',
   },
   render: ({ legendText, size }) => (
-    <Fieldset>
-      <FieldsetLegend size={size}>
-        <FieldsetHeading>{legendText}</FieldsetHeading>
-      </FieldsetLegend>
-    </Fieldset>
+    <Fieldset.Root>
+      <Fieldset.Legend size={size}>
+        <Fieldset.Heading>{legendText}</Fieldset.Heading>
+      </Fieldset.Legend>
+    </Fieldset.Root>
   ),
 };
 
@@ -93,11 +88,11 @@ export const LegendSizeL: Story = {
     size: 'l',
   },
   render: ({ legendText, size }) => (
-    <Fieldset>
-      <FieldsetLegend size={size}>
-        <FieldsetHeading as='h2'>{legendText}</FieldsetHeading>
-      </FieldsetLegend>
-    </Fieldset>
+    <Fieldset.Root>
+      <Fieldset.Legend size={size}>
+        <Fieldset.Heading as='h2'>{legendText}</Fieldset.Heading>
+      </Fieldset.Legend>
+    </Fieldset.Root>
   ),
 };
 
@@ -107,11 +102,11 @@ export const LegendSizeM: Story = {
     size: 'm',
   },
   render: ({ legendText, size }) => (
-    <Fieldset>
-      <FieldsetLegend size={size}>
-        <FieldsetHeading as='h3'>{legendText}</FieldsetHeading>
-      </FieldsetLegend>
-    </Fieldset>
+    <Fieldset.Root>
+      <Fieldset.Legend size={size}>
+        <Fieldset.Heading as='h3'>{legendText}</Fieldset.Heading>
+      </Fieldset.Legend>
+    </Fieldset.Root>
   ),
 };
 
@@ -121,10 +116,10 @@ export const LegendSizeS: Story = {
     size: 's',
   },
   render: ({ legendText, size }) => (
-    <Fieldset>
-      <FieldsetLegend size={size}>
-        <FieldsetHeading as='h4'>{legendText}</FieldsetHeading>
-      </FieldsetLegend>
-    </Fieldset>
+    <Fieldset.Root>
+      <Fieldset.Legend size={size}>
+        <Fieldset.Heading as='h4'>{legendText}</Fieldset.Heading>
+      </Fieldset.Legend>
+    </Fieldset.Root>
   ),
 };

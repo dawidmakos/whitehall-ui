@@ -1,24 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Header,
-  HeaderContainer,
-  HeaderLogo,
-  HeaderLink,
-  HeaderLogotype,
-  HeaderProductName,
-} from '@/ui/header';
-import {
-  ServiceNavigation,
-  ServiceNavigationContainer,
-  ServiceNavigationServiceName,
-  ServiceNavigationNav,
-  ServiceNavigationItem,
-  ServiceNavigationLink,
-} from '@/ui/service-navigation';
+import * as Header from '@/ui/header';
+import * as ServiceNavigation from '@/ui/service-navigation';
 
 const meta = {
   title: 'Whitehall-UI/Header',
-  component: Header,
+  component: Header.Root,
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -29,7 +15,7 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Header>;
+} satisfies Meta<typeof Header.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -38,43 +24,43 @@ export const Default: Story = {};
 
 export const WithProductName: Story = {
   render: () => (
-    <Header>
-      <HeaderContainer>
-        <HeaderLogo>
-          <HeaderLink href='https://www.gov.uk/'>
-            <HeaderLogotype />
-            <HeaderProductName>Design System</HeaderProductName>
-          </HeaderLink>
-        </HeaderLogo>
-      </HeaderContainer>
-    </Header>
+    <Header.Root>
+      <Header.Container>
+        <Header.Logo>
+          <Header.Link href='https://www.gov.uk/'>
+            <Header.Logotype />
+            <Header.ProductName>Design System</Header.ProductName>
+          </Header.Link>
+        </Header.Logo>
+      </Header.Container>
+    </Header.Root>
   ),
 };
 
 export const WithServiceNavigation: Story = {
   render: () => (
     <header>
-      <Header />
-      <ServiceNavigation>
-        <ServiceNavigationContainer>
-          <ServiceNavigationServiceName href='#'>
+      <Header.Root />
+      <ServiceNavigation.Root>
+        <ServiceNavigation.Container>
+          <ServiceNavigation.ServiceName href='#'>
             Whitehall Admin
-          </ServiceNavigationServiceName>
-          <ServiceNavigationNav>
-            <ServiceNavigationItem active>
-              <ServiceNavigationLink href='#' aria-current='page'>
+          </ServiceNavigation.ServiceName>
+          <ServiceNavigation.Nav>
+            <ServiceNavigation.Item active>
+              <ServiceNavigation.Link href='#' aria-current='page'>
                 Documents
-              </ServiceNavigationLink>
-            </ServiceNavigationItem>
-            <ServiceNavigationItem>
-              <ServiceNavigationLink href='#'>Users</ServiceNavigationLink>
-            </ServiceNavigationItem>
-            <ServiceNavigationItem>
-              <ServiceNavigationLink href='#'>Audit log</ServiceNavigationLink>
-            </ServiceNavigationItem>
-          </ServiceNavigationNav>
-        </ServiceNavigationContainer>
-      </ServiceNavigation>
+              </ServiceNavigation.Link>
+            </ServiceNavigation.Item>
+            <ServiceNavigation.Item>
+              <ServiceNavigation.Link href='#'>Users</ServiceNavigation.Link>
+            </ServiceNavigation.Item>
+            <ServiceNavigation.Item>
+              <ServiceNavigation.Link href='#'>Audit log</ServiceNavigation.Link>
+            </ServiceNavigation.Item>
+          </ServiceNavigation.Nav>
+        </ServiceNavigation.Container>
+      </ServiceNavigation.Root>
     </header>
   ),
 };

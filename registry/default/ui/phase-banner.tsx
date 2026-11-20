@@ -47,12 +47,12 @@ const PhaseBannerText = ({ className, ...props }: PhaseBannerTextProps) => (
 );
 
 export {
-  PhaseBanner,
-  PhaseBannerContent,
-  PhaseBannerTag,
-  PhaseBannerText,
-  type PhaseBannerProps,
-  type PhaseBannerContentProps,
-  type PhaseBannerTagProps,
-  type PhaseBannerTextProps,
+  PhaseBanner as Root,
+  PhaseBannerContent as Content,
+  PhaseBannerTag as Tag,
+  PhaseBannerText as Text,
+  type PhaseBannerProps as RootProps,
+  type PhaseBannerContentProps as ContentProps,
+  type PhaseBannerTagProps as TagProps,
+  type PhaseBannerTextProps as TextProps,
 };

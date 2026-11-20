@@ -4,7 +4,7 @@ import { ErrorMessage } from '@/ui/error-message';
 import { Label } from '@/ui/label';
 import { Hint } from '@/ui/hint';
 import { TextInput } from '@/ui/text-input';
-import { Fieldset, FieldsetLegend } from '@/ui/fieldset';
+import * as Fieldset from '@/ui/fieldset';
 
 const meta = {
   title: 'Whitehall-UI/Error Summary',
@@ -127,8 +127,8 @@ export const LinkedToDateFields: Story = {
   render: (args) => (
     <>
       <ErrorSummary {...args} />
-      <Fieldset>
-        <FieldsetLegend size='l'>When was your passport issued?</FieldsetLegend>
+      <Fieldset.Root>
+        <Fieldset.Legend size='l'>When was your passport issued?</Fieldset.Legend>
         <Hint>For example, 27 3 2007</Hint>
         <ErrorMessage id='passport-issued-error'>
           The date your passport was issued must include a year
@@ -147,7 +147,7 @@ export const LinkedToDateFields: Story = {
             <TextInput id='passport-issued-year' width={4} error />
           </div>
         </div>
-      </Fieldset>
+      </Fieldset.Root>
     </>
   ),
 };

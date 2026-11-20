@@ -111,16 +111,16 @@ const HeaderProductName = ({ className, ...props }: HeaderProductNameProps) => (
 );
 
 export {
-  Header,
-  HeaderContainer,
-  HeaderLogo,
-  HeaderLink,
-  HeaderLogotype,
-  HeaderProductName,
-  type HeaderProps,
-  type HeaderContainerProps,
-  type HeaderLogoProps,
-  type HeaderLinkProps,
-  type HeaderLogotypeProps,
-  type HeaderProductNameProps,
+  Header as Root,
+  HeaderContainer as Container,
+  HeaderLogo as Logo,
+  HeaderLink as Link,
+  HeaderLogotype as Logotype,
+  HeaderProductName as ProductName,
+  type HeaderProps as RootProps,
+  type HeaderContainerProps as ContainerProps,
+  type HeaderLogoProps as LogoProps,
+  type HeaderLinkProps as LinkProps,
+  type HeaderLogotypeProps as LogotypeProps,
+  type HeaderProductNameProps as ProductNameProps,
 };

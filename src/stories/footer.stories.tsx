@@ -1,24 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Footer,
-  FooterContainer,
-  FooterNavigation,
-  FooterSection,
-  FooterHeading,
-  FooterList,
-  FooterListItem,
-  FooterLink,
-  FooterSectionBreak,
-  FooterMeta,
-  FooterMetaItem,
-  FooterInlineList,
-  FooterInlineListItem,
-  FooterContentLicence,
-} from '@/ui/footer';
+import * as Footer from '@/ui/footer';
 
 const meta = {
   title: 'Whitehall-UI/Footer',
-  component: Footer,
+  component: Footer.Root,
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -29,311 +14,311 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Footer>;
+} satisfies Meta<typeof Footer.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Footer>
-      <FooterContainer>
-        <FooterMeta>
-          <FooterMetaItem grow>
-            <FooterContentLicence>
+    <Footer.Root>
+      <Footer.Container>
+        <Footer.Meta>
+          <Footer.MetaItem grow>
+            <Footer.ContentLicence>
               All content is available under the{' '}
-              <FooterLink
+              <Footer.Link
                 href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
                 rel='license'
               >
                 Open Government Licence v3.0
-              </FooterLink>
+              </Footer.Link>
               , except where otherwise stated
-            </FooterContentLicence>
-          </FooterMetaItem>
-          <FooterMetaItem>
-            <FooterLink href='#'>© Your Organisation 2026</FooterLink>
-          </FooterMetaItem>
-        </FooterMeta>
-      </FooterContainer>
-    </Footer>
+            </Footer.ContentLicence>
+          </Footer.MetaItem>
+          <Footer.MetaItem>
+            <Footer.Link href='#'>© Your Organisation 2026</Footer.Link>
+          </Footer.MetaItem>
+        </Footer.Meta>
+      </Footer.Container>
+    </Footer.Root>
   ),
 };
 
 export const WithLinks: Story = {
   render: () => (
-    <Footer>
-      <FooterContainer>
-        <FooterMeta>
-          <FooterMetaItem grow>
+    <Footer.Root>
+      <Footer.Container>
+        <Footer.Meta>
+          <Footer.MetaItem grow>
             <h2 className='sr-only'>Support links</h2>
-            <FooterInlineList>
-              <FooterInlineListItem>
-                <FooterLink href='#'>Privacy</FooterLink>
-              </FooterInlineListItem>
-              <FooterInlineListItem>
-                <FooterLink href='#'>Accessibility</FooterLink>
-              </FooterInlineListItem>
-              <FooterInlineListItem>
-                <FooterLink href='#'>Cookies</FooterLink>
-              </FooterInlineListItem>
-              <FooterInlineListItem>
-                <FooterLink href='#'>Terms and conditions</FooterLink>
-              </FooterInlineListItem>
-            </FooterInlineList>
-            <FooterContentLicence>
+            <Footer.InlineList>
+              <Footer.InlineListItem>
+                <Footer.Link href='#'>Privacy</Footer.Link>
+              </Footer.InlineListItem>
+              <Footer.InlineListItem>
+                <Footer.Link href='#'>Accessibility</Footer.Link>
+              </Footer.InlineListItem>
+              <Footer.InlineListItem>
+                <Footer.Link href='#'>Cookies</Footer.Link>
+              </Footer.InlineListItem>
+              <Footer.InlineListItem>
+                <Footer.Link href='#'>Terms and conditions</Footer.Link>
+              </Footer.InlineListItem>
+            </Footer.InlineList>
+            <Footer.ContentLicence>
               All content is available under the{' '}
-              <FooterLink
+              <Footer.Link
                 href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
                 rel='license'
               >
                 Open Government Licence v3.0
-              </FooterLink>
+              </Footer.Link>
               , except where otherwise stated
-            </FooterContentLicence>
-          </FooterMetaItem>
-          <FooterMetaItem>
-            <FooterLink href='#'>© Your Organisation 2026</FooterLink>
-          </FooterMetaItem>
-        </FooterMeta>
-      </FooterContainer>
-    </Footer>
+            </Footer.ContentLicence>
+          </Footer.MetaItem>
+          <Footer.MetaItem>
+            <Footer.Link href='#'>© Your Organisation 2026</Footer.Link>
+          </Footer.MetaItem>
+        </Footer.Meta>
+      </Footer.Container>
+    </Footer.Root>
   ),
 };
 
 export const WithNavigation: Story = {
   render: () => (
-    <Footer>
-      <FooterContainer>
-        <FooterNavigation>
-          <FooterSection width='two-thirds'>
-            <FooterHeading>Services and information</FooterHeading>
-            <FooterList columns={2}>
-              <FooterListItem>
-                <FooterLink href='#'>Benefits</FooterLink>
-              </FooterListItem>
-              <FooterListItem>
-                <FooterLink href='#'>Births, deaths, marriages</FooterLink>
-              </FooterListItem>
-              <FooterListItem>
-                <FooterLink href='#'>Business and self-employed</FooterLink>
-              </FooterListItem>
-              <FooterListItem>
-                <FooterLink href='#'>Education and learning</FooterLink>
-              </FooterListItem>
-              <FooterListItem>
-                <FooterLink href='#'>Housing and local services</FooterLink>
-              </FooterListItem>
-              <FooterListItem>
-                <FooterLink href='#'>Money and tax</FooterLink>
-              </FooterListItem>
-            </FooterList>
-          </FooterSection>
-          <FooterSection width='one-third'>
-            <FooterHeading>Departments</FooterHeading>
-            <FooterList>
-              <FooterListItem>
-                <FooterLink href='#'>All departments</FooterLink>
-              </FooterListItem>
-              <FooterListItem>
-                <FooterLink href='#'>All policy papers</FooterLink>
-              </FooterListItem>
-            </FooterList>
-          </FooterSection>
-        </FooterNavigation>
-        <FooterSectionBreak />
-        <FooterMeta>
-          <FooterMetaItem grow>
-            <FooterContentLicence>
+    <Footer.Root>
+      <Footer.Container>
+        <Footer.Navigation>
+          <Footer.Section width='two-thirds'>
+            <Footer.Heading>Services and information</Footer.Heading>
+            <Footer.List columns={2}>
+              <Footer.ListItem>
+                <Footer.Link href='#'>Benefits</Footer.Link>
+              </Footer.ListItem>
+              <Footer.ListItem>
+                <Footer.Link href='#'>Births, deaths, marriages</Footer.Link>
+              </Footer.ListItem>
+              <Footer.ListItem>
+                <Footer.Link href='#'>Business and self-employed</Footer.Link>
+              </Footer.ListItem>
+              <Footer.ListItem>
+                <Footer.Link href='#'>Education and learning</Footer.Link>
+              </Footer.ListItem>
+              <Footer.ListItem>
+                <Footer.Link href='#'>Housing and local services</Footer.Link>
+              </Footer.ListItem>
+              <Footer.ListItem>
+                <Footer.Link href='#'>Money and tax</Footer.Link>
+              </Footer.ListItem>
+            </Footer.List>
+          </Footer.Section>
+          <Footer.Section width='one-third'>
+            <Footer.Heading>Departments</Footer.Heading>
+            <Footer.List>
+              <Footer.ListItem>
+                <Footer.Link href='#'>All departments</Footer.Link>
+              </Footer.ListItem>
+              <Footer.ListItem>
+                <Footer.Link href='#'>All policy papers</Footer.Link>
+              </Footer.ListItem>
+            </Footer.List>
+          </Footer.Section>
+        </Footer.Navigation>
+        <Footer.SectionBreak />
+        <Footer.Meta>
+          <Footer.MetaItem grow>
+            <Footer.ContentLicence>
               All content is available under the{' '}
-              <FooterLink
+              <Footer.Link
                 href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
                 rel='license'
               >
                 Open Government Licence v3.0
-              </FooterLink>
+              </Footer.Link>
               , except where otherwise stated
-            </FooterContentLicence>
-          </FooterMetaItem>
-          <FooterMetaItem>
-            <FooterLink href='#'>© Your Organisation 2026</FooterLink>
-          </FooterMetaItem>
-        </FooterMeta>
-      </FooterContainer>
-    </Footer>
+            </Footer.ContentLicence>
+          </Footer.MetaItem>
+          <Footer.MetaItem>
+            <Footer.Link href='#'>© Your Organisation 2026</Footer.Link>
+          </Footer.MetaItem>
+        </Footer.Meta>
+      </Footer.Container>
+    </Footer.Root>
   ),
 };
 
 export const Full: Story = {
   render: () => (
-    <Footer>
-      <FooterContainer>
-        <FooterNavigation>
-          <FooterSection width='two-thirds'>
-            <FooterHeading>Services and information</FooterHeading>
-            <FooterList columns={2}>
-              <FooterListItem>
-                <FooterLink href='#'>Benefits</FooterLink>
-              </FooterListItem>
-              <FooterListItem>
-                <FooterLink href='#'>Births, deaths, marriages</FooterLink>
-              </FooterListItem>
-              <FooterListItem>
-                <FooterLink href='#'>Business and self-employed</FooterLink>
-              </FooterListItem>
-              <FooterListItem>
-                <FooterLink href='#'>Education and learning</FooterLink>
-              </FooterListItem>
-              <FooterListItem>
-                <FooterLink href='#'>Housing and local services</FooterLink>
-              </FooterListItem>
-              <FooterListItem>
-                <FooterLink href='#'>Money and tax</FooterLink>
-              </FooterListItem>
-            </FooterList>
-          </FooterSection>
-          <FooterSection width='one-third'>
-            <FooterHeading>Departments</FooterHeading>
-            <FooterList>
-              <FooterListItem>
-                <FooterLink href='#'>All departments</FooterLink>
-              </FooterListItem>
-              <FooterListItem>
-                <FooterLink href='#'>All policy papers</FooterLink>
-              </FooterListItem>
-            </FooterList>
-          </FooterSection>
-        </FooterNavigation>
-        <FooterSectionBreak />
-        <FooterMeta>
-          <FooterMetaItem grow>
+    <Footer.Root>
+      <Footer.Container>
+        <Footer.Navigation>
+          <Footer.Section width='two-thirds'>
+            <Footer.Heading>Services and information</Footer.Heading>
+            <Footer.List columns={2}>
+              <Footer.ListItem>
+                <Footer.Link href='#'>Benefits</Footer.Link>
+              </Footer.ListItem>
+              <Footer.ListItem>
+                <Footer.Link href='#'>Births, deaths, marriages</Footer.Link>
+              </Footer.ListItem>
+              <Footer.ListItem>
+                <Footer.Link href='#'>Business and self-employed</Footer.Link>
+              </Footer.ListItem>
+              <Footer.ListItem>
+                <Footer.Link href='#'>Education and learning</Footer.Link>
+              </Footer.ListItem>
+              <Footer.ListItem>
+                <Footer.Link href='#'>Housing and local services</Footer.Link>
+              </Footer.ListItem>
+              <Footer.ListItem>
+                <Footer.Link href='#'>Money and tax</Footer.Link>
+              </Footer.ListItem>
+            </Footer.List>
+          </Footer.Section>
+          <Footer.Section width='one-third'>
+            <Footer.Heading>Departments</Footer.Heading>
+            <Footer.List>
+              <Footer.ListItem>
+                <Footer.Link href='#'>All departments</Footer.Link>
+              </Footer.ListItem>
+              <Footer.ListItem>
+                <Footer.Link href='#'>All policy papers</Footer.Link>
+              </Footer.ListItem>
+            </Footer.List>
+          </Footer.Section>
+        </Footer.Navigation>
+        <Footer.SectionBreak />
+        <Footer.Meta>
+          <Footer.MetaItem grow>
             <h2 className='sr-only'>Support links</h2>
-            <FooterInlineList>
-              <FooterInlineListItem>
-                <FooterLink href='#'>Help</FooterLink>
-              </FooterInlineListItem>
-              <FooterInlineListItem>
-                <FooterLink href='#'>Privacy</FooterLink>
-              </FooterInlineListItem>
-              <FooterInlineListItem>
-                <FooterLink href='#'>Cookies</FooterLink>
-              </FooterInlineListItem>
-              <FooterInlineListItem>
-                <FooterLink href='#'>Accessibility</FooterLink>
-              </FooterInlineListItem>
-              <FooterInlineListItem>
-                <FooterLink href='#'>Terms and conditions</FooterLink>
-              </FooterInlineListItem>
-            </FooterInlineList>
-            <FooterContentLicence>
+            <Footer.InlineList>
+              <Footer.InlineListItem>
+                <Footer.Link href='#'>Help</Footer.Link>
+              </Footer.InlineListItem>
+              <Footer.InlineListItem>
+                <Footer.Link href='#'>Privacy</Footer.Link>
+              </Footer.InlineListItem>
+              <Footer.InlineListItem>
+                <Footer.Link href='#'>Cookies</Footer.Link>
+              </Footer.InlineListItem>
+              <Footer.InlineListItem>
+                <Footer.Link href='#'>Accessibility</Footer.Link>
+              </Footer.InlineListItem>
+              <Footer.InlineListItem>
+                <Footer.Link href='#'>Terms and conditions</Footer.Link>
+              </Footer.InlineListItem>
+            </Footer.InlineList>
+            <Footer.ContentLicence>
               Built by the Example Team. All content is available under the{' '}
-              <FooterLink
+              <Footer.Link
                 href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
                 rel='license'
               >
                 Open Government Licence v3.0
-              </FooterLink>
+              </Footer.Link>
               , except where otherwise stated
-            </FooterContentLicence>
-          </FooterMetaItem>
-          <FooterMetaItem>
-            <FooterLink href='#'>© Your Organisation 2026</FooterLink>
-          </FooterMetaItem>
-        </FooterMeta>
-      </FooterContainer>
-    </Footer>
+            </Footer.ContentLicence>
+          </Footer.MetaItem>
+          <Footer.MetaItem>
+            <Footer.Link href='#'>© Your Organisation 2026</Footer.Link>
+          </Footer.MetaItem>
+        </Footer.Meta>
+      </Footer.Container>
+    </Footer.Root>
   ),
 };
 
 export const WithoutContentLicence: Story = {
   render: () => (
-    <Footer>
-      <FooterContainer>
-        <FooterMeta>
-          <FooterMetaItem grow />
-          <FooterMetaItem>
-            <FooterLink href='#'>© Your Organisation 2026</FooterLink>
-          </FooterMetaItem>
-        </FooterMeta>
-      </FooterContainer>
-    </Footer>
+    <Footer.Root>
+      <Footer.Container>
+        <Footer.Meta>
+          <Footer.MetaItem grow />
+          <Footer.MetaItem>
+            <Footer.Link href='#'>© Your Organisation 2026</Footer.Link>
+          </Footer.MetaItem>
+        </Footer.Meta>
+      </Footer.Container>
+    </Footer.Root>
   ),
 };
 
 export const WithCustomMeta: Story = {
   render: () => (
-    <Footer>
-      <FooterContainer>
-        <FooterMeta>
-          <FooterMetaItem grow>
+    <Footer.Root>
+      <Footer.Container>
+        <Footer.Meta>
+          <Footer.MetaItem grow>
             <h2 className='sr-only'>Support links</h2>
-            <FooterInlineList>
-              <FooterInlineListItem>
-                <FooterLink href='#'>Help</FooterLink>
-              </FooterInlineListItem>
-              <FooterInlineListItem>
-                <FooterLink href='#'>Contact us</FooterLink>
-              </FooterInlineListItem>
-            </FooterInlineList>
+            <Footer.InlineList>
+              <Footer.InlineListItem>
+                <Footer.Link href='#'>Help</Footer.Link>
+              </Footer.InlineListItem>
+              <Footer.InlineListItem>
+                <Footer.Link href='#'>Contact us</Footer.Link>
+              </Footer.InlineListItem>
+            </Footer.InlineList>
             <p className='m-0'>
               Built by the{' '}
-              <FooterLink href='#'>Government Digital Service</FooterLink>
+              <Footer.Link href='#'>Government Digital Service</Footer.Link>
             </p>
-          </FooterMetaItem>
-          <FooterMetaItem>
-            <FooterLink href='#'>© Your Organisation 2026</FooterLink>
-          </FooterMetaItem>
-        </FooterMeta>
-      </FooterContainer>
-    </Footer>
+          </Footer.MetaItem>
+          <Footer.MetaItem>
+            <Footer.Link href='#'>© Your Organisation 2026</Footer.Link>
+          </Footer.MetaItem>
+        </Footer.Meta>
+      </Footer.Container>
+    </Footer.Root>
   ),
 };
 
 const FooterColumn = ({ heading }: { heading: string }) => (
-  <FooterSection width='one-third'>
-    <FooterHeading>{heading}</FooterHeading>
-    <FooterList>
-      <FooterListItem>
-        <FooterLink href='#'>Navigation item 1</FooterLink>
-      </FooterListItem>
-      <FooterListItem>
-        <FooterLink href='#'>Navigation item 2</FooterLink>
-      </FooterListItem>
-      <FooterListItem>
-        <FooterLink href='#'>Navigation item 3</FooterLink>
-      </FooterListItem>
-    </FooterList>
-  </FooterSection>
+  <Footer.Section width='one-third'>
+    <Footer.Heading>{heading}</Footer.Heading>
+    <Footer.List>
+      <Footer.ListItem>
+        <Footer.Link href='#'>Navigation item 1</Footer.Link>
+      </Footer.ListItem>
+      <Footer.ListItem>
+        <Footer.Link href='#'>Navigation item 2</Footer.Link>
+      </Footer.ListItem>
+      <Footer.ListItem>
+        <Footer.Link href='#'>Navigation item 3</Footer.Link>
+      </Footer.ListItem>
+    </Footer.List>
+  </Footer.Section>
 );
 
 export const ThreeEqualColumns: Story = {
   render: () => (
-    <Footer>
-      <FooterContainer>
-        <FooterNavigation>
+    <Footer.Root>
+      <Footer.Container>
+        <Footer.Navigation>
           <FooterColumn heading='Two column list' />
           <FooterColumn heading='Single column list 1' />
           <FooterColumn heading='Single column list 2' />
-        </FooterNavigation>
-        <FooterSectionBreak />
-        <FooterMeta>
-          <FooterMetaItem grow>
-            <FooterContentLicence>
+        </Footer.Navigation>
+        <Footer.SectionBreak />
+        <Footer.Meta>
+          <Footer.MetaItem grow>
+            <Footer.ContentLicence>
               All content is available under the{' '}
-              <FooterLink
+              <Footer.Link
                 href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'
                 rel='license'
               >
                 Open Government Licence v3.0
-              </FooterLink>
+              </Footer.Link>
               , except where otherwise stated
-            </FooterContentLicence>
-          </FooterMetaItem>
-          <FooterMetaItem>
-            <FooterLink href='#'>© Your Organisation 2026</FooterLink>
-          </FooterMetaItem>
-        </FooterMeta>
-      </FooterContainer>
-    </Footer>
+            </Footer.ContentLicence>
+          </Footer.MetaItem>
+          <Footer.MetaItem>
+            <Footer.Link href='#'>© Your Organisation 2026</Footer.Link>
+          </Footer.MetaItem>
+        </Footer.Meta>
+      </Footer.Container>
+    </Footer.Root>
   ),
 };

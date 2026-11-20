@@ -249,12 +249,12 @@ const TabsPanel = ({
 };
 
 export {
-  Tabs,
-  TabsList,
-  TabsTab,
-  TabsPanel,
-  type TabsProps,
-  type TabsListProps,
-  type TabsTabProps,
-  type TabsPanelProps,
+  Tabs as Root,
+  TabsList as List,
+  TabsTab as Tab,
+  TabsPanel as Panel,
+  type TabsProps as RootProps,
+  type TabsListProps as ListProps,
+  type TabsTabProps as TabProps,
+  type TabsPanelProps as PanelProps,
 };

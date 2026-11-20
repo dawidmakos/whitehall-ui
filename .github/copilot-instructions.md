@@ -44,7 +44,7 @@ Every story is checked with axe at desktop width and at 390px (`storybook-mobile
 - **`cn()` for all className merging** — import from `@/lib/utils`.
 - **CVA for variants** — use `class-variance-authority` when a component has visual variants.
 - **Interface naming** — `ComponentNameProps` for props, `ComponentNameVariant` for variant type aliases.
-- **Composable sub-components** — complex components (Header, Footer) use multiple exported sub-components, not a single monolithic component.
+- **Compound components are namespaces** — complex components (Header, Footer) are a set of parts, not one monolith, following Base UI's pattern. Keep prefixed local names (`PanelTitle`) and alias them in the export block (`Panel as Root`, `PanelTitle as Title`, `type PanelTitleProps as TitleProps`). The barrel turns the module into the namespace, so consumers write `Panel.Root` and `Panel.Title`. Never build it with an object literal or `Object.assign`: dotting into a `'use client'` module's export throws in React Server Components.
 - **Named export block at end of file** — separate `export { }` statement with types, never `export default`.
 - **No comments in component code** — code should be self-explanatory.
 - **No arbitrary Tailwind values** — always use design tokens (`govuk-*` classes).
@@ -64,10 +64,10 @@ The `cn()` utility extends `tailwind-merge` so govuk tokens merge correctly: `*-
 
 ## Story Conventions
 
-- CSF3 format with `satisfies Meta<typeof Component>`.
+- CSF3 format with `satisfies Meta<typeof Component>` (`typeof Panel.Root` for a compound component).
 - Title prefix: `Whitehall-UI/ComponentName`.
 - Always include `tags: ['autodocs']`.
-- Import from `@/ui/component-name`.
+- Import from `@/ui/component-name`. Import a compound component as a namespace: `import * as Panel from '@/ui/panel'`.
 - Use render functions for composed multi-component examples.
 - Rename any story named `Error` to `WithError` (SonarQube S2137).
 
@@ -75,7 +75,7 @@ The `cn()` utility extends `tailwind-merge` so govuk tokens merge correctly: `*-
 
 1. Create `registry/default/ui/component-name.tsx`
 2. Create `src/stories/component-name.stories.tsx`
-3. Add `export * from './ui/component-name';` to `registry/default/index.ts`
+3. Add `export * from './ui/component-name';` to `registry/default/index.ts` (`export * as ComponentName from './ui/component-name';` for a compound component)
 4. Add entry to `registry.json`
 5. Run `npm run registry:build`
 6. Run `npx vitest run` to verify

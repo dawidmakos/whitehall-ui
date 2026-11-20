@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Details, DetailsSummary, DetailsText } from '@/ui/details';
+import * as Details from '@/ui/details';
 
 const meta = {
   title: 'Whitehall-UI/Details',
-  component: Details,
+  component: Details.Root,
   parameters: {
     docs: {
       description: {
@@ -13,37 +13,37 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Details>;
+} satisfies Meta<typeof Details.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Details>
-      <DetailsSummary>Help with nationality</DetailsSummary>
-      <DetailsText>
+    <Details.Root>
+      <Details.Summary>Help with nationality</Details.Summary>
+      <Details.Text>
         <p className='font-govuk text-govuk-body'>
           We need to know your nationality so we can work out which elections
           you're entitled to vote in. If you cannot provide your nationality,
           you'll have to send copies of identity documents through the post.
         </p>
-      </DetailsText>
-    </Details>
+      </Details.Text>
+    </Details.Root>
   ),
 };
 
 export const DefaultOpen: Story = {
   render: () => (
-    <Details open>
-      <DetailsSummary>Help with nationality</DetailsSummary>
-      <DetailsText>
+    <Details.Root open>
+      <Details.Summary>Help with nationality</Details.Summary>
+      <Details.Text>
         <p className='font-govuk text-govuk-body'>
           We need to know your nationality so we can work out which elections
           you're entitled to vote in. If you cannot provide your nationality,
           you'll have to send copies of identity documents through the post.
         </p>
-      </DetailsText>
-    </Details>
+      </Details.Text>
+    </Details.Root>
   ),
 };

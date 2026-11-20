@@ -47,10 +47,10 @@ const FeedbackBody = ({ className, ...props }: FeedbackBodyProps) => (
 );
 
 export {
-  Feedback,
-  FeedbackTitle,
-  FeedbackBody,
-  type FeedbackProps,
-  type FeedbackTitleProps,
-  type FeedbackBodyProps,
+  Feedback as Root,
+  FeedbackTitle as Title,
+  FeedbackBody as Body,
+  type FeedbackProps as RootProps,
+  type FeedbackTitleProps as TitleProps,
+  type FeedbackBodyProps as BodyProps,
 };

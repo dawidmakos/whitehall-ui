@@ -1,10 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  GenericHeader,
-  GenericHeaderContainer,
-  GenericHeaderLogo,
-  GenericHeaderLink,
-} from '@/ui/generic-header';
+import * as GenericHeader from '@/ui/generic-header';
 
 const BrandLogo = () => (
   <svg
@@ -27,7 +22,7 @@ const BrandLogo = () => (
 
 const meta = {
   title: 'Whitehall-UI/GenericHeader',
-  component: GenericHeader,
+  component: GenericHeader.Root,
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -38,50 +33,50 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof GenericHeader>;
+} satisfies Meta<typeof GenericHeader.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <GenericHeader>
-      <GenericHeaderContainer>
-        <GenericHeaderLogo>
-          <GenericHeaderLink href='/'>
+    <GenericHeader.Root>
+      <GenericHeader.Container>
+        <GenericHeader.Logo>
+          <GenericHeader.Link href='/'>
             <BrandLogo />
             Service name
-          </GenericHeaderLink>
-        </GenericHeaderLogo>
-      </GenericHeaderContainer>
-    </GenericHeader>
+          </GenericHeader.Link>
+        </GenericHeader.Logo>
+      </GenericHeader.Container>
+    </GenericHeader.Root>
   ),
 };
 
 export const FullWidth: Story = {
   render: () => (
-    <GenericHeader>
-      <GenericHeaderContainer fullWidth>
-        <GenericHeaderLogo>
-          <GenericHeaderLink href='/'>
+    <GenericHeader.Root>
+      <GenericHeader.Container fullWidth>
+        <GenericHeader.Logo>
+          <GenericHeader.Link href='/'>
             <BrandLogo />
             Service name
-          </GenericHeaderLink>
-        </GenericHeaderLogo>
-      </GenericHeaderContainer>
-    </GenericHeader>
+          </GenericHeader.Link>
+        </GenericHeader.Logo>
+      </GenericHeader.Container>
+    </GenericHeader.Root>
   ),
 };
 
 export const TextOnly: Story = {
   render: () => (
-    <GenericHeader>
-      <GenericHeaderContainer>
-        <GenericHeaderLogo>
-          <GenericHeaderLink href='/'>Service name</GenericHeaderLink>
-        </GenericHeaderLogo>
-      </GenericHeaderContainer>
-    </GenericHeader>
+    <GenericHeader.Root>
+      <GenericHeader.Container>
+        <GenericHeader.Logo>
+          <GenericHeader.Link href='/'>Service name</GenericHeader.Link>
+        </GenericHeader.Logo>
+      </GenericHeader.Container>
+    </GenericHeader.Root>
   ),
 };
 
@@ -95,14 +90,14 @@ export const ImageOnly: Story = {
     },
   },
   render: () => (
-    <GenericHeader>
-      <GenericHeaderContainer>
-        <GenericHeaderLogo>
-          <GenericHeaderLink href='/' aria-label='Service name homepage'>
+    <GenericHeader.Root>
+      <GenericHeader.Container>
+        <GenericHeader.Logo>
+          <GenericHeader.Link href='/' aria-label='Service name homepage'>
             <BrandLogo />
-          </GenericHeaderLink>
-        </GenericHeaderLogo>
-      </GenericHeaderContainer>
-    </GenericHeader>
+          </GenericHeader.Link>
+        </GenericHeader.Logo>
+      </GenericHeader.Container>
+    </GenericHeader.Root>
   ),
 };
